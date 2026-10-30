@@ -7,6 +7,8 @@ import { HomePage } from './pages/HomePage'
 import { AirFlowPage } from './pages/AirFlowPage'
 import { LatentSpacePage } from './pages/LatentSpacePage'
 import { AboutPage } from './pages/AboutPage'
+import { StackPage } from './pages/StackPage'
+import { ArchitecturePage } from './pages/ArchitecturePage'
 
 // Automatically scrolls to top on navigation change or smoothly to anchor hashes
 function ScrollManager() {
@@ -43,7 +45,12 @@ export function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/apps/airflow" element={<AirFlowPage />} />
             <Route path="/apps/latent-space" element={<LatentSpacePage />} />
+            <Route path="/stack" element={<StackPage />} />
+            <Route path="/architecture" element={<ArchitecturePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<HomePage />} />
+            {/* Fallback to HomePage so no route is ever empty */}
+            <Route path="*" element={<HomePage />} />
           </Routes>
         </main>
 

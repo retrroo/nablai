@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { NablaiLogo } from './NablaiLogo'
 import { GithubIcon, LinkedinIcon, TwitterXIcon } from './Icons'
 import { ArrowUp } from 'lucide-react'
@@ -61,34 +62,34 @@ export const Footer: React.FC = () => {
             <span className="text-[10px] text-slate-500 uppercase tracking-widest block">INDEX</span>
             <ul className="space-y-2">
               <li>
-                <a href="#apps" className="hover:text-white transition-colors">
-                  01 // Our Apps (AirFlow, Latent Space)
-                </a>
+                <Link to="/apps/airflow" className="hover:text-white transition-colors">
+                  01 // AirFlow (Aviation App)
+                </Link>
               </li>
               <li>
-                <a href="#logo-story" className="hover:text-white transition-colors">
-                  02 // Mathematical Identity
-                </a>
+                <Link to="/apps/latent-space" className="hover:text-white transition-colors">
+                  02 // Latent Space (AI Lab)
+                </Link>
               </li>
               <li>
-                <a href="#stack" className="hover:text-white transition-colors">
+                <Link to="/stack" className="hover:text-white transition-colors">
                   03 // Studio Engineering Stack
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#architecture" className="hover:text-white transition-colors">
+                <Link to="/architecture" className="hover:text-white transition-colors">
                   04 // Systems Architecture
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#process" className="hover:text-white transition-colors">
-                  05 // Product Build Cycle
-                </a>
+                <Link to="/about" className="hover:text-white transition-colors">
+                  05 // About Onur &amp; Karim
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">
+                <Link to="/contact" className="hover:text-white transition-colors">
                   06 // Connect &amp; Collaborate
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
