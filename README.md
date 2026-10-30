@@ -1,75 +1,70 @@
-# Nablai &mdash; Advanced AI Development & Autonomous Systems
+# Nablai &mdash; Autonomous AI Applications & Custom Intelligent Solutions
 
-> **Nabla ($\nabla$) Gradient Mathematics &times; Artificial Intelligence**
+> **Nabla ($\nabla$) Gradient Mathematics &times; Frontier Artificial Intelligence**
 
-Officiële landing page en merkidentiteit voor **Nablai**, specialist in enterprise AI agents, maatwerk LLM fine-tuning, private RAG architecturen en high-performance MLOps inference clusters.
+Official landing page and brand identity for **Nablai**, specializing in autonomous multi-agent systems, custom LLM fine-tuning, private enterprise RAG architectures, and high-performance AI applications like AirFlow and Latent Space.
 
 ---
 
-## 💎 Het Nablai Merk DNA &amp; Logo
+## 💎 The Nablai Brand DNA &amp; Logo
 
-De naam **Nablai** is een fusie van twee concepten:
-1. **Nabla ($\nabla$)**: De wiskundige vector-differentiaaloperator die in calculus en deep learning de gradiënt van de verliesfunctie berekent ($\nabla L = \frac{\partial L}{\partial \theta}$). Dit vormt het exacte wiskundige fundament achter backpropagation en alle moderne neurale netwerken.
+The name **Nablai** is a deliberate fusion of two foundational principles:
+1. **Nabla ($\nabla$)**: The differential vector operator in calculus that computes the gradient of the loss function in deep learning ($\nabla L = \frac{\partial L}{\partial \theta}$). This is the exact mathematical engine powering backpropagation across all modern artificial neural networks.
 2. **Ai**: Artificial Intelligence.
 
-### De Split-A Identiteit
-In het logo ontmoeten beide woorden elkaar exact in de tweede letter **`a`**:
+### The 50/50 Split-A Identity
+In the wordmark **Nablai**, both concepts intersect directly at the second letter **`a`**:
 ```
  N  a  b  l  [ a ]  i
 |── Nabla ──| |── Ai ──|
 ```
-- **Links (Nabla)**: `N`, `a`, `b`, `l` en de linkse 50% van de `a` zijn uitgevoerd in zuiver wit / titanium.
-- **Rechts (Ai)**: De rechtse 50% van de `a` en de letter `i` zijn uitgevoerd in een elektrisch violette AI accentkleur (`#A855F7`).
-- Hierdoor leest het brein simultaan **Nabla** én **Ai**, verenigd in één vloeiend woordmerk **Nablai**.
+- **Left (Nabla)**: `N`, `a`, `b`, `l` and the left 50% of the `a` are rendered in pure titanium white (`#FFFFFF`).
+- **Right (Ai)**: The right 50% of the `a` and the letter `i` are rendered in an electric violet AI accent color (`#A855F7`).
+- The observer immediately registers both **Nabla** and **Ai** united in one fluid brandmark.
 
 ---
 
-## 🚀 Tech Stack
+## 🌌 Interactive Deep Space Canvas Hero
 
-- **Framework**: [React 19](https://react.dev/) + [Vite](https://vite.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/) + Custom SVG Brand Vector Icons
-- **Performance**: Zero-runtime CSS bundler, sub-second load times
+The hero section features a cosmic space environment:
+- **Interactive Twinkling Starfield**: 300+ twinkling and blinking stars that brighten and react to mouse movement, with dynamic micro-stardust and periodic meteors.
+- **Floating Tree with Dark Purple Moss**: Real-time HSL color transformation converting the tree foliage to deep royal purple (`#581C87`) floating in interstellar space.
+- **Pixelated Zoom Preloader & GSAP Blur Reveals**: Smooth 64px &rarr; 1px de-pixelation, 2.6&times; &rarr; 1&times; zoom, and character-by-character text reveal in Instrument Serif italic &amp; Instrument Sans.
+- **Nablai Purple Buttons**: Action buttons styled in the glowing Nablai violet/purple gradient.
 
 ---
 
-## 🛠️ Lokale Installatie &amp; Uitvoering
+## 🚀 Live Applications
 
-1. **Clone repository**:
+- **AirFlow (`/apps/airflow`)**: Aviation intelligence application with instant boarding pass barcode OCR scanning (IATA BCBP), 3D flight radar telemetry, and ML-powered delay predictions.
+- **Latent Space (`/apps/latent-space`)**: AI vector laboratory for exploring 2D/3D semantic manifolds (t-SNE / UMAP), cosine distance metrics, and transformer attention clusters.
+- **About Us (`/about`)**: Meet the co-founders, **Onur** (AI Systems Architect) &amp; **Karim** (Machine Learning Engineer), with direct LinkedIn links and core engineering principles.
+
+---
+
+## 🛠️ Local Development &amp; Setup
+
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/retrroo/nablai.git
    cd nablai
    ```
 
-2. **Installeer dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. **Start lokale development server**:
+3. **Start local development server**:
    ```bash
    npm run dev
    ```
 
-4. **Productie Build**:
+4. **Production Build**:
    ```bash
    npm run build
    ```
 
 ---
 
-## 🌐 Pagina Secties
-
-- **Header / Navigation**: Sticky glassmorphic navbar met dynamic scroll blur, quick links, GitHub repo shortcut en Call-to-Action.
-- **Hero**: Gradient atmosphere, impactvolle headline, interactieve live AI agent runtime simulator en key enterprise metrics.
-- **Merk DNA &amp; Logo Studio**: Interactieve showcase van het logo met 50/50 split inspectie, exploded view, calculus uitleg en een real-time SVG copy knop.
-- **Expertise &amp; Diensten**: 6 deep-tech services (Autonomous Swarms, Private RAG, Fine-Tuning, Gen-UI Web Apps, MLOps, Computer Vision).
-- **Productie Architectuur**: Interactieve code- en architectuuroverzichten van de Agentic Loop, Hybrid RAG en LoRA pipelines.
-- **Bewezen Oplossingen**: Industriële use cases (Legal, Customer Service Voice, Demand Forecasting, Financial Risk).
-- **Werkwijze**: 4-staps agile delivery (Discovery &rarr; 14-Dagen MVP &rarr; Evals &rarr; Deploy).
-- **Contact &amp; Discovery**: Volledig interactief aanvraagformulier met scope selector en budget indicaties.
-- **Footer**: Merkessentie, wiskundige Nabla definitie en sociale links.
-
----
-
-&copy; 2026 Nablai Development. Alle rechten voorbehouden.
+&copy; 2026 Nablai Development. All rights reserved.

@@ -37,7 +37,7 @@ export const AirFlowPage: React.FC = () => {
           className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Terug naar Nablai Hoofdpagina</span>
+          <span>Back to Nablai Home</span>
         </Link>
 
         {/* Hero Header */}
@@ -45,16 +45,16 @@ export const AirFlowPage: React.FC = () => {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-300 mb-4">
               <Plane className="w-3.5 h-3.5" />
-              <span>Aviation Intelligence &amp; Flight App &middot; by Nablai</span>
+              <span>Aviation Intelligence &amp; Flight Radar &middot; by Nablai</span>
             </div>
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
               AirFlow
             </h1>
             <p className="text-xl sm:text-2xl text-cyan-200/90 font-light mt-2">
-              Scan je boarding pass. Volg real-time telemetrie. Ontdek je vliegstatistieken.
+              Scan your boarding pass. Track real-time telemetry. Uncover flight analytics.
             </p>
             <p className="mt-4 text-base text-slate-400 leading-relaxed max-w-2xl">
-              AirFlow is een geavanceerde aviation-applicatie aangedreven door computer vision en predictieve machine learning. Van het scannen van ruwe PDF/papieren boarding passes tot live vluchtradar en automatische vertragingsvoorspellingen.
+              AirFlow is an advanced aviation intelligence application powered by computer vision and predictive machine learning. From parsing raw PDF/paper boarding passes to live ADS-B satellite radar feeds and automated delay predictions.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export const AirFlowPage: React.FC = () => {
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold text-sm shadow-xl shadow-cyan-500/20 transition-all active:scale-95"
             >
               <Barcode className="w-4 h-4" />
-              <span>Simuleer Boarding Pass Scan</span>
+              <span>Simulate Boarding Pass Scan</span>
             </button>
             <a
               href="https://github.com/retrroo/flight-app"
@@ -102,7 +102,7 @@ export const AirFlowPage: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col items-center px-4">
-                  <span className="text-[11px] font-mono text-slate-500 mb-1">1u 15m nonstop</span>
+                  <span className="text-[11px] font-mono text-slate-500 mb-1">1h 15m nonstop</span>
                   <div className="w-24 sm:w-36 h-[2px] bg-gradient-to-r from-cyan-500 via-white to-blue-500 relative">
                     <Plane className="w-4 h-4 text-white absolute -top-2 left-1/2 -translate-x-1/2 transform rotate-90" />
                   </div>
@@ -119,19 +119,19 @@ export const AirFlowPage: React.FC = () => {
               {/* Passenger & Flight Details Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/5 text-xs">
                 <div>
-                  <span className="text-slate-500 block">Passagier</span>
+                  <span className="text-slate-500 block">Passenger</span>
                   <span className="font-bold text-white font-mono">{sampleFlight.passenger}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">Vlucht</span>
+                  <span className="text-slate-500 block">Flight</span>
                   <span className="font-bold text-cyan-300 font-mono">{sampleFlight.flightNumber}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">Stoel</span>
+                  <span className="text-slate-500 block">Seat</span>
                   <span className="font-bold text-white font-mono">{sampleFlight.seat}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block">Vertrek</span>
+                  <span className="text-slate-500 block">Departure</span>
                   <span className="font-bold text-emerald-400 font-mono">{sampleFlight.departureTime}</span>
                 </div>
               </div>
@@ -144,7 +144,7 @@ export const AirFlowPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/20 flex-shrink-0">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Geverifieerd</span>
+                  <span>Verified</span>
                 </div>
               </div>
             </div>
@@ -154,33 +154,33 @@ export const AirFlowPage: React.FC = () => {
           <div className="lg:col-span-5 bg-slate-900/50 rounded-3xl border border-white/10 p-6 sm:p-8 backdrop-blur-xl">
             <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-4">
               <Sparkles className="w-4 h-4 text-cyan-400" />
-              <span>AI Vision &amp; Parser Engine</span>
+              <span>AI Vision &amp; Extraction Engine</span>
             </h3>
 
             {scanState === 'scanning' ? (
               <div className="py-12 flex flex-col items-center justify-center text-center space-y-4">
                 <RefreshCw className="w-8 h-8 text-cyan-400 animate-spin" />
                 <div className="text-sm font-mono text-cyan-200">Boarding Pass OCR &amp; IATA Barcode Parsing...</div>
-                <div className="text-xs text-slate-500">Cross-referencing met live ADS-B flight telemetry</div>
+                <div className="text-xs text-slate-500">Cross-referencing with live ADS-B flight telemetry</div>
               </div>
             ) : (
               <div className="space-y-4">
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Upload een foto of screenshot van je boarding pass (Apple Wallet, PDF of papieren ticket). Onze vision parser herkent direct de IATA barcodes en vluchtnummers en koppelt deze automatisch aan real-time vluchtradar.
+                  Upload a photo or screenshot of your boarding pass (Apple Wallet, PDF, or physical paper ticket). Our vision parser instantly decodes the IATA barcodes and flight identifiers, synchronizing them with real-time flight tracking.
                 </p>
 
                 <div className="space-y-2.5 font-mono text-xs">
                   <div className="p-3 rounded-xl bg-black/40 border border-white/5 flex justify-between items-center">
-                    <span className="text-slate-400">Toestel Model</span>
+                    <span className="text-slate-400">Aircraft Model</span>
                     <span className="text-white font-semibold">{sampleFlight.aircraft}</span>
                   </div>
                   <div className="p-3 rounded-xl bg-black/40 border border-white/5 flex justify-between items-center">
-                    <span className="text-slate-400">Verwachte Vertraging</span>
-                    <span className="text-emerald-400 font-semibold">&lt; 5 minuten</span>
+                    <span className="text-slate-400">Expected Delay</span>
+                    <span className="text-emerald-400 font-semibold">&lt; 5 minutes</span>
                   </div>
                   <div className="p-3 rounded-xl bg-black/40 border border-white/5 flex justify-between items-center">
-                    <span className="text-slate-400">Historische Vluchten</span>
-                    <span className="text-cyan-300 font-semibold">24 Vluchten Opgeslagen</span>
+                    <span className="text-slate-400">Historical Flights</span>
+                    <span className="text-cyan-300 font-semibold">24 Recorded Flights</span>
                   </div>
                 </div>
 
@@ -189,7 +189,7 @@ export const AirFlowPage: React.FC = () => {
                   className="w-full mt-4 py-3 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 font-mono text-xs font-semibold border border-cyan-500/30 transition-all flex items-center justify-center gap-2"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
-                  <span>Scan Nog Een Test Vlucht</span>
+                  <span>Scan Another Test Flight</span>
                 </button>
               </div>
             )}
@@ -204,7 +204,7 @@ export const AirFlowPage: React.FC = () => {
             </div>
             <h4 className="text-lg font-bold text-white mb-2">Instant Ticket Scanner</h4>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Scan elke boarding pass via je camera of foto-upload. AirFlow leest PDF417 en Aztec barcodes direct uit conform de IATA BCBP standaard.
+              Scan any boarding pass via camera or upload. AirFlow decodes PDF417 and Aztec 2D barcodes instantly according to IATA BCBP specifications.
             </p>
           </div>
 
@@ -212,9 +212,9 @@ export const AirFlowPage: React.FC = () => {
             <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 w-fit mb-4">
               <Compass className="w-5 h-5" />
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">Live Telemetrie &amp; Radar</h4>
+            <h4 className="text-lg font-bold text-white mb-2">Live Telemetry &amp; Radar</h4>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Volg je vliegtuig live in 3D: vlieghoogte, grondsnelheid, vertragingen en naderingspatronen direct via realtime ADS-B satellietfeeds.
+              Track your flight live in 3D: flight altitude, ground speed, route deviations, and approach patterns fed directly by real-time ADS-B satellite data.
             </p>
           </div>
 
@@ -222,9 +222,9 @@ export const AirFlowPage: React.FC = () => {
             <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400 w-fit mb-4">
               <MapPin className="w-5 h-5" />
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">Persoonlijk Reisarchief</h4>
+            <h4 className="text-lg font-bold text-white mb-2">Personal Travel Passport</h4>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Bouw een interactief digitaal paspoort met je totale afgelegde kilometers, bezochte luchthavens, favoriete toestellen en vlieguren.
+              Build an interactive digital logbook of your total nautical miles, visited airport hubs, aircraft types, and flight hours.
             </p>
           </div>
         </div>

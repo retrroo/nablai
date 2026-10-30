@@ -4,9 +4,9 @@ import { Bot, Database, Cpu, Layout, Activity, Eye, ArrowUpRight } from 'lucide-
 const SERVICES = [
   {
     icon: Bot,
-    title: 'Autonome AI Agents & Swarms',
+    title: 'Autonomous AI Agents & Swarms',
     description:
-      'Zelfstandige agents die complexe taken ontleden, externe APIs aanroepen, elkaars werk verifiëren en 24/7 bedrijfsprocessen uitvoeren zonder menselijke bottlenecks.',
+      'Self-directed multi-agent architectures that decompose complex objectives, execute deterministic API tool calls, verify each other’s work, and run 24/7 workflows without human bottlenecks.',
     tags: ['Multi-Agent', 'Tool Calling', 'Self-Healing', 'LangGraph'],
     gradient: 'from-purple-500/20 to-indigo-500/20',
     border: 'hover:border-purple-500/50',
@@ -14,9 +14,9 @@ const SERVICES = [
   },
   {
     icon: Database,
-    title: 'Private Enterprise RAG Architectuur',
+    title: 'Private Enterprise Hybrid RAG',
     description:
-      'Verander duizenden interne documenten, databases en handleidingen in een hallucinatie-vrije semantische kennisbank met hybride vector search en reranking.',
+      'Transform thousands of internal documents, databases, and operational logs into a hallucination-free semantic knowledge engine with dense + sparse BM25 retrieval and cross-encoder reranking.',
     tags: ['Hybrid Search', 'Qdrant / Milvus', 'Zero-Data Leak', 'Rerankers'],
     gradient: 'from-cyan-500/20 to-blue-500/20',
     border: 'hover:border-cyan-500/50',
@@ -26,7 +26,7 @@ const SERVICES = [
     icon: Cpu,
     title: 'Model Fine-Tuning & Quantization',
     description:
-      'Geoptimaliseerde open-weights modellen (Llama 3, Mistral, DeepSeek) gefinetuned op jouw bedrijfstaal en data via LoRA, QLoRA en AWQ compressie voor 10x lagere hostingkosten.',
+      'Domain-adapted open-weights models (Llama 3, Mistral, DeepSeek) trained on proprietary data via LoRA, QLoRA, and AWQ compression for 10x lower inference cost and private hosting.',
     tags: ['LoRA / QLoRA', 'Domain Adapt', 'vLLM', '4-Bit Quant'],
     gradient: 'from-emerald-500/20 to-teal-500/20',
     border: 'hover:border-emerald-500/50',
@@ -36,7 +36,7 @@ const SERVICES = [
     icon: Layout,
     title: 'Full-Stack AI Web Apps & Gen-UI',
     description:
-      'Productieklare webapplicaties met realtime token streaming, interactieve generatieve componenten en intuïtieve interfaces die gebruikers direct omarmen.',
+      'Production-ready web and mobile applications with real-time SSE token streaming, generative UI components, interactive canvases, and intuitive consumer-grade interfaces.',
     tags: ['Next.js / React', 'Realtime SSE', 'Interactive Canvas', 'TypeScript'],
     gradient: 'from-amber-500/20 to-orange-500/20',
     border: 'hover:border-amber-500/50',
@@ -44,9 +44,9 @@ const SERVICES = [
   },
   {
     icon: Activity,
-    title: 'MLOps & GPU Inference Optimalisatie',
+    title: 'MLOps & GPU Inference Optimization',
     description:
-      'Schaalbare inference clusters gebouwd met vLLM en TensorRT-LLM. Wij reduceren latency van 400ms naar onder de 50ms per token en beveiligen al het verkeer end-to-end.',
+      'High-throughput inference clusters built with vLLM and TensorRT-LLM. We slash token latency from 400ms down to sub-50ms and secure all communications end-to-end.',
     tags: ['TensorRT', 'Kubernetes', 'Latency Tuning', 'Metrics & Evals'],
     gradient: 'from-rose-500/20 to-pink-500/20',
     border: 'hover:border-rose-500/50',
@@ -54,9 +54,9 @@ const SERVICES = [
   },
   {
     icon: Eye,
-    title: 'Multimodal & Computer Vision',
+    title: 'Multimodal & Computer Vision Systems',
     description:
-      'Geavanceerde multimodale systemen die documenten, facturen, blauwdrukken, camerabeelden en video-stromen in real-time interpreteren en structureren.',
+      'Advanced vision systems that interpret and structure complex documents, PDFs, blueprints, barcodes, and live video streams in real-time with zero human latency.',
     tags: ['Document AI', 'Visual Reasoning', 'OCR Evolution', 'Edge Inference'],
     gradient: 'from-indigo-500/20 to-purple-500/20',
     border: 'hover:border-indigo-500/50',
@@ -66,18 +66,18 @@ const SERVICES = [
 
 export const ServicesSection: React.FC = () => {
   return (
-    <section id="diensten" className="py-24 relative bg-[#08090d]">
+    <section id="services" className="py-24 relative bg-[#05060b]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
-              Expertise & Services
+              Capabilities &amp; Services
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-4">
-              Wat Wij Bouwen voor Ambitieuze Teams
+              AI Apps &amp; Solutions Engineered for Impact
             </h2>
             <p className="mt-4 text-slate-400 text-base sm:text-lg">
-              Geen oppervlakkige wrappers rond een OpenAI API, maar diepgaande machine learning engineering met meetbare ROI en enterprise beveiliging.
+              No superficial wrappers around third-party APIs. We engineer full-stack AI applications, autonomous agents, and robust machine learning pipelines with verifiable ROI.
             </p>
           </div>
 
@@ -85,7 +85,7 @@ export const ServicesSection: React.FC = () => {
             href="#contact"
             className="inline-flex items-center gap-2 text-sm font-semibold text-purple-400 hover:text-purple-300 transition-colors"
           >
-            <span>Bespreek jouw use case</span>
+            <span>Discuss your use case</span>
             <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>

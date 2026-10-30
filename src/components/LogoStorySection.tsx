@@ -33,7 +33,7 @@ export const LogoStorySection: React.FC = () => {
   }
 
   return (
-    <section id="logo-verhaal" className="py-24 relative overflow-hidden border-t border-b border-white/5 bg-[#0a0b10]">
+    <section id="logo-story" className="py-24 relative overflow-hidden border-t border-b border-white/5 bg-[#07080f]">
       {/* Background ambient glow */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[120px] pointer-events-none opacity-20 transition-all duration-500"
@@ -44,15 +44,15 @@ export const LogoStorySection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-300 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            <span>Het Merk DNA</span>
+            <span>The Brand DNA</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Waar Wiskunde &amp; Machine Intelligence Samenkomen
+            Where Mathematics Meets Machine Intelligence
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-400">
-            De naam <strong className="text-white">Nablai</strong> is een fusie van de wiskundige gradient-operator{' '}
-            <strong className="text-white">Nabla (&nabla;)</strong> en <strong className="text-white">AI</strong>. 
-            In ons logo vormt de tweede <span className="underline decoration-purple-500 font-bold">&apos;a&apos;</span> het exacte snijpunt.
+            The name <strong className="text-white">Nablai</strong> is a deliberate convergence of the mathematical gradient operator{' '}
+            <strong className="text-white">Nabla (&nabla;)</strong> and <strong className="text-white">AI</strong>. 
+            In our logo, the second <span className="underline decoration-purple-500 font-bold">&apos;a&apos;</span> forms the exact harmonic pivot.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export const LogoStorySection: React.FC = () => {
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Fusie Weergave (Nablai)
+                Fusion View (Nablai)
               </button>
               <button
                 onClick={() => setViewMode('exploded')}
@@ -80,7 +80,7 @@ export const LogoStorySection: React.FC = () => {
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Woord Split (Nabla + Ai)
+                Word Split (Nabla + Ai)
               </button>
               <button
                 onClick={() => setViewMode('math')}
@@ -90,13 +90,13 @@ export const LogoStorySection: React.FC = () => {
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                &nabla; Calculus Betekenis
+                &nabla; Calculus Meaning
               </button>
             </div>
 
             {/* Color Switcher */}
             <div className="flex items-center gap-3">
-              <span className="text-xs text-slate-400 hidden sm:inline">Accent Kleur:</span>
+              <span className="text-xs text-slate-400 hidden sm:inline">Accent Color:</span>
               <div className="flex items-center gap-2">
                 {COLOR_PRESETS.map((color) => (
                   <button
@@ -115,10 +115,10 @@ export const LogoStorySection: React.FC = () => {
               <button
                 onClick={handleCopySvg}
                 className="ml-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-slate-300 transition-colors"
-                title="Kopieer SVG Wordmark"
+                title="Copy SVG Wordmark"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Gekopieerd!' : 'SVG'}</span>
+                <span>{copied ? 'Copied!' : 'SVG'}</span>
               </button>
             </div>
           </div>
@@ -170,7 +170,7 @@ export const LogoStorySection: React.FC = () => {
                   <div className="flex items-center gap-2 text-slate-300">
                     <span className="w-2.5 h-2.5 rounded-full bg-white" />
                     <span className="font-semibold text-white">Nabla</span>
-                    <span className="text-slate-500">(Wiskundige Gradient)</span>
+                    <span className="text-slate-500">(Mathematical Gradient)</span>
                   </div>
 
                   <div className="h-4 w-[1px] bg-white/20" />
@@ -191,7 +191,7 @@ export const LogoStorySection: React.FC = () => {
                   <div className="p-4 sm:p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-2">
                     <span className="text-white">Nabl</span>
                     <span className="text-white font-black underline decoration-2 decoration-white/40">a</span>
-                    <span className="text-xs px-2 py-0.5 rounded bg-white/10 text-slate-300 ml-2">Woord 1</span>
+                    <span className="text-xs px-2 py-0.5 rounded bg-white/10 text-slate-300 ml-2">Word 1</span>
                   </div>
 
                   <span className="text-slate-600 font-mono text-3xl">+</span>
@@ -207,13 +207,13 @@ export const LogoStorySection: React.FC = () => {
                       className="text-xs px-2 py-0.5 rounded ml-2"
                       style={{ backgroundColor: `${selectedColor.hex}22`, color: selectedColor.hex }}
                     >
-                      Woord 2
+                      Word 2
                     </span>
                   </div>
                 </div>
 
                 <div className="mt-8 max-w-lg text-center text-sm text-slate-400">
-                  De letter <span className="text-white font-bold">&apos;a&apos;</span> overlapt beide woorden. In ons logo wordt deze letter precies doormidden gesplitst (50% wit, 50% AI-kleur), waardoor het brein tegelijkertijd <em>Nabla</em> én <em>Ai</em> registreert.
+                  The letter <span className="text-white font-bold">&apos;a&apos;</span> bridges both concepts. In our identity, this letter is divided 50/50 straight down the vertical axis (50% titanium white, 50% AI purple), so the observer immediately registers both <em>Nabla</em> and <em>Ai</em> unified as <strong>Nablai</strong>.
                 </div>
               </div>
             )}
@@ -225,12 +225,12 @@ export const LogoStorySection: React.FC = () => {
                   <div className="text-left text-sm sm:text-base font-mono text-slate-200">
                     <div>&nabla;L = &part;Loss / &part;Weights</div>
                     <div className="text-xs text-slate-400 mt-1 font-sans">
-                      Gradient descent: De kern van alle moderne deep learning en LLM training
+                      Gradient descent: The foundational backpropagation engine of all modern neural networks
                     </div>
                   </div>
                 </div>
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                  In wiskundige analyse is <strong className="text-white">&nabla; (Nabla)</strong> de vector-differentiaaloperator. Bij het trainen van neurale netwerken (backpropagation) berekent de Nabla-operator precies in welke richting de parameters moeten veranderen om intelligentie te maximaliseren en fouten te minimaliseren.
+                  In mathematical physics and vector calculus, <strong className="text-white">&nabla; (Nabla)</strong> represents the spatial differential gradient operator. In machine learning, Nabla computes the exact path of steepest descent across loss surfaces &mdash; driving weights toward optimal intelligence.
                 </p>
               </div>
             )}
@@ -244,27 +244,27 @@ export const LogoStorySection: React.FC = () => {
                 <span>Pixel-Perfect Split-A</span>
               </div>
               <p className="text-xs text-slate-400">
-                De 50/50 gradient stop zorgt voor een haarscherpe scheiding zonder visuele verspringing of render-artefacten.
+                A calibrated 50/50 gradient stop creates a needle-sharp visual threshold without raster artifacts.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
               <div className="flex items-center gap-2 text-white font-semibold text-sm mb-1">
                 <Compass className="w-4 h-4 text-cyan-400" />
-                <span>&nabla; Nabla Symbool</span>
+                <span>&nabla; Nabla Operator</span>
               </div>
               <p className="text-xs text-slate-400">
-                Het omgekeerde driehoek-symbool refereert rechtstreeks naar gradient vector calculus en backpropagation.
+                The inverted triangle directly references vector calculus and loss optimization in neural networks.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
               <div className="flex items-center gap-2 text-white font-semibold text-sm mb-1">
                 <Code2 className="w-4 h-4 text-emerald-400" />
-                <span>Modern AI Dev Merk</span>
+                <span>Modern AI Dev Brand</span>
               </div>
               <p className="text-xs text-slate-400">
-                Een herkenbare, intellectueel gegronde merkidentiteit voor enterprise machine learning en agentic engineering.
+                A recognizable, mathematically grounded identity engineered for world-class AI application development.
               </p>
             </div>
           </div>

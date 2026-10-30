@@ -9,14 +9,14 @@ export const Footer: React.FC = () => {
   }
 
   return (
-    <footer className="bg-[#050608] text-slate-400 py-16 border-t border-white/5 relative">
+    <footer className="bg-[#030408] text-slate-400 py-16 border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/5">
           {/* Logo & Tagline */}
           <div className="md:col-span-5 space-y-4">
             <NablaiLogo size="lg" />
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed mt-2">
-              Nablai (Nabla + Ai) verenigt wiskundige gradient vector calculus met grensverleggende artificial intelligence. Wij bouwen agents, private RAG en custom modellen voor enterprise teams.
+              Nablai (Nabla + Ai) unites mathematical gradient vector calculus with frontier artificial intelligence. We build autonomous apps, private RAG, and custom models for ambitious teams.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -47,31 +47,31 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">Navigatie</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">Navigation</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#diensten" className="hover:text-white transition-colors">
-                  Diensten &amp; Expertise
+                <a href="#services" className="hover:text-white transition-colors">
+                  Capabilities &amp; Services
                 </a>
               </li>
               <li>
-                <a href="#logo-verhaal" className="hover:text-white transition-colors">
-                  Merk DNA &amp; Split-A Logo
+                <a href="#logo-story" className="hover:text-white transition-colors">
+                  Brand DNA &amp; Split-A Logo
                 </a>
               </li>
               <li>
-                <a href="#oplossingen" className="hover:text-white transition-colors">
-                  Case Studies &amp; Oplossingen
+                <a href="#solutions" className="hover:text-white transition-colors">
+                  Case Studies &amp; Solutions
                 </a>
               </li>
               <li>
-                <a href="#architectuur" className="hover:text-white transition-colors">
-                  Productie Architectuur
+                <a href="#architecture" className="hover:text-white transition-colors">
+                  Production Architecture
                 </a>
               </li>
               <li>
-                <a href="#werkwijze" className="hover:text-white transition-colors">
-                  Werkwijze &amp; Timeline
+                <a href="#process" className="hover:text-white transition-colors">
+                  Our Engineering Process
                 </a>
               </li>
             </ul>
@@ -79,9 +79,9 @@ export const Footer: React.FC = () => {
 
           {/* Tech & Identity */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">Wiskundige Oorsprong</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">Mathematical Origin</h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Het woord <strong className="text-white">Nablai</strong> stamt af van de differentiaaloperator <span className="text-purple-400 font-mono font-bold">&nabla;</span> (Nabla), die in deep learning de gradiënt van de verliesfunctie berekent.
+              The name <strong className="text-white">Nablai</strong> stems from the differential vector operator <span className="text-purple-400 font-mono font-bold">&nabla;</span> (Nabla), which calculates the loss function gradient in deep learning.
             </p>
             <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-xs text-purple-300">
               &nabla; Loss(&theta;) &rarr; Global Optimum
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            &copy; {new Date().getFullYear()} Nablai Development. Alle rechten voorbehouden.
+            &copy; {new Date().getFullYear()} Nablai Development. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <a
@@ -107,7 +107,7 @@ export const Footer: React.FC = () => {
               onClick={scrollToTop}
               className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
             >
-              <span>Naar boven</span>
+              <span>Back to top</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>

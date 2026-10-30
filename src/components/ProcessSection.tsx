@@ -8,47 +8,47 @@ const STEPS = [
     title: 'Discovery & Data Feasibility',
     duration: 'Week 1',
     description:
-      'We duiken in je huidige workflows, data bronnen en API interfaces. We bepalen direct of een agent, RAG of fine-tuned model de hoogste ROI oplevert.',
+      'We audit your existing workflows, data stores, and API endpoints. We determine whether an autonomous agent, private RAG, or fine-tuned model delivers the highest operational ROI.',
   },
   {
     number: '02',
     icon: Code,
-    title: 'Architectuur & 14-Dagen MVP',
-    duration: 'Week 2 - 3',
+    title: 'Architecture & 14-Day MVP',
+    duration: 'Weeks 2 - 3',
     description:
-      'Binnen 14 dagen presenteren we een functionele, werkende versie in een beveiligde sandbox. Je test de AI direct op echte praktijkvoorbeelden.',
+      'Within 14 days, we deliver a fully functional, live prototype in an isolated sandbox. Your team validates real-world performance against production scenarios.',
   },
   {
     number: '03',
     icon: CheckSquare,
-    title: 'Evals, Guardrails & Benchmark',
+    title: 'Evals, Guardrails & Benchmarks',
     duration: 'Week 4',
     description:
-      'We testen het systeem met 1000+ edge-case scenario’s. Hallucinaties worden geëlimineerd met strikte contextfilters en deterministische validatoren.',
+      'We stress-test the system across 1,000+ adversarial and edge-case inputs. Hallucinations are eliminated through deterministic validators and contextual guardrails.',
   },
   {
     number: '04',
     icon: Rocket,
-    title: 'Productie & 24/7 Monitoring',
-    duration: 'Continu',
+    title: 'Production Deploy & Observability',
+    duration: 'Continuous',
     description:
-      'Deployment naar jouw cloud (AWS, Azure, GCP of On-Prem). Live tracking van latency, kosten per query en model drifting.',
+      'Zero-downtime deployment to your infrastructure (AWS, Azure, GCP, or On-Prem). Live tracking of token latency, cost per inference, and model drift.',
   },
 ]
 
 export const ProcessSection: React.FC = () => {
   return (
-    <section id="werkwijze" className="py-24 relative bg-[#08090d]">
+    <section id="process" className="py-24 relative bg-[#05060b]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
-            Onze Werkwijze
+            Our Process
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-4">
-            Van Hypothese naar Productie in Weken
+            From Concept to Production in Weeks
           </h2>
           <p className="mt-4 text-slate-400 text-base sm:text-lg">
-            Geen maandenlange consultancy rapporten. Nablai hanteert een wendbare, code-first methodiek met gegarandeerde deliverables.
+            No endless PowerPoint decks. Nablai applies an agile, code-first engineering methodology with measurable deliverables at every milestone.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export const ProcessSection: React.FC = () => {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-white/5 flex items-center text-xs font-medium text-purple-400">
-                  <span>Stap {step.number} Gereed voor schaal</span>
+                  <span>Step {step.number} &middot; Ready to scale</span>
                 </div>
               </div>
             )

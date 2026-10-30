@@ -9,8 +9,8 @@ export const AboutPage: React.FC = () => {
       name: 'Onur',
       role: 'Co-Founder & AI Systems Architect',
       specialty: 'Autonomous Multi-Agent Systems & Full-Stack AI Infrastructure',
-      bio: 'Gespecialiseerd in het engineeren van autonome agent-systemen, tool-augmented LLM architecturen en robuuste cloud-infrastructuur. Bouwt systemen die complexe workflows autonoom en foutloos orkestreren.',
-      linkedin: 'https://www.linkedin.com/in/onur-nablai', // user can swap to exact handle
+      bio: 'Specializes in engineering autonomous multi-agent systems, tool-augmented LLM architectures, and resilient cloud infrastructure. Builds production systems that autonomously orchestrate complex operational workflows with zero human bottlenecks.',
+      linkedin: 'https://www.linkedin.com/in/onur-nablai',
       github: 'https://github.com/retrroo',
       skills: ['Agent Orchestration', 'Distributed Systems', 'TypeScript / Python', 'Production MLOps', 'Full-Stack Gen-UI'],
       avatarInitial: 'O',
@@ -20,8 +20,8 @@ export const AboutPage: React.FC = () => {
       name: 'Karim',
       role: 'Co-Founder & Machine Learning Engineer',
       specialty: 'Gradient Calculus, Model Fine-Tuning & Quantized Inference',
-      bio: 'Gedreven door wiskundige optimalisatie en deep learning theorie. Vertaalt de principes van de Nabla (∇) gradient-operator naar efficiënte LoRA fine-tuning en low-latency vLLM GPU inference clusters.',
-      linkedin: 'https://www.linkedin.com/in/karim-nablai', // user can swap to exact handle
+      bio: 'Driven by mathematical optimization and deep learning theory. Translates the foundational principles of the Nabla (∇) gradient operator into efficient LoRA fine-tuning and ultra-low-latency vLLM GPU inference clusters.',
+      linkedin: 'https://www.linkedin.com/in/karim-nablai',
       github: 'https://github.com/karim-nablai',
       skills: ['PyTorch & CUDA', 'LoRA / QLoRA', 'Gradient Optimization', 'vLLM / TensorRT', 'Vector Geometry'],
       avatarInitial: 'K',
@@ -41,23 +41,23 @@ export const AboutPage: React.FC = () => {
           className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Terug naar Nablai Hoofdpagina</span>
+          <span>Back to Nablai Home</span>
         </Link>
 
         {/* Hero Header */}
         <div className="max-w-3xl mb-16 pb-12 border-b border-white/10">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs font-mono text-purple-300 mb-4">
             <Users className="w-3.5 h-3.5" />
-            <span>De Oprichters &middot; Onur &amp; Karim</span>
+            <span>The Founders &middot; Onur &amp; Karim</span>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-            Over Nablai
+            About Nablai
           </h1>
           <p className="text-xl sm:text-2xl text-purple-200/90 font-light mt-2">
-            Waar Wiskunde, Software Engineering en AI samenkomen.
+            Where Mathematics, Software Engineering, and AI Converge.
           </p>
           <p className="mt-4 text-base text-slate-400 leading-relaxed">
-            Wij zijn <strong className="text-white">Onur</strong> en <strong className="text-white">Karim</strong>. Wij hebben Nablai opgericht vanuit een duidelijke overtuiging: de toekomst van software wordt niet bepaald door oppervlakkige chatbots, maar door diepgaand geëngineerde, autonome agents en private modellen met wiskundige precisie.
+            We are <strong className="text-white">Onur</strong> and <strong className="text-white">Karim</strong>. We founded Nablai with a clear conviction: the future of software won&apos;t be shaped by superficial wrappers, but by deeply engineered, autonomous systems and private models grounded in mathematical rigor.
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export const AboutPage: React.FC = () => {
                       target="_blank"
                       rel="noreferrer"
                       className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors"
-                      title={`${founder.name} op LinkedIn`}
+                      title={`${founder.name} on LinkedIn`}
                     >
                       <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
                     </a>
@@ -108,7 +108,7 @@ export const AboutPage: React.FC = () => {
                       target="_blank"
                       rel="noreferrer"
                       className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors"
-                      title={`${founder.name} op GitHub`}
+                      title={`${founder.name} on GitHub`}
                     >
                       <GithubIcon className="w-4 h-4" />
                     </a>
@@ -116,7 +116,7 @@ export const AboutPage: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <span className="text-xs font-semibold text-slate-300 block mb-1">Focusgebied</span>
+                  <span className="text-xs font-semibold text-slate-300 block mb-1">Focus Area</span>
                   <p className="text-sm font-medium text-slate-200">{founder.specialty}</p>
                 </div>
 
@@ -142,10 +142,10 @@ export const AboutPage: React.FC = () => {
                   href={founder.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold text-xs border border-white/10 transition-all group/btn"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-purple-600/20 hover:bg-purple-600/30 text-purple-200 font-semibold text-xs border border-purple-500/30 transition-all group/btn"
                 >
                   <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
-                  <span>Connect met {founder.name} op LinkedIn</span>
+                  <span>Connect with {founder.name} on LinkedIn</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
@@ -157,13 +157,13 @@ export const AboutPage: React.FC = () => {
         <div className="p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/10">
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-semibold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
-              Onze Filosofie
+              Our Philosophy
             </span>
             <h3 className="text-2xl sm:text-3xl font-bold text-white mt-4">
-              Waarom Wij Nablai Hebben Opgericht
+              Why We Founded Nablai
             </h3>
             <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
-              In het huidige AI-landschap zien we te veel haastig in elkaar geklikte &apos;wrappers&apos; die falen zodra er echte enterprise-eisen zoals privacy, deterministische betrouwbaarheid en lage latency worden gesteld.
+              In today&apos;s AI ecosystem, there are too many hasty &apos;wrappers&apos; that break under real enterprise pressures &mdash; whether from data privacy, non-deterministic outputs, or compounding latency.
             </p>
           </div>
 
@@ -171,30 +171,30 @@ export const AboutPage: React.FC = () => {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-white font-bold text-sm">
                 <Code2 className="w-4 h-4 text-purple-400" />
-                <span>Code-First &amp; Geen Wrappers</span>
+                <span>Code-First &amp; Zero Wrappers</span>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Wij programmeren op het niveau van model kernels, vector embeddings en deterministische state-machines. Geen no-code blackboxes.
+                We engineer at the kernel, vector embedding, and deterministic state-machine levels. No black-box shortcuts.
               </p>
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-white font-bold text-sm">
                 <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                <span>100% Data Soevereiniteit</span>
+                <span>100% Data Sovereignty</span>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Bedrijfsdata blijft jouw exclusieve eigendom. We implementeren private RAG en on-premise open-weights modellen die voldoen aan de AVG.
+                Your enterprise data belongs exclusively to you. We deploy private RAG and on-premise open-weights models that guarantee confidentiality.
               </p>
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-white font-bold text-sm">
                 <Compass className="w-4 h-4 text-emerald-400" />
-                <span>&nabla; Wiskundige Nauwkeurigheid</span>
+                <span>&nabla; Mathematical Rigor</span>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Van de gradient calculus (Nabla) tot de finetuning loss: wij bouwen op wetenschappelijke grondslagen die meetbare ROI leveren.
+                From vector gradient calculus (Nabla) to fine-tuning loss surfaces: we build on scientific principles that produce verifiable ROI.
               </p>
             </div>
           </div>
@@ -202,14 +202,17 @@ export const AboutPage: React.FC = () => {
 
         {/* CTA to get in touch */}
         <div className="mt-16 text-center">
-          <h3 className="text-xl font-bold text-white mb-2">Wil je sparren met Onur of Karim?</h3>
-          <p className="text-xs text-slate-400 mb-6">Plan direct een vrijblijvende technische brainstorm over jouw AI use-case.</p>
+          <h3 className="text-xl font-bold text-white mb-2">Want to collaborate with Onur or Karim?</h3>
+          <p className="text-xs text-slate-400 mb-6">Schedule a technical exploration session on your AI use case.</p>
           <Link
             to="/#contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm shadow-xl shadow-purple-600/30 transition-all active:scale-95"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm text-white shadow-xl shadow-purple-600/35 border border-purple-400/30 transition-all active:scale-95"
+            style={{
+              background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6366f1 100%)',
+            }}
           >
             <Sparkles className="w-4 h-4" />
-            <span>Neem Contact Op met Ons</span>
+            <span>Get in Touch with Us</span>
           </Link>
         </div>
       </div>

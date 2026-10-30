@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { loadHeroAssets, type LoadedAssets } from '../lib/loadImages'
 import { LogCanvas } from './LogCanvas'
 import { StarfieldCanvas } from './StarfieldCanvas'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, Sparkles } from 'lucide-react'
 
 export const InteractiveHero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -310,7 +310,7 @@ export const InteractiveHero: React.FC = () => {
           textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
         }}
       >
-        Turn forgotten records, scattered logs, and silent activity into autonomous intelligence.
+        We build autonomous AI applications and custom enterprise solutions &mdash; turning complex workflows into production-grade intelligence.
       </p>
 
       {/* 4. Action Block (Bottom Right) */}
@@ -334,26 +334,25 @@ export const InteractiveHero: React.FC = () => {
             textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
           }}
         >
-          <strong className="text-white font-bold">Nablai</strong> transforms historical data into structured decisions &mdash; without losing the story behind it.
+          <strong className="text-white font-bold">Nablai</strong> builds next-generation AI apps and end-to-end solutions &mdash; from consumer platforms to autonomous enterprise swarms.
         </p>
 
-        {/* CTA Button */}
+        {/* CTA Button - Nablai Logo Themed Purple Gradient */}
         <a
-          href="#diensten"
-          className="inline-flex items-center justify-center font-normal transition-transform duration-200 hover:scale-[1.03] active:scale-95 text-center"
+          href="#apps"
+          className="inline-flex items-center justify-center gap-2 font-semibold text-white transition-all duration-200 hover:scale-[1.03] active:scale-95 text-center shadow-xl shadow-purple-600/35 border border-purple-400/40"
           style={{
-            width: 'calc(207 * var(--u))',
+            width: 'calc(230 * var(--u))',
             height: 'calc(61 * var(--u))',
             borderRadius: '99px',
-            backgroundColor: '#D0F24B',
-            color: '#17242B',
+            background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6366f1 100%)',
             fontFamily: 'var(--font-sans)',
-            fontSize: 'calc(18 * var(--u))',
-            letterSpacing: '-0.04em',
-            boxShadow: '0 8px 30px rgba(208, 242, 75, 0.35)',
+            fontSize: 'calc(17 * var(--u))',
+            letterSpacing: '-0.02em',
           }}
         >
-          Start uncovering
+          <Sparkles className="w-4 h-4 text-purple-200" />
+          <span>Explore Apps &amp; Solutions</span>
         </a>
       </div>
 

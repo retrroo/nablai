@@ -32,7 +32,7 @@ export const LatentSpacePage: React.FC = () => {
           className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Terug naar Nablai Hoofdpagina</span>
+          <span>Back to Nablai Home</span>
         </Link>
 
         {/* Hero Header */}
@@ -46,16 +46,16 @@ export const LatentSpacePage: React.FC = () => {
               Latent Space
             </h1>
             <p className="text-xl sm:text-2xl text-purple-200/90 font-light mt-2">
-              Verken de hoog-dimensionale geometrie van neurale representaties.
+              Explore the high-dimensional geometry of neural representations.
             </p>
             <p className="mt-4 text-base text-slate-400 leading-relaxed max-w-2xl">
-              Latent Space is een interactieve laboratorium-omgeving voor het visualiseren van semantische vectorruimtes, cosine similarity afstanden, token clustering en embedding manifolds.
+              Latent Space is an interactive laboratory environment for inspecting semantic vector spaces, cosine similarity distances, token clustering, and manifold projections.
             </p>
           </div>
 
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-2xl bg-white/5 border border-white/10 font-mono text-xs text-slate-300">
-              <span className="text-purple-400 font-bold">Dimensies:</span> {dimension}d
+              <span className="text-purple-400 font-bold">Dimensions:</span> {dimension}d
             </div>
             <div className="p-3 rounded-2xl bg-white/5 border border-white/10 font-mono text-xs text-slate-300">
               <span className="text-cyan-400 font-bold">Metric:</span> Cosine Distance
@@ -70,9 +70,9 @@ export const LatentSpacePage: React.FC = () => {
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
               <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
                 <Activity className="w-4 h-4 text-purple-400" />
-                <span>t-SNE / UMAP 2D Manifold Projectie</span>
+                <span>t-SNE / UMAP 2D Manifold Projection</span>
               </div>
-              <span className="text-xs text-slate-500 font-mono">Klik op een vector knoop</span>
+              <span className="text-xs text-slate-500 font-mono">Click any vector node</span>
             </div>
 
             {/* Simulated 2D Vector Chart */}
@@ -135,12 +135,12 @@ export const LatentSpacePage: React.FC = () => {
           <div className="lg:col-span-4 bg-slate-900/50 rounded-3xl border border-white/10 p-6 sm:p-8 backdrop-blur-xl">
             <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-4">
               <Sparkles className="w-4 h-4 text-purple-400" />
-              <span>Vector Telemetrie</span>
+              <span>Vector Telemetry</span>
             </h3>
 
             <div className="space-y-4">
               <div className="p-4 rounded-2xl bg-black/50 border border-white/5">
-                <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block">Geselecteerde Vector</span>
+                <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block">Selected Vector</span>
                 <span className="text-lg font-bold text-white mt-1 block">{selectedPoint.label}</span>
                 <span className="text-xs font-mono text-purple-400 mt-1 block">Cluster: {selectedPoint.cluster}</span>
               </div>
@@ -163,7 +163,7 @@ export const LatentSpacePage: React.FC = () => {
 
                 {/* Dimension Select */}
                 <div className="pt-3 border-t border-white/5">
-                  <label className="block text-slate-400 mb-2">Embedding Dimensie:</label>
+                  <label className="block text-slate-400 mb-2">Embedding Dimension:</label>
                   <div className="grid grid-cols-3 gap-2">
                     {([1536, 3072, 4096] as const).map((dim) => (
                       <button
@@ -208,9 +208,9 @@ export const LatentSpacePage: React.FC = () => {
             <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400 w-fit mb-4">
               <Orbit className="w-5 h-5" />
             </div>
-            <h4 className="text-lg font-bold text-white mb-2">Vector Geometrie</h4>
+            <h4 className="text-lg font-bold text-white mb-2">Vector Geometry</h4>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Begrijp hoe semantische concepten zich organiseren in meerdimensionale ruimtes en hoe clustering leidt tot voorspelbare agent-beslissingen.
+              Understand how semantic concepts organize in multidimensional manifolds and how spatial clustering leads to predictable agent actions.
             </p>
           </div>
 
@@ -220,7 +220,7 @@ export const LatentSpacePage: React.FC = () => {
             </div>
             <h4 className="text-lg font-bold text-white mb-2">Attention Manifolds</h4>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Analyseer hoe transformermodellen gewichten verdelen over tokens met real-time heatmaps en differentiële gradient visualisaties.
+              Analyze how transformer models allocate weights across token contexts with real-time heatmaps and differential gradient visualizations.
             </p>
           </div>
 
@@ -230,7 +230,7 @@ export const LatentSpacePage: React.FC = () => {
             </div>
             <h4 className="text-lg font-bold text-white mb-2">Embedding R&amp;D</h4>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Ontwikkel en evalueer maatwerk embedding-modellen voor private domeinen waar standaardmodellen van Big Tech falen.
+              Develop and evaluate custom embedding models tailored for specialized enterprise domains where generic models fail.
             </p>
           </div>
         </div>

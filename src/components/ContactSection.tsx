@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import { Send, CheckCircle2, Shield, Clock, Mail } from 'lucide-react'
 
 const PROJECT_TYPES = [
-  'Autonome AI Agent(s)',
-  'Private RAG Kennisbank',
+  'Autonomous AI Agent(s)',
+  'Private RAG Knowledge Base',
   'Model Fine-Tuning / LoRA',
-  'Full-Stack AI Webapp',
-  'Inference / MLOps Optimalisatie',
+  'Full-Stack AI Web App',
+  'Inference & MLOps Optimization',
 ]
 
 const BUDGET_RANGES = [
-  '€5.000 - €15.000',
-  '€15.000 - €30.000',
-  '€30.000 - €75.000',
-  '€75.000+',
+  '$5,000 - $15,000',
+  '$15,000 - $30,000',
+  '$30,000 - $75,000',
+  '$75,000+',
 ]
 
 export const ContactSection: React.FC = () => {
@@ -33,7 +33,7 @@ export const ContactSection: React.FC = () => {
   }
 
   return (
-    <section id="contact" className="py-24 relative bg-[#08090d] border-t border-white/5">
+    <section id="contact" className="py-24 relative bg-[#05060a] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Info & Trust */}
@@ -43,10 +43,10 @@ export const ContactSection: React.FC = () => {
                 Direct Contact
               </span>
               <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-4">
-                Laten We Jouw AI Systeem Bouwen
+                Let&apos;s Build Your AI Application
               </h2>
               <p className="mt-4 text-slate-400 text-base leading-relaxed">
-                Heb je een concrete use case of wil je onderzoeken hoe autonome agents of private modellen jouw organisatie vooruit helpen? Plan direct een technische deep-dive.
+                Have a concrete use case or want to explore how autonomous agents and private models can transform your business? Schedule a technical deep-dive with our team.
               </p>
             </div>
 
@@ -54,9 +54,9 @@ export const ContactSection: React.FC = () => {
               <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
                 <Clock className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="text-sm font-semibold text-white">Reactie Binnen 24 Uur</h4>
+                  <h4 className="text-sm font-semibold text-white">Response Within 24 Hours</h4>
                   <p className="text-xs text-slate-400 mt-0.5">
-                    Je spreekt rechtstreeks met een senior AI engineer, geen verkoopadviseurs.
+                    You talk directly with a senior AI engineer &mdash; never a commissioned salesperson.
                   </p>
                 </div>
               </div>
@@ -64,9 +64,9 @@ export const ContactSection: React.FC = () => {
               <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
                 <Shield className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="text-sm font-semibold text-white">Strikte NDA &amp; Data Veiligheid</h4>
+                  <h4 className="text-sm font-semibold text-white">Strict NDA &amp; Data Security</h4>
                   <p className="text-xs text-slate-400 mt-0.5">
-                    Jouw intellectueel eigendom en bedrijfsdata blijven 100% vertrouwelijk en beschermd.
+                    Your intellectual property and proprietary training data remain 100% confidential.
                   </p>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export const ContactSection: React.FC = () => {
               <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
                 <Mail className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <h4 className="text-sm font-semibold text-white">Direct E-mailen</h4>
+                  <h4 className="text-sm font-semibold text-white">Direct Email</h4>
                   <p className="text-xs text-slate-400 mt-0.5 font-mono">
                     contact@nablai.dev
                   </p>
@@ -91,15 +91,15 @@ export const ContactSection: React.FC = () => {
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center mx-auto text-emerald-400">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Aanvraag Succesvol Ontvangen!</h3>
+                  <h3 className="text-2xl font-bold text-white">Request Received Successfully!</h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto">
-                    Bedankt voor je interesse in Nablai. We beoordelen jouw projectspecificaties en nemen binnen 24 uur contact met je op voor een technische discovery call.
+                    Thank you for reaching out to Nablai. We are reviewing your project specifications and will get back to you within 24 hours to schedule a technical discovery call.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 text-white text-xs font-semibold hover:bg-white/20 transition-colors mt-4"
                   >
-                    Nog een bericht versturen
+                    Send another message
                   </button>
                 </div>
               ) : (
@@ -107,7 +107,7 @@ export const ContactSection: React.FC = () => {
                   {/* Select Project Type */}
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-2">
-                      Wat voor soort AI oplossing heb je nodig?
+                      What kind of AI app or solution do you need?
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {PROJECT_TYPES.map((type) => (
@@ -131,12 +131,12 @@ export const ContactSection: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-medium text-slate-400 mb-1.5">
-                        Volledige Naam
+                        Full Name
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="Bijv. Mark Jansen"
+                        placeholder="e.g. Alex Vance"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors placeholder:text-slate-600"
@@ -144,12 +144,12 @@ export const ContactSection: React.FC = () => {
                     </div>
                     <div>
                       <label className="block text-xs font-medium text-slate-400 mb-1.5">
-                        Zakelijk E-mailadres
+                        Business Email
                       </label>
                       <input
                         type="email"
                         required
-                        placeholder="mark@bedrijf.nl"
+                        placeholder="alex@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors placeholder:text-slate-600"
@@ -160,11 +160,11 @@ export const ContactSection: React.FC = () => {
                   {/* Company */}
                   <div>
                     <label className="block text-xs font-medium text-slate-400 mb-1.5">
-                      Bedrijfsnaam &amp; Huidige Software Stack (Optioneel)
+                      Company Name &amp; Existing Tech Stack (Optional)
                     </label>
                     <input
                       type="text"
-                      placeholder="Bijv. Acme Corp / PostgreSQL, Python, AWS"
+                      placeholder="e.g. Acme Corp / PostgreSQL, Python, AWS"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors placeholder:text-slate-600"
@@ -174,7 +174,7 @@ export const ContactSection: React.FC = () => {
                   {/* Budget Selector */}
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-2">
-                      Geschat Budget Indicatie
+                      Estimated Project Budget
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {BUDGET_RANGES.map((range) => (
@@ -197,25 +197,28 @@ export const ContactSection: React.FC = () => {
                   {/* Message */}
                   <div>
                     <label className="block text-xs font-medium text-slate-400 mb-1.5">
-                      Korte Toelichting op de Use Case
+                      Brief Description of Your Vision or Use Case
                     </label>
                     <textarea
                       rows={4}
                       required
-                      placeholder="Beschrijf in een paar zinnen welke handmatige taak je wilt automatiseren of welk AI product je wilt realiseren..."
+                      placeholder="Describe the workflow you want to automate or the AI product you want to build..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors placeholder:text-slate-600 resize-none"
                     />
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Submit Button - Nablai Logo Themed Purple Gradient */}
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-xl shadow-purple-600/30 transition-all active:scale-[0.99]"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-white shadow-xl shadow-purple-600/35 border border-purple-400/30 transition-all active:scale-[0.99]"
+                    style={{
+                      background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6366f1 100%)',
+                    }}
                   >
                     <Send className="w-4 h-4" />
-                    <span>Verstuur Discovery Aanvraag</span>
+                    <span>Submit Discovery Request</span>
                   </button>
                 </form>
               )}

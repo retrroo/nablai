@@ -13,7 +13,7 @@ export const Nav: React.FC = () => {
       label: 'AirFlow', 
       path: '/apps/airflow', 
       isApp: true, 
-      tag: 'Aviation',
+      tag: 'Aviation App',
       icon: Plane,
       color: 'text-cyan-400'
     },
@@ -26,14 +26,14 @@ export const Nav: React.FC = () => {
       color: 'text-purple-400'
     },
     { 
-      label: 'Over Ons', 
+      label: 'About Us', 
       path: '/about', 
       isApp: false,
       tag: 'Onur & Karim',
       icon: Users
     },
-    { label: 'Diensten', path: '/#diensten', isApp: false },
-    { label: 'Architectuur', path: '/#architectuur', isApp: false },
+    { label: 'Services', path: '/#services', isApp: false },
+    { label: 'Architecture', path: '/#architecture', isApp: false },
     { label: 'Contact', path: '/#contact', isApp: false },
   ]
 
@@ -44,7 +44,6 @@ export const Nav: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-auto">
-      {/* Top spacing: calc(28 * var(--u)) on desktop, calc(20 * var(--u)) on mobile */}
       <div 
         className="w-full flex items-center justify-between mx-auto"
         style={{
@@ -67,7 +66,7 @@ export const Nav: React.FC = () => {
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             borderColor: 'rgba(255, 255, 255, 0.15)',
-            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.4)',
           }}
         >
           {navLinks.map((link) => {
@@ -109,20 +108,18 @@ export const Nav: React.FC = () => {
           })}
         </nav>
 
-        {/* Right Action Button */}
+        {/* Right Action Button - Nablai Logo Themed Purple Gradient */}
         <div className="flex items-center gap-3">
           <Link
             to="/#contact"
-            className="hidden sm:inline-flex items-center gap-2 rounded-full text-xs font-bold transition-all duration-200 active:scale-95"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full text-xs font-bold text-white transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-lg shadow-purple-600/30 border border-purple-400/30"
             style={{
               height: 'calc(50 * var(--u))',
               padding: '0 calc(22 * var(--u))',
-              backgroundColor: '#D0F24B',
-              color: '#17242B',
-              boxShadow: '0 0 20px rgba(208, 242, 75, 0.3)',
+              background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6366f1 100%)',
             }}
           >
-            <span>Start Project</span>
+            <span>Start a Project</span>
             <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
           </Link>
 
@@ -182,9 +179,12 @@ export const Nav: React.FC = () => {
             <Link
               to="/#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm bg-[#D0F24B] text-[#17242B]"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm text-white shadow-lg shadow-purple-600/30 border border-purple-400/30"
+              style={{
+                background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6366f1 100%)',
+              }}
             >
-              <span>Project Aanvragen</span>
+              <span>Start a Project</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
