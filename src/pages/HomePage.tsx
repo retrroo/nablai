@@ -19,16 +19,16 @@ export const HomePage: React.FC = () => {
       {/* 3. The Nablai Brand DNA & Mathematical Foundation */}
       <LogoStorySection />
 
-      {/* 4. Engineering Capabilities & Production Solutions */}
+      {/* 4. Studio Engineering Stack & Core Systems */}
       <CapabilitiesSection />
 
       {/* 5. Deterministic Systems Architecture & IDE Canvas */}
       <ArchitectureSection />
 
-      {/* 6. 4-Phase Delivery Process Ledger */}
+      {/* 6. Product Build Cycle */}
       <ProcessSection />
 
-      {/* 7. Engineering Discovery & Contact Form */}
+      {/* 7. Connect & Collaboration Terminal */}
       <ContactSection />
     </div>
   )

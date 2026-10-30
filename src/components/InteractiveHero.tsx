@@ -310,7 +310,7 @@ export const InteractiveHero: React.FC = () => {
           textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
         }}
       >
-        We build autonomous AI applications and custom enterprise solutions &mdash; turning complex workflows into production-grade intelligence.
+        We build our own applications. Nablai is an independent software studio and AI engineering lab founded by Onur &amp; Karim.
       </p>
 
       {/* 4. Action Block (Bottom Right) */}
@@ -334,10 +334,10 @@ export const InteractiveHero: React.FC = () => {
             textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
           }}
         >
-          <strong className="text-white font-bold">Nablai</strong> builds next-generation AI apps and end-to-end solutions &mdash; from consumer platforms to autonomous enterprise swarms.
+          We are the builders. We design, code, and deploy our own products &mdash; exploring the frontier of autonomous intelligence and practical software utility.
         </p>
 
-        {/* CTA Button - Nablai Logo Themed Purple Gradient */}
+        {/* CTA Button - Links to Portfolio */}
         <a
           href="#apps"
           className="inline-flex items-center justify-center gap-2 font-semibold text-white transition-all duration-200 hover:scale-[1.03] active:scale-95 text-center shadow-xl shadow-purple-600/35 border border-purple-400/40"
@@ -352,7 +352,7 @@ export const InteractiveHero: React.FC = () => {
           }}
         >
           <Sparkles className="w-4 h-4 text-purple-200" />
-          <span>Explore Apps &amp; Solutions</span>
+          <span>Explore Our Apps</span>
         </a>
       </div>
 
@@ -381,12 +381,12 @@ export const InteractiveHero: React.FC = () => {
           >
             <ArrowDown className="w-4 h-4 stroke-[2.5]" />
           </div>
-          <span>Scroll down for more</span>
+          <span>Scroll down for our portfolio</span>
         </div>
 
         {/* Right: Year Range */}
         <div className="font-mono text-sm opacity-90 text-purple-200">
-          20&ndash;26 &middot; Nablai
+          20&ndash;26 &middot; Nablai Studio
         </div>
       </div>
     </section>

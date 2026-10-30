@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-4">
             <NablaiLogo size="md" />
             <p className="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed mt-2 font-sans">
-              Nablai (Nabla + Ai) unites mathematical gradient vector calculus with frontier artificial intelligence. We architect autonomous applications, private RAG, and custom models for ambitious teams.
+              Nablai (Nabla + Ai) is an independent AI application studio and engineering lab founded by Onur &amp; Karim. We build, test, and ship our own intelligent software &mdash; uniting vector calculus with practical utility.
             </p>
             <div className="flex items-center gap-2 pt-2">
               <a
@@ -33,7 +33,16 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] flex items-center justify-center text-slate-400 hover:text-white transition-colors"
-                title="LinkedIn"
+                title="Onur on LinkedIn"
+              >
+                <LinkedinIcon className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/karim-nablai"
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+                title="Karim on LinkedIn"
               >
                 <LinkedinIcon className="w-3.5 h-3.5" />
               </a>
@@ -53,7 +62,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li>
                 <a href="#apps" className="hover:text-white transition-colors">
-                  01 // Applications (AirFlow, Latent Space)
+                  01 // Our Apps (AirFlow, Latent Space)
                 </a>
               </li>
               <li>
@@ -62,8 +71,8 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#capabilities" className="hover:text-white transition-colors">
-                  03 // Engineering Capabilities
+                <a href="#stack" className="hover:text-white transition-colors">
+                  03 // Studio Engineering Stack
                 </a>
               </li>
               <li>
@@ -73,12 +82,12 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#process" className="hover:text-white transition-colors">
-                  05 // Delivery Process
+                  05 // Product Build Cycle
                 </a>
               </li>
               <li>
                 <a href="#contact" className="hover:text-white transition-colors">
-                  06 // Contact &amp; Discovery
+                  06 // Connect &amp; Collaborate
                 </a>
               </li>
             </ul>
@@ -90,7 +99,7 @@ export const Footer: React.FC = () => {
             <p className="text-slate-400 leading-relaxed text-[11px] font-sans">
               The name <strong className="text-white">Nablai</strong> derives from the differential vector operator <span className="text-purple-400 font-mono font-bold">&nabla;</span> (Nabla), which determines parameter descent across loss surfaces.
             </p>
-            <div className="p-3 rounded-lg bg-black/40 border border-white/[0.04] text-[11px] text-purple-300">
+            <div className="p-3 rounded-lg bg-black/40 border border-white/[0.04] text-[11px] text-purple-300 font-mono">
               &nabla; Loss(&theta;) &rarr; Global Optimum
             </div>
           </div>
@@ -99,7 +108,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-slate-500">
           <div>
-            &copy; {new Date().getFullYear()} Nablai Systems. All rights reserved.
+            &copy; {new Date().getFullYear()} Nablai Studio &middot; Founded by Onur &amp; Karim.
           </div>
           <div className="flex items-center gap-6">
             <a

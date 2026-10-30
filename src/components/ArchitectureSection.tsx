@@ -139,7 +139,7 @@ export const ArchitectureSection: React.FC = () => {
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-                      <span>Deployable within isolated private cloud VPCs</span>
+                      <span>Self-hosted in our private GPU infrastructure</span>
                     </li>
                   </ul>
                 </>
@@ -161,11 +161,11 @@ export const ArchitectureSection: React.FC = () => {
                   <ul className="space-y-2.5 text-xs text-slate-300 font-mono pt-4 border-t border-white/[0.04]">
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                      <span>Zero vendor lock-in; weights belong to you</span>
+                      <span>Zero vendor lock-in; sovereign weights</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                      <span>10x lower total cost of ownership vs commercial APIs</span>
+                      <span>10x lower token inference cost vs commercial APIs</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />

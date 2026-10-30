@@ -42,14 +42,14 @@ export const AboutPage: React.FC = () => {
         {/* Hero Header with Editorial Typography */}
         <div className="max-w-3xl mb-16 pb-12 border-b border-white/[0.08]">
           <span className="text-[11px] font-mono tracking-widest text-purple-400 uppercase block mb-3">
-            LEADERSHIP // FOUNDERS &middot; ONUR &amp; KARIM
+            FOUNDERS DOSSIER &middot; ONUR &amp; KARIM
           </span>
           <h1 className="text-4xl sm:text-6xl font-normal text-white tracking-tight font-sans">
             Where Mathematics <br className="hidden sm:inline" />
             <span className="font-serif italic font-normal text-slate-300">meets autonomous engineering.</span>
           </h1>
           <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed">
-            We are <strong className="text-white font-medium">Onur</strong> and <strong className="text-white font-medium">Karim</strong>. We founded Nablai with a single objective: to build genuine, mathematically rigorous AI applications and systems that stand up to real enterprise demands &mdash; free of superficial wrapper hype.
+            We are <strong className="text-white font-medium">Onur</strong> and <strong className="text-white font-medium">Karim</strong>. We founded Nablai as an independent software studio and engineering lab. We do not build client websites or run an agency &mdash; we build, test, and release our own AI products, exploring the frontier where vector calculus meets practical utility.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export const AboutPage: React.FC = () => {
                 {/* Dossier Header */}
                 <div className="flex items-start justify-between pb-6 mb-6 border-b border-white/[0.06]">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center font-sans font-light text-xl text-white">
+                    <div className="w-12 h-12 rounded-xl bg-purple-600/10 border border-purple-500/20 flex items-center justify-center font-sans font-light text-xl text-purple-300">
                       {founder.initial}
                     </div>
                     <div>
@@ -138,13 +138,13 @@ export const AboutPage: React.FC = () => {
         <div className="rounded-2xl bg-[#08090e] border border-white/[0.08] p-8 sm:p-12">
           <div className="max-w-2xl mb-8">
             <span className="text-[10px] font-mono tracking-widest text-purple-400 uppercase block mb-2">
-              ENGINEERING CREDO
+              BUILDER CREDO
             </span>
             <h3 className="text-2xl font-normal text-white font-sans">
-              Why We Architect Code-First
+              Why We Build For Ourselves
             </h3>
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mt-2 font-sans">
-              The modern AI landscape is flooded with superficial API wrappers that fail when confronted with enterprise reality &mdash; whether through non-deterministic hallucinations, data leakage, or unsustainable API token bills.
+              The modern AI landscape is flooded with superficial wrappers and sales promises. We prefer to spend our hours deep in code: writing deterministic state graphs, tuning quantized weights, and shipping fast tools that we use ourselves every single day.
             </p>
           </div>
 
@@ -155,17 +155,17 @@ export const AboutPage: React.FC = () => {
                 <span>Deterministic Systems</span>
               </div>
               <p className="text-slate-400 leading-relaxed font-sans">
-                We engineer state graphs with explicit assertion gates, validation loops, and fallback pathways.
+                We design state graphs with explicit assertion gates, validation loops, and fallback pathways.
               </p>
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-white font-medium">
                 <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                <span>Private Model Sovereignty</span>
+                <span>Model Sovereignty</span>
               </div>
               <p className="text-slate-400 leading-relaxed font-sans">
-                Enterprise data never trains third-party models. Weights belong to you and deploy inside your private VPC.
+                We prefer open-weights and self-hosted inference clusters over closed-source third-party dependencies.
               </p>
             </div>
 
@@ -183,13 +183,13 @@ export const AboutPage: React.FC = () => {
 
         {/* Contact CTA */}
         <div className="mt-16 text-center">
-          <h3 className="text-lg font-normal text-white mb-2 font-sans">Want to discuss an AI system with Onur or Karim?</h3>
-          <p className="text-xs text-slate-400 mb-6 font-mono">We schedule direct engineering brainstorms on your use case.</p>
+          <h3 className="text-lg font-normal text-white mb-2 font-sans">Want to exchange notes with Onur or Karim?</h3>
+          <p className="text-xs text-slate-400 mb-6 font-mono">Feedback on our apps or ideas on autonomous systems are always welcome.</p>
           <a
             href="/#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-white bg-purple-600 hover:bg-purple-500 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transition-all shadow-lg shadow-purple-600/25 border border-purple-400/30"
           >
-            <span>Start an Engineering Conversation</span>
+            <span>Connect with Us</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
