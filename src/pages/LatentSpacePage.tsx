@@ -82,56 +82,73 @@ export const LatentSpacePage: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
+            {/* Cosmic Starlight Live Site Action Button */}
             <a
               href="https://latentspace.science"
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-3 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white text-xs font-mono font-medium transition-colors flex items-center gap-2 shadow-xs group"
+              className="relative overflow-hidden group px-6 py-3.5 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-2.5 shadow-lg active:scale-95"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>OPEN LIVE SITE // latentspace.science</span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:12px_12px] opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.04] to-transparent pointer-events-none" />
+              <span className="relative z-10 flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                </span>
+                <span>OPEN LIVE SITE // latentspace.science</span>
+                <ArrowUpRight className="w-4 h-4 text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </span>
             </a>
             <a
               href="https://github.com/karimsaid123/latentspace"
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono transition-colors flex items-center gap-2"
+              className="relative overflow-hidden group px-5 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono transition-colors flex items-center gap-2 border border-zinc-800 shadow-xs"
             >
-              <GithubIcon className="w-4 h-4" />
+              <GithubIcon className="w-4 h-4 text-zinc-300" />
               <span>karimsaid123/latentspace</span>
             </a>
           </div>
         </div>
 
-        {/* Live Application Showcase Card */}
+        {/* Live Application Showcase Card - Light Cosmic Space Theme */}
         <div className="mb-20">
-          <div className="relative rounded-2xl border border-zinc-200 bg-zinc-50/70 p-10 sm:p-16 text-center flex flex-col items-center justify-center overflow-hidden transition-colors hover:border-zinc-300 shadow-xs">
-            <div className="w-16 h-16 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center text-zinc-800 mb-5 shadow-xs">
-              <Sparkles className="w-8 h-8 stroke-[1.5]" />
-            </div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs font-mono font-medium mb-3">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Live Application</span>
-              <span className="text-emerald-400">&middot;</span>
-              <span className="text-emerald-900 font-semibold">latentspace.science</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-normal text-zinc-950 tracking-tight font-sans max-w-md">
-              AI News &amp; Synthesis Dashboard
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-600 max-w-lg mt-2 leading-relaxed font-sans">
-              Access the live intelligence platform featuring real-time RSS feeds, category filtering, and automated structured Gemini 1.5 Flash summaries.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="https://latentspace.science"
-                target="_blank"
-                rel="noreferrer"
-                className="px-6 py-3 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white text-xs font-mono font-medium transition-all flex items-center gap-2 group shadow-sm"
-              >
-                <span>VISIT LATENTSPACE.SCIENCE</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
+          <div className="relative rounded-2xl border border-zinc-800/80 bg-zinc-950 p-10 sm:p-16 text-center flex flex-col items-center justify-center overflow-hidden transition-colors hover:border-zinc-600 shadow-xl">
+            {/* Subtle starlight cosmic texture */}
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:14px_14px] opacity-20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col items-center">
+              <div className="w-16 h-16 rounded-2xl bg-white/[0.08] border border-white/15 flex items-center justify-center text-white mb-5 shadow-xs backdrop-blur-sm">
+                <Sparkles className="w-8 h-8 stroke-[1.5] text-zinc-200" />
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] border border-white/15 text-white text-xs font-mono font-medium mb-3">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                </span>
+                <span>Live Application</span>
+                <span className="text-zinc-500">&middot;</span>
+                <span className="text-zinc-200 font-semibold">latentspace.science</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-normal text-white tracking-tight font-sans max-w-md">
+                AI News &amp; Synthesis Dashboard
+              </h3>
+              <p className="text-xs sm:text-sm text-zinc-400 max-w-lg mt-2 leading-relaxed font-sans">
+                Access the live intelligence platform featuring real-time RSS feeds, category filtering, and automated structured Gemini 1.5 Flash summaries.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href="https://latentspace.science"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative overflow-hidden group px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-950 text-xs font-mono font-semibold transition-all flex items-center gap-2 shadow-lg active:scale-95"
+                >
+                  <span>VISIT LATENTSPACE.SCIENCE</span>
+                  <ArrowUpRight className="w-4 h-4 text-zinc-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -228,4 +245,5 @@ export const LatentSpacePage: React.FC = () => {
     </div>
   )
 }
+
 export default LatentSpacePage

@@ -80,23 +80,27 @@ export const AppsShowcase: React.FC = () => {
             className="lg:col-span-5 group relative rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 p-8 sm:p-10 flex flex-col justify-between transition-all duration-200 hover:bg-zinc-100/40"
           >
             <div>
-              {/* Header Badges */}
+              {/* Header Badges (100% Monochrome + Cosmic Starlight Pill) */}
               <div className="flex items-center justify-between pb-6 mb-6 border-b border-zinc-200 text-xs font-mono text-zinc-500">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-zinc-950" />
+                  <span className="w-2 h-2 rounded-full bg-zinc-950 border border-zinc-400" />
                   <span className="text-zinc-900 font-semibold">WEB PLATFORM</span>
                   <span className="text-zinc-300">|</span>
                   <span className="text-zinc-600">Onur &amp; Karim</span>
                 </div>
+                {/* Cosmic Starlight Pill Link */}
                 <a
                   href="https://latentspace.science"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-800 border border-zinc-200 text-[11px] font-mono font-medium transition-colors"
+                  className="relative overflow-hidden group/pill inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-950 text-white border border-zinc-800 hover:border-zinc-500 text-[11px] font-mono font-medium transition-all shadow-xs"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>latentspace.science</span>
-                  <ArrowUpRight className="w-3 h-3" />
+                  <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:10px_10px] opacity-20 group-hover/pill:opacity-40 transition-opacity pointer-events-none" />
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>latentspace.science</span>
+                    <ArrowUpRight className="w-3 h-3 text-zinc-300 group-hover/pill:translate-x-0.5 group-hover/pill:-translate-y-0.5 transition-transform" />
+                  </span>
                 </a>
               </div>
 
@@ -110,19 +114,30 @@ export const AppsShowcase: React.FC = () => {
                 Curated AI intelligence platform designed to cut through marketing hype. Built on strict Hexagonal Architecture with automated structured summarization via Gemini 1.5 Flash.
               </p>
 
-              {/* Live App Link Box */}
+              {/* Live App Link Box - Light Cosmic Starlight Theme */}
               <a
                 href="https://latentspace.science"
                 target="_blank"
                 rel="noreferrer"
-                className="group/preview block rounded-xl border border-zinc-200 bg-zinc-50/70 hover:bg-zinc-100/80 p-6 text-center my-6 transition-all"
+                className="relative overflow-hidden group/preview block rounded-2xl border border-zinc-800/80 bg-zinc-950 p-6 text-center my-6 transition-all hover:border-zinc-500 shadow-lg"
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-zinc-200 text-zinc-900 text-xs font-mono font-medium mb-2 shadow-2xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Live Platform &middot; latentspace.science</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-700 group-hover/preview:translate-x-0.5 group-hover/preview:-translate-y-0.5 transition-transform" />
+                {/* Starfield texture background */}
+                <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:14px_14px] opacity-20 group-hover/preview:opacity-35 transition-opacity pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent pointer-events-none" />
+
+                <div className="relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/15 text-white text-xs font-mono font-medium mb-2 shadow-xs">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+                    </span>
+                    <span>Live Platform &middot; latentspace.science</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-zinc-300 group-hover/preview:translate-x-0.5 group-hover/preview:-translate-y-0.5 transition-transform" />
+                  </div>
+                  <span className="text-xs font-mono text-zinc-400 block group-hover/preview:text-zinc-200 transition-colors">
+                    Click to open live site &rarr;
+                  </span>
                 </div>
-                <span className="text-xs font-mono text-zinc-600 block">Click to open live site &rarr;</span>
               </a>
 
               {/* Tech Stack Chips */}
@@ -143,14 +158,19 @@ export const AppsShowcase: React.FC = () => {
                 <span>VIEW DETAILS</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
+              {/* Cosmic Starlight Button */}
               <a
                 href="https://latentspace.science"
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-2 rounded-lg bg-zinc-950 hover:bg-zinc-800 text-white font-medium transition-colors flex items-center gap-1.5 shadow-2xs"
+                className="relative overflow-hidden group px-4 py-2 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-2 shadow-xs active:scale-95"
               >
-                <span>OPEN SITE</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:10px_10px] opacity-20 group-hover:opacity-35 transition-opacity pointer-events-none" />
+                <span className="relative z-10 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>OPEN SITE</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </span>
               </a>
             </div>
           </div>
