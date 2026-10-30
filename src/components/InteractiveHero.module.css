@@ -100,8 +100,6 @@
     pointer-events: auto;
     right: calc(28 * var(--u));
     bottom: calc(89 * var(--u));
-    width: calc(325 * var(--u));
-    gap: calc(28 * var(--u));
   }
   .actionBtn {
     width: calc(230 * var(--u));

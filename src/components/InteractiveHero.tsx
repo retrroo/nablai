@@ -8,7 +8,6 @@ import styles from './InteractiveHero.module.css'
 export const InteractiveHero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const headlineRef = useRef<HTMLHeadingElement>(null)
-  const leadRef = useRef<HTMLParagraphElement>(null)
   const actionRef = useRef<HTMLDivElement>(null)
   const bottomBarRef = useRef<HTMLDivElement>(null)
 
@@ -61,23 +60,6 @@ export const InteractiveHero: React.FC = () => {
         )
       }
 
-      // Lead paragraph fade in
-      if (leadRef.current) {
-        tl.fromTo(
-          leadRef.current,
-          { opacity: 0, filter: 'blur(10px)', y: 15 },
-          {
-            opacity: 1,
-            filter: 'blur(0px)',
-            y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            clearProps: 'filter,transform',
-          },
-          0.4
-        )
-      }
-
       // Action CTA block fade in
       if (actionRef.current) {
         tl.fromTo(
@@ -91,7 +73,7 @@ export const InteractiveHero: React.FC = () => {
             ease: 'power2.out',
             clearProps: 'filter,transform',
           },
-          0.6
+          0.35
         )
       }
 
@@ -107,7 +89,7 @@ export const InteractiveHero: React.FC = () => {
             ease: 'power2.out',
             clearProps: 'filter',
           },
-          0.8
+          0.5
         )
       }
     }, containerRef)
@@ -135,7 +117,7 @@ export const InteractiveHero: React.FC = () => {
         {/* Interactive Constellation / Neural Branch Canvas (Dots & Lines) */}
         <ConstellationCanvas className="z-0 opacity-90" />
 
-        {/* Top: Studio Tag + Headline + Lead */}
+        {/* Top: Studio Tag + Big Headline */}
         <div className="relative z-20 pt-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/10 mb-6 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
@@ -150,7 +132,7 @@ export const InteractiveHero: React.FC = () => {
                 textShadow: '0 0 35px rgba(255,255,255,0.35), 0 4px 20px rgba(0,0,0,0.9)',
               }}
             >
-              Every layer
+              Where models
             </span>
             <span
               className="font-sans text-4xl sm:text-5xl text-white font-light tracking-tight leading-[0.95]"
@@ -159,13 +141,9 @@ export const InteractiveHero: React.FC = () => {
                 textShadow: '0 0 35px rgba(255,255,255,0.35), 0 4px 20px rgba(0,0,0,0.9)',
               }}
             >
-              tells a story.
+              become products.
             </span>
           </h1>
-
-          <p className="mt-6 text-sm text-zinc-300 leading-relaxed font-sans max-w-sm">
-            We build our own applications. Nablai is an independent software studio and AI engineering lab founded by Onur &amp; Karim.
-          </p>
         </div>
 
         {/* Middle: Studio Apps Quick Cards (Monochrome High Contrast) */}
@@ -192,12 +170,8 @@ export const InteractiveHero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom: Action Block & CTA */}
+        {/* Bottom: CTA & Scroll Indicator (Clutter text & 20-26 Studio removed) */}
         <div className="relative z-20 space-y-5">
-          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
-            We are the builders. We design, code, and deploy our own products &mdash; exploring the frontier of autonomous intelligence and practical software utility.
-          </p>
-
           <a
             href="#apps"
             className="w-full py-3.5 px-6 rounded-full font-medium text-sm text-zinc-950 bg-white hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 text-center"
@@ -206,15 +180,14 @@ export const InteractiveHero: React.FC = () => {
             <span>Explore Our Apps</span>
           </a>
 
-          {/* Bottom Bar indicator */}
-          <div className="flex items-center justify-between text-xs text-zinc-400 font-mono pt-2 border-t border-white/10">
+          {/* Bottom Bar indicator (Left only) */}
+          <div className="flex items-center text-xs text-zinc-400 font-mono pt-2 border-t border-white/10">
             <div className="flex items-center gap-2">
               <div className="w-5 h-5 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-xs">
                 <ArrowDown className="w-3 h-3 stroke-[2.5]" />
               </div>
               <span className="text-[11px] text-zinc-300">Scroll for portfolio</span>
             </div>
-            <span className="text-[11px] text-zinc-400 font-mono">20&ndash;26 &middot; Nablai</span>
           </div>
         </div>
       </section>
@@ -222,8 +195,8 @@ export const InteractiveHero: React.FC = () => {
   }
 
   // Full-fidelity interactive canvas hero for desktop (width >= 1024px)
-  const line1 = 'Every layer'
-  const line2 = 'tells a story.'
+  const line1 = 'Where models'
+  const line2 = 'become products.'
 
   return (
     <section
@@ -240,7 +213,7 @@ export const InteractiveHero: React.FC = () => {
       {/* 2. Interactive Constellation / Neural Lattice Canvas (Connecting Dots & Lines from Photo 2) */}
       <ConstellationCanvas className="z-10" />
 
-      {/* 3. Headline and Lead */}
+      {/* 3. Big Main Headline (Left) */}
       <div className={styles.topStack}>
         <div className={styles.headlineBlock}>
           <h1
@@ -276,42 +249,13 @@ export const InteractiveHero: React.FC = () => {
             </span>
           </h1>
         </div>
-
-        {/* Lead Paragraph */}
-        <p
-          ref={leadRef}
-          className={`hero-reveal text-white font-medium opacity-0 ${styles.leadParagraph}`}
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: 'var(--body-size)',
-            lineHeight: 'var(--body-leading)',
-            letterSpacing: '-0.02em',
-            textShadow: '0 2px 14px rgba(0,0,0,0.9), 0 0 25px rgba(255,255,255,0.15)',
-          }}
-        >
-          We build our own applications. Nablai is an independent software studio and AI engineering lab founded by Onur &amp; Karim.
-        </p>
       </div>
 
-      {/* 4. Action Block */}
+      {/* 4. Action Block (CTA Button) */}
       <div
         ref={actionRef}
         className={`hero-reveal opacity-0 flex flex-col items-start ${styles.actionBlock}`}
       >
-        <p
-          className="text-white font-medium"
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: 'var(--body-size)',
-            lineHeight: 'var(--body-leading)',
-            letterSpacing: '-0.02em',
-            textShadow: '0 2px 14px rgba(0,0,0,0.9), 0 0 25px rgba(255,255,255,0.15)',
-          }}
-        >
-          We are the builders. We design, code, and deploy our own products &mdash; exploring the frontier of autonomous intelligence and practical software utility.
-        </p>
-
-        {/* CTA Button - Links to Portfolio */}
         <a
           href="#apps"
           className={`inline-flex items-center justify-center gap-2 font-medium text-zinc-950 bg-white hover:bg-zinc-100 transition-all duration-200 active:scale-95 text-center shadow-lg border border-white/60 rounded-full ${styles.actionBtn}`}
@@ -326,7 +270,7 @@ export const InteractiveHero: React.FC = () => {
         </a>
       </div>
 
-      {/* 5. Bottom Bar */}
+      {/* 5. Bottom Bar (Scroll indicator left only, right year removed) */}
       <div
         ref={bottomBarRef}
         className={`hero-reveal opacity-0 flex items-center justify-between text-white ${styles.bottomBar}`}
@@ -348,11 +292,6 @@ export const InteractiveHero: React.FC = () => {
             <ArrowDown className="w-4 h-4 stroke-[2.5]" />
           </div>
           <span className="truncate text-zinc-300">Scroll down for our portfolio</span>
-        </div>
-
-        {/* Right: Year Range */}
-        <div className="font-mono text-xs sm:text-sm opacity-90 text-zinc-400 whitespace-nowrap pl-2">
-          20&ndash;26 &middot; Nablai Studio
         </div>
       </div>
     </section>
