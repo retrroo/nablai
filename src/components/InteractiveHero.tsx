@@ -12,7 +12,20 @@ export const InteractiveHero: React.FC = () => {
   const [progress, setProgress] = useState(0)
   const [preloaderVisible, setPreloaderVisible] = useState(true)
 
-  // Shared mutable ref for GSAP tweening zoom & pixelation
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.innerWidth < 1024
+  })
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Shared mutable ref for GSAP tweening zoom & pixelation (desktop)
   const introState = useRef({
     zoom: 2.6,
     pixel: 6, // log2(64) = 6
@@ -25,6 +38,12 @@ export const InteractiveHero: React.FC = () => {
   const counterRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // If mobile: skip all heavy canvas asset downloads, 8.4M pixel loops, and GSAP tweens
+    if (isMobile) {
+      setPreloaderVisible(false)
+      return
+    }
+
     let ctx: gsap.Context | null = null
     let isCancelled = false
 
@@ -107,7 +126,6 @@ export const InteractiveHero: React.FC = () => {
           }
 
           // M2: Reveal sequence
-          // Character reveal for headline
           const chars = headlineRef.current?.querySelectorAll('.char-span')
           if (chars && chars.length > 0) {
             tl.fromTo(
@@ -189,8 +207,106 @@ export const InteractiveHero: React.FC = () => {
       isCancelled = true
       if (ctx) ctx.revert()
     }
-  }, [])
+  }, [isMobile])
 
+  // Dedicated lightweight static mobile hero (0ms load, 0 CPU overhead)
+  if (isMobile) {
+    return (
+      <section
+        className="relative w-full min-h-[100svh] overflow-hidden select-none bg-[#030307] flex flex-col justify-between px-6 pt-24 pb-8"
+        style={{
+          background:
+            'radial-gradient(ellipse 140% 100% at 50% 10%, #1c0f3c 0%, #0e0822 40%, #060410 75%, #030307 100%)',
+        }}
+      >
+        {/* Static Cosmic Nebulae Glows (Pure CSS, 0 CPU cost) */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] bg-purple-900/22 rounded-full blur-[90px] pointer-events-none" />
+        <div className="absolute bottom-1/3 right-1/4 w-[280px] h-[280px] bg-indigo-900/18 rounded-full blur-[80px] pointer-events-none" />
+
+        {/* Static Subtle Stars Grid Pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
+
+        {/* Top: Tag + Headline + Lead */}
+        <div className="relative z-10 pt-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+            <span className="text-xs font-mono text-purple-200 tracking-tight">Independent AI Studio</span>
+          </div>
+
+          <h1 className="text-white font-normal flex flex-col gap-1 tracking-tight">
+            <span
+              className="font-serif italic text-5xl sm:text-6xl text-white leading-[0.95]"
+              style={{ fontFamily: 'var(--font-serif)' }}
+            >
+              Every layer
+            </span>
+            <span
+              className="font-sans text-4xl sm:text-5xl text-white font-light tracking-tight leading-[0.95]"
+              style={{ fontFamily: 'var(--font-sans)' }}
+            >
+              tells a story.
+            </span>
+          </h1>
+
+          <p className="mt-6 text-sm text-zinc-300 leading-relaxed font-sans max-w-sm">
+            We build our own applications. Nablai is an independent software studio and AI engineering lab founded by Onur &amp; Karim.
+          </p>
+        </div>
+
+        {/* Middle: Studio Apps Quick Cards */}
+        <div className="relative z-10 my-6 p-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md space-y-3">
+          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 pb-2 border-b border-white/10">
+            <span className="text-white font-medium">STUDIO BUILDS</span>
+            <span className="text-purple-300">2026 ACTIVE</span>
+          </div>
+          <div className="grid grid-cols-2 gap-2.5 text-xs">
+            <a
+              href="#apps"
+              className="p-3 rounded-xl bg-white/[0.05] border border-white/10 hover:bg-white/[0.08] transition-colors block"
+            >
+              <span className="text-emerald-400 font-mono text-[10px] block font-medium">01 &middot; AVIATION</span>
+              <span className="text-white font-medium text-sm mt-0.5 block">AirFlow</span>
+            </a>
+            <a
+              href="#apps"
+              className="p-3 rounded-xl bg-white/[0.05] border border-white/10 hover:bg-white/[0.08] transition-colors block"
+            >
+              <span className="text-purple-400 font-mono text-[10px] block font-medium">02 &middot; AI LAB</span>
+              <span className="text-white font-medium text-sm mt-0.5 block">Latent Space</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom: Action Block & CTA */}
+        <div className="relative z-10 space-y-5">
+          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+            We are the builders. We design, code, and deploy our own products &mdash; exploring the frontier of autonomous intelligence and practical software utility.
+          </p>
+
+          <a
+            href="#apps"
+            className="w-full py-3.5 px-6 rounded-full font-medium text-sm text-zinc-950 bg-white hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 text-center"
+          >
+            <Sparkles className="w-4 h-4 text-purple-600" />
+            <span>Explore Our Apps</span>
+          </a>
+
+          {/* Bottom Bar indicator */}
+          <div className="flex items-center justify-between text-xs text-zinc-400 font-mono pt-2 border-t border-white/10">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-xs">
+                <ArrowDown className="w-3 h-3 stroke-[2.5]" />
+              </div>
+              <span className="text-[11px] text-zinc-300">Scroll for portfolio</span>
+            </div>
+            <span className="text-[11px] text-purple-300 font-mono">20&ndash;26 &middot; Nablai</span>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  // Full-fidelity interactive canvas hero for desktop (width >= 1024px)
   const line1 = 'Every layer'
   const line2 = 'tells a story.'
 
@@ -222,7 +338,7 @@ export const InteractiveHero: React.FC = () => {
         </div>
       )}
 
-      {/* 3. Headline and Lead (Stacked on Mobile, Split Top-Left/Top-Right on Desktop) */}
+      {/* 3. Headline and Lead */}
       <div className={styles.topStack}>
         <div className={styles.headlineBlock}>
           <h1
