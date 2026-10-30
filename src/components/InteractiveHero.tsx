@@ -4,6 +4,7 @@ import { loadHeroAssets, type LoadedAssets } from '../lib/loadImages'
 import { LogCanvas } from './LogCanvas'
 import { StarfieldCanvas } from './StarfieldCanvas'
 import { ArrowDown, Sparkles } from 'lucide-react'
+import styles from './InteractiveHero.module.css'
 
 export const InteractiveHero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -21,7 +22,7 @@ export const InteractiveHero: React.FC = () => {
   const leadRef = useRef<HTMLParagraphElement>(null)
   const actionRef = useRef<HTMLDivElement>(null)
   const bottomBarRef = useRef<HTMLDivElement>(null)
-  const counterRef = useRef<HTMLParagraphElement>(null)
+  const counterRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     let ctx: gsap.Context | null = null
@@ -215,114 +216,69 @@ export const InteractiveHero: React.FC = () => {
 
       {/* Preloader Counter (bottom right, active during intro) */}
       {preloaderVisible && (
-        <div
-          ref={counterRef}
-          className="absolute z-40 pointer-events-none flex items-baseline font-mono text-white tracking-tighter"
-          style={{
-            right: 'calc(40 * var(--u))',
-            bottom: 'calc(38 * var(--u))',
-            fontFamily: 'var(--font-sans)',
-            fontSize: 'calc(170 * var(--u))',
-            lineHeight: 1,
-            textShadow: '0 0 40px rgba(168,85,247,0.5), 0 4px 20px rgba(0,0,0,0.8)',
-          }}
-        >
+        <div ref={counterRef} className={styles.counter}>
           <span>{String(progress).padStart(2, '0')}</span>
           <span style={{ fontSize: '0.25em', marginLeft: '0.04em' }}>%</span>
         </div>
       )}
 
-      {/* 3. Headline (Top Left) */}
-      <div
-        className="absolute z-20 pointer-events-none"
-        style={{
-          left: 'calc(28 * var(--u))',
-          top: 'calc(114.5 * var(--u))',
-        }}
-      >
-        <h1
-          ref={headlineRef}
-          aria-label={`${line1} ${line2}`}
-          className="flex flex-col text-white font-normal"
-          style={{ gap: 'calc(8 * var(--u))' }}
-        >
-          {/* Line 1: Instrument Serif Italic */}
-          <span
-            className="block whitespace-nowrap"
-            style={{
-              fontFamily: 'var(--font-serif)',
-              fontStyle: 'italic',
-              fontSize: 'calc(184 * var(--u))',
-              letterSpacing: '-0.06em',
-              lineHeight: 0.85,
-              textShadow: '0 0 35px rgba(255,255,255,0.4), 0 0 70px rgba(168,85,247,0.25)',
-            }}
-            aria-hidden="true"
+      {/* 3. Headline and Lead (Stacked on Mobile, Split Top-Left/Top-Right on Desktop) */}
+      <div className={styles.topStack}>
+        <div className={styles.headlineBlock}>
+          <h1
+            ref={headlineRef}
+            aria-label={`${line1} ${line2}`}
+            className="flex flex-col text-white font-normal"
+            style={{ gap: 'calc(8 * var(--u))' }}
           >
-            {line1.split('').map((char, i) => (
-              <span
-                key={i}
-                className="char-span inline-block hero-reveal whitespace-pre"
-                style={{ opacity: 0 }}
-              >
-                {char}
-              </span>
-            ))}
-          </span>
+            {/* Line 1: Instrument Serif Italic */}
+            <span className={`block whitespace-nowrap ${styles.line1}`} aria-hidden="true">
+              {line1.split('').map((char, i) => (
+                <span
+                  key={i}
+                  className="char-span inline-block hero-reveal whitespace-pre"
+                  style={{ opacity: 0 }}
+                >
+                  {char}
+                </span>
+              ))}
+            </span>
 
-          {/* Line 2: Instrument Sans */}
-          <span
-            className="block whitespace-nowrap"
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontSize: 'calc(170 * var(--u))',
-              letterSpacing: '-0.06em',
-              lineHeight: 0.85,
-              textShadow: '0 0 35px rgba(255,255,255,0.35), 0 0 70px rgba(168,85,247,0.2)',
-            }}
-            aria-hidden="true"
-          >
-            {line2.split('').map((char, i) => (
-              <span
-                key={i}
-                className="char-span inline-block hero-reveal whitespace-pre"
-                style={{ opacity: 0 }}
-              >
-                {char}
-              </span>
-            ))}
-          </span>
-        </h1>
+            {/* Line 2: Instrument Sans */}
+            <span className={`block whitespace-nowrap ${styles.line2}`} aria-hidden="true">
+              {line2.split('').map((char, i) => (
+                <span
+                  key={i}
+                  className="char-span inline-block hero-reveal whitespace-pre"
+                  style={{ opacity: 0 }}
+                >
+                  {char}
+                </span>
+              ))}
+            </span>
+          </h1>
+        </div>
+
+        {/* Lead Paragraph */}
+        <p
+          ref={leadRef}
+          className={`hero-reveal text-white font-medium opacity-0 ${styles.leadParagraph}`}
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: 'var(--body-size)',
+            lineHeight: 'var(--body-leading)',
+            letterSpacing: '-0.02em',
+            textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
+          }}
+        >
+          We build our own applications. Nablai is an independent software studio and AI engineering lab founded by Onur &amp; Karim.
+        </p>
       </div>
 
-      {/* Lead Paragraph (Top Right, x = 1087 at 1440) */}
-      <p
-        ref={leadRef}
-        className="hero-reveal absolute z-20 pointer-events-none text-white font-medium opacity-0"
-        style={{
-          top: 'calc(162 * var(--u))',
-          right: 'calc(34 * var(--u))',
-          width: 'calc(319 * var(--u))',
-          fontFamily: 'var(--font-sans)',
-          fontSize: 'var(--body-size)',
-          lineHeight: 'var(--body-leading)',
-          letterSpacing: '-0.02em',
-          textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
-        }}
-      >
-        We build our own applications. Nablai is an independent software studio and AI engineering lab founded by Onur &amp; Karim.
-      </p>
-
-      {/* 4. Action Block (Bottom Right) */}
+      {/* 4. Action Block */}
       <div
         ref={actionRef}
-        className="hero-reveal absolute z-20 opacity-0 flex flex-col items-start pointer-events-auto"
-        style={{
-          right: 'calc(28 * var(--u))',
-          bottom: 'calc(89 * var(--u))',
-          width: 'calc(325 * var(--u))',
-          gap: 'calc(28 * var(--u))',
-        }}
+        className={`hero-reveal opacity-0 flex flex-col items-start ${styles.actionBlock}`}
       >
         <p
           className="text-white font-medium"
@@ -340,11 +296,8 @@ export const InteractiveHero: React.FC = () => {
         {/* CTA Button - Links to Portfolio */}
         <a
           href="#apps"
-          className="inline-flex items-center justify-center gap-2 font-medium text-zinc-950 bg-white hover:bg-zinc-100 transition-all duration-200 active:scale-95 text-center shadow-lg border border-white/60"
+          className={`inline-flex items-center justify-center gap-2 font-medium text-zinc-950 bg-white hover:bg-zinc-100 transition-all duration-200 active:scale-95 text-center shadow-lg border border-white/60 rounded-full ${styles.actionBtn}`}
           style={{
-            width: 'calc(230 * var(--u))',
-            height: 'calc(61 * var(--u))',
-            borderRadius: '99px',
             fontFamily: 'var(--font-sans)',
             fontSize: 'calc(17 * var(--u))',
             letterSpacing: '-0.02em',
@@ -358,20 +311,16 @@ export const InteractiveHero: React.FC = () => {
       {/* 5. Bottom Bar */}
       <div
         ref={bottomBarRef}
-        className="hero-reveal absolute z-20 opacity-0 flex items-center justify-between text-white pointer-events-none"
+        className={`hero-reveal opacity-0 flex items-center justify-between text-white ${styles.bottomBar}`}
         style={{
-          left: 'calc(28 * var(--u))',
-          right: 'calc(28 * var(--u))',
-          bottom: 'calc(28 * var(--u))',
           fontFamily: 'var(--font-sans)',
-          fontSize: 'calc(18 * var(--u))',
           letterSpacing: '-0.03em',
         }}
       >
         {/* Left: Scroll indicator */}
         <div className="flex items-center" style={{ gap: 'calc(12 * var(--u))' }}>
           <div
-            className="flex items-center justify-center rounded-full bg-white text-black shadow-md"
+            className="flex items-center justify-center rounded-full bg-white text-black shadow-md flex-shrink-0"
             style={{
               width: 'calc(33 * var(--u))',
               height: 'calc(33 * var(--u))',
@@ -380,11 +329,11 @@ export const InteractiveHero: React.FC = () => {
           >
             <ArrowDown className="w-4 h-4 stroke-[2.5]" />
           </div>
-          <span>Scroll down for our portfolio</span>
+          <span className="truncate">Scroll down for our portfolio</span>
         </div>
 
         {/* Right: Year Range */}
-        <div className="font-mono text-sm opacity-90 text-purple-200">
+        <div className="font-mono text-xs sm:text-sm opacity-90 text-purple-200 whitespace-nowrap pl-2">
           20&ndash;26 &middot; Nablai Studio
         </div>
       </div>

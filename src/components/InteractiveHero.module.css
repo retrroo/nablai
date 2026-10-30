@@ -1,0 +1,152 @@
+/* Preloader Counter */
+.counter {
+  position: absolute;
+  z-index: 40;
+  pointer-events: none;
+  display: flex;
+  align-items: baseline;
+  font-family: var(--font-sans);
+  color: #ffffff;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  text-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 1024px) {
+  .counter {
+    right: calc(40 * var(--u));
+    bottom: calc(38 * var(--u));
+    font-size: calc(170 * var(--u));
+  }
+}
+
+@media (max-width: 1023px) {
+  .counter {
+    right: calc(20 * var(--u));
+    bottom: calc(24 * var(--u));
+    font-size: calc(73.2 * var(--u));
+  }
+}
+
+/* Top Stack: Headline & Lead */
+@media (min-width: 1024px) {
+  .topStack {
+    display: contents;
+  }
+  .headlineBlock {
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    left: calc(28 * var(--u));
+    top: calc(114.5 * var(--u));
+  }
+  .leadParagraph {
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    top: calc(162 * var(--u));
+    right: calc(34 * var(--u));
+    width: calc(319 * var(--u));
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .topStack {
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    left: var(--page-edge);
+    right: var(--page-edge);
+    top: calc(126.7 * var(--u));
+    display: flex;
+    flex-direction: column;
+    gap: calc(28 * var(--u));
+    width: calc(100% - 2 * var(--page-edge));
+  }
+  .headlineBlock {
+    position: static;
+  }
+  .leadParagraph {
+    position: static;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/* Headline Lines */
+.line1 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--display-serif-size);
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.4), 0 0 70px rgba(168, 85, 247, 0.25);
+}
+
+.line2 {
+  font-family: var(--font-sans);
+  font-size: var(--display-sans-size);
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.35), 0 0 70px rgba(168, 85, 247, 0.2);
+}
+
+/* Action Block */
+@media (min-width: 1024px) {
+  .actionBlock {
+    position: absolute;
+    z-index: 20;
+    pointer-events: auto;
+    right: calc(28 * var(--u));
+    bottom: calc(89 * var(--u));
+    width: calc(325 * var(--u));
+    gap: calc(28 * var(--u));
+  }
+  .actionBtn {
+    width: calc(230 * var(--u));
+    height: calc(61 * var(--u));
+  }
+}
+
+@media (max-width: 1023px) {
+  .actionBlock {
+    position: absolute;
+    z-index: 20;
+    pointer-events: auto;
+    left: var(--page-edge);
+    right: var(--page-edge);
+    bottom: calc(98 * var(--u));
+    width: calc(100% - 2 * var(--page-edge));
+    gap: calc(24 * var(--u));
+  }
+  .actionBtn {
+    width: 100%;
+    height: calc(61 * var(--u));
+  }
+}
+
+/* Bottom Bar */
+@media (min-width: 1024px) {
+  .bottomBar {
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    left: calc(28 * var(--u));
+    right: calc(28 * var(--u));
+    bottom: calc(28 * var(--u));
+    font-size: calc(18 * var(--u));
+  }
+}
+
+@media (max-width: 1023px) {
+  .bottomBar {
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    left: var(--page-edge);
+    right: var(--page-edge);
+    bottom: calc(20 * var(--u));
+    font-size: calc(16 * var(--u));
+  }
+}

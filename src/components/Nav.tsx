@@ -49,7 +49,7 @@ export const Nav: React.FC = () => {
       <div 
         className="w-full flex items-center justify-between mx-auto"
         style={{
-          padding: 'calc(24 * var(--u)) calc(32 * var(--u)) 0 calc(32 * var(--u))'
+          padding: 'calc(20 * var(--u)) var(--page-edge) 0 var(--page-edge)'
         }}
       >
         {/* Left: Nablai Logo with split-A */}

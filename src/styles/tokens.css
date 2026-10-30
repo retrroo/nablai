@@ -23,7 +23,6 @@
   --glass-fill-strong: rgba(255, 255, 255, 0.16);
   --glass-edge: rgba(255, 255, 255, 0.75);
   --glass-edge-soft: rgba(255, 255, 255, 0.12);
-  --cursor: rgba(255, 255, 255, 0.5);
 
   /* Nablai brand accents */
   --purple-ai: #A855F7;
@@ -31,25 +30,42 @@
   --cyan-ai: #06B6D4;
   --bg-dark: #05060a;
 
-  /* Nablai Button theme */
-  --btn-grad-start: #9333ea;
-  --btn-grad-end: #7e22ce;
-  --btn-text: #ffffff;
-  --btn-glow: rgba(168, 85, 247, 0.4);
-
   /* Typography */
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Instrument Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
+  /* Desktop scales (width >= 1024px) */
+  --display-serif-size: calc(184 * var(--u));
+  --display-sans-size: calc(170 * var(--u));
   --body-size: calc(20 * var(--u));
   --body-leading: calc(22 * var(--u));
+  --small-size: calc(18 * var(--u));
+  --page-edge: calc(28 * var(--u));
+  --hero-top: calc(114.5 * var(--u));
+  --counter-right: calc(40 * var(--u));
+  --counter-bottom: calc(38 * var(--u));
+  --action-bottom: calc(89 * var(--u));
+  --action-right: calc(28 * var(--u));
+  --action-width: calc(325 * var(--u));
+  --btn-width: calc(230 * var(--u));
 }
 
 @media (max-width: 1023px) {
   :root {
     --u: min(100vw / 415, 100svh / 760);
+    --display-serif-size: calc(79.3 * var(--u));
+    --display-sans-size: calc(73.2 * var(--u));
     --body-size: calc(16 * var(--u));
     --body-leading: calc(20 * var(--u));
+    --small-size: calc(16 * var(--u));
+    --page-edge: calc(20 * var(--u));
+    --hero-top: calc(126.7 * var(--u));
+    --counter-right: calc(20 * var(--u));
+    --counter-bottom: calc(24 * var(--u));
+    --action-bottom: calc(98 * var(--u));
+    --action-right: calc(20 * var(--u));
+    --action-width: 100%;
+    --btn-width: 100%;
   }
 }
