@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plane, Compass, Barcode, MapPin, ArrowLeft, RefreshCw, CheckCircle2, Shield, Radio } from 'lucide-react'
+import { Compass, Barcode, MapPin, ArrowLeft, RefreshCw, CheckCircle2, Shield, Radio } from 'lucide-react'
 import { GithubIcon } from '../components/Icons'
 
 export const AirFlowPage: React.FC = () => {
@@ -68,7 +68,7 @@ export const AirFlowPage: React.FC = () => {
               LIVE APPLICATION // 01 &mdash; AVIATION INTELLIGENCE
             </span>
             <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-              AirFlow <span className="font-light text-zinc-400 text-3xl sm:text-4xl">(AiR ✈️)</span> &mdash; <br className="hidden sm:inline" />
+              AirFlow &mdash; <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-zinc-600">flight telemetry &amp; pass intelligence.</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">
@@ -108,7 +108,9 @@ export const AirFlowPage: React.FC = () => {
                 </span>
                 <span className="text-xl font-normal text-zinc-950 mt-1 block font-sans">{sampleFlight.airline}</span>
               </div>
-              <Plane className="w-5 h-5 text-zinc-800 -rotate-45" />
+              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 border border-zinc-200">
+                ACTIVE PASS
+              </span>
             </div>
 
             {/* Flight Route Display */}

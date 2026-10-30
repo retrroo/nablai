@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Plane, Newspaper } from 'lucide-react'
+import { ArrowUpRight, Newspaper } from 'lucide-react'
 
 export const AppsShowcase: React.FC = () => {
   return (
@@ -42,10 +42,9 @@ export const AppsShowcase: React.FC = () => {
               </div>
 
               {/* Title & Concept */}
-              <div className="flex items-center gap-3 mb-3">
-                <Plane className="w-5 h-5 text-zinc-800 -rotate-45" />
+              <div className="mb-3">
                 <h3 className="text-2xl sm:text-3xl font-normal text-zinc-950 tracking-tight font-sans">
-                  AirFlow <span className="text-zinc-400 text-lg font-light">(AiR ✈️)</span>
+                  AirFlow
                 </h3>
               </div>
               <p className="text-sm text-zinc-600 leading-relaxed max-w-lg mb-8 font-sans">
