@@ -213,22 +213,29 @@ export const InteractiveHero: React.FC = () => {
   if (isMobile) {
     return (
       <section
-        className="relative w-full min-h-[100svh] overflow-hidden select-none bg-[#030307] flex flex-col justify-between px-6 pt-24 pb-8"
+        className="relative w-full min-h-screen overflow-hidden select-none bg-[#030307] flex flex-col justify-between px-6 pt-24 pb-8"
         style={{
           background:
             'radial-gradient(ellipse 140% 100% at 50% 10%, #1c0f3c 0%, #0e0822 40%, #060410 75%, #030307 100%)',
+          transform: 'translateZ(0)',
         }}
       >
-        {/* Static Cosmic Nebulae Glows (Pure CSS, 0 CPU cost) */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] bg-purple-900/22 rounded-full blur-[90px] pointer-events-none" />
-        <div className="absolute bottom-1/3 right-1/4 w-[280px] h-[280px] bg-indigo-900/18 rounded-full blur-[80px] pointer-events-none" />
+        {/* Static Cosmic Nebulae Glows (Pure 2D radial gradient, 0 GPU blur cost) */}
+        <div
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(147, 51, 234, 0.18) 0%, transparent 70%)' }}
+        />
+        <div
+          className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] rounded-full pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(79, 70, 229, 0.14) 0%, transparent 70%)' }}
+        />
 
         {/* Static Subtle Stars Grid Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
 
         {/* Top: Tag + Headline + Lead */}
         <div className="relative z-10 pt-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/10 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
             <span className="text-xs font-mono text-purple-200 tracking-tight">Independent AI Studio</span>
           </div>
@@ -253,8 +260,8 @@ export const InteractiveHero: React.FC = () => {
           </p>
         </div>
 
-        {/* Middle: Studio Apps Quick Cards */}
-        <div className="relative z-10 my-6 p-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md space-y-3">
+        {/* Middle: Studio Apps Quick Cards (Instant, zero blur) */}
+        <div className="relative z-10 my-6 p-4 rounded-2xl bg-[#0e0a1e]/90 border border-white/10 space-y-3 shadow-md">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400 pb-2 border-b border-white/10">
             <span className="text-white font-medium">STUDIO BUILDS</span>
             <span className="text-purple-300">2026 ACTIVE</span>
@@ -262,14 +269,14 @@ export const InteractiveHero: React.FC = () => {
           <div className="grid grid-cols-2 gap-2.5 text-xs">
             <a
               href="#apps"
-              className="p-3 rounded-xl bg-white/[0.05] border border-white/10 hover:bg-white/[0.08] transition-colors block"
+              className="p-3 rounded-xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.1] transition-colors block"
             >
               <span className="text-emerald-400 font-mono text-[10px] block font-medium">01 &middot; AVIATION</span>
               <span className="text-white font-medium text-sm mt-0.5 block">AirFlow</span>
             </a>
             <a
               href="#apps"
-              className="p-3 rounded-xl bg-white/[0.05] border border-white/10 hover:bg-white/[0.08] transition-colors block"
+              className="p-3 rounded-xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.1] transition-colors block"
             >
               <span className="text-purple-400 font-mono text-[10px] block font-medium">02 &middot; AI LAB</span>
               <span className="text-white font-medium text-sm mt-0.5 block">Latent Space</span>

@@ -10,8 +10,15 @@ export const Nav: React.FC = () => {
   const location = useLocation()
 
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 120)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 80)
+          ticking = false
+        })
+        ticking = true
+      }
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
@@ -146,13 +153,13 @@ export const Nav: React.FC = () => {
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button (Optimized solid glass, no GPU blur lag) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`lg:hidden flex items-center justify-center rounded-full transition-colors ${
               isHero
-                ? 'border border-white/10 text-white bg-black/50 backdrop-blur-md'
-                : 'border border-zinc-200 text-zinc-900 bg-white/90 backdrop-blur-md shadow-xs'
+                ? 'border border-white/10 text-white bg-black/60 shadow-xs'
+                : 'border border-zinc-200 text-zinc-900 bg-white/95 shadow-xs'
             }`}
             style={{
               width: 'calc(42 * var(--u))',
@@ -168,10 +175,10 @@ export const Nav: React.FC = () => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
-          className={`lg:hidden mx-4 mt-3 p-5 rounded-2xl shadow-xl space-y-2 backdrop-blur-2xl ${
+          className={`lg:hidden mx-4 mt-3 p-5 rounded-2xl shadow-xl space-y-2 ${
             isHero
-              ? 'bg-[#08090d]/95 border border-white/10 text-white'
-              : 'bg-white/98 border border-zinc-200 text-zinc-900'
+              ? 'bg-[#08090d]/98 border border-white/10 text-white'
+              : 'bg-white border border-zinc-200 text-zinc-900'
           }`}
         >
           {navLinks.map((link) => (

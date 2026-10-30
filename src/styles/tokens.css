@@ -53,7 +53,7 @@
 
 @media (max-width: 1023px) {
   :root {
-    --u: min(100vw / 415, 100svh / 760);
+    --u: calc(100vw / 415);
     --display-serif-size: calc(79.3 * var(--u));
     --display-sans-size: calc(73.2 * var(--u));
     --body-size: calc(16 * var(--u));
