@@ -3,31 +3,31 @@ import React from 'react'
 const BUILD_CYCLE = [
   {
     step: '01',
-    phase: 'HYPOTHESIS & MATH',
-    title: 'Mathematical Proof & Loss Dynamics',
+    phase: 'UTILITY FIRST',
+    title: 'Solving Our Own Problems',
     description:
-      'We start from the vector calculus of the problem. We evaluate whether gradient descent with LoRA, a custom state graph, or hybrid dense-sparse vector indexing is the right technical solution.',
+      'We identify real friction in our daily workflows &mdash; like airlines hiding inbound delay reasons until the last minute, or sifting through hundreds of low-signal AI press releases.',
   },
   {
     step: '02',
-    phase: 'PROTOTYPE SPRINT',
-    title: '14-Day Working Dogfood MVP',
+    phase: 'CLEAN ARCHITECTURE',
+    title: 'Picking The Right Stack',
     description:
-      'We ship a functional build directly into our personal daily workflows. We do not write pitch decks: we build working software and test it immediately on real flight passes or vector queries.',
+      'We choose tools based on performance and longevity: strict TypeScript, React Native Skia for 60fps GPU mobile rendering, and Hexagonal DDD architecture in Next.js to isolate domain rules.',
   },
   {
     step: '03',
-    phase: 'EVALS & BENCHMARKS',
-    title: 'Adversarial Evals & Guardrails',
+    phase: 'DOGFOODING',
+    title: 'Daily Personal Use',
     description:
-      'We stress-test our models and agents across thousands of synthetic edge cases. Hallucinations are filtered out using deterministic validation assertions and citation gates.',
+      'We test our builds immediately in real conditions &mdash; scanning actual boarding passes at airport gates or running automated Gemini summaries over daily technical publications.',
   },
   {
     step: '04',
-    phase: 'PRODUCTION RELEASE',
-    title: 'Containerized Deployment & Evolution',
+    phase: 'ITERATION',
+    title: 'Refining & Shipping',
     description:
-      'We deploy to sovereign GPU clusters and global edge networks. Continuous profiling of inference latency, token economics, and telemetry informs the next product iteration.',
+      'We profile real-world latency, eliminate redundant API calls via BullMQ and Redis single-flight locks, and maintain our codebases cleanly on GitHub.',
   },
 ]
 
@@ -39,19 +39,19 @@ export const ProcessSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              05 &mdash; Product Build Cycle
+              05 &mdash; How We Work
             </span>
             <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-zinc-950 font-sans">
-              From Mathematical Proof <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-zinc-600">to production applications.</span>
+              From Personal Need <br className="hidden sm:inline" />
+              <span className="font-serif italic font-normal text-zinc-600">to working applications.</span>
             </h2>
           </div>
-          <p className="text-sm text-zinc-600 max-w-sm leading-relaxed">
-            As independent software builders, our cycle is fast, disciplined, and code-first. We turn our own ideas into live applications without corporate bureaucracy.
+          <p className="text-sm text-zinc-600 max-w-sm leading-relaxed font-sans">
+            As independent software builders, our cycle is simple, disciplined, and code-first. We turn our own ideas into live software without fluff.
           </p>
         </div>
 
-        {/* Process Ledger (Clean horizontal rule layout) */}
+        {/* Process Ledger */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-zinc-200">
           {BUILD_CYCLE.map((phase) => (
             <div
@@ -75,7 +75,7 @@ export const ProcessSection: React.FC = () => {
               </div>
 
               <div className="mt-8 pt-4 border-t border-zinc-200/60 text-[10px] font-mono text-zinc-500">
-                CYCLE_{phase.step} // STUDIO_VERIFIED
+                STEP_{phase.step} // BUILD_CYCLE
               </div>
             </div>
           ))}
