@@ -2,19 +2,19 @@ import React, { useState } from 'react'
 import { Check, Terminal, FileCode, Layers } from 'lucide-react'
 
 export const ArchitectureSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'agent' | 'rag' | 'finetune'>('agent')
+  const [activeTab, setActiveTab] = useState<'policy' | 'hexagonal' | 'inbound'>('policy')
 
   const techStack = [
-    'PyTorch',
-    'CUDA',
-    'vLLM',
-    'Qdrant',
-    'LangGraph',
-    'TensorRT-LLM',
-    'DeepSeek',
-    'Llama 3',
-    'Next.js 19',
-    'Docker & K8s',
+    'Expo SDK 52',
+    'React Native Skia',
+    'Next.js 16',
+    'React 19',
+    'Node.js 24',
+    'BullMQ & Redis',
+    'Supabase & RLS',
+    'Gemini 1.5 Flash',
+    'Hexagonal Architecture',
+    'AirLabs & OpenSky',
   ]
 
   return (
@@ -27,12 +27,12 @@ export const ArchitectureSection: React.FC = () => {
               04 &mdash; Systems Architecture
             </span>
             <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white font-sans">
-              Production-Grade Infrastructure <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-slate-300">engineered for deterministic reliability.</span>
+              Production Code Patterns <br className="hidden sm:inline" />
+              <span className="font-serif italic font-normal text-slate-300">from our live studio repositories.</span>
             </h2>
           </div>
           <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
-            Every pipeline is designed with explicit fallback paths, continuous checkpointing, and strict latency budgets.
+            Real code from <strong className="text-white font-medium">flight-app</strong> and <strong className="text-white font-medium">latentspace</strong>. Clean hexagonal boundaries, deterministic state machines, and predictive heuristics.
           </p>
         </div>
 
@@ -42,42 +42,42 @@ export const ArchitectureSection: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between border-b border-white/[0.06] bg-black/40 px-4 sm:px-6">
             <div className="flex items-center gap-2 py-3 overflow-x-auto">
               <button
-                onClick={() => setActiveTab('agent')}
+                onClick={() => setActiveTab('policy')}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono transition-colors ${
-                  activeTab === 'agent'
+                  activeTab === 'policy'
                     ? 'bg-white/[0.08] text-white border border-white/[0.08]'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <Terminal className="w-3.5 h-3.5 text-purple-400" />
-                <span>agentic_graph.py</span>
+                <span>tracking_policy.ts</span>
               </button>
               <button
-                onClick={() => setActiveTab('rag')}
+                onClick={() => setActiveTab('hexagonal')}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono transition-colors ${
-                  activeTab === 'rag'
+                  activeTab === 'hexagonal'
                     ? 'bg-white/[0.08] text-white border border-white/[0.08]'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <FileCode className="w-3.5 h-3.5 text-cyan-400" />
-                <span>hybrid_rag_pipeline.py</span>
+                <span>container.ts</span>
               </button>
               <button
-                onClick={() => setActiveTab('finetune')}
+                onClick={() => setActiveTab('inbound')}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono transition-colors ${
-                  activeTab === 'finetune'
+                  activeTab === 'inbound'
                     ? 'bg-white/[0.08] text-white border border-white/[0.08]'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <Layers className="w-3.5 h-3.5 text-emerald-400" />
-                <span>unsloth_quantize.py</span>
+                <span>inbound_turnaround.ts</span>
               </button>
             </div>
 
             <span className="text-[11px] font-mono text-slate-500 hidden sm:inline">
-              NABLAI_CORE_V2.4 &middot; LINUX x86_64
+              REPOSITORIES: retrroo/flight-app &middot; karimsaid123/latentspace
             </span>
           </div>
 
@@ -85,91 +85,91 @@ export const ArchitectureSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Left Blueprint Specs (5 cols) */}
             <div className="lg:col-span-5 p-8 sm:p-10 border-b lg:border-b-0 lg:border-r border-white/[0.06] space-y-6">
-              {activeTab === 'agent' && (
+              {activeTab === 'policy' && (
                 <>
                   <div className="space-y-2">
                     <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest">
-                      STATE GRAPH ORCHESTRATION
+                      TIME-WINDOW FSM // FLIGHT-APP
                     </span>
                     <h3 className="text-xl font-normal text-white font-sans">
-                      Cyclical Multi-Agent Swarms
+                      Zero-IO Polling Policy
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                      A master planner decomposes goals into discrete steps, domain sub-agents execute actions through validated APIs, and an independent evaluator verifies outputs before synthesis.
+                      Pure mathematical state machine. Because there is zero I/O inside the policy function, every transition and API budget decision is 100% deterministic and unit-testable.
                     </p>
                   </div>
                   <ul className="space-y-2.5 text-xs text-slate-300 font-mono pt-4 border-t border-white/[0.04]">
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
-                      <span>Deterministic safety guardrails on all API tools</span>
+                      <span>Dormant (&gt;7d) to Active (6h..landing, 1-min poll)</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
-                      <span>State checkpointing for transparent failure recovery</span>
+                      <span>Redis single-flight mutex deduplicating shared flights</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />
-                      <span>Real-time human-in-the-loop escalation gates</span>
+                      <span>Automatic archive 2 hours post-landing</span>
                     </li>
                   </ul>
                 </>
               )}
 
-              {activeTab === 'rag' && (
+              {activeTab === 'hexagonal' && (
                 <>
                   <div className="space-y-2">
                     <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest">
-                      RETRIEVAL-AUGMENTED GENERATION
+                      PORTS &amp; ADAPTERS // LATENTSPACE
                     </span>
                     <h3 className="text-xl font-normal text-white font-sans">
-                      Hybrid Reranked Retrieval
+                      Hexagonal IoC Container
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                      Dense semantic embeddings combined with BM25 sparse keyword indices, funneled through a cross-encoder reranker for 100% cited answers with zero hallucinations.
+                      Clean architecture decoupling core domain entities from infrastructure. Ports define contracts for Feed providers and storage; adapters implement Redis, memory, and RSS streaming.
                     </p>
                   </div>
                   <ul className="space-y-2.5 text-xs text-slate-300 font-mono pt-4 border-t border-white/[0.04]">
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-                      <span>Exact document page &amp; timestamp citations</span>
+                      <span>Domain Entities isolated from external frameworks</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-                      <span>Granular chunk-level Role-Based Access Control</span>
+                      <span>Pluggable memory, SQLite, and Redis KV repositories</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-                      <span>Self-hosted in our private GPU infrastructure</span>
+                      <span>Concurrency locking with typed domain error handling</span>
                     </li>
                   </ul>
                 </>
               )}
 
-              {activeTab === 'finetune' && (
+              {activeTab === 'inbound' && (
                 <>
                   <div className="space-y-2">
                     <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">
-                      MODEL OPTIMIZATION &amp; COMPRESSION
+                      PREDICTIVE TELEMETRY // FLIGHT-APP
                     </span>
                     <h3 className="text-xl font-normal text-white font-sans">
-                      LoRA &amp; 4-Bit AWQ Quantization
+                      Where&apos;s My Plane Engine
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                      Custom parameter-efficient fine-tuning on proprietary data. Models are quantized via 4-bit AWQ to achieve sub-40ms latency on cost-efficient GPU nodes.
+                      Tracks aircraft tail numbers (`reg_number`/`hex`) on their preceding leg. When inbound arrival buffer drops below minimum turnaround ground time, early warning alerts are triggered before airlines report them.
                     </p>
                   </div>
                   <ul className="space-y-2.5 text-xs text-slate-300 font-mono pt-4 border-t border-white/[0.04]">
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                      <span>Zero vendor lock-in; sovereign weights</span>
+                      <span>Widebody (60m) vs Regional (25m) turnaround specs</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                      <span>10x lower token inference cost vs commercial APIs</span>
+                      <span>ADS-B live telemetry ingested via AirLabs &amp; OpenSky</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                      <span>Constant sub-50ms latency without rate-limits</span>
+                      <span>Instant push notifications via Supabase Realtime</span>
                     </li>
                   </ul>
                 </>
@@ -178,56 +178,76 @@ export const ArchitectureSection: React.FC = () => {
 
             {/* Right Syntax-Highlighted Code Canvas (7 cols) */}
             <div className="lg:col-span-7 p-6 sm:p-8 bg-black/50 font-mono text-xs text-slate-300 leading-relaxed overflow-x-auto">
-              {activeTab === 'agent' && (
+              {activeTab === 'policy' && (
                 <div className="space-y-2">
-                  <div className="text-slate-500"># Nablai Cyclical Agentic State Graph</div>
-                  <div><span className="text-purple-400">from</span> langgraph.graph <span className="text-purple-400">import</span> StateGraph, END</div>
-                  <div><span className="text-purple-400">from</span> nablai.core <span className="text-purple-400">import</span> AgentState, ToolRegistry</div>
+                  <div className="text-slate-500">// flight-app/backend/src/tracking/policy.ts</div>
+                  <div><span className="text-purple-400">export function</span> <span className="text-cyan-300">decide</span>(</div>
+                  <div className="pl-4">state: <span className="text-amber-300">TrackingState</span>,</div>
+                  <div className="pl-4">now: <span className="text-amber-300">Date</span>,</div>
+                  <div className="pl-4">config: <span className="text-amber-300">PollingConfig</span> = defaultPollingConfig</div>
+                  <div>): <span className="text-amber-300">PollDecision</span> &#123;</div>
+                  <div className="pl-4 text-slate-500">// Pure state machine: no I/O, zero external cost bugs</div>
+                  <div className="pl-4">const t = now.getTime();</div>
+                  <div className="pl-4">const hoursToDep = (depTime - t) / HOUR;</div>
                   <br />
-                  <div>workflow = StateGraph(AgentState)</div>
-                  <div>workflow.add_node(<span className="text-emerald-300">&quot;planner&quot;</span>, plan_execution_tree)</div>
-                  <div>workflow.add_node(<span className="text-emerald-300">&quot;tool_executor&quot;</span>, execute_deterministic_tools)</div>
-                  <div>workflow.add_node(<span className="text-emerald-300">&quot;evaluator&quot;</span>, verify_grounded_output)</div>
-                  <br />
-                  <div><span className="text-slate-500"># Gradient confidence conditional edge</span></div>
-                  <div><span className="text-purple-400">def</span> <span className="text-cyan-300">evaluate_confidence</span>(state: AgentState):</div>
-                  <div className="pl-4"><span className="text-purple-400">if</span> state.gradient_confidence &lt; <span className="text-amber-300">0.98</span>:</div>
-                  <div className="pl-8"><span className="text-purple-400">return</span> <span className="text-emerald-300">&quot;planner&quot;</span>  <span className="text-slate-500"># Self-healing loop</span></div>
-                  <div className="pl-4"><span className="text-purple-400">return</span> END</div>
+                  <div className="pl-4"><span className="text-purple-400">if</span> (hoursToDep &gt; <span className="text-amber-300">168</span>) &#123;</div>
+                  <div className="pl-8"><span className="text-purple-400">return</span> &#123; phase: <span className="text-emerald-300">&apos;dormant&apos;</span>, fetchStatus: <span className="text-amber-300">false</span> &#125;;</div>
+                  <div className="pl-4">&#125;</div>
+                  <div className="pl-4"><span className="text-purple-400">if</span> (hoursToDep &gt; <span className="text-amber-300">24</span>) &#123;</div>
+                  <div className="pl-8"><span className="text-purple-400">return</span> &#123; phase: <span className="text-emerald-300">&apos;daily&apos;</span>, fetchStatus: isDue(DAY) &#125;;</div>
+                  <div className="pl-4">&#125;</div>
+                  <div className="pl-4"><span className="text-purple-400">if</span> (hoursToDep &gt; <span className="text-amber-300">6</span>) &#123;</div>
+                  <div className="pl-8"><span className="text-purple-400">return</span> &#123; phase: <span className="text-emerald-300">&apos;pre_departure&apos;</span>, fetchStatus: isDue(<span className="text-amber-300">15</span> * MINUTE), checkInbound: <span className="text-amber-300">true</span> &#125;;</div>
+                  <div className="pl-4">&#125;</div>
+                  <div className="pl-4"><span className="text-purple-400">return</span> &#123; phase: <span className="text-emerald-300">&apos;active&apos;</span>, fetchStatus: isDue(<span className="text-amber-300">5</span> * MINUTE) &#125;;</div>
+                  <div>&#125;</div>
                 </div>
               )}
 
-              {activeTab === 'rag' && (
+              {activeTab === 'hexagonal' && (
                 <div className="space-y-2">
-                  <div className="text-slate-500"># Hybrid Reranked Retrieval Pipeline</div>
-                  <div><span className="text-purple-400">from</span> qdrant_client <span className="text-purple-400">import</span> QdrantClient</div>
-                  <div><span className="text-purple-400">from</span> nablai.retrieval <span className="text-purple-400">import</span> HybridFusion, CrossEncoderReranker</div>
+                  <div className="text-slate-500">// latentspace/src/core/container.ts</div>
+                  <div><span className="text-purple-400">import</span> &#123; RssFeedAdapter &#125; <span className="text-purple-400">from</span> <span className="text-emerald-300">&apos;@/adapters/providers/rss-feed.adapter&apos;</span>;</div>
+                  <div><span className="text-purple-400">import</span> &#123; MemoryArticleRepository &#125; <span className="text-purple-400">from</span> <span className="text-emerald-300">&apos;@/adapters/storage/memory-article.repository&apos;</span>;</div>
+                  <div><span className="text-purple-400">import</span> &#123; IngestionService &#125; <span className="text-purple-400">from</span> <span className="text-emerald-300">&apos;./services/ingestion.service&apos;</span>;</div>
                   <br />
-                  <div><span className="text-slate-500"># 1. Parallel dense vector &amp; BM25 sparse search</span></div>
-                  <div>dense_hits = qdrant.search(collection=<span className="text-emerald-300">&quot;enterprise_docs&quot;</span>, vector=query_vec, limit=<span className="text-amber-300">50</span>)</div>
-                  <div>sparse_hits = bm25_index.query(query_tokens, top_k=<span className="text-amber-300">50</span>)</div>
+                  <div><span className="text-purple-400">class</span> <span className="text-cyan-300">BackendContainer</span> &#123;</div>
+                  <div className="pl-4"><span className="text-purple-400">public readonly</span> feedProvider: <span className="text-amber-300">FeedProviderPort</span>;</div>
+                  <div className="pl-4"><span className="text-purple-400">public readonly</span> articleRepo: <span className="text-amber-300">ArticleRepositoryPort</span>;</div>
+                  <div className="pl-4"><span className="text-purple-400">public readonly</span> ingestionService: <span className="text-amber-300">IngestionService</span>;</div>
                   <br />
-                  <div><span className="text-slate-500"># 2. Cross-encoder re-scoring with exact citations</span></div>
-                  <div>reranked = CrossEncoderReranker.score(dense_hits + sparse_hits, top_k=<span className="text-amber-300">5</span>)</div>
-                  <div><span className="text-purple-400">return</span> synthesizer.generate_grounded(prompt, context=reranked)</div>
+                  <div className="pl-4"><span className="text-purple-400">private constructor</span>() &#123;</div>
+                  <div className="pl-8">this.feedProvider = <span className="text-purple-400">new</span> RssFeedAdapter(<span className="text-amber-300">9000</span>);</div>
+                  <div className="pl-8">this.articleRepo = <span className="text-purple-400">new</span> MemoryArticleRepository();</div>
+                  <div className="pl-8">this.ingestionService = <span className="text-purple-400">new</span> IngestionService(</div>
+                  <div className="pl-12">this.feedProvider, this.articleRepo</div>
+                  <div className="pl-8">);</div>
+                  <div className="pl-4">&#125;</div>
+                  <div>&#125;</div>
                 </div>
               )}
 
-              {activeTab === 'finetune' && (
+              {activeTab === 'inbound' && (
                 <div className="space-y-2">
-                  <div className="text-slate-500"># LoRA Fine-Tuning &amp; AWQ Quantization Deployment</div>
-                  <div><span className="text-purple-400">from</span> unsloth <span className="text-purple-400">import</span> FastLanguageModel</div>
-                  <div><span className="text-purple-400">from</span> vllm <span className="text-purple-400">import</span> AsyncLLMEngine, EngineArgs</div>
+                  <div className="text-slate-500">// flight-app/backend/src/tracking/inbound.ts</div>
+                  <div><span className="text-purple-400">export function</span> <span className="text-cyan-300">assessInbound</span>(</div>
+                  <div className="pl-4">flight: <span className="text-amber-300">InboundInput</span>,</div>
+                  <div className="pl-4">inbound: <span className="text-amber-300">FlightSnapshot | null</span></div>
+                  <div>): <span className="text-amber-300">InboundAssessment | null</span> &#123;</div>
+                  <div className="pl-4"><span className="text-purple-400">if</span> (!inbound || !flight.scheduledDeparture || !flight.depIata) <span className="text-purple-400">return</span> <span className="text-amber-300">null</span>;</div>
                   <br />
-                  <div>model, tokenizer = FastLanguageModel.from_pretrained(</div>
-                  <div className="pl-4">model_name=<span className="text-emerald-300">&quot;meta-llama/Llama-3.3-70B&quot;</span>,</div>
-                  <div className="pl-4">load_in_4bit=<span className="text-amber-300">True</span>,</div>
-                  <div>)</div>
-                  <div>model = FastLanguageModel.get_peft_model(model, r=<span className="text-amber-300">16</span>, target_modules=[<span className="text-emerald-300">&quot;q_proj&quot;</span>, <span className="text-emerald-300">&quot;v_proj&quot;</span>])</div>
+                  <div className="pl-4 text-slate-500">// Widebody (60m) vs Regional (25m) minimum ground turnaround</div>
+                  <div className="pl-4">const turnaroundMin = WIDEBODY.test(flight.aircraftIcao) ? <span className="text-amber-300">60</span> : <span className="text-amber-300">35</span>;</div>
+                  <div className="pl-4">const readyAt = inboundArrival.getTime() + turnaroundMin * <span className="text-amber-300">60_000</span>;</div>
+                  <div className="pl-4">const predictedDelay = Math.max(<span className="text-amber-300">0</span>, Math.round((readyAt - scheduledDep) / <span className="text-amber-300">60_000</span>));</div>
                   <br />
-                  <div><span className="text-slate-500"># Export to 4-bit AWQ &amp; spin up production vLLM cluster</span></div>
-                  <div>model.save_pretrained_awq(<span className="text-emerald-300">&quot;./model-awq-v1&quot;</span>, bits=<span className="text-amber-300">4</span>)</div>
-                  <div>engine = AsyncLLMEngine.from_engine_args(EngineArgs(model=<span className="text-emerald-300">&quot;./model-awq-v1&quot;</span>, port=<span className="text-amber-300">8000</span>))</div>
+                  <div className="pl-4 text-slate-500">// Warn traveller if inbound aircraft arrives too late to turn around</div>
+                  <div className="pl-4"><span className="text-purple-400">return</span> &#123;</div>
+                  <div className="pl-8">inboundFlightIata: inbound.flightIata,</div>
+                  <div className="pl-8">predictedDelayMinutes: predictedDelay,</div>
+                  <div className="pl-8">alert: predictedDelay &gt; (flight.reportedDepDelayMinutes ?? <span className="text-amber-300">0</span>) + <span className="text-amber-300">15</span>,</div>
+                  <div className="pl-4">&#125;;</div>
+                  <div>&#125;</div>
                 </div>
               )}
             </div>
@@ -236,7 +256,7 @@ export const ArchitectureSection: React.FC = () => {
 
         {/* Minimalist Monospaced Tech Index */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-mono text-slate-500">
-          <span className="text-slate-400">STACK:</span>
+          <span className="text-slate-400">STUDIO STACK:</span>
           {techStack.map((tech) => (
             <span key={tech} className="hover:text-white transition-colors">
               {tech}

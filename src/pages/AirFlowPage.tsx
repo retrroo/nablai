@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Plane, Compass, Barcode, MapPin, ArrowLeft, RefreshCw, CheckCircle2 } from 'lucide-react'
+import { Plane, Compass, Barcode, MapPin, ArrowLeft, RefreshCw, CheckCircle2, Shield, Radio } from 'lucide-react'
+import { GithubIcon } from '../components/Icons'
 
 export const AirFlowPage: React.FC = () => {
   const [scanState, setScanState] = useState<'idle' | 'scanning' | 'success'>('idle')
@@ -8,14 +9,14 @@ export const AirFlowPage: React.FC = () => {
   const sampleFlight = {
     flightNumber: 'KL1021',
     airline: 'KLM Royal Dutch Airlines',
-    aircraft: 'Boeing 787-10 Dreamliner',
+    aircraft: 'Boeing 787-10 Dreamliner (PH-BKA)',
     origin: { code: 'AMS', name: 'Amsterdam Schiphol', terminal: '2', gate: 'D24' },
     destination: { code: 'LHR', name: 'London Heathrow', terminal: '4', gate: '12' },
     departureTime: '14:20 CEST',
     seat: '04A (World Business Class)',
     passenger: 'ONUR / RETRROO',
     barcodeData: 'M1RETRROO/ONUR EK1021 AMSLHR 1021 304Y004A0021 147',
-    delayProbability: '4% (On-Time Guaranteed)',
+    inboundAssessment: 'Inbound KL1020 landed on time at AMS · 75m buffer vs 60m widebody requirement',
   }
 
   const triggerScan = () => {
@@ -25,8 +26,31 @@ export const AirFlowPage: React.FC = () => {
     }, 1000)
   }
 
+  const architecturePillars = [
+    {
+      title: 'React Native Skia & CanvasKit',
+      description: '60fps GPU-accelerated globe and route map rendering. Interactivity is delegated to the UI-thread via Reanimated 4 and Gesture Handler with 4,008 bundled global airport nodes.',
+      icon: Compass,
+    },
+    {
+      title: 'Time-Window State Machine (FSM)',
+      description: 'Zero-IO policy engine transitioning through dormant (>7d), daily (7d..24h), pre_departure (24h..6h), and active (6h..landing, 1-min poll) to strictly control external API expenses.',
+      icon: RefreshCw,
+    },
+    {
+      title: 'Predictive Inbound Tail Tracker',
+      description: 'Tracks aircraft tail numbers on their preceding leg. Warns travelers if an incoming plane is delayed beyond the turnaround window (60m widebody / 25m regional) before airlines broadcast it.',
+      icon: Radio,
+    },
+    {
+      title: 'Distributed BullMQ & Redis Locks',
+      description: 'Node 24 backend utilizing Redis single-flight mutex locks so 200 passengers on the same flight trigger exactly 1 API call, broadcast to all clients via Supabase Realtime WebSockets.',
+      icon: Shield,
+    },
+  ]
+
   return (
-    <div className="min-h-screen bg-[#050609] text-slate-100 pt-32 pb-24 selection:bg-purple-600 selection:text-white">
+    <div className="min-h-screen bg-[#050609] text-slate-100 pt-32 pb-24 selection:bg-cyan-500 selection:text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <Link
@@ -41,14 +65,14 @@ export const AirFlowPage: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-12 border-b border-white/[0.08]">
           <div className="max-w-3xl">
             <span className="text-[11px] font-mono tracking-widest text-cyan-400 uppercase block mb-3">
-              PROP_APP // 01 &mdash; AVIATION INTELLIGENCE
+              LIVE APPLICATION // 01 &mdash; AVIATION INTELLIGENCE
             </span>
             <h1 className="text-4xl sm:text-6xl font-normal text-white tracking-tight font-sans">
-              AirFlow &mdash; <br className="hidden sm:inline" />
+              AirFlow <span className="font-light text-slate-500 text-3xl sm:text-4xl">(AiR ✈️)</span> &mdash; <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-slate-300">flight telemetry &amp; pass intelligence.</span>
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
-              AirFlow is an aviation companion powered by computer vision and predictive machine learning. Scan raw boarding passes via camera or upload, reconstruct full 3D flight trajectories, and forecast arrival gates.
+            <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl font-sans">
+              A high-precision mobile flight companion engineered by Onur &amp; Karim. Built with Expo SDK 52, React Native Skia GPU mapping, a Node 24 + BullMQ backend, and predictive inbound turnaround analytics.
             </p>
           </div>
 
@@ -58,15 +82,16 @@ export const AirFlowPage: React.FC = () => {
               className="px-5 py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs font-mono border border-white/[0.1] transition-all flex items-center gap-2"
             >
               <Barcode className="w-4 h-4 text-cyan-400" />
-              <span>Simulate Boarding Pass Scan</span>
+              <span>Simulate BCBP Barcode Scan</span>
             </button>
             <a
               href="https://github.com/retrroo/flight-app"
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] text-slate-300 hover:text-white text-xs font-mono border border-white/[0.06] transition-colors"
+              className="px-5 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] text-slate-300 hover:text-white text-xs font-mono border border-white/[0.06] transition-colors flex items-center gap-2"
             >
-              GitHub Source
+              <GithubIcon className="w-4 h-4" />
+              <span>retrroo/flight-app</span>
             </a>
           </div>
         </div>
@@ -98,9 +123,9 @@ export const AirFlowPage: React.FC = () => {
                 <div className="flex flex-col items-center px-4">
                   <span className="text-[10px] font-mono text-slate-500 mb-1">1h 15m &middot; Nonstop</span>
                   <div className="w-24 sm:w-36 h-[1px] bg-white/[0.15] relative">
-                    <Plane className="w-3.5 h-3.5 text-white absolute -top-1.5 left-1/2 -translate-x-1/2 rotate-90" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
                   </div>
-                  <span className="text-[10px] text-emerald-400 mt-2 font-mono">{sampleFlight.delayProbability}</span>
+                  <span className="text-[10px] font-mono text-cyan-400 mt-1">FL380 &middot; 480 kts</span>
                 </div>
 
                 <div className="text-right">
@@ -110,110 +135,130 @@ export const AirFlowPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Passenger & Flight Details Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/[0.04] text-xs font-mono">
-                <div>
-                  <span className="text-slate-500 text-[10px] block">PASSENGER</span>
-                  <span className="text-white mt-0.5 block">{sampleFlight.passenger}</span>
-                </div>
+              {/* Passenger & Aircraft Meta */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-black/40 border border-white/[0.04] text-xs font-mono">
                 <div>
                   <span className="text-slate-500 text-[10px] block">FLIGHT</span>
-                  <span className="text-cyan-400 mt-0.5 block">{sampleFlight.flightNumber}</span>
+                  <span className="text-white font-medium">{sampleFlight.flightNumber}</span>
                 </div>
                 <div>
                   <span className="text-slate-500 text-[10px] block">SEAT</span>
-                  <span className="text-white mt-0.5 block">{sampleFlight.seat}</span>
+                  <span className="text-white font-medium">{sampleFlight.seat.split(' ')[0]}</span>
                 </div>
                 <div>
                   <span className="text-slate-500 text-[10px] block">DEPARTURE</span>
-                  <span className="text-white mt-0.5 block">{sampleFlight.departureTime}</span>
+                  <span className="text-white font-medium">{sampleFlight.departureTime}</span>
+                </div>
+                <div>
+                  <span className="text-slate-500 text-[10px] block">TAIL</span>
+                  <span className="text-cyan-400 font-medium">PH-BKA</span>
                 </div>
               </div>
 
-              {/* Barcode Strip */}
-              <div className="p-4 rounded-xl bg-black/50 border border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="space-y-1 text-center sm:text-left">
-                  <span className="text-[10px] font-mono text-slate-500 block">IATA BCBP 2D Barcode Telemetry:</span>
-                  <code className="text-[10px] font-mono text-slate-400 break-all">{sampleFlight.barcodeData}</code>
+              {/* Predictive Inbound Assessment Box */}
+              <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-500/20 text-xs font-mono space-y-1">
+                <div className="flex items-center gap-2 text-cyan-300 font-semibold">
+                  <Radio className="w-3.5 h-3.5" />
+                  <span>PREDICTIVE INBOUND ASSESSMENT (Where&apos;s My Plane)</span>
                 </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/[0.04] text-emerald-400 text-[10px] font-mono border border-white/[0.06] flex-shrink-0">
-                  <CheckCircle2 className="w-3 h-3" />
-                  <span>PARSED</span>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  {sampleFlight.inboundAssessment}
+                </p>
+              </div>
+
+              {/* Simulated 2D Barcode Block */}
+              <div className="pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+                <div>
+                  <div className="text-[10px] text-slate-500">IATA RAW OCR STREAM</div>
+                  <div className="text-[11px] text-slate-400 break-all">{sampleFlight.barcodeData}</div>
                 </div>
+
+                {scanState === 'scanning' && (
+                  <div className="flex items-center gap-2 text-cyan-400 animate-pulse text-xs">
+                    <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                    <span>Parsing OCR...</span>
+                  </div>
+                )}
+                {scanState === 'success' && (
+                  <div className="flex items-center gap-2 text-emerald-400 text-xs">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>BCBP Parsed (100% Grounded)</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
 
-          {/* Vision Extraction Console (5 cols) */}
-          <div className="lg:col-span-5 rounded-2xl bg-[#08090e] border border-white/[0.08] p-6 sm:p-8">
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/[0.06] text-xs font-mono text-slate-400">
-              <span>EXTRACTION LOG</span>
-              <span className="text-cyan-400">OCR_V3</span>
+          {/* Telemetry Stream & Stack Specs (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#08090e] border border-white/[0.08] space-y-4">
+              <span className="text-[10px] font-mono tracking-widest text-cyan-400 uppercase block">
+                ENGINEERING SPECIFICATIONS
+              </span>
+              <h3 className="text-xl font-normal text-white font-sans">
+                Full-Stack Architecture
+              </h3>
+              <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                AirFlow avoids calling expensive APIs on app-open. Passengers read data purely from Postgres via Row Level Security (RLS) while backend BullMQ workers poll on a strict time-window FSM schedule.
+              </p>
+
+              <div className="space-y-3 pt-2 text-xs font-mono">
+                <div className="flex justify-between pb-2 border-b border-white/[0.04]">
+                  <span className="text-slate-500">Mobile Engine</span>
+                  <span className="text-white">Expo SDK 52 &middot; Expo Router</span>
+                </div>
+                <div className="flex justify-between pb-2 border-b border-white/[0.04]">
+                  <span className="text-slate-500">GPU Rendering</span>
+                  <span className="text-cyan-400">React Native Skia (CanvasKit)</span>
+                </div>
+                <div className="flex justify-between pb-2 border-b border-white/[0.04]">
+                  <span className="text-slate-500">Backend Queue</span>
+                  <span className="text-white">Node 24 &middot; BullMQ &middot; Redis</span>
+                </div>
+                <div className="flex justify-between pb-2 border-b border-white/[0.04]">
+                  <span className="text-slate-500">Live Broadcast</span>
+                  <span className="text-white">Supabase Realtime WebSockets</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Languages</span>
+                  <span className="text-purple-300">13 Locales (inc. Arabic/Urdu RTL)</span>
+                </div>
+              </div>
             </div>
 
-            {scanState === 'scanning' ? (
-              <div className="py-12 flex flex-col items-center justify-center text-center space-y-3">
-                <RefreshCw className="w-6 h-6 text-cyan-400 animate-spin" />
-                <div className="text-xs font-mono text-slate-300">Decoding Aztec / PDF417 matrix...</div>
+            <div className="p-6 rounded-2xl bg-[#08090e] border border-white/[0.08] font-mono text-xs text-slate-400 space-y-2">
+              <div className="flex items-center gap-2 text-slate-300 font-semibold mb-2">
+                <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Global Aviation Coverage</span>
               </div>
-            ) : (
-              <div className="space-y-4 text-xs font-mono">
-                <p className="text-slate-400 leading-relaxed font-sans text-xs">
-                  Upload any physical boarding pass, Apple Wallet pass, or PDF e-ticket. AirFlow isolates barcode coordinates and performs high-speed geometric rectification.
-                </p>
-
-                <div className="space-y-2 pt-2">
-                  <div className="p-3 rounded-lg bg-black/40 border border-white/[0.04] flex justify-between">
-                    <span className="text-slate-500">Aircraft Type:</span>
-                    <span className="text-white">{sampleFlight.aircraft}</span>
-                  </div>
-                  <div className="p-3 rounded-lg bg-black/40 border border-white/[0.04] flex justify-between">
-                    <span className="text-slate-500">Delay Probability:</span>
-                    <span className="text-emerald-400">&lt; 5 minutes</span>
-                  </div>
-                  <div className="p-3 rounded-lg bg-black/40 border border-white/[0.04] flex justify-between">
-                    <span className="text-slate-500">Telemetry Origin:</span>
-                    <span className="text-slate-300">ADS-B Satellites</span>
-                  </div>
-                </div>
-
-                <button
-                  onClick={triggerScan}
-                  className="w-full mt-4 py-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.06] transition-colors flex items-center justify-center gap-2"
-                >
-                  <RefreshCw className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Rescan Telemetry Feed</span>
-                </button>
-              </div>
-            )}
+              <p className="text-[11px] leading-relaxed">
+                Bundles 4,008 international airports, 1,200+ airline carriers, and dynamic LOD zoom levels displaying hubs to regional strips with zero network overhead.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-white/[0.08]">
-          <div className="p-8 border-r border-b border-white/[0.08] bg-[#07080d]">
-            <Barcode className="w-4 h-4 text-cyan-400 mb-4" />
-            <h4 className="text-base font-normal text-white mb-2 font-sans">Instant Barcode Decoding</h4>
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              Decodes standard IATA BCBP formats across PDF417, Aztec, and QR codes directly on device with zero server latency.
-            </p>
-          </div>
-
-          <div className="p-8 border-r border-b border-white/[0.08] bg-[#07080d]">
-            <Compass className="w-4 h-4 text-purple-400 mb-4" />
-            <h4 className="text-base font-normal text-white mb-2 font-sans">Live ADS-B Radar Tracking</h4>
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              Calculates altitude profile, ground speed, and crosswinds by pulling live telemetry streams directly from global radar nodes.
-            </p>
-          </div>
-
-          <div className="p-8 border-r border-b border-white/[0.08] bg-[#07080d]">
-            <MapPin className="w-4 h-4 text-emerald-400 mb-4" />
-            <h4 className="text-base font-normal text-white mb-2 font-sans">Personal Flight Logbook</h4>
-            <p className="text-xs text-slate-400 leading-relaxed font-sans">
-              Aggregates all scanned journeys into an interactive flight record, calculating nautical miles and aircraft type distributions.
-            </p>
-          </div>
+        {/* 4 Pillars of AirFlow Architecture */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-white/[0.08] bg-[#07080d]">
+          {architecturePillars.map((pillar) => {
+            const Icon = pillar.icon
+            return (
+              <div
+                key={pillar.title}
+                className="p-8 border-r border-b border-white/[0.08] flex flex-col justify-between"
+              >
+                <div>
+                  <Icon className="w-5 h-5 text-cyan-400 mb-6" />
+                  <h4 className="text-base font-normal text-white mb-2 font-sans tracking-tight">
+                    {pillar.title}
+                  </h4>
+                  <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                    {pillar.description}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>

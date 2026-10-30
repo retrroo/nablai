@@ -4,51 +4,51 @@ import { Cpu, Network, Bot, Layout, Activity, Eye } from 'lucide-react'
 const CORE_SYSTEMS = [
   {
     num: '01',
-    icon: Bot,
-    title: 'Cyclical Agent State Graphs',
+    icon: Layout,
+    title: 'React Native Skia & 60fps GPU Canvas',
     description:
-      'Deterministic multi-agent graphs that decompose complex goals into discrete tool calls, self-verify outputs with evaluation loops, and handle long-running executions without human bottlenecks.',
-    tags: ['LangGraph', 'Deterministic Tools', 'State Checkpointing', 'Self-Healing Loops'],
+      'High-framerate GPU-accelerated route and airport mapping with React Native Skia (CanvasKit WASM on web). Driven by Reanimated 4 and Gesture Handler for frictionless UI-thread pinch, pan, and LOD clustering.',
+    tags: ['Expo SDK 52', 'React Native Skia', 'Reanimated 4', 'CanvasKit WASM'],
   },
   {
     num: '02',
     icon: Network,
-    title: 'Hybrid Dense + Sparse Retrieval',
+    title: 'Hexagonal Architecture & DDD Ports',
     description:
-      'High-dimensional vector embeddings paired with BM25 sparse keyword indices and cross-encoder reranking. Powers grounded document reasoning with zero hallucinations and verified citations.',
-    tags: ['Qdrant Dense Index', 'BM25 Lexical', 'Cross-Encoder Rerank', 'Exact Citations'],
+      'Strict separation between Domain Entities, Ports, and Adapters. An IoC Container binds pluggable repository, cache, and feed provider adapters without polluting the core business logic.',
+    tags: ['Hexagonal / Ports & Adapters', 'IoC Container', 'Next.js 16', 'Domain Entities'],
   },
   {
     num: '03',
-    icon: Cpu,
-    title: 'Open-Weights LoRA & Quantization',
+    icon: Activity,
+    title: 'Time-Window State Machine FSM',
     description:
-      'Parameter-efficient fine-tuning on targeted domain corpora. Models are quantized down to 4-bit AWQ and served via vLLM for high throughput and sub-40ms token generation.',
-    tags: ['Unsloth / PyTorch', 'LoRA / QLoRA', '4-Bit AWQ', 'vLLM Serving'],
+      'Pure mathematical scheduling state machine (dormant → daily → pre_departure → active → archived). Decides polling frequency and safety nets to eliminate redundant paid API calls.',
+    tags: ['Pure State Machine', 'Zero-IO Policy', 'Single-Flight Mutex', 'Daily Budget Limits'],
   },
   {
     num: '04',
-    icon: Layout,
-    title: 'Real-Time Gen-UI Interfaces',
+    icon: Eye,
+    title: 'Predictive Inbound Aircraft Telemetry',
     description:
-      'Modern web interfaces built with React 19 and TypeScript. Real-time Server-Sent Events (SSE) streaming, interactive canvas manifolds, and responsive editorial typography.',
-    tags: ['React 19 / Vite', 'SSE Token Streaming', 'Canvas 2D / WebGL', 'TypeScript'],
+      'Calculates ground turnaround margins (60m widebody, 25m regional) by tracking the aircraft’s live previous leg in real time. Predicts gate delays before airlines broadcast them.',
+    tags: ['Tail-Number Tracking', 'Turnaround Heuristics', 'AirLabs & OpenSky', 'ADS-B Ingestion'],
   },
   {
     num: '05',
-    icon: Eye,
-    title: 'Computer Vision & Barcode Telemetry',
+    icon: Bot,
+    title: 'Gemini 1.5 Flash Structured Synthesis',
     description:
-      'Edge and server-side visual models for parsing unstructured media: from high-precision IATA BCBP 2D boarding pass decoding to real-time trajectory reconstruction.',
-    tags: ['IATA BCBP 2D OCR', 'Vision Models', 'Trajectory Tracking', 'Edge Inference'],
+      'Low-latency multimodal LLM pipelines with strict JSON schemas. Produces executive TL;DRs, 3 bulleted strategic impact takeaways, reading time metrics, and algorithmic category classification.',
+    tags: ['Gemini 1.5 Flash', 'Structured JSON Schema', 'Heuristic Scoring', 'Impact Tiers'],
   },
   {
     num: '06',
-    icon: Activity,
-    title: 'Low-Latency GPU Inference Infrastructure',
+    icon: Cpu,
+    title: 'Distributed BullMQ & Supabase Realtime',
     description:
-      'Dedicated inference pipelines optimized for deterministic throughput. Continuous adversarial regression evals, low memory footprint, and zero third-party vendor lock-in.',
-    tags: ['Self-Hosted vLLM', 'CUDA Acceleration', 'Continuous Evals', 'Zero Vendor Lock-In'],
+      'Node 24 backend orchestrating background workers with BullMQ and Redis single-flight mutex locks. Broadcasts shared flight events and live changes over Supabase Realtime WebSockets.',
+    tags: ['Node.js 24', 'BullMQ & Redis', 'Supabase Postgres RLS', 'Realtime WebSockets'],
   },
 ]
 
@@ -64,15 +64,15 @@ export const CapabilitiesSection: React.FC = () => {
             </span>
             <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white font-sans">
               How We Build Our Apps &mdash; <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-slate-300">from mathematical core to UI.</span>
+              <span className="font-serif italic font-normal text-slate-300">our real codebase stack.</span>
             </h2>
           </div>
           <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
-            We avoid superficial API wrappers. Every app in the Nablai portfolio is built from scratch on deterministic state machines, sovereign models, and custom interfaces.
+            Derived directly from our live repositories (<strong className="text-white font-medium">flight-app</strong> &amp; <strong className="text-white font-medium">latentspace</strong>). We engineer with clean hexagonal boundaries, GPU canvas graphics, and deterministic state machines.
           </p>
         </div>
 
-        {/* Clean Architectural Grid (Hairline borders, no rainbow slop) */}
+        {/* Clean Architectural Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/[0.08]">
           {CORE_SYSTEMS.map((item) => {
             const Icon = item.icon
@@ -110,23 +110,23 @@ export const CapabilitiesSection: React.FC = () => {
           })}
         </div>
 
-        {/* Studio Foundation Metrics */}
+        {/* Real Codebase Metrics */}
         <div className="grid grid-cols-2 lg:grid-cols-4 border-l border-r border-b border-white/[0.08] bg-[#08090e]">
           <div className="p-6 sm:p-8 border-r border-white/[0.08] last:border-r-0">
-            <div className="text-2xl sm:text-4xl font-normal font-sans text-white tracking-tight">&lt;40ms</div>
-            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Local vLLM Latency</div>
+            <div className="text-2xl sm:text-4xl font-normal font-sans text-white tracking-tight">60 FPS</div>
+            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Skia GPU CanvasKit</div>
           </div>
           <div className="p-6 sm:p-8 border-r border-white/[0.08] last:border-r-0">
-            <div className="text-2xl sm:text-4xl font-normal font-sans text-white tracking-tight">100%</div>
-            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Sovereign Code &amp; Weights</div>
+            <div className="text-2xl sm:text-4xl font-normal font-sans text-white tracking-tight">4,008</div>
+            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Bundled Global Airports</div>
           </div>
           <div className="p-6 sm:p-8 border-r border-white/[0.08] last:border-r-0">
-            <div className="text-2xl sm:text-4xl font-normal font-sans text-purple-400 tracking-tight">2 Apps</div>
-            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Live Studio Portfolio</div>
+            <div className="text-2xl sm:text-4xl font-normal font-sans text-purple-400 tracking-tight">13 Locales</div>
+            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Multi-Language &amp; RTL</div>
           </div>
           <div className="p-6 sm:p-8">
-            <div className="text-2xl sm:text-4xl font-normal font-sans text-white tracking-tight">0 Sales</div>
-            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Built For Ourselves</div>
+            <div className="text-2xl sm:text-4xl font-normal font-sans text-white tracking-tight">100% Pure</div>
+            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Tested FSM Policies</div>
           </div>
         </div>
       </div>
