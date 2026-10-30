@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { NablaiLogo } from './NablaiLogo'
 import { GithubIcon, LinkedinIcon, TwitterXIcon } from './Icons'
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, ArrowUpRight } from 'lucide-react'
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -67,9 +67,21 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/apps/latent-space" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  02 // Latent Space (AI Lab)
-                </Link>
+                <div className="flex items-center gap-2">
+                  <Link to="/apps/latent-space" className="text-zinc-600 hover:text-zinc-950 transition-colors">
+                    02 // Latent Space (AI Lab)
+                  </Link>
+                  <a
+                    href="https://latentspace.science"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[10px] text-violet-600 hover:text-violet-800 transition-colors inline-flex items-center gap-0.5"
+                    title="Open live site latentspace.science"
+                  >
+                    <span>[live]</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
+                </div>
               </li>
               <li>
                 <Link to="/stack" className="text-zinc-600 hover:text-zinc-950 transition-colors">

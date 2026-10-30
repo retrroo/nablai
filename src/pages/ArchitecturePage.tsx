@@ -324,9 +324,20 @@ export const ArchitecturePage: React.FC = () => {
 
           {/* Blueprint 2: Latent Space Hexagonal Pipeline */}
           <div className="p-8 sm:p-10 rounded-2xl bg-zinc-50 border border-zinc-200 space-y-4 shadow-xs">
-            <div className="flex items-center gap-2 text-xs font-mono text-zinc-800 font-semibold">
-              <Layers className="w-4 h-4" />
-              <span>LATENTSPACE HEXAGONAL PIPELINE</span>
+            <div className="flex items-center justify-between text-xs font-mono">
+              <div className="flex items-center gap-2 text-zinc-800 font-semibold">
+                <Layers className="w-4 h-4" />
+                <span>LATENTSPACE HEXAGONAL PIPELINE</span>
+              </div>
+              <a
+                href="https://latentspace.science"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-violet-600 hover:text-violet-800 font-medium transition-colors"
+              >
+                <span>latentspace.science</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
             <h3 className="text-xl font-normal text-zinc-950 font-sans">
               Ports &amp; Adapters Ingestion Engine

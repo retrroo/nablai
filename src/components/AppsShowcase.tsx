@@ -76,9 +76,8 @@ export const AppsShowcase: React.FC = () => {
           </Link>
 
           {/* App 2: Latent Space (5 cols) */}
-          <Link
-            to="/apps/latent-space"
-            className="lg:col-span-5 group relative rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-400 p-8 sm:p-10 flex flex-col justify-between transition-all duration-200 hover:bg-zinc-100/50"
+          <div
+            className="lg:col-span-5 group relative rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 p-8 sm:p-10 flex flex-col justify-between transition-all duration-200 hover:bg-zinc-100/40"
           >
             <div>
               {/* Header Badges */}
@@ -89,7 +88,16 @@ export const AppsShowcase: React.FC = () => {
                   <span className="text-zinc-300">|</span>
                   <span className="text-zinc-600">Onur &amp; Karim</span>
                 </div>
-                <span className="text-zinc-700 font-medium">Next.js 16 &middot; React 19</span>
+                <a
+                  href="https://latentspace.science"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-100 hover:bg-violet-200 text-violet-800 text-[11px] font-mono font-medium transition-colors"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>latentspace.science</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
               </div>
 
               {/* Title & Concept */}
@@ -102,12 +110,20 @@ export const AppsShowcase: React.FC = () => {
                 Curated AI intelligence platform designed to cut through marketing hype. Built on strict Hexagonal Architecture with automated structured summarization via Gemini 1.5 Flash.
               </p>
 
-              {/* Screenshot Placeholder */}
-              <div className="rounded-xl border-2 border-dashed border-zinc-300 bg-white/80 p-8 text-center flex flex-col items-center justify-center my-6 group-hover:border-zinc-400 transition-colors">
-                <ImageIcon className="w-6 h-6 text-zinc-400 mb-2" />
-                <span className="text-xs font-mono text-zinc-800 font-medium">Platform Screenshot</span>
-                <span className="text-[11px] font-mono text-zinc-500 mt-0.5">Soon to be added</span>
-              </div>
+              {/* Live App Link Box */}
+              <a
+                href="https://latentspace.science"
+                target="_blank"
+                rel="noreferrer"
+                className="group/preview block rounded-xl border border-violet-200 bg-violet-50/50 hover:bg-violet-100/60 p-6 text-center my-6 transition-all"
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-violet-200 text-violet-900 text-xs font-mono font-medium mb-2 shadow-2xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Live Platform &middot; latentspace.science</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-violet-700 group-hover/preview:translate-x-0.5 group-hover/preview:-translate-y-0.5 transition-transform" />
+                </div>
+                <span className="text-xs font-mono text-zinc-600 block">Click to open live site &rarr;</span>
+              </a>
 
               {/* Tech Stack Chips */}
               <div className="flex flex-wrap gap-1.5 pt-2 font-mono text-[11px]">
@@ -118,12 +134,26 @@ export const AppsShowcase: React.FC = () => {
               </div>
             </div>
 
-            {/* Bottom Link Action */}
-            <div className="mt-8 pt-6 border-t border-zinc-200 flex items-center justify-between text-xs font-mono text-zinc-600 group-hover:text-zinc-950 transition-colors">
-              <span>VIEW LATENT SPACE DETAILS</span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            {/* Bottom Actions */}
+            <div className="mt-8 pt-6 border-t border-zinc-200 flex items-center justify-between gap-3 text-xs font-mono">
+              <Link
+                to="/apps/latent-space"
+                className="text-zinc-600 hover:text-zinc-950 transition-colors flex items-center gap-1.5 font-medium"
+              >
+                <span>VIEW DETAILS</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+              <a
+                href="https://latentspace.science"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3.5 py-2 rounded-lg bg-violet-600 hover:bg-violet-700 text-white font-medium transition-colors flex items-center gap-1.5 shadow-2xs"
+              >
+                <span>OPEN SITE</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </section>
