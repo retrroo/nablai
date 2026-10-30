@@ -1,0 +1,42 @@
+:root {
+  /* Design unit --u */
+  --u: min(100vw / 1440, 100svh / 760);
+
+  /* Colors */
+  --sky-0: #C8E6FF;
+  --sky-1: #A3CAE6;
+  --sky-2: #7EADCD;
+  --sky-3: #5799CF;
+  --sky-4: #3085D2;
+  --white: #FFFFFF;
+  --lime: #D0F24B;
+  --ink: #17242B;
+  --black: #000000;
+  
+  --glass-fill: rgba(255, 255, 255, 0.06);
+  --glass-fill-strong: rgba(255, 255, 255, 0.15);
+  --glass-edge: rgba(255, 255, 255, 0.75);
+  --glass-edge-soft: rgba(255, 255, 255, 0.12);
+  --cursor: rgba(255, 255, 255, 0.5);
+
+  /* Nablai brand accents */
+  --purple-ai: #A855F7;
+  --cyan-ai: #06B6D4;
+  --bg-dark: #08090d;
+
+  /* Typography */
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Instrument Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --body-size: calc(20 * var(--u));
+  --body-leading: calc(22 * var(--u));
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --u: min(100vw / 415, 100svh / 760);
+    --body-size: calc(16 * var(--u));
+    --body-leading: calc(20 * var(--u));
+  }
+}
