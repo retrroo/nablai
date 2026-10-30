@@ -1,16 +1,8 @@
 import React, { useState } from 'react'
-import { Sparkles, Code2, Check, Copy, Layers, Compass } from 'lucide-react'
-
-const COLOR_PRESETS = [
-  { name: 'Electric Violet', hex: '#A855F7', glow: 'rgba(168, 85, 247, 0.4)' },
-  { name: 'Cyber Cyan', hex: '#06B6D4', glow: 'rgba(6, 182, 212, 0.4)' },
-  { name: 'Emerald Neural', hex: '#10B981', glow: 'rgba(16, 185, 129, 0.4)' },
-  { name: 'Solar Amber', hex: '#F59E0B', glow: 'rgba(245, 158, 11, 0.4)' },
-]
+import { Copy, Check, Terminal } from 'lucide-react'
 
 export const LogoStorySection: React.FC = () => {
-  const [selectedColor, setSelectedColor] = useState(COLOR_PRESETS[0])
-  const [viewMode, setViewMode] = useState<'fusion' | 'exploded' | 'math'>('fusion')
+  const [splitDistance, setSplitDistance] = useState(0) // 0 = fused Nablai, 100 = fully exploded Nabla + Ai
   const [copied, setCopied] = useState(false)
 
   const handleCopySvg = () => {
@@ -18,13 +10,13 @@ export const LogoStorySection: React.FC = () => {
   <defs>
     <linearGradient id="splitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="50%" stop-color="#ffffff"/>
-      <stop offset="50%" stop-color="${selectedColor.hex}"/>
+      <stop offset="50%" stop-color="#a855f7"/>
     </linearGradient>
   </defs>
   <text x="10" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800">
     <tspan fill="#ffffff">Nabl</tspan>
     <tspan fill="url(#splitGradient)">a</tspan>
-    <tspan fill="${selectedColor.hex}">i</tspan>
+    <tspan fill="#a855f7">i</tspan>
   </text>
 </svg>`
     navigator.clipboard.writeText(svgCode)
@@ -33,239 +25,130 @@ export const LogoStorySection: React.FC = () => {
   }
 
   return (
-    <section id="logo-story" className="py-24 relative overflow-hidden border-t border-b border-white/5 bg-[#07080f]">
-      {/* Background ambient glow */}
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[120px] pointer-events-none opacity-20 transition-all duration-500"
-        style={{ backgroundColor: selectedColor.hex }}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-300 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            <span>The Brand DNA</span>
+    <section id="logo-story" className="py-28 relative bg-[#040508] border-t border-white/[0.08]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header with Editorial Typography */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <div className="max-w-2xl">
+            <span className="text-[11px] font-mono tracking-widest text-purple-400 uppercase block mb-3">
+              02 &mdash; Brand Identity &amp; Mathematics
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-white font-sans">
+              Where Vector Calculus <br className="hidden sm:inline" />
+              <span className="font-serif italic font-normal text-slate-300">meets machine intelligence.</span>
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Where Mathematics Meets Machine Intelligence
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-400">
-            The name <strong className="text-white">Nablai</strong> is a deliberate convergence of the mathematical gradient operator{' '}
-            <strong className="text-white">Nabla (&nabla;)</strong> and <strong className="text-white">AI</strong>. 
-            In our logo, the second <span className="underline decoration-purple-500 font-bold">&apos;a&apos;</span> forms the exact harmonic pivot.
+          <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
+            The name <strong className="text-white font-medium">Nablai</strong> bridges the mathematical gradient operator <strong className="text-white font-medium">Nabla (&nabla;)</strong> and <strong className="text-white font-medium">AI</strong>. The second &apos;a&apos; is the exact 50/50 fulcrum.
           </p>
         </div>
 
-        {/* Interactive Logo Stage */}
-        <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-10 shadow-2xl relative">
-          {/* Controls Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-white/5">
-            {/* View Modes */}
-            <div className="flex items-center gap-1.5 p-1 bg-white/5 rounded-xl border border-white/10">
-              <button
-                onClick={() => setViewMode('fusion')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                  viewMode === 'fusion'
-                    ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                Fusion View (Nablai)
-              </button>
-              <button
-                onClick={() => setViewMode('exploded')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                  viewMode === 'exploded'
-                    ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                Word Split (Nabla + Ai)
-              </button>
-              <button
-                onClick={() => setViewMode('math')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                  viewMode === 'math'
-                    ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                &nabla; Calculus Meaning
-              </button>
-            </div>
+        {/* Minimalist Exhibition Stage */}
+        <div className="rounded-2xl border border-white/[0.08] bg-[#08090e] p-8 sm:p-14 relative overflow-hidden">
+          {/* Subtle grid lines background */}
+          <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />
 
-            {/* Color Switcher */}
-            <div className="flex items-center gap-3">
-              <span className="text-xs text-slate-400 hidden sm:inline">Accent Color:</span>
-              <div className="flex items-center gap-2">
-                {COLOR_PRESETS.map((color) => (
-                  <button
-                    key={color.name}
-                    onClick={() => setSelectedColor(color)}
-                    title={color.name}
-                    className={`w-6 h-6 rounded-full transition-transform ${
-                      selectedColor.hex === color.hex ? 'scale-125 ring-2 ring-white ring-offset-2 ring-offset-slate-900' : 'opacity-70 hover:opacity-100'
-                    }`}
-                    style={{ backgroundColor: color.hex }}
-                  />
-                ))}
-              </div>
-
-              {/* Copy SVG button */}
-              <button
-                onClick={handleCopySvg}
-                className="ml-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-slate-300 transition-colors"
-                title="Copy SVG Wordmark"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Copied!' : 'SVG'}</span>
-              </button>
+          {/* Stage Top Bar */}
+          <div className="flex items-center justify-between pb-6 mb-12 border-b border-white/[0.06] text-xs font-mono text-slate-400">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+              <span>IDENTITY EXPLORER</span>
             </div>
+            <button
+              onClick={handleCopySvg}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-slate-300 hover:text-white transition-colors"
+            >
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+              <span>{copied ? 'Copied SVG' : 'Copy SVG'}</span>
+            </button>
           </div>
 
-          {/* Canvas Display */}
-          <div className="py-16 sm:py-20 flex flex-col items-center justify-center min-h-[300px]">
-            {viewMode === 'fusion' && (
-              <div className="flex flex-col items-center">
-                <div className="flex items-baseline font-black tracking-tighter text-6xl sm:text-8xl md:text-9xl transition-all duration-300">
-                  {/* Nabl in pure white */}
-                  <span className="text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)]">
-                    Nabl
-                  </span>
-
-                  {/* Dual color split 'a' */}
-                  <div className="relative inline-block mx-[1px]">
-                    <span
-                      style={{
-                        background: `linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 50%, ${selectedColor.hex} 50%, ${selectedColor.hex} 100%)`,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        filter: `drop-shadow(0 0 24px ${selectedColor.hex}55)`,
-                      }}
-                      className="inline-block"
-                    >
-                      a
-                    </span>
-
-                    {/* Subtle visual divider guide indicator */}
-                    <div 
-                      className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/40 -translate-x-1/2 pointer-events-none opacity-40 animate-pulse"
-                      title="50/50 Split Axis"
-                    />
-                  </div>
-
-                  {/* i in AI accent color */}
+          {/* Interactive Wordmark Display */}
+          <div className="py-12 sm:py-20 flex flex-col items-center justify-center relative">
+            <div className="flex items-baseline font-black tracking-tight text-6xl sm:text-8xl md:text-9xl select-none transition-all duration-150">
+              {/* Part 1: Nabla */}
+              <div 
+                className="flex items-baseline transition-transform"
+                style={{ transform: `translateX(-${splitDistance * 0.4}px)` }}
+              >
+                <span className="text-white">Nabl</span>
+                {splitDistance === 0 ? (
+                  // Shared split 'a' in fusion mode
                   <span
+                    className="relative inline-block"
                     style={{
-                      color: selectedColor.hex,
-                      textShadow: `0 0 30px ${selectedColor.hex}88`,
+                      background: 'linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 50%, #A855F7 50%, #A855F7 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
                     }}
                   >
-                    i
+                    a
                   </span>
-                </div>
-
-                {/* Annotation Labels */}
-                <div className="mt-8 flex items-center gap-6 sm:gap-12 text-xs sm:text-sm">
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <span className="w-2.5 h-2.5 rounded-full bg-white" />
-                    <span className="font-semibold text-white">Nabla</span>
-                    <span className="text-slate-500">(Mathematical Gradient)</span>
-                  </div>
-
-                  <div className="h-4 w-[1px] bg-white/20" />
-
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: selectedColor.hex }} />
-                    <span className="font-semibold" style={{ color: selectedColor.hex }}>Ai</span>
-                    <span className="text-slate-500">(Artificial Intelligence)</span>
-                  </div>
-                </div>
+                ) : (
+                  // Separate full 'a' in exploded mode
+                  <span className="text-white underline decoration-white/40 decoration-2">a</span>
+                )}
               </div>
-            )}
 
-            {viewMode === 'exploded' && (
-              <div className="flex flex-col items-center">
-                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-4xl sm:text-6xl md:text-7xl font-extrabold">
-                  {/* Left Word: Nabla */}
-                  <div className="p-4 sm:p-6 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-2">
-                    <span className="text-white">Nabl</span>
-                    <span className="text-white font-black underline decoration-2 decoration-white/40">a</span>
-                    <span className="text-xs px-2 py-0.5 rounded bg-white/10 text-slate-300 ml-2">Word 1</span>
-                  </div>
+              {/* Exploded '+' separator */}
+              {splitDistance > 0 && (
+                <span 
+                  className="mx-3 sm:mx-6 text-slate-600 font-mono text-3xl sm:text-5xl transition-opacity font-normal"
+                  style={{ opacity: Math.min(1, splitDistance / 30) }}
+                >
+                  +
+                </span>
+              )}
 
-                  <span className="text-slate-600 font-mono text-3xl">+</span>
-
-                  {/* Right Word: Ai */}
-                  <div 
-                    className="p-4 sm:p-6 rounded-2xl border flex items-center gap-1"
-                    style={{ borderColor: `${selectedColor.hex}44`, backgroundColor: `${selectedColor.hex}11` }}
-                  >
-                    <span className="font-black underline decoration-2" style={{ color: selectedColor.hex }}>a</span>
-                    <span style={{ color: selectedColor.hex }}>i</span>
-                    <span 
-                      className="text-xs px-2 py-0.5 rounded ml-2"
-                      style={{ backgroundColor: `${selectedColor.hex}22`, color: selectedColor.hex }}
-                    >
-                      Word 2
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-8 max-w-lg text-center text-sm text-slate-400">
-                  The letter <span className="text-white font-bold">&apos;a&apos;</span> bridges both concepts. In our identity, this letter is divided 50/50 straight down the vertical axis (50% titanium white, 50% AI purple), so the observer immediately registers both <em>Nabla</em> and <em>Ai</em> unified as <strong>Nablai</strong>.
-                </div>
+              {/* Part 2: Ai */}
+              <div 
+                className="flex items-baseline text-purple-400 transition-transform"
+                style={{ transform: `translateX(${splitDistance * 0.4}px)` }}
+              >
+                {splitDistance > 0 && (
+                  <span className="underline decoration-purple-400/40 decoration-2">a</span>
+                )}
+                <span>i</span>
               </div>
-            )}
+            </div>
 
-            {viewMode === 'math' && (
-              <div className="flex flex-col items-center max-w-2xl text-center">
-                <div className="p-6 rounded-2xl bg-black/40 border border-white/10 font-mono text-xl sm:text-2xl text-purple-300 mb-6 flex items-center gap-4">
-                  <span className="text-4xl sm:text-5xl font-serif text-white">&nabla;</span>
-                  <div className="text-left text-sm sm:text-base font-mono text-slate-200">
-                    <div>&nabla;L = &part;Loss / &part;Weights</div>
-                    <div className="text-xs text-slate-400 mt-1 font-sans">
-                      Gradient descent: The foundational backpropagation engine of all modern neural networks
-                    </div>
-                  </div>
-                </div>
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                  In mathematical physics and vector calculus, <strong className="text-white">&nabla; (Nabla)</strong> represents the spatial differential gradient operator. In machine learning, Nabla computes the exact path of steepest descent across loss surfaces &mdash; driving weights toward optimal intelligence.
-                </p>
+            {/* Split Slider Control */}
+            <div className="mt-12 w-full max-w-sm flex flex-col items-center gap-2">
+              <div className="w-full flex justify-between text-[11px] font-mono text-slate-400">
+                <span className={splitDistance < 20 ? 'text-white font-medium' : ''}>Unified Brand</span>
+                <span className={splitDistance > 70 ? 'text-purple-300 font-medium' : ''}>Calculus Split</span>
               </div>
-            )}
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={splitDistance}
+                onChange={(e) => setSplitDistance(parseInt(e.target.value, 10))}
+                className="w-full accent-purple-500 cursor-pointer"
+              />
+            </div>
           </div>
 
-          {/* Feature Grid inside Card */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-8 border-t border-white/5">
-            <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-              <div className="flex items-center gap-2 text-white font-semibold text-sm mb-1">
-                <Layers className="w-4 h-4 text-purple-400" />
-                <span>Pixel-Perfect Split-A</span>
+          {/* Mathematical Rationale Footer */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/[0.06] mt-8 text-xs font-mono text-slate-400">
+            <div className="flex items-start gap-3">
+              <span className="text-lg font-serif text-white">&nabla;</span>
+              <div>
+                <span className="text-white font-semibold block mb-1">Nabla Gradient Calculus</span>
+                <p className="leading-relaxed text-slate-400">
+                  In vector calculus, &nabla;L = &part;Loss / &part;Weights defines the direction of steepest loss minimization. It is the mathematical backpropagation foundation of all neural networks.
+                </p>
               </div>
-              <p className="text-xs text-slate-400">
-                A calibrated 50/50 gradient stop creates a needle-sharp visual threshold without raster artifacts.
-              </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-              <div className="flex items-center gap-2 text-white font-semibold text-sm mb-1">
-                <Compass className="w-4 h-4 text-cyan-400" />
-                <span>&nabla; Nabla Operator</span>
+            <div className="flex items-start gap-3">
+              <Terminal className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+              <div>
+                <span className="text-white font-semibold block mb-1">The 50/50 Split Axis</span>
+                <p className="leading-relaxed text-slate-400">
+                  The second letter &apos;a&apos; is bisected at the 50% coordinate. Titanium white honors the classical mathematical rigor of Nabla; electric violet represents artificial intelligence.
+                </p>
               </div>
-              <p className="text-xs text-slate-400">
-                The inverted triangle directly references vector calculus and loss optimization in neural networks.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-              <div className="flex items-center gap-2 text-white font-semibold text-sm mb-1">
-                <Code2 className="w-4 h-4 text-emerald-400" />
-                <span>Modern AI Dev Brand</span>
-              </div>
-              <p className="text-xs text-slate-400">
-                A recognizable, mathematically grounded identity engineered for world-class AI application development.
-              </p>
             </div>
           </div>
         </div>

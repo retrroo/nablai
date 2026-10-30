@@ -1,104 +1,85 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { LinkedinIcon, GithubIcon } from '../components/Icons'
-import { Users, ArrowLeft, ArrowUpRight, Sparkles, Code2, Compass, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Code2, Compass, ShieldCheck } from 'lucide-react'
 
 export const AboutPage: React.FC = () => {
   const founders = [
     {
       name: 'Onur',
       role: 'Co-Founder & AI Systems Architect',
-      specialty: 'Autonomous Multi-Agent Systems & Full-Stack AI Infrastructure',
-      bio: 'Specializes in engineering autonomous multi-agent systems, tool-augmented LLM architectures, and resilient cloud infrastructure. Builds production systems that autonomously orchestrate complex operational workflows with zero human bottlenecks.',
+      focus: 'Autonomous Multi-Agent Swarms & Full-Stack AI Infrastructure',
+      bio: 'Engineers production-grade agentic architectures and low-latency systems. Focused on cyclical state graphs, deterministic tool execution, and high-throughput web infrastructure that turns complex autonomous workflows into reliable software.',
       linkedin: 'https://www.linkedin.com/in/onur-nablai',
       github: 'https://github.com/retrroo',
-      skills: ['Agent Orchestration', 'Distributed Systems', 'TypeScript / Python', 'Production MLOps', 'Full-Stack Gen-UI'],
-      avatarInitial: 'O',
-      accentColor: '#A855F7',
+      stack: ['LangGraph', 'Distributed Systems', 'TypeScript', 'Python', 'Production MLOps', 'Gen-UI'],
+      initial: 'O',
     },
     {
       name: 'Karim',
       role: 'Co-Founder & Machine Learning Engineer',
-      specialty: 'Gradient Calculus, Model Fine-Tuning & Quantized Inference',
-      bio: 'Driven by mathematical optimization and deep learning theory. Translates the foundational principles of the Nabla (∇) gradient operator into efficient LoRA fine-tuning and ultra-low-latency vLLM GPU inference clusters.',
+      focus: 'Gradient Calculus, Parameter-Efficient LoRA & Quantized Serving',
+      bio: 'Specializes in mathematical optimization and deep learning theory. Translates the foundational principles of the Nabla (∇) gradient operator into efficient LoRA fine-tuning, loss convergence, and sub-40ms vLLM GPU inference clusters.',
       linkedin: 'https://www.linkedin.com/in/karim-nablai',
       github: 'https://github.com/karim-nablai',
-      skills: ['PyTorch & CUDA', 'LoRA / QLoRA', 'Gradient Optimization', 'vLLM / TensorRT', 'Vector Geometry'],
-      avatarInitial: 'K',
-      accentColor: '#38BDF8',
+      stack: ['PyTorch', 'CUDA', 'LoRA / QLoRA', 'AWQ Quantization', 'vLLM', 'Vector Manifolds'],
+      initial: 'K',
     },
   ]
 
   return (
-    <div className="min-h-screen bg-[#07080d] text-slate-100 pt-28 pb-20 selection:bg-purple-600 selection:text-white">
-      {/* Ambient background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-b from-purple-700/15 via-indigo-600/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="min-h-screen bg-[#050609] text-slate-100 pt-32 pb-24 selection:bg-purple-600 selection:text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors mb-8 group"
+          className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-white transition-colors mb-10 group"
         >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Back to Nablai Home</span>
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+          <span>BACK TO NABLAI HOME</span>
         </Link>
 
-        {/* Hero Header */}
-        <div className="max-w-3xl mb-16 pb-12 border-b border-white/10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs font-mono text-purple-300 mb-4">
-            <Users className="w-3.5 h-3.5" />
-            <span>The Founders &middot; Onur &amp; Karim</span>
-          </div>
-          <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-            About Nablai
+        {/* Hero Header with Editorial Typography */}
+        <div className="max-w-3xl mb-16 pb-12 border-b border-white/[0.08]">
+          <span className="text-[11px] font-mono tracking-widest text-purple-400 uppercase block mb-3">
+            LEADERSHIP // FOUNDERS &middot; ONUR &amp; KARIM
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-normal text-white tracking-tight font-sans">
+            Where Mathematics <br className="hidden sm:inline" />
+            <span className="font-serif italic font-normal text-slate-300">meets autonomous engineering.</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-purple-200/90 font-light mt-2">
-            Where Mathematics, Software Engineering, and AI Converge.
-          </p>
-          <p className="mt-4 text-base text-slate-400 leading-relaxed">
-            We are <strong className="text-white">Onur</strong> and <strong className="text-white">Karim</strong>. We founded Nablai with a clear conviction: the future of software won&apos;t be shaped by superficial wrappers, but by deeply engineered, autonomous systems and private models grounded in mathematical rigor.
+          <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed">
+            We are <strong className="text-white font-medium">Onur</strong> and <strong className="text-white font-medium">Karim</strong>. We founded Nablai with a single objective: to build genuine, mathematically rigorous AI applications and systems that stand up to real enterprise demands &mdash; free of superficial wrapper hype.
           </p>
         </div>
 
-        {/* Founders Cards Grid */}
+        {/* Founders Dossiers (Clean split layout) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
           {founders.map((founder) => (
             <div
               key={founder.name}
-              className="p-8 sm:p-10 rounded-3xl bg-slate-900/40 border border-white/10 backdrop-blur-xl hover:border-white/20 transition-all flex flex-col justify-between shadow-2xl relative overflow-hidden group"
+              className="rounded-2xl bg-[#08090e] border border-white/[0.08] p-8 sm:p-10 flex flex-col justify-between"
             >
-              {/* Corner accent glow */}
-              <div 
-                className="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl opacity-20 pointer-events-none transition-opacity group-hover:opacity-35"
-                style={{ backgroundColor: founder.accentColor }}
-              />
-
               <div>
-                {/* Header: Avatar initial & links */}
-                <div className="flex items-start justify-between mb-6">
+                {/* Dossier Header */}
+                <div className="flex items-start justify-between pb-6 mb-6 border-b border-white/[0.06]">
                   <div className="flex items-center gap-4">
-                    <div 
-                      className="w-16 h-16 rounded-2xl flex items-center justify-center font-black text-2xl text-white shadow-xl border border-white/20"
-                      style={{ 
-                        background: `linear-gradient(135deg, ${founder.accentColor} 0%, #1e1b4b 100%)` 
-                      }}
-                    >
-                      {founder.avatarInitial}
+                    <div className="w-12 h-12 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center font-sans font-light text-xl text-white">
+                      {founder.initial}
                     </div>
                     <div>
-                      <h2 className="text-2xl font-black text-white tracking-tight">{founder.name}</h2>
-                      <p className="text-xs font-mono" style={{ color: founder.accentColor }}>{founder.role}</p>
+                      <h2 className="text-xl font-normal text-white font-sans">{founder.name}</h2>
+                      <p className="text-xs font-mono text-purple-400 mt-0.5">{founder.role}</p>
                     </div>
                   </div>
 
-                  {/* LinkedIn & GitHub Buttons */}
+                  {/* External Links */}
                   <div className="flex items-center gap-2">
                     <a
                       href={founder.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors"
+                      className="p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.06] transition-colors"
                       title={`${founder.name} on LinkedIn`}
                     >
                       <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
@@ -107,7 +88,7 @@ export const AboutPage: React.FC = () => {
                       href={founder.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors"
+                      className="p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.06] transition-colors"
                       title={`${founder.name} on GitHub`}
                     >
                       <GithubIcon className="w-4 h-4" />
@@ -115,25 +96,25 @@ export const AboutPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-slate-300 block mb-1">Focus Area</span>
-                  <p className="text-sm font-medium text-slate-200">{founder.specialty}</p>
+                <div className="space-y-3 mb-6">
+                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">
+                    CORE SPECIALIZATION
+                  </span>
+                  <p className="text-xs font-mono text-slate-300">{founder.focus}</p>
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans pt-2">
+                    {founder.bio}
+                  </p>
                 </div>
-
-                <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                  {founder.bio}
-                </p>
               </div>
 
-              {/* Skills and connect CTA */}
               <div>
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5 mb-6">
-                  {founder.skills.map((skill) => (
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.04] mb-6">
+                  {founder.stack.map((item) => (
                     <span
-                      key={skill}
-                      className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/5 text-slate-300 border border-white/5"
+                      key={item}
+                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.03] text-slate-400 border border-white/[0.04]"
                     >
-                      {skill}
+                      {item}
                     </span>
                   ))}
                 </div>
@@ -142,78 +123,75 @@ export const AboutPage: React.FC = () => {
                   href={founder.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-purple-600/20 hover:bg-purple-600/30 text-purple-200 font-semibold text-xs border border-purple-500/30 transition-all group/btn"
+                  className="w-full py-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-xs font-mono text-slate-300 hover:text-white border border-white/[0.06] transition-colors flex items-center justify-center gap-2"
                 >
-                  <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
+                  <LinkedinIcon className="w-3.5 h-3.5 text-[#0077b5]" />
                   <span>Connect with {founder.name} on LinkedIn</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
           ))}
         </div>
 
-        {/* The Story & Principles Section */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/10">
-          <div className="max-w-3xl mb-8">
-            <span className="text-xs font-semibold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
-              Our Philosophy
+        {/* Engineering Credo / Manifesto */}
+        <div className="rounded-2xl bg-[#08090e] border border-white/[0.08] p-8 sm:p-12">
+          <div className="max-w-2xl mb-8">
+            <span className="text-[10px] font-mono tracking-widest text-purple-400 uppercase block mb-2">
+              ENGINEERING CREDO
             </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mt-4">
-              Why We Founded Nablai
+            <h3 className="text-2xl font-normal text-white font-sans">
+              Why We Architect Code-First
             </h3>
-            <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
-              In today&apos;s AI ecosystem, there are too many hasty &apos;wrappers&apos; that break under real enterprise pressures &mdash; whether from data privacy, non-deterministic outputs, or compounding latency.
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mt-2 font-sans">
+              The modern AI landscape is flooded with superficial API wrappers that fail when confronted with enterprise reality &mdash; whether through non-deterministic hallucinations, data leakage, or unsustainable API token bills.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-white/5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-white/[0.04] text-xs">
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-white font-bold text-sm">
+              <div className="flex items-center gap-2 text-white font-medium">
                 <Code2 className="w-4 h-4 text-purple-400" />
-                <span>Code-First &amp; Zero Wrappers</span>
+                <span>Deterministic Systems</span>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                We engineer at the kernel, vector embedding, and deterministic state-machine levels. No black-box shortcuts.
+              <p className="text-slate-400 leading-relaxed font-sans">
+                We engineer state graphs with explicit assertion gates, validation loops, and fallback pathways.
               </p>
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-white font-bold text-sm">
+              <div className="flex items-center gap-2 text-white font-medium">
                 <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                <span>100% Data Sovereignty</span>
+                <span>Private Model Sovereignty</span>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Your enterprise data belongs exclusively to you. We deploy private RAG and on-premise open-weights models that guarantee confidentiality.
+              <p className="text-slate-400 leading-relaxed font-sans">
+                Enterprise data never trains third-party models. Weights belong to you and deploy inside your private VPC.
               </p>
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-white font-bold text-sm">
+              <div className="flex items-center gap-2 text-white font-medium">
                 <Compass className="w-4 h-4 text-emerald-400" />
                 <span>&nabla; Mathematical Rigor</span>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                From vector gradient calculus (Nabla) to fine-tuning loss surfaces: we build on scientific principles that produce verifiable ROI.
+              <p className="text-slate-400 leading-relaxed font-sans">
+                From loss gradient calculus to contrastive vector projections, every layer has an empirical purpose.
               </p>
             </div>
           </div>
         </div>
 
-        {/* CTA to get in touch */}
+        {/* Contact CTA */}
         <div className="mt-16 text-center">
-          <h3 className="text-xl font-bold text-white mb-2">Want to collaborate with Onur or Karim?</h3>
-          <p className="text-xs text-slate-400 mb-6">Schedule a technical exploration session on your AI use case.</p>
-          <Link
-            to="/#contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm text-white shadow-xl shadow-purple-600/35 border border-purple-400/30 transition-all active:scale-95"
-            style={{
-              background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6366f1 100%)',
-            }}
+          <h3 className="text-lg font-normal text-white mb-2 font-sans">Want to discuss an AI system with Onur or Karim?</h3>
+          <p className="text-xs text-slate-400 mb-6 font-mono">We schedule direct engineering brainstorms on your use case.</p>
+          <a
+            href="/#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-white bg-purple-600 hover:bg-purple-500 transition-colors"
           >
-            <Sparkles className="w-4 h-4" />
-            <span>Get in Touch with Us</span>
-          </Link>
+            <span>Start an Engineering Conversation</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
         </div>
       </div>
     </div>
