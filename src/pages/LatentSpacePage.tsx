@@ -77,7 +77,7 @@ export const LatentSpacePage: React.FC = () => {
               <span className="font-serif italic font-normal text-zinc-600">hexagonal news &amp; AI synthesis engine.</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">
-              A curated AI intelligence dashboard engineered by Karim. Built with Next.js 16, React 19, strict Hexagonal Architecture (Ports &amp; Adapters), and Gemini 1.5 Flash structured JSON summarization.
+              A curated AI intelligence dashboard engineered by Onur &amp; Karim. Built with Next.js 16, React 19, strict Hexagonal Architecture (Ports &amp; Adapters), and Gemini 1.5 Flash structured JSON summarization.
             </p>
           </div>
 
@@ -121,7 +121,7 @@ export const LatentSpacePage: React.FC = () => {
               PURPOSE &amp; GOAL
             </span>
             <h2 className="text-2xl sm:text-3xl font-normal text-zinc-950 tracking-tight font-sans">
-              Why Karim built Latent Space
+              Why we built Latent Space
             </h2>
           </div>
           <div className="lg:col-span-8 space-y-4 text-sm sm:text-base text-zinc-600 leading-relaxed font-sans">
@@ -129,7 +129,7 @@ export const LatentSpacePage: React.FC = () => {
               The machine learning space moves at breakneck speed, but 90% of online discussion is superficial marketing noise, re-hashed tweets, and breathless hype. Finding genuine architectural breakthroughs or hardware announcements requires sifting through hundreds of posts.
             </p>
             <p>
-              <strong>Latent Space</strong> was built as a clean, personal intelligence engine. It continuously tracks authoritative sources, passes articles through Gemini 1.5 Flash with strict JSON schemas, and outputs succinct, factual takeaways and impact assessments in a clean reading view.
+              We built <strong>Latent Space</strong> as a clean, personal intelligence engine for ourselves. It continuously tracks authoritative sources, passes articles through Gemini 1.5 Flash with strict JSON schemas, and outputs succinct, factual takeaways and impact assessments in a clean reading view.
             </p>
           </div>
         </div>

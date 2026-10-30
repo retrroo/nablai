@@ -87,7 +87,7 @@ export const AppsShowcase: React.FC = () => {
                   <span className="w-2 h-2 rounded-full bg-violet-600" />
                   <span className="text-zinc-900 font-semibold">WEB PLATFORM</span>
                   <span className="text-zinc-300">|</span>
-                  <span className="text-zinc-600">Karim</span>
+                  <span className="text-zinc-600">Onur &amp; Karim</span>
                 </div>
                 <span className="text-zinc-700 font-medium">Next.js 16 &middot; React 19</span>
               </div>

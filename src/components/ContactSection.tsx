@@ -81,7 +81,7 @@ export const ContactSection: React.FC = () => {
               {/* Founder Direct LinkedIn Links */}
               <div className="grid grid-cols-2 gap-3 pt-1">
                 <a
-                  href="https://www.linkedin.com/in/onur-nablai"
+                  href="https://www.linkedin.com/in/onurryilmaz/"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3.5 rounded-xl bg-white border border-zinc-200 hover:border-zinc-300 transition-colors group shadow-xs"
@@ -94,7 +94,7 @@ export const ContactSection: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/karim-nablai"
+                  href="https://www.linkedin.com/in/karim-said-5691a231a/"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3.5 rounded-xl bg-white border border-zinc-200 hover:border-zinc-300 transition-colors group shadow-xs"

@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
                 <GithubIcon className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/onur-nablai"
+                href="https://www.linkedin.com/in/onurryilmaz/"
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-lg bg-white hover:bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 hover:text-zinc-950 transition-colors shadow-xs"
@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
                 <LinkedinIcon className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/karim-nablai"
+                href="https://www.linkedin.com/in/karim-said-5691a231a/"
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-lg bg-white hover:bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 hover:text-zinc-950 transition-colors shadow-xs"

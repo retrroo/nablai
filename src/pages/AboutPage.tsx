@@ -7,10 +7,10 @@ export const AboutPage: React.FC = () => {
   const founders = [
     {
       name: 'Onur',
-      role: 'Co-Founder & AI Systems Architect',
+      role: 'Co-Founder & Systems Architect',
       focus: 'Aviation Telemetry, GPU Canvas Graphics & Distributed Queues',
-      bio: 'Architect of AirFlow (flight-app). Specializes in React Native Skia 60fps GPU mapping, zero-IO time-window polling state machines, and Node 24 distributed BullMQ backends with predictive inbound aircraft turnaround forecasting.',
-      linkedin: 'https://www.linkedin.com/in/onur-nablai',
+      bio: 'Co-architect of our software suite (AirFlow & Latent Space). Specializes in React Native Skia 60fps GPU mapping, zero-IO time-window polling state machines, and Node 24 distributed BullMQ backends with predictive inbound aircraft turnaround forecasting.',
+      linkedin: 'https://www.linkedin.com/in/onurryilmaz/',
       github: 'https://github.com/retrroo',
       stack: ['Expo SDK 52', 'React Native Skia', 'Node.js 24', 'BullMQ & Redis', 'Supabase Realtime', 'TypeScript'],
       initial: 'O',
@@ -19,8 +19,8 @@ export const AboutPage: React.FC = () => {
       name: 'Karim',
       role: 'Co-Founder & Machine Learning Engineer',
       focus: 'Hexagonal Architecture, Structured LLM Synthesis & Domain Systems',
-      bio: 'Architect of Latent Space. Specializes in Domain-Driven Design (DDD), Ports & Adapters architectures in Next.js 16, and multimodal LLM synthesis pipelines using Gemini 1.5 Flash structured JSON schemas and heuristic NLP classifiers.',
-      linkedin: 'https://www.linkedin.com/in/karim-nablai',
+      bio: 'Co-architect of our software suite (Latent Space & AirFlow). Specializes in Domain-Driven Design (DDD), Ports & Adapters architectures in Next.js 16, and multimodal LLM synthesis pipelines using Gemini 1.5 Flash structured JSON schemas and heuristic NLP classifiers.',
+      linkedin: 'https://www.linkedin.com/in/karim-said-5691a231a/',
       github: 'https://github.com/karimsaid123',
       stack: ['Next.js 16', 'React 19', 'Hexagonal DDD', 'Gemini 1.5 Flash', 'Tailwind v4', 'TypeScript'],
       initial: 'K',
@@ -49,7 +49,7 @@ export const AboutPage: React.FC = () => {
             <span className="font-serif italic font-normal text-zinc-600">meets autonomous engineering.</span>
           </h1>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed font-sans">
-            We are <strong className="text-zinc-950 font-medium">Onur</strong> and <strong className="text-zinc-950 font-medium">Karim</strong>. We founded Nablai as an independent software studio and engineering lab. We do not build client websites or run an agency &mdash; we build, test, and release our own AI products, exploring the frontier where vector calculus meets practical utility.
+            We are <strong className="text-zinc-950 font-medium">Onur</strong> and <strong className="text-zinc-950 font-medium">Karim</strong>. We founded Nablai as an independent software studio. We do not build client websites or run an agency &mdash; we design, build, test, and release our own applications together as a team, exploring the frontier where modern engineering meets practical utility. Every application in our studio is built collaboratively by us.
           </p>
         </div>
 
