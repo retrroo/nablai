@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { loadHeroAssets, type LoadedAssets } from '../lib/loadImages'
-import { LogCanvas } from './LogCanvas'
 import { StarfieldCanvas } from './StarfieldCanvas'
+import { ConstellationCanvas } from './ConstellationCanvas'
 import { ArrowDown, Sparkles } from 'lucide-react'
 import styles from './InteractiveHero.module.css'
 
 export const InteractiveHero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [assets, setAssets] = useState<LoadedAssets | null>(null)
-  const [progress, setProgress] = useState(0)
-  const [preloaderVisible, setPreloaderVisible] = useState(true)
+  const headlineRef = useRef<HTMLHeadingElement>(null)
+  const leadRef = useRef<HTMLParagraphElement>(null)
+  const actionRef = useRef<HTMLDivElement>(null)
+  const bottomBarRef = useRef<HTMLDivElement>(null)
 
   const [isMobile, setIsMobile] = useState(() => {
     if (typeof window === 'undefined') return false
@@ -25,231 +25,139 @@ export const InteractiveHero: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Shared mutable ref for GSAP tweening zoom & pixelation (desktop)
-  const introState = useRef({
-    zoom: 2.6,
-    pixel: 6, // log2(64) = 6
-  })
-
-  const headlineRef = useRef<HTMLHeadingElement>(null)
-  const leadRef = useRef<HTMLParagraphElement>(null)
-  const actionRef = useRef<HTMLDivElement>(null)
-  const bottomBarRef = useRef<HTMLDivElement>(null)
-  const counterRef = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
-    // If mobile: skip all heavy canvas asset downloads, 8.4M pixel loops, and GSAP tweens
-    if (isMobile) {
-      setPreloaderVisible(false)
-      return
-    }
-
     let ctx: gsap.Context | null = null
-    let isCancelled = false
-
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    loadHeroAssets((p) => {
-      if (!isCancelled) {
-        setProgress(Math.round(p * 100))
-      }
-    })
-      .then((loaded) => {
-        if (isCancelled) return
-        setAssets(loaded)
-
-        ctx = gsap.context(() => {
-          if (prefersReducedMotion) {
-            introState.current.zoom = 1
-            introState.current.pixel = 0
-            setPreloaderVisible(false)
-
-            gsap.to(['.hero-reveal'], {
-              opacity: 1,
-              duration: 0.4,
-              ease: 'power1.out',
-              stagger: 0.05,
-              clearProps: 'filter,transform',
-            })
-            return
-          }
-
-          const tl = gsap.timeline()
-
-          // Preloader count to 100
-          const countObj = { val: progress }
-          tl.to(
-            countObj,
-            {
-              val: 100,
-              duration: 0.8,
-              ease: 'power1.out',
-              onUpdate: () => setProgress(Math.round(countObj.val)),
-            },
-            0
-          )
-
-          // Zoom 2.6x to 1x
-          tl.to(
-            introState.current,
-            {
-              zoom: 1,
-              duration: 0.9,
-              ease: 'expo.out',
-            },
-            0
-          )
-
-          // Pixelation 64px to 1px (log2 from 6 to 0)
-          tl.to(
-            introState.current,
-            {
-              pixel: 0,
-              duration: 1.0,
-              ease: 'none',
-            },
-            0
-          )
-
-          // Counter fade out
-          if (counterRef.current) {
-            tl.to(
-              counterRef.current,
-              {
-                opacity: 0,
-                duration: 0.4,
-                ease: 'power1.in',
-                onComplete: () => setPreloaderVisible(false),
-              },
-              0.85
-            )
-          }
-
-          // M2: Reveal sequence
-          const chars = headlineRef.current?.querySelectorAll('.char-span')
-          if (chars && chars.length > 0) {
-            tl.fromTo(
-              chars,
-              { opacity: 0, filter: 'blur(18px)', xPercent: -30 },
-              {
-                opacity: 1,
-                filter: 'blur(0px)',
-                xPercent: 0,
-                duration: 0.8,
-                ease: 'power2.out',
-                stagger: 0.035,
-                clearProps: 'filter,transform',
-              },
-              1.3
-            )
-          }
-
-          // Lead blurs in
-          if (leadRef.current) {
-            tl.fromTo(
-              leadRef.current,
-              { opacity: 0, filter: 'blur(10px)' },
-              {
-                opacity: 1,
-                filter: 'blur(0px)',
-                duration: 0.6,
-                ease: 'power2.out',
-                clearProps: 'filter',
-              },
-              2.1
-            )
-          }
-
-          // Bottom bar
-          if (bottomBarRef.current) {
-            tl.fromTo(
-              bottomBarRef.current,
-              { opacity: 0, filter: 'blur(10px)' },
-              {
-                opacity: 1,
-                filter: 'blur(0px)',
-                duration: 0.6,
-                ease: 'power2.out',
-                clearProps: 'filter',
-              },
-              2.5
-            )
-          }
-
-          // Action block
-          if (actionRef.current) {
-            tl.fromTo(
-              actionRef.current,
-              { opacity: 0, filter: 'blur(10px)' },
-              {
-                opacity: 1,
-                filter: 'blur(0px)',
-                duration: 0.6,
-                ease: 'power2.out',
-                clearProps: 'filter',
-              },
-              2.7
-            )
-          }
-        }, containerRef)
-      })
-      .catch((err) => {
-        console.warn('Hero asset load note:', err)
-        setPreloaderVisible(false)
+    ctx = gsap.context(() => {
+      if (prefersReducedMotion) {
         gsap.to(['.hero-reveal'], {
           opacity: 1,
-          duration: 0.5,
+          duration: 0.3,
+          ease: 'power1.out',
           clearProps: 'filter,transform',
         })
-      })
+        return
+      }
+
+      const tl = gsap.timeline({ delay: 0.15 })
+
+      // Reveal headline characters with subtle starlight blur-in
+      const chars = headlineRef.current?.querySelectorAll('.char-span')
+      if (chars && chars.length > 0) {
+        tl.fromTo(
+          chars,
+          { opacity: 0, filter: 'blur(16px)', yPercent: 20 },
+          {
+            opacity: 1,
+            filter: 'blur(0px)',
+            yPercent: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+            stagger: 0.025,
+            clearProps: 'filter,transform',
+          },
+          0
+        )
+      }
+
+      // Lead paragraph fade in
+      if (leadRef.current) {
+        tl.fromTo(
+          leadRef.current,
+          { opacity: 0, filter: 'blur(10px)', y: 15 },
+          {
+            opacity: 1,
+            filter: 'blur(0px)',
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            clearProps: 'filter,transform',
+          },
+          0.4
+        )
+      }
+
+      // Action CTA block fade in
+      if (actionRef.current) {
+        tl.fromTo(
+          actionRef.current,
+          { opacity: 0, filter: 'blur(10px)', y: 15 },
+          {
+            opacity: 1,
+            filter: 'blur(0px)',
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            clearProps: 'filter,transform',
+          },
+          0.6
+        )
+      }
+
+      // Bottom bar fade in
+      if (bottomBarRef.current) {
+        tl.fromTo(
+          bottomBarRef.current,
+          { opacity: 0, filter: 'blur(8px)' },
+          {
+            opacity: 1,
+            filter: 'blur(0px)',
+            duration: 0.6,
+            ease: 'power2.out',
+            clearProps: 'filter',
+          },
+          0.8
+        )
+      }
+    }, containerRef)
 
     return () => {
-      isCancelled = true
       if (ctx) ctx.revert()
     }
   }, [isMobile])
 
-  // Dedicated lightweight static mobile hero (0ms load, 0 CPU overhead)
+  // Dedicated responsive mobile layout (fluid 60fps, 0 lag, deep black cosmic space)
   if (isMobile) {
     return (
       <section
-        className="relative w-full min-h-screen overflow-hidden select-none bg-[#030307] flex flex-col justify-between px-6 pt-24 pb-8"
+        ref={containerRef}
+        className="relative w-full min-h-screen overflow-hidden select-none bg-black flex flex-col justify-between px-6 pt-24 pb-8"
         style={{
           background:
-            'radial-gradient(ellipse 140% 100% at 50% 10%, #1c0f3c 0%, #0e0822 40%, #060410 75%, #030307 100%)',
+            'radial-gradient(ellipse 140% 100% at 50% 15%, #0a0a0f 0%, #030305 60%, #000000 100%)',
           transform: 'translateZ(0)',
         }}
       >
-        {/* Static Cosmic Nebulae Glows (Pure 2D radial gradient, 0 GPU blur cost) */}
-        <div
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(147, 51, 234, 0.18) 0%, transparent 70%)' }}
-        />
-        <div
-          className="absolute bottom-1/3 right-1/4 w-[300px] h-[300px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(79, 70, 229, 0.14) 0%, transparent 70%)' }}
-        />
+        {/* Twinkling pure white starlight canvas */}
+        <StarfieldCanvas className="z-0 opacity-80" />
 
-        {/* Static Subtle Stars Grid Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
+        {/* Interactive Constellation / Neural Branch Canvas (Dots & Lines) */}
+        <ConstellationCanvas className="z-0 opacity-90" />
 
-        {/* Top: Tag + Headline + Lead */}
-        <div className="relative z-10 pt-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/10 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-            <span className="text-xs font-mono text-purple-200 tracking-tight">Independent AI Studio</span>
+        {/* Top: Studio Tag + Headline + Lead */}
+        <div className="relative z-20 pt-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/10 mb-6 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            <span className="text-xs font-mono text-zinc-300 tracking-tight">Independent AI Studio</span>
           </div>
 
           <h1 className="text-white font-normal flex flex-col gap-1 tracking-tight">
             <span
               className="font-serif italic text-5xl sm:text-6xl text-white leading-[0.95]"
-              style={{ fontFamily: 'var(--font-serif)' }}
+              style={{
+                fontFamily: 'var(--font-serif)',
+                textShadow: '0 0 35px rgba(255,255,255,0.35), 0 4px 20px rgba(0,0,0,0.9)',
+              }}
             >
               Every layer
             </span>
             <span
               className="font-sans text-4xl sm:text-5xl text-white font-light tracking-tight leading-[0.95]"
-              style={{ fontFamily: 'var(--font-sans)' }}
+              style={{
+                fontFamily: 'var(--font-sans)',
+                textShadow: '0 0 35px rgba(255,255,255,0.35), 0 4px 20px rgba(0,0,0,0.9)',
+              }}
             >
               tells a story.
             </span>
@@ -260,32 +168,32 @@ export const InteractiveHero: React.FC = () => {
           </p>
         </div>
 
-        {/* Middle: Studio Apps Quick Cards (Instant, zero blur) */}
-        <div className="relative z-10 my-6 p-4 rounded-2xl bg-[#0e0a1e]/90 border border-white/10 space-y-3 shadow-md">
+        {/* Middle: Studio Apps Quick Cards (Monochrome High Contrast) */}
+        <div className="relative z-20 my-6 p-4 rounded-2xl bg-zinc-950/80 border border-white/10 space-y-3 backdrop-blur-md shadow-2xl">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400 pb-2 border-b border-white/10">
             <span className="text-white font-medium">STUDIO BUILDS</span>
-            <span className="text-purple-300">2026 ACTIVE</span>
+            <span className="text-zinc-300">2026 ACTIVE</span>
           </div>
           <div className="grid grid-cols-2 gap-2.5 text-xs">
             <a
               href="#apps"
-              className="p-3 rounded-xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.1] transition-colors block"
+              className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
             >
-              <span className="text-emerald-400 font-mono text-[10px] block font-medium">01 &middot; AVIATION</span>
+              <span className="text-zinc-400 font-mono text-[10px] block font-medium">01 &middot; AVIATION</span>
               <span className="text-white font-medium text-sm mt-0.5 block">AirFlow</span>
             </a>
             <a
               href="#apps"
-              className="p-3 rounded-xl bg-white/[0.06] border border-white/10 hover:bg-white/[0.1] transition-colors block"
+              className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
             >
-              <span className="text-purple-400 font-mono text-[10px] block font-medium">02 &middot; AI LAB</span>
+              <span className="text-zinc-400 font-mono text-[10px] block font-medium">02 &middot; AI LAB</span>
               <span className="text-white font-medium text-sm mt-0.5 block">Latent Space</span>
             </a>
           </div>
         </div>
 
         {/* Bottom: Action Block & CTA */}
-        <div className="relative z-10 space-y-5">
+        <div className="relative z-20 space-y-5">
           <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
             We are the builders. We design, code, and deploy our own products &mdash; exploring the frontier of autonomous intelligence and practical software utility.
           </p>
@@ -294,7 +202,7 @@ export const InteractiveHero: React.FC = () => {
             href="#apps"
             className="w-full py-3.5 px-6 rounded-full font-medium text-sm text-zinc-950 bg-white hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 text-center"
           >
-            <Sparkles className="w-4 h-4 text-purple-600" />
+            <Sparkles className="w-4 h-4 text-zinc-900" />
             <span>Explore Our Apps</span>
           </a>
 
@@ -306,7 +214,7 @@ export const InteractiveHero: React.FC = () => {
               </div>
               <span className="text-[11px] text-zinc-300">Scroll for portfolio</span>
             </div>
-            <span className="text-[11px] text-purple-300 font-mono">20&ndash;26 &middot; Nablai</span>
+            <span className="text-[11px] text-zinc-400 font-mono">20&ndash;26 &middot; Nablai</span>
           </div>
         </div>
       </section>
@@ -320,30 +228,17 @@ export const InteractiveHero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100svh] overflow-hidden select-none bg-[#030307]"
+      className="relative w-full h-[100svh] overflow-hidden select-none bg-black"
       style={{
         background:
-          'radial-gradient(ellipse 120% 100% at 50% 15%, #180d32 0%, #0d081e 35%, #070512 70%, #030307 100%)',
+          'radial-gradient(ellipse 120% 100% at 50% 25%, #08080c 0%, #030304 55%, #000000 100%)',
       }}
     >
-      {/* Subtle Cosmic Nebulae Clouds */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-purple-900/18 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-indigo-900/14 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[900px] h-[250px] bg-violet-950/20 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Interactive Twinkling & Blinking Starfield Canvas */}
+      {/* 1. Interactive Twinkling Starfield Canvas (Pitch Black Cosmic Sky) */}
       <StarfieldCanvas className="z-0" />
 
-      {/* Interactive Floating Tree Log Canvas (Dark Purple Moss) */}
-      <LogCanvas bare={assets?.bare || null} moss={assets?.moss || null} introRef={introState} />
-
-      {/* Preloader Counter (bottom right, active during intro) */}
-      {preloaderVisible && (
-        <div ref={counterRef} className={styles.counter}>
-          <span>{String(progress).padStart(2, '0')}</span>
-          <span style={{ fontSize: '0.25em', marginLeft: '0.04em' }}>%</span>
-        </div>
-      )}
+      {/* 2. Interactive Constellation / Neural Lattice Canvas (Connecting Dots & Lines from Photo 2) */}
+      <ConstellationCanvas className="z-10" />
 
       {/* 3. Headline and Lead */}
       <div className={styles.topStack}>
@@ -391,7 +286,7 @@ export const InteractiveHero: React.FC = () => {
             fontSize: 'var(--body-size)',
             lineHeight: 'var(--body-leading)',
             letterSpacing: '-0.02em',
-            textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
+            textShadow: '0 2px 14px rgba(0,0,0,0.9), 0 0 25px rgba(255,255,255,0.15)',
           }}
         >
           We build our own applications. Nablai is an independent software studio and AI engineering lab founded by Onur &amp; Karim.
@@ -410,7 +305,7 @@ export const InteractiveHero: React.FC = () => {
             fontSize: 'var(--body-size)',
             lineHeight: 'var(--body-leading)',
             letterSpacing: '-0.02em',
-            textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
+            textShadow: '0 2px 14px rgba(0,0,0,0.9), 0 0 25px rgba(255,255,255,0.15)',
           }}
         >
           We are the builders. We design, code, and deploy our own products &mdash; exploring the frontier of autonomous intelligence and practical software utility.
@@ -426,7 +321,7 @@ export const InteractiveHero: React.FC = () => {
             letterSpacing: '-0.02em',
           }}
         >
-          <Sparkles className="w-4 h-4 text-zinc-700" />
+          <Sparkles className="w-4 h-4 text-zinc-950" />
           <span>Explore Our Apps</span>
         </a>
       </div>
@@ -452,15 +347,16 @@ export const InteractiveHero: React.FC = () => {
           >
             <ArrowDown className="w-4 h-4 stroke-[2.5]" />
           </div>
-          <span className="truncate">Scroll down for our portfolio</span>
+          <span className="truncate text-zinc-300">Scroll down for our portfolio</span>
         </div>
 
         {/* Right: Year Range */}
-        <div className="font-mono text-xs sm:text-sm opacity-90 text-purple-200 whitespace-nowrap pl-2">
+        <div className="font-mono text-xs sm:text-sm opacity-90 text-zinc-400 whitespace-nowrap pl-2">
           20&ndash;26 &middot; Nablai Studio
         </div>
       </div>
     </section>
   )
 }
+
 export default InteractiveHero

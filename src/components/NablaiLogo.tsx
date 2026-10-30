@@ -36,8 +36,8 @@ export const NablaiLogo: React.FC<NablaiLogoProps> = ({
 
   const currentIconSize = iconSizes[size]
 
-  // Default accent: refined, non-neon deep violet
-  const resolvedAccent = accentColor ?? (mode === 'light' ? '#6d28d9' : '#a855f7')
+  // Default accent: High-contrast monochrome silver / zinc mix (Pure Black & White luxury identity)
+  const resolvedAccent = accentColor ?? (mode === 'light' ? '#71717a' : '#71717a')
   const primaryText = mode === 'light' ? '#09090b' : '#ffffff'
 
   return (

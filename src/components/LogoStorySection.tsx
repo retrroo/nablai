@@ -10,13 +10,13 @@ export const LogoStorySection: React.FC = () => {
   <defs>
     <linearGradient id="splitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="50%" stop-color="#09090b"/>
-      <stop offset="50%" stop-color="#6d28d9"/>
+      <stop offset="50%" stop-color="#71717a"/>
     </linearGradient>
   </defs>
   <text x="10" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800">
     <tspan fill="#09090b">Nabl</tspan>
     <tspan fill="url(#splitGradient)">a</tspan>
-    <tspan fill="#6d28d9">i</tspan>
+    <tspan fill="#71717a">i</tspan>
   </text>
 </svg>`
     navigator.clipboard.writeText(svgCode)
@@ -77,7 +77,7 @@ export const LogoStorySection: React.FC = () => {
                     <span>a</span>
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 pointer-events-none select-none text-violet-700"
+                      className="absolute inset-0 pointer-events-none select-none text-zinc-500"
                       style={{
                         clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)',
                         WebkitClipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)',
@@ -104,11 +104,11 @@ export const LogoStorySection: React.FC = () => {
 
               {/* Part 2: Ai */}
               <div 
-                className="flex items-baseline text-violet-700 transition-transform"
+                className="flex items-baseline text-zinc-500 transition-transform"
                 style={{ transform: `translateX(${splitDistance * 0.4}px)` }}
               >
                 {splitDistance > 0 && (
-                  <span className="underline decoration-violet-300 decoration-2">a</span>
+                  <span className="underline decoration-zinc-400 decoration-2">a</span>
                 )}
                 <span>i</span>
               </div>
@@ -148,7 +148,7 @@ export const LogoStorySection: React.FC = () => {
               <div>
                 <span className="text-zinc-950 font-semibold block mb-1">The 50/50 Split Axis</span>
                 <p className="leading-relaxed text-zinc-600">
-                  The second letter &apos;a&apos; is bisected at the 50% coordinate. Ink black honors the classical mathematical rigor of Nabla; deep violet represents artificial intelligence.
+                  The second letter &apos;a&apos; is bisected at the 50% coordinate. Ink black honors the classical mathematical rigor of Nabla; high-contrast metallic silver represents machine intelligence in a pure monochrome palette.
                 </p>
               </div>
             </div>

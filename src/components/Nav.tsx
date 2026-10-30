@@ -96,7 +96,7 @@ export const Nav: React.FC = () => {
                   <span
                     className={`text-[9px] font-mono px-1.5 py-0.5 rounded leading-none ${
                       isHero
-                        ? 'bg-white/[0.08] text-purple-300 border border-white/[0.08]'
+                        ? 'bg-white/[0.08] text-zinc-300 border border-white/[0.08]'
                         : 'bg-zinc-100 text-zinc-700 border border-zinc-200'
                     }`}
                   >
@@ -106,7 +106,7 @@ export const Nav: React.FC = () => {
                 {active && (
                   <span
                     className={`absolute -bottom-1 left-0 right-0 h-[1.5px] rounded-full ${
-                      isHero ? 'bg-purple-400' : 'bg-zinc-900'
+                      isHero ? 'bg-white' : 'bg-zinc-900'
                     }`}
                   />
                 )}
@@ -200,7 +200,7 @@ export const Nav: React.FC = () => {
                 <span
                   className={`text-[10px] font-mono px-2 py-0.5 rounded ${
                     isHero
-                      ? 'bg-white/5 text-purple-300 border border-white/5'
+                      ? 'bg-white/10 text-zinc-300 border border-white/10'
                       : 'bg-zinc-100 text-zinc-700 border border-zinc-200'
                   }`}
                 >

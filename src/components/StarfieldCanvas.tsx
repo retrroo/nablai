@@ -55,7 +55,7 @@ export const StarfieldCanvas: React.FC<{ className?: string }> = ({ className = 
     let lastMouseX = -1000
     let lastMouseY = -1000
 
-    const STAR_COLORS = ['#FFFFFF', '#FFFFFF', '#E0F2FE', '#F3E8FF', '#DDD6FE']
+    const STAR_COLORS = ['#FFFFFF', '#FFFFFF', '#F8FAFC', '#F1F5F9', '#E2E8F0', '#CBD5E1']
 
     const initStars = (width: number, height: number) => {
       // Density ~ 1 star per 3500 px^2, with min 200, max 350

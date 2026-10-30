@@ -9,7 +9,7 @@
   color: #ffffff;
   letter-spacing: -0.06em;
   line-height: 1;
-  text-shadow: 0 0 40px rgba(168, 85, 247, 0.5), 0 4px 20px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.4), 0 4px 20px rgba(0, 0, 0, 0.9);
 }
 
 @media (min-width: 1024px) {
@@ -81,7 +81,7 @@
   font-size: var(--display-serif-size);
   letter-spacing: -0.06em;
   line-height: 0.85;
-  text-shadow: 0 0 35px rgba(255, 255, 255, 0.4), 0 0 70px rgba(168, 85, 247, 0.25);
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.35), 0 4px 25px rgba(0, 0, 0, 0.9);
 }
 
 .line2 {
@@ -89,7 +89,7 @@
   font-size: var(--display-sans-size);
   letter-spacing: -0.06em;
   line-height: 0.85;
-  text-shadow: 0 0 35px rgba(255, 255, 255, 0.35), 0 0 70px rgba(168, 85, 247, 0.2);
+  text-shadow: 0 0 35px rgba(255, 255, 255, 0.35), 0 4px 25px rgba(0, 0, 0, 0.9);
 }
 
 /* Action Block */
