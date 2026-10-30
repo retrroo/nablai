@@ -340,18 +340,17 @@ export const InteractiveHero: React.FC = () => {
         {/* CTA Button - Links to Portfolio */}
         <a
           href="#apps"
-          className="inline-flex items-center justify-center gap-2 font-semibold text-white transition-all duration-200 hover:scale-[1.03] active:scale-95 text-center shadow-xl shadow-purple-600/35 border border-purple-400/40"
+          className="inline-flex items-center justify-center gap-2 font-medium text-zinc-950 bg-white hover:bg-zinc-100 transition-all duration-200 active:scale-95 text-center shadow-lg border border-white/60"
           style={{
             width: 'calc(230 * var(--u))',
             height: 'calc(61 * var(--u))',
             borderRadius: '99px',
-            background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6366f1 100%)',
             fontFamily: 'var(--font-sans)',
             fontSize: 'calc(17 * var(--u))',
             letterSpacing: '-0.02em',
           }}
         >
-          <Sparkles className="w-4 h-4 text-purple-200" />
+          <Sparkles className="w-4 h-4 text-zinc-700" />
           <span>Explore Our Apps</span>
         </a>
       </div>

@@ -11,8 +11,8 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: var(--bg-dark);
-    color: var(--white);
+    background-color: #ffffff;
+    color: #18181b;
     font-family: var(--font-sans);
     overflow-x: hidden;
   }

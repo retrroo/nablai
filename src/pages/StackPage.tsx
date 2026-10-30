@@ -21,7 +21,7 @@ export const StackPage: React.FC = () => {
       icon: Layout,
     },
     {
-      category: 'SOFTWARE PATTERNS',
+      category: 'SOFTWARE PATTERS',
       title: 'Hexagonal Architecture & Clean Ports',
       repo: 'karimsaid123/latentspace',
       repoUrl: 'https://github.com/karimsaid123/latentspace',
@@ -98,48 +98,48 @@ export const StackPage: React.FC = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-[#050609] text-slate-100 pt-32 pb-24 selection:bg-purple-600 selection:text-white">
+    <div className="min-h-screen bg-white text-zinc-900 pt-32 pb-24 selection:bg-zinc-900 selection:text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-white transition-colors mb-10 group"
+          className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-zinc-950 transition-colors mb-10 group"
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
           <span>BACK TO NABLAI HOME</span>
         </Link>
 
         {/* Hero Header with Editorial Typography */}
-        <div className="max-w-3xl mb-16 pb-12 border-b border-white/[0.08]">
-          <span className="text-[11px] font-mono tracking-widest text-purple-400 uppercase block mb-3">
+        <div className="max-w-3xl mb-16 pb-12 border-b border-zinc-200">
+          <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
             03 &mdash; STUDIO STACK &amp; INFRASTRUCTURE
           </span>
-          <h1 className="text-4xl sm:text-6xl font-normal text-white tracking-tight font-sans">
+          <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
             How We Build Our Products &mdash; <br className="hidden sm:inline" />
-            <span className="font-serif italic font-normal text-slate-300">our real engineering stack.</span>
+            <span className="font-serif italic font-normal text-zinc-600">our real engineering stack.</span>
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed font-sans">
+          <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed font-sans">
             We don’t build on fragile abstractions or superficial API wrappers. Every system in the Nablai studio is architected on clean hexagonal boundaries, deterministic state machines, and GPU-accelerated canvas graphics.
           </p>
         </div>
 
         {/* High-Level Architecture Metrics */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 border border-white/[0.08] bg-[#08090e] rounded-2xl overflow-hidden mb-16">
-          <div className="p-6 sm:p-8 border-r border-b lg:border-b-0 border-white/[0.08]">
-            <div className="text-3xl sm:text-5xl font-light font-sans text-white tracking-tight">60 FPS</div>
-            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Skia GPU CanvasKit</div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 border border-zinc-200 bg-zinc-50 rounded-2xl overflow-hidden mb-16 shadow-xs">
+          <div className="p-6 sm:p-8 border-r border-b lg:border-b-0 border-zinc-200">
+            <div className="text-3xl sm:text-5xl font-light font-sans text-zinc-950 tracking-tight">60 FPS</div>
+            <div className="text-[11px] font-mono text-zinc-500 mt-1 uppercase">Skia GPU CanvasKit</div>
           </div>
-          <div className="p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-white/[0.08]">
-            <div className="text-3xl sm:text-5xl font-light font-sans text-white tracking-tight">4,008</div>
-            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Bundled Global Airports</div>
+          <div className="p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-zinc-200">
+            <div className="text-3xl sm:text-5xl font-light font-sans text-zinc-950 tracking-tight">4,008</div>
+            <div className="text-[11px] font-mono text-zinc-500 mt-1 uppercase">Bundled Global Airports</div>
           </div>
-          <div className="p-6 sm:p-8 border-r border-white/[0.08]">
-            <div className="text-3xl sm:text-5xl font-light font-sans text-purple-400 tracking-tight">13 Locales</div>
-            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Multi-Language &amp; RTL</div>
+          <div className="p-6 sm:p-8 border-r border-zinc-200">
+            <div className="text-3xl sm:text-5xl font-light font-sans text-zinc-950 tracking-tight">13 Locales</div>
+            <div className="text-[11px] font-mono text-zinc-500 mt-1 uppercase">Multi-Language &amp; RTL</div>
           </div>
           <div className="p-6 sm:p-8">
-            <div className="text-3xl sm:text-5xl font-light font-sans text-white tracking-tight">100% Pure</div>
-            <div className="text-[11px] font-mono text-slate-400 mt-1 uppercase">Tested FSM Policies</div>
+            <div className="text-3xl sm:text-5xl font-light font-sans text-zinc-950 tracking-tight">100% Pure</div>
+            <div className="text-[11px] font-mono text-zinc-500 mt-1 uppercase">Tested FSM Policies</div>
           </div>
         </div>
 
@@ -150,16 +150,16 @@ export const StackPage: React.FC = () => {
             return (
               <div
                 key={item.title}
-                className="rounded-2xl bg-[#08090e] border border-white/[0.08] p-8 sm:p-10 flex flex-col justify-between hover:border-purple-500/30 transition-colors"
+                className="rounded-2xl bg-zinc-50 border border-zinc-200 p-8 sm:p-10 flex flex-col justify-between hover:border-zinc-300 transition-colors shadow-xs"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/[0.06] text-xs font-mono">
-                    <span className="text-purple-400 font-semibold">{item.category}</span>
+                  <div className="flex items-center justify-between pb-4 mb-6 border-b border-zinc-200 text-xs font-mono">
+                    <span className="text-zinc-900 font-semibold">{item.category}</span>
                     <a
                       href={item.repoUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
+                      className="flex items-center gap-1.5 text-zinc-600 hover:text-zinc-950 transition-colors"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
                       <span>{item.repo}</span>
@@ -168,23 +168,23 @@ export const StackPage: React.FC = () => {
                   </div>
 
                   <div className="flex items-center gap-3 mb-4">
-                    <Icon className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                    <h3 className="text-xl font-normal text-white font-sans tracking-tight">
+                    <Icon className="w-5 h-5 text-zinc-800 flex-shrink-0" />
+                    <h3 className="text-xl font-normal text-zinc-950 font-sans tracking-tight">
                       {item.title}
                     </h3>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans mb-6">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans mb-6">
                     {item.description}
                   </p>
 
-                  <div className="space-y-2 pt-4 border-t border-white/[0.04]">
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block mb-2">
+                  <div className="space-y-2 pt-4 border-t border-zinc-200">
+                    <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-2 font-medium">
                       KEY ARCHITECTURAL HIGHLIGHTS
                     </span>
                     {item.highlights.map((h, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-slate-300 font-sans">
-                        <Check className="w-3.5 h-3.5 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <div key={i} className="flex items-start gap-2 text-xs text-zinc-700 font-sans">
+                        <Check className="w-3.5 h-3.5 text-zinc-900 mt-0.5 flex-shrink-0" />
                         <span>{h}</span>
                       </div>
                     ))}
@@ -196,16 +196,16 @@ export const StackPage: React.FC = () => {
         </div>
 
         {/* Global Multi-Language System Banner */}
-        <div className="rounded-2xl bg-[#08090e] border border-white/[0.08] p-8 sm:p-12 mb-20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-8 sm:p-12 mb-20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-xs">
           <div className="space-y-2 max-w-2xl">
-            <div className="flex items-center gap-2 text-purple-400 text-xs font-mono">
+            <div className="flex items-center gap-2 text-zinc-900 text-xs font-mono font-semibold">
               <Globe className="w-4 h-4" />
               <span>13 LOCALES ARCHITECTURE</span>
             </div>
-            <h3 className="text-2xl font-normal text-white font-sans">
+            <h3 className="text-2xl font-normal text-zinc-950 font-sans">
               Internationalized with Native RTL Mirroring
             </h3>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans">
               AirFlow supports 13 languages natively (English, Mandarin, Hindi, Spanish, Arabic, French, Portuguese, Bengali, Russian, Urdu, Indonesian, German, Dutch). For Arabic and Urdu, the layout automatically mirrors right-to-left using native flex-direction transformations and CLDR pluralization rules.
             </p>
           </div>
@@ -214,7 +214,7 @@ export const StackPage: React.FC = () => {
             {['EN', 'ZH', 'HI', 'ES', 'AR (RTL)', 'FR', 'PT', 'BN', 'RU', 'UR (RTL)', 'ID', 'DE', 'NL'].map((code) => (
               <span
                 key={code}
-                className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.06] text-slate-300 text-[11px] font-mono"
+                className="px-2.5 py-1 rounded bg-white border border-zinc-200 text-zinc-800 text-[11px] font-mono shadow-xs"
               >
                 {code}
               </span>
@@ -223,12 +223,12 @@ export const StackPage: React.FC = () => {
         </div>
 
         {/* Bottom CTA to Architecture Page */}
-        <div className="text-center pt-8 border-t border-white/[0.08]">
-          <h3 className="text-lg font-normal text-white mb-2 font-sans">Want to see the actual code in our IDE?</h3>
-          <p className="text-xs text-slate-400 mb-6 font-mono">Inspect tracking_policy.ts, container.ts, and inbound_turnaround.ts.</p>
+        <div className="text-center pt-8 border-t border-zinc-200">
+          <h3 className="text-lg font-normal text-zinc-950 mb-2 font-sans">Want to see the actual code in our IDE?</h3>
+          <p className="text-xs text-zinc-500 mb-6 font-mono">Inspect tracking_policy.ts, container.ts, and inbound_turnaround.ts.</p>
           <Link
             to="/architecture"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transition-all shadow-lg shadow-purple-600/25 border border-purple-400/30"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-800 transition-colors"
           >
             <span>Explore Systems Architecture &amp; Code</span>
             <ArrowUpRight className="w-3.5 h-3.5" />

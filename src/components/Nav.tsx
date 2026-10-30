@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { NablaiLogo } from './NablaiLogo'
 import { GithubIcon } from './Icons'
@@ -6,15 +6,27 @@ import { ArrowUpRight, Menu, X } from 'lucide-react'
 
 export const Nav: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 120)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const isHero = location.pathname === '/' && !isScrolled
+
   const navLinks = [
-    { label: 'AirFlow', path: '/apps/airflow', isApp: true, badge: 'Aviation App' },
-    { label: 'Latent Space', path: '/apps/latent-space', isApp: true, badge: 'AI Lab' },
-    { label: 'Our Stack', path: '/stack', isApp: false },
-    { label: 'Architecture', path: '/architecture', isApp: false },
-    { label: 'About Us', path: '/about', isApp: false, badge: 'Onur & Karim' },
-    { label: 'Connect', path: '/contact', isApp: false },
+    { label: 'AirFlow', path: '/apps/airflow', badge: 'Aviation' },
+    { label: 'Latent Space', path: '/apps/latent-space', badge: 'AI Lab' },
+    { label: 'Our Stack', path: '/stack' },
+    { label: 'Architecture', path: '/architecture' },
+    { label: 'About Us', path: '/about', badge: 'Onur & Karim' },
+    { label: 'Connect', path: '/contact' },
   ]
 
   const isActive = (path: string) => {
@@ -33,7 +45,7 @@ export const Nav: React.FC = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-auto">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-auto transition-colors duration-200">
       <div 
         className="w-full flex items-center justify-between mx-auto"
         style={{
@@ -42,12 +54,16 @@ export const Nav: React.FC = () => {
       >
         {/* Left: Nablai Logo with split-A */}
         <Link to="/" className="flex items-center group transition-opacity hover:opacity-90">
-          <NablaiLogo size="sm" animated={false} />
+          <NablaiLogo size="sm" animated={false} mode={isHero ? 'dark' : 'light'} />
         </Link>
 
-        {/* Center: Clean Frosted Glass Pill */}
+        {/* Center: Frosted Glass Pill */}
         <nav
-          className="hidden lg:flex items-center rounded-full border border-white/[0.08] bg-black/40 backdrop-blur-xl"
+          className={`hidden lg:flex items-center rounded-full transition-all duration-200 ${
+            isHero
+              ? 'border border-white/[0.08] bg-black/40 backdrop-blur-xl text-white'
+              : 'border border-zinc-200/90 bg-white/90 backdrop-blur-xl text-zinc-900 shadow-xs'
+          }`}
           style={{
             height: 'calc(48 * var(--u))',
             padding: '0 calc(24 * var(--u))',
@@ -63,17 +79,29 @@ export const Nav: React.FC = () => {
                 to={link.path}
                 onClick={link.path === '/contact' ? handleConnectClick : undefined}
                 className={`relative flex items-center gap-1.5 text-xs font-medium transition-colors duration-150 tracking-tight ${
-                  active ? 'text-white' : 'text-slate-400 hover:text-white'
+                  isHero
+                    ? active ? 'text-white' : 'text-slate-400 hover:text-white'
+                    : active ? 'text-zinc-950 font-semibold' : 'text-zinc-600 hover:text-zinc-900'
                 }`}
               >
                 <span>{link.label}</span>
                 {link.badge && (
-                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-white/[0.06] text-purple-300 border border-white/[0.06] leading-none">
+                  <span
+                    className={`text-[9px] font-mono px-1.5 py-0.5 rounded leading-none ${
+                      isHero
+                        ? 'bg-white/[0.08] text-purple-300 border border-white/[0.08]'
+                        : 'bg-zinc-100 text-zinc-700 border border-zinc-200'
+                    }`}
+                  >
                     {link.badge}
                   </span>
                 )}
                 {active && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-purple-400 rounded-full" />
+                  <span
+                    className={`absolute -bottom-1 left-0 right-0 h-[1.5px] rounded-full ${
+                      isHero ? 'bg-purple-400' : 'bg-zinc-900'
+                    }`}
+                  />
                 )}
               </Link>
             )
@@ -81,12 +109,16 @@ export const Nav: React.FC = () => {
         </nav>
 
         {/* Right Action: GitHub & Connect */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <a
             href="https://github.com/retrroo/nablai"
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full text-xs font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] transition-colors"
+            className={`hidden sm:inline-flex items-center gap-1.5 rounded-full text-xs font-medium transition-colors ${
+              isHero
+                ? 'text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08]'
+                : 'text-zinc-700 hover:text-zinc-950 bg-zinc-100 hover:bg-zinc-200 border border-zinc-200'
+            }`}
             style={{
               height: 'calc(44 * var(--u))',
               padding: '0 calc(16 * var(--u))',
@@ -100,20 +132,28 @@ export const Nav: React.FC = () => {
           <Link
             to="/contact"
             onClick={handleConnectClick}
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full text-xs font-medium text-white bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 border border-purple-400/30 transition-all duration-200 shadow-lg shadow-purple-600/20"
+            className={`hidden sm:inline-flex items-center gap-1.5 rounded-full text-xs font-medium transition-colors ${
+              isHero
+                ? 'text-white bg-white/[0.12] hover:bg-white/[0.2] border border-white/[0.15]'
+                : 'text-white bg-zinc-900 hover:bg-zinc-800 border border-zinc-900'
+            }`}
             style={{
               height: 'calc(44 * var(--u))',
               padding: '0 calc(18 * var(--u))',
             }}
           >
             <span>Connect</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-purple-200" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden flex items-center justify-center rounded-full border border-white/10 text-white bg-black/50 backdrop-blur-md"
+            className={`lg:hidden flex items-center justify-center rounded-full transition-colors ${
+              isHero
+                ? 'border border-white/10 text-white bg-black/50 backdrop-blur-md'
+                : 'border border-zinc-200 text-zinc-900 bg-white/90 backdrop-blur-md shadow-xs'
+            }`}
             style={{
               width: 'calc(42 * var(--u))',
               height: 'calc(42 * var(--u))',
@@ -127,7 +167,13 @@ export const Nav: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mx-4 mt-3 p-5 rounded-2xl bg-[#08090d]/95 border border-white/10 backdrop-blur-2xl shadow-2xl space-y-2">
+        <div
+          className={`lg:hidden mx-4 mt-3 p-5 rounded-2xl shadow-xl space-y-2 backdrop-blur-2xl ${
+            isHero
+              ? 'bg-[#08090d]/95 border border-white/10 text-white'
+              : 'bg-white/98 border border-zinc-200 text-zinc-900'
+          }`}
+        >
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -136,22 +182,36 @@ export const Nav: React.FC = () => {
                 setMobileMenuOpen(false)
                 if (link.path === '/contact') handleConnectClick(e)
               }}
-              className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5"
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+                isHero
+                  ? 'text-slate-300 hover:text-white hover:bg-white/5'
+                  : 'text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100'
+              }`}
             >
               <span>{link.label}</span>
               {link.badge && (
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-purple-300 border border-white/5">
+                <span
+                  className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                    isHero
+                      ? 'bg-white/5 text-purple-300 border border-white/5'
+                      : 'bg-zinc-100 text-zinc-700 border border-zinc-200'
+                  }`}
+                >
                   {link.badge}
                 </span>
               )}
             </Link>
           ))}
-          <div className="pt-3 border-t border-white/10 flex gap-2">
+          <div className={`pt-3 border-t flex gap-2 ${isHero ? 'border-white/10' : 'border-zinc-200'}`}>
             <a
               href="https://github.com/retrroo/nablai"
               target="_blank"
               rel="noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-mono bg-white/5 text-slate-300"
+              className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-mono ${
+                isHero
+                  ? 'bg-white/5 text-slate-300'
+                  : 'bg-zinc-100 text-zinc-800'
+              }`}
             >
               <GithubIcon className="w-3.5 h-3.5" />
               <span>GitHub</span>
@@ -162,7 +222,7 @@ export const Nav: React.FC = () => {
                 setMobileMenuOpen(false)
                 handleConnectClick(e)
               }}
-              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl font-medium text-xs bg-purple-600 text-white"
+              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl font-medium text-xs bg-zinc-900 text-white"
             >
               <span>Connect</span>
             </Link>

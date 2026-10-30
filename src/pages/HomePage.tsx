@@ -9,27 +9,30 @@ import { ContactSection } from '../components/ContactSection'
 
 export const HomePage: React.FC = () => {
   return (
-    <div className="bg-[#050609]">
-      {/* 1. Full-Screen Interactive Hero (Deep Space + Starfield + Dark Purple Log Canvas) */}
+    <div>
+      {/* 1. Full-Screen Interactive Hero Canvas (Space + Driftwood Log) */}
       <InteractiveHero />
 
-      {/* 2. Bespoke Live Apps Showcase (AirFlow & Latent Space) */}
-      <AppsShowcase />
+      {/* 2. Below Hero: Editorial White Mode Content */}
+      <div className="bg-white text-zinc-900">
+        {/* Apps Showcase (AirFlow & Latent Space) */}
+        <AppsShowcase />
 
-      {/* 3. The Nablai Brand DNA & Mathematical Foundation */}
-      <LogoStorySection />
+        {/* The Nablai Brand DNA & 50/50 Bisected Identity */}
+        <LogoStorySection />
 
-      {/* 4. Studio Engineering Stack & Core Systems */}
-      <CapabilitiesSection />
+        {/* Studio Engineering Stack */}
+        <CapabilitiesSection />
 
-      {/* 5. Deterministic Systems Architecture & IDE Canvas */}
-      <ArchitectureSection />
+        {/* Systems Architecture & IDE Code Canvas */}
+        <ArchitectureSection />
 
-      {/* 6. Product Build Cycle */}
-      <ProcessSection />
+        {/* Product Build Cycle */}
+        <ProcessSection />
 
-      {/* 7. Connect & Collaboration Terminal */}
-      <ContactSection />
+        {/* Connect & Collaboration Terminal */}
+        <ContactSection />
+      </div>
     </div>
   )
 }

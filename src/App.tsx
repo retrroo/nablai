@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Nav } from './components/Nav'
-import { Cursor } from './components/Cursor'
 import { Footer } from './components/Footer'
 import { HomePage } from './pages/HomePage'
 import { AirFlowPage } from './pages/AirFlowPage'
@@ -32,10 +31,8 @@ export function App() {
   return (
     <HashRouter>
       <ScrollManager />
-      {/* Custom smooth disc cursor for fine pointer devices */}
-      <Cursor />
 
-      <div className="min-h-screen bg-[#08090d] text-slate-100 flex flex-col justify-between selection:bg-purple-600 selection:text-white">
+      <div className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between selection:bg-zinc-900 selection:text-white">
         {/* Navigation Bar */}
         <Nav />
 
