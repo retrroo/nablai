@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { loadHeroAssets, type LoadedAssets } from '../lib/loadImages'
 import { LogCanvas } from './LogCanvas'
+import { StarfieldCanvas } from './StarfieldCanvas'
 import { ArrowDown } from 'lucide-react'
 
 export const InteractiveHero: React.FC = () => {
@@ -175,7 +176,6 @@ export const InteractiveHero: React.FC = () => {
       })
       .catch((err) => {
         console.warn('Hero asset load note:', err)
-        // Fallback reveals even without webp images
         setPreloaderVisible(false)
         gsap.to(['.hero-reveal'], {
           opacity: 1,
@@ -196,13 +196,21 @@ export const InteractiveHero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100svh] overflow-hidden select-none"
+      className="relative w-full h-[100svh] overflow-hidden select-none bg-[#030307]"
       style={{
         background:
-          'radial-gradient(ellipse 100% 100% at 50% 100%, var(--sky-0) 0%, var(--sky-1) 27.5%, var(--sky-2) 55%, var(--sky-3) 77.5%, var(--sky-4) 100%)',
+          'radial-gradient(ellipse 120% 100% at 50% 15%, #180d32 0%, #0d081e 35%, #070512 70%, #030307 100%)',
       }}
     >
-      {/* Interactive Log Canvas with moss cursor mask */}
+      {/* Subtle Cosmic Nebulae Clouds */}
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-purple-900/18 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-indigo-900/14 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[900px] h-[250px] bg-violet-950/20 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Interactive Twinkling & Blinking Starfield Canvas */}
+      <StarfieldCanvas className="z-0" />
+
+      {/* Interactive Floating Tree Log Canvas (Dark Purple Moss) */}
       <LogCanvas bare={assets?.bare || null} moss={assets?.moss || null} introRef={introState} />
 
       {/* Preloader Counter (bottom right, active during intro) */}
@@ -216,7 +224,7 @@ export const InteractiveHero: React.FC = () => {
             fontFamily: 'var(--font-sans)',
             fontSize: 'calc(170 * var(--u))',
             lineHeight: 1,
-            textShadow: '0 4px 20px rgba(0,0,0,0.15)',
+            textShadow: '0 0 40px rgba(168,85,247,0.5), 0 4px 20px rgba(0,0,0,0.8)',
           }}
         >
           <span>{String(progress).padStart(2, '0')}</span>
@@ -247,6 +255,7 @@ export const InteractiveHero: React.FC = () => {
               fontSize: 'calc(184 * var(--u))',
               letterSpacing: '-0.06em',
               lineHeight: 0.85,
+              textShadow: '0 0 35px rgba(255,255,255,0.4), 0 0 70px rgba(168,85,247,0.25)',
             }}
             aria-hidden="true"
           >
@@ -269,6 +278,7 @@ export const InteractiveHero: React.FC = () => {
               fontSize: 'calc(170 * var(--u))',
               letterSpacing: '-0.06em',
               lineHeight: 0.85,
+              textShadow: '0 0 35px rgba(255,255,255,0.35), 0 0 70px rgba(168,85,247,0.2)',
             }}
             aria-hidden="true"
           >
@@ -297,7 +307,7 @@ export const InteractiveHero: React.FC = () => {
           fontSize: 'var(--body-size)',
           lineHeight: 'var(--body-leading)',
           letterSpacing: '-0.02em',
-          textShadow: '0 2px 10px rgba(0,0,0,0.15)',
+          textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
         }}
       >
         Turn forgotten records, scattered logs, and silent activity into autonomous intelligence.
@@ -321,7 +331,7 @@ export const InteractiveHero: React.FC = () => {
             fontSize: 'var(--body-size)',
             lineHeight: 'var(--body-leading)',
             letterSpacing: '-0.02em',
-            textShadow: '0 2px 10px rgba(0,0,0,0.15)',
+            textShadow: '0 2px 14px rgba(0,0,0,0.8), 0 0 20px rgba(168,85,247,0.2)',
           }}
         >
           <strong className="text-white font-bold">Nablai</strong> transforms historical data into structured decisions &mdash; without losing the story behind it.
@@ -376,7 +386,7 @@ export const InteractiveHero: React.FC = () => {
         </div>
 
         {/* Right: Year Range */}
-        <div className="font-mono text-sm opacity-90">
+        <div className="font-mono text-sm opacity-90 text-purple-200">
           20&ndash;26 &middot; Nablai
         </div>
       </div>
