@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
                     href="https://latentspace.science"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[10px] text-violet-600 hover:text-violet-800 transition-colors inline-flex items-center gap-0.5"
+                    className="text-[10px] text-zinc-600 hover:text-zinc-950 transition-colors inline-flex items-center gap-0.5"
                     title="Open live site latentspace.science"
                   >
                     <span>[live]</span>

@@ -83,7 +83,7 @@ export const AppsShowcase: React.FC = () => {
               {/* Header Badges */}
               <div className="flex items-center justify-between pb-6 mb-6 border-b border-zinc-200 text-xs font-mono text-zinc-500">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-violet-600" />
+                  <span className="w-2 h-2 rounded-full bg-zinc-950" />
                   <span className="text-zinc-900 font-semibold">WEB PLATFORM</span>
                   <span className="text-zinc-300">|</span>
                   <span className="text-zinc-600">Onur &amp; Karim</span>
@@ -92,7 +92,7 @@ export const AppsShowcase: React.FC = () => {
                   href="https://latentspace.science"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-100 hover:bg-violet-200 text-violet-800 text-[11px] font-mono font-medium transition-colors"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-800 border border-zinc-200 text-[11px] font-mono font-medium transition-colors"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   <span>latentspace.science</span>
@@ -115,12 +115,12 @@ export const AppsShowcase: React.FC = () => {
                 href="https://latentspace.science"
                 target="_blank"
                 rel="noreferrer"
-                className="group/preview block rounded-xl border border-violet-200 bg-violet-50/50 hover:bg-violet-100/60 p-6 text-center my-6 transition-all"
+                className="group/preview block rounded-xl border border-zinc-200 bg-zinc-50/70 hover:bg-zinc-100/80 p-6 text-center my-6 transition-all"
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-violet-200 text-violet-900 text-xs font-mono font-medium mb-2 shadow-2xs">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-zinc-200 text-zinc-900 text-xs font-mono font-medium mb-2 shadow-2xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   <span>Live Platform &middot; latentspace.science</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-violet-700 group-hover/preview:translate-x-0.5 group-hover/preview:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-700 group-hover/preview:translate-x-0.5 group-hover/preview:-translate-y-0.5 transition-transform" />
                 </div>
                 <span className="text-xs font-mono text-zinc-600 block">Click to open live site &rarr;</span>
               </a>
@@ -147,7 +147,7 @@ export const AppsShowcase: React.FC = () => {
                 href="https://latentspace.science"
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-2 rounded-lg bg-violet-600 hover:bg-violet-700 text-white font-medium transition-colors flex items-center gap-1.5 shadow-2xs"
+                className="px-3.5 py-2 rounded-lg bg-zinc-950 hover:bg-zinc-800 text-white font-medium transition-colors flex items-center gap-1.5 shadow-2xs"
               >
                 <span>OPEN SITE</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -159,4 +159,5 @@ export const AppsShowcase: React.FC = () => {
     </section>
   )
 }
+
 export default AppsShowcase

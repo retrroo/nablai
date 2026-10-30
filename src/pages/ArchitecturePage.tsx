@@ -333,7 +333,7 @@ export const ArchitecturePage: React.FC = () => {
                 href="https://latentspace.science"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1 text-violet-600 hover:text-violet-800 font-medium transition-colors"
+                className="inline-flex items-center gap-1 text-zinc-600 hover:text-zinc-950 font-medium transition-colors"
               >
                 <span>latentspace.science</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

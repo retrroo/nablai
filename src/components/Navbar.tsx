@@ -44,7 +44,7 @@ export const Navbar: React.FC = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-purple-500 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
+                className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-white after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
               >
                 {link.label}
               </a>
@@ -65,9 +65,9 @@ export const Navbar: React.FC = () => {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-sm font-semibold shadow-lg shadow-purple-600/25 hover:shadow-purple-600/40 transition-all duration-200 active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-zinc-900 to-zinc-950 hover:from-zinc-800 hover:to-zinc-900 text-white text-sm font-semibold shadow-lg shadow-black/50 transition-all duration-200 active:scale-95"
             >
-              <Sparkles className="w-4 h-4 text-purple-200" />
+              <Sparkles className="w-4 h-4 text-zinc-300" />
               <span>Project Starten</span>
             </a>
           </div>
@@ -76,7 +76,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-3 md:hidden">
             <a
               href="#contact"
-              className="text-xs px-3 py-1.5 rounded-lg bg-purple-600 text-white font-medium"
+              className="text-xs px-3 py-1.5 rounded-lg bg-zinc-900 text-white font-medium"
             >
               Contact
             </a>
@@ -117,7 +117,7 @@ export const Navbar: React.FC = () => {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-purple-600 text-white text-sm font-medium"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-zinc-900 text-white text-sm font-medium"
             >
               <span>Contact Opnemen</span>
               <ArrowRight className="w-4 h-4" />

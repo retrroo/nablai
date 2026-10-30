@@ -86,7 +86,7 @@ export const LatentSpacePage: React.FC = () => {
               href="https://latentspace.science"
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs font-mono font-medium transition-colors flex items-center gap-2 shadow-xs group"
+              className="px-5 py-3 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white text-xs font-mono font-medium transition-colors flex items-center gap-2 shadow-xs group"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>OPEN LIVE SITE // latentspace.science</span>
@@ -106,8 +106,8 @@ export const LatentSpacePage: React.FC = () => {
 
         {/* Live Application Showcase Card */}
         <div className="mb-20">
-          <div className="relative rounded-2xl border border-violet-200 bg-gradient-to-b from-violet-50/50 to-zinc-50/70 p-10 sm:p-16 text-center flex flex-col items-center justify-center overflow-hidden transition-colors hover:border-violet-300 shadow-xs">
-            <div className="w-16 h-16 rounded-2xl bg-white border border-violet-100 flex items-center justify-center text-violet-700 mb-5 shadow-xs">
+          <div className="relative rounded-2xl border border-zinc-200 bg-zinc-50/70 p-10 sm:p-16 text-center flex flex-col items-center justify-center overflow-hidden transition-colors hover:border-zinc-300 shadow-xs">
+            <div className="w-16 h-16 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center text-zinc-800 mb-5 shadow-xs">
               <Sparkles className="w-8 h-8 stroke-[1.5]" />
             </div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs font-mono font-medium mb-3">
