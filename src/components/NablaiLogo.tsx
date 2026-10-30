@@ -94,17 +94,25 @@ export const NablaiLogo: React.FC<NablaiLogoProps> = ({
 
         {/* The shared 'a': Exactly split 50/50 down the middle! 
             Left half = primaryText (completing 'Nabla')
-            Right half = resolvedAccent (starting 'Ai') */}
+            Right half = resolvedAccent (starting 'Ai')
+            Rendered with zero background-clip to guarantee it never shows as a broken box */}
         <span
-          className="relative inline-block"
-          style={{
-            background: `linear-gradient(90deg, ${primaryText} 0%, ${primaryText} 50%, ${resolvedAccent} 50%, ${resolvedAccent} 100%)`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
+          className="relative inline-block select-none"
+          style={{ color: primaryText }}
           title="Nabla + Ai shared anchor letter"
         >
-          a
+          <span>a</span>
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 pointer-events-none select-none"
+            style={{
+              color: resolvedAccent,
+              clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)',
+              WebkitClipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)',
+            }}
+          >
+            a
+          </span>
         </span>
 
         {/* 'i' */}

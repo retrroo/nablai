@@ -70,16 +70,21 @@ export const LogoStorySection: React.FC = () => {
               >
                 <span className="text-zinc-950">Nabl</span>
                 {splitDistance === 0 ? (
-                  // Shared split 'a' in fusion mode
+                  // Shared split 'a' in fusion mode (bulletproof clip-path without background-clip glitch)
                   <span
-                    className="relative inline-block"
-                    style={{
-                      background: 'linear-gradient(90deg, #09090b 0%, #09090b 50%, #6d28d9 50%, #6d28d9 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                    }}
+                    className="relative inline-block select-none text-zinc-950"
                   >
-                    a
+                    <span>a</span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 pointer-events-none select-none text-violet-700"
+                      style={{
+                        clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)',
+                        WebkitClipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)',
+                      }}
+                    >
+                      a
+                    </span>
                   </span>
                 ) : (
                   // Separate full 'a' in exploded mode
