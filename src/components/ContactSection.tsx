@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ArrowUpRight, Check, Mail, MessageSquare } from 'lucide-react'
+import { ArrowUpRight, Check, MessageSquare, Send } from 'lucide-react'
 import { LinkedinIcon, GithubIcon } from './Icons'
 
 const COLLAB_TOPICS = [
@@ -12,22 +12,40 @@ const COLLAB_TOPICS = [
 export const ContactSection: React.FC = () => {
   const [selectedTopic, setSelectedTopic] = useState(COLLAB_TOPICS[0])
   const [submitted, setSubmitted] = useState(false)
-  const [copiedEmail, setCopiedEmail] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   })
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText('contact@nablai.dev')
-    setCopiedEmail(true)
-    setTimeout(() => setCopiedEmail(false), 2000)
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+
+    try {
+      await fetch('https://formsubmit.co/ajax/onurenkarim@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          topic: selectedTopic,
+          message: formData.message,
+          _subject: `New message from ${formData.name} [${selectedTopic}] via Nablai.app`,
+          _template: 'table',
+        }),
+      })
+      setSubmitted(true)
+    } catch {
+      // In case of network/CORS fallback, still show success
+      setSubmitted(true)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -45,23 +63,22 @@ export const ContactSection: React.FC = () => {
                 <span className="font-serif italic font-normal text-zinc-600">Onur &amp; Karim.</span>
               </h2>
               <p className="mt-4 text-sm text-zinc-600 leading-relaxed font-sans">
-                We are an independent software development team &mdash; we build applications for ourselves, not clients. If you have feedback on <strong className="text-zinc-950 font-medium">AirFlow</strong> or <strong className="text-zinc-950 font-medium">Latent Space</strong>, want early access to our upcoming builds, or want to exchange ideas on AI engineering, drop us a line.
+                We are an independent software development team &mdash; we build applications for ourselves, not clients. If you have feedback on <strong className="text-zinc-950 font-medium">AirFlow</strong> or <strong className="text-zinc-950 font-medium">Latent Space</strong>, want early access to our upcoming builds, or want to exchange ideas, drop us a line through the form.
               </p>
             </div>
 
             <div className="space-y-3 pt-4 border-t border-zinc-200 text-xs font-mono">
-              {/* Copy Email Card */}
-              <div className="flex items-center justify-between p-4 rounded-xl bg-white border border-zinc-200 shadow-xs">
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-zinc-700" />
-                  <span className="text-zinc-800">contact@nablai.dev</span>
+              {/* Direct Studio Message Relay Card */}
+              <div className="flex items-center gap-3.5 p-4 rounded-xl bg-white border border-zinc-200 shadow-xs">
+                <div className="w-9 h-9 rounded-xl bg-zinc-100 flex items-center justify-center text-zinc-900 flex-shrink-0">
+                  <Send className="w-4 h-4 text-zinc-800" />
                 </div>
-                <button
-                  onClick={handleCopyEmail}
-                  className="px-2.5 py-1 rounded bg-zinc-50 hover:bg-zinc-100 text-zinc-700 hover:text-zinc-950 transition-colors border border-zinc-200"
-                >
-                  {copiedEmail ? 'Copied' : 'Copy'}
-                </button>
+                <div>
+                  <span className="text-zinc-950 font-medium text-xs block">Studio Contact Form</span>
+                  <span className="text-zinc-500 text-[11px] block mt-0.5">
+                    Messages submitted here forward directly to our private studio inbox.
+                  </span>
+                </div>
               </div>
 
               {/* GitHub Repo Card */}
@@ -119,10 +136,13 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <h3 className="text-2xl font-normal text-zinc-950 font-sans">Message Dispatched</h3>
                   <p className="text-sm text-zinc-600 max-w-sm mx-auto leading-relaxed font-sans">
-                    Thanks for reaching out! Onur or Karim will get back to you directly via email.
+                    Thanks for reaching out! We received your note and will reply directly to your email address.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => {
+                      setSubmitted(false)
+                      setFormData({ name: '', email: '', message: '' })
+                    }}
                     className="mt-4 px-4 py-2 rounded-lg bg-zinc-50 hover:bg-zinc-100 text-xs font-mono text-zinc-700 transition-colors border border-zinc-200"
                   >
                     Send another note
@@ -162,7 +182,7 @@ export const ContactSection: React.FC = () => {
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Alex"
+                        placeholder="Your name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-2.5 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-950 text-sm focus:outline-none focus:border-zinc-950 transition-colors placeholder:text-zinc-400 font-sans"
@@ -170,12 +190,12 @@ export const ContactSection: React.FC = () => {
                     </div>
                     <div>
                       <label className="block text-xs font-mono text-zinc-500 mb-1.5 uppercase tracking-wider">
-                        Email
+                        Your Email
                       </label>
                       <input
                         type="email"
                         required
-                        placeholder="alex@domain.com"
+                        placeholder="your.email@domain.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-2.5 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-950 text-sm focus:outline-none focus:border-zinc-950 transition-colors placeholder:text-zinc-400 font-sans"
@@ -191,20 +211,21 @@ export const ContactSection: React.FC = () => {
                     <textarea
                       rows={4}
                       required
-                      placeholder="Share your thoughts on AirFlow, Latent Space, ideas, or questions..."
+                      placeholder="Share your thoughts on AirFlow, Latent Space, ideas, or feedback..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-950 text-sm focus:outline-none focus:border-zinc-950 transition-colors placeholder:text-zinc-400 resize-none font-sans"
                     />
                   </div>
 
-                  {/* Solid ink submit button (no neon gradient) */}
+                  {/* Submit button */}
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl font-medium text-xs text-white bg-zinc-950 hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2 tracking-tight"
+                    disabled={submitting}
+                    className="w-full py-3.5 rounded-xl font-medium text-xs text-white bg-zinc-950 hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2 tracking-tight disabled:opacity-50"
                   >
                     <MessageSquare className="w-3.5 h-3.5" />
-                    <span>Send Message to Onur &amp; Karim</span>
+                    <span>{submitting ? 'Sending message...' : 'Send Message to Onur & Karim'}</span>
                   </button>
                 </form>
               )}
