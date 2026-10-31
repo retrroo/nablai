@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-ro
 import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
 import { HomePage } from './pages/HomePage'
+import { ProductsPage } from './pages/ProductsPage'
 import { AirFlowPage } from './pages/AirFlowPage'
 import { LatentSpacePage } from './pages/LatentSpacePage'
 import { NablaShieldPage } from './pages/NablaShieldPage'
@@ -51,6 +52,7 @@ export function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/apps/airflow" element={<AirFlowPage />} />
             <Route path="/apps/latent-space" element={<LatentSpacePage />} />
             <Route path="/apps/nabla-shield" element={<NablaShieldPage />} />

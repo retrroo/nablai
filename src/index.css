@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "./styles/tokens.css";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -13,6 +17,26 @@
     font-family: var(--font-sans);
     overflow-x: hidden;
   }
+}
+
+/* Custom bouncy spring transition for dropdown menus */
+@keyframes dropdownSpring {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(3px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dropdown-spring-in {
+  animation: dropdownSpring 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 /* Custom visual utilities for the logo and AI glow effects */

@@ -24,6 +24,14 @@ export const InteractiveHero: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const handleScrollToApps = (e: React.MouseEvent) => {
+    e.preventDefault()
+    const target = document.getElementById('apps')
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   useEffect(() => {
     let ctx: gsap.Context | null = null
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -155,6 +163,7 @@ export const InteractiveHero: React.FC = () => {
           <div className="grid grid-cols-2 gap-2 text-xs">
             <a
               href="#apps"
+              onClick={handleScrollToApps}
               className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
             >
               <span className="text-zinc-400 font-mono text-[9px] block font-medium">01 &middot; AVIATION</span>
@@ -162,6 +171,7 @@ export const InteractiveHero: React.FC = () => {
             </a>
             <a
               href="#apps"
+              onClick={handleScrollToApps}
               className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
             >
               <span className="text-zinc-400 font-mono text-[9px] block font-medium">02 &middot; AI LAB</span>
@@ -169,6 +179,7 @@ export const InteractiveHero: React.FC = () => {
             </a>
             <a
               href="#apps"
+              onClick={handleScrollToApps}
               className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
             >
               <span className="text-zinc-400 font-mono text-[9px] block font-medium">03 &middot; SHIELD</span>
@@ -176,6 +187,7 @@ export const InteractiveHero: React.FC = () => {
             </a>
             <a
               href="#apps"
+              onClick={handleScrollToApps}
               className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
             >
               <span className="text-zinc-400 font-mono text-[9px] block font-medium">04 &middot; AUDIO</span>
@@ -184,23 +196,27 @@ export const InteractiveHero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom: CTA & Scroll Indicator (Clutter text & 20-26 Studio removed) */}
+        {/* Bottom: CTA & Scroll Indicator */}
         <div className="relative z-20 space-y-5">
           <a
             href="#apps"
-            className="w-full py-3.5 px-6 rounded-full font-medium text-sm text-zinc-950 bg-white hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 text-center"
+            onClick={handleScrollToApps}
+            className="w-full py-3.5 px-6 rounded-full font-medium text-sm text-zinc-950 bg-white hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 text-center cursor-pointer"
           >
             <Sparkles className="w-4 h-4 text-zinc-900" />
             <span>Explore Our Apps</span>
           </a>
 
           {/* Bottom Bar indicator (Left only) */}
-          <div className="flex items-center text-xs text-zinc-400 font-mono pt-2 border-t border-white/10">
+          <div 
+            onClick={handleScrollToApps}
+            className="flex items-center text-xs text-zinc-400 font-mono pt-2 border-t border-white/10 cursor-pointer group"
+          >
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-xs">
+              <div className="w-5 h-5 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
                 <ArrowDown className="w-3 h-3 stroke-[2.5]" />
               </div>
-              <span className="text-[11px] text-zinc-300">Scroll for portfolio</span>
+              <span className="text-[11px] text-zinc-300 group-hover:text-white transition-colors">Scroll for portfolio</span>
             </div>
           </div>
         </div>
@@ -224,7 +240,7 @@ export const InteractiveHero: React.FC = () => {
       {/* 1. Interactive Twinkling Starfield Canvas (Pitch Black Cosmic Sky) */}
       <StarfieldCanvas className="z-0" />
 
-      {/* 2. Interactive Constellation / Neural Lattice Canvas (Connecting Dots & Lines from Photo 2) */}
+      {/* 2. Interactive Constellation / Neural Lattice Canvas */}
       <ConstellationCanvas className="z-10" />
 
       {/* 3. Big Main Headline (Left) */}
@@ -272,7 +288,8 @@ export const InteractiveHero: React.FC = () => {
       >
         <a
           href="#apps"
-          className={`inline-flex items-center justify-center gap-2 font-medium text-zinc-950 bg-white hover:bg-zinc-100 transition-all duration-200 active:scale-95 text-center shadow-lg border border-white/60 rounded-full ${styles.actionBtn}`}
+          onClick={handleScrollToApps}
+          className={`inline-flex items-center justify-center gap-2 font-medium text-zinc-950 bg-white hover:bg-zinc-100 transition-all duration-200 active:scale-95 text-center shadow-lg border border-white/60 rounded-full cursor-pointer ${styles.actionBtn}`}
           style={{
             fontFamily: 'var(--font-sans)',
             fontSize: 'calc(17 * var(--u))',
@@ -294,9 +311,13 @@ export const InteractiveHero: React.FC = () => {
         }}
       >
         {/* Left: Scroll indicator */}
-        <div className="flex items-center" style={{ gap: 'calc(12 * var(--u))' }}>
+        <div
+          onClick={handleScrollToApps}
+          className="flex items-center cursor-pointer group"
+          style={{ gap: 'calc(12 * var(--u))' }}
+        >
           <div
-            className="flex items-center justify-center rounded-full bg-white text-black shadow-md flex-shrink-0"
+            className="flex items-center justify-center rounded-full bg-white text-black shadow-md flex-shrink-0 group-hover:scale-110 transition-transform"
             style={{
               width: 'calc(33 * var(--u))',
               height: 'calc(33 * var(--u))',
@@ -305,7 +326,7 @@ export const InteractiveHero: React.FC = () => {
           >
             <ArrowDown className="w-4 h-4 stroke-[2.5]" />
           </div>
-          <span className="truncate text-zinc-300">Scroll down for our portfolio</span>
+          <span className="truncate text-zinc-300 group-hover:text-white transition-colors">Scroll down for our portfolio</span>
         </div>
       </div>
     </section>
