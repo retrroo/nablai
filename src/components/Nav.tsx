@@ -53,28 +53,24 @@ export const Nav: React.FC = () => {
       subtitle: 'Personal Flight Companion & Skia Maps',
       path: '/apps/airflow',
       icon: Smartphone,
-      tag: 'Mobile App',
     },
     {
       title: 'Latent Space',
       subtitle: 'AI Synthesis & Intelligence Engine',
       path: '/apps/latent-space',
       icon: Sparkles,
-      tag: 'Web Platform',
     },
     {
       title: 'Nabla Shield',
       subtitle: 'Pure Web Ad & Consent Evasion Shield',
       path: '/apps/nabla-shield',
       icon: ShieldCheck,
-      tag: 'Chromium MV3',
     },
     {
       title: 'SoundBoost',
       subtitle: '600% Tab Volume Booster & 5-Band Studio EQ',
       path: '/apps/soundboost',
       icon: Volume2,
-      tag: 'Web Audio API',
     },
   ]
 
@@ -176,19 +172,20 @@ export const Nav: React.FC = () => {
               }}
             >
               <div
-                className={`w-[360px] p-3 rounded-2xl shadow-2xl backdrop-blur-2xl border ${
+                className={`w-[320px] p-2.5 rounded-2xl shadow-2xl backdrop-blur-2xl border ${
                   isHero
                     ? 'bg-zinc-950/95 border-white/10 text-white shadow-black/90'
                     : 'bg-white/95 border-zinc-200 text-zinc-900 shadow-zinc-900/10'
                 }`}
               >
                 {/* Dropdown Header */}
-                <div className="flex items-center justify-between px-3 py-2 border-b border-white/10 text-[10px] font-mono text-zinc-400 uppercase tracking-widest mb-1.5">
-                  <span className="flex items-center gap-1.5 text-zinc-300">
+                <div className={`flex items-center px-3 py-2 border-b text-[10px] font-mono uppercase tracking-widest mb-1.5 ${
+                  isHero ? 'border-white/10 text-zinc-400' : 'border-zinc-200 text-zinc-500'
+                }`}>
+                  <span className={`flex items-center gap-1.5 ${isHero ? 'text-zinc-300' : 'text-zinc-700'}`}>
                     <Grid className="w-3 h-3" />
                     Studio Portfolio
                   </span>
-                  <span className="text-emerald-400">4 Applications</span>
                 </div>
 
                 {/* 4 Products List */}
@@ -222,20 +219,11 @@ export const Nav: React.FC = () => {
                           <Icon className="w-4 h-4" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between gap-2">
-                            <span className="text-xs font-medium tracking-tight truncate">
-                              {prod.title}
-                            </span>
-                            <span
-                              className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${
-                                isHero
-                                  ? 'bg-white/10 text-zinc-300'
-                                  : 'bg-zinc-100 text-zinc-600'
-                              }`}
-                            >
-                              {prod.tag}
-                            </span>
-                          </div>
+                          <span className={`text-xs font-medium tracking-tight truncate block ${
+                            isHero ? 'text-white' : 'text-zinc-950'
+                          }`}>
+                            {prod.title}
+                          </span>
                           <p
                             className={`text-[11px] leading-snug truncate mt-0.5 ${
                               isHero ? 'text-zinc-400' : 'text-zinc-500'
@@ -250,7 +238,9 @@ export const Nav: React.FC = () => {
                 </div>
 
                 {/* Dropdown Footer: Overview Page Link */}
-                <div className="mt-2 pt-2 border-t border-white/10 px-1">
+                <div className={`mt-2 pt-2 border-t px-1 ${
+                  isHero ? 'border-white/10' : 'border-zinc-200'
+                }`}>
                   <Link
                     to="/products"
                     onClick={() => setDropdownOpen(false)}
@@ -363,7 +353,7 @@ export const Nav: React.FC = () => {
           }`}
         >
           {/* Mobile Products Group */}
-          <div className="space-y-1 pb-2 border-b border-white/10">
+          <div className={`space-y-1 pb-2 border-b ${isHero ? 'border-white/10' : 'border-zinc-200'}`}>
             <div className="flex items-center justify-between px-3 py-1.5">
               <Link
                 to="/products"
@@ -375,7 +365,7 @@ export const Nav: React.FC = () => {
               </Link>
               <button
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                className="p-1 text-zinc-400 hover:text-white"
+                className={`p-1 ${isHero ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-zinc-900'}`}
                 aria-label="Toggle Products"
               >
                 <ChevronDown
@@ -395,11 +385,14 @@ export const Nav: React.FC = () => {
                       key={prod.title}
                       to={prod.path}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-white/5 transition-colors"
+                      className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs transition-colors ${
+                        isHero
+                          ? 'text-zinc-300 hover:text-white hover:bg-white/5'
+                          : 'text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100'
+                      }`}
                     >
                       <Icon className="w-3.5 h-3.5 text-zinc-400" />
-                      <span className="font-medium text-white">{prod.title}</span>
-                      <span className="text-[10px] text-zinc-400 truncate">&bull; {prod.tag}</span>
+                      <span className={`font-medium ${isHero ? 'text-white' : 'text-zinc-950'}`}>{prod.title}</span>
                     </Link>
                   )
                 })}
