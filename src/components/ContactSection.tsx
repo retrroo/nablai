@@ -63,7 +63,7 @@ export const ContactSection: React.FC = () => {
                 <span className="font-serif italic font-normal text-zinc-600">Onur &amp; Karim.</span>
               </h2>
               <p className="mt-4 text-sm text-zinc-600 leading-relaxed font-sans">
-                We are an independent software development team &mdash; we build applications for ourselves, not clients. If you have feedback on <strong className="text-zinc-950 font-medium">AirFlow</strong>, <strong className="text-zinc-950 font-medium">Latent Space</strong>, or <strong className="text-zinc-950 font-medium">Nabla Shield</strong>, want early access to our upcoming builds, or want to exchange ideas, drop us a line through the form.
+                We are an independent software development team &mdash; we build applications for ourselves, not clients. If you have feedback on <strong className="text-zinc-950 font-medium">AirFlow</strong>, <strong className="text-zinc-950 font-medium">Latent Space</strong>, <strong className="text-zinc-950 font-medium">Nabla Shield</strong>, or <strong className="text-zinc-950 font-medium">SoundBoost</strong>, want early access to our upcoming builds, or want to exchange ideas, drop us a line through the form.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ export const ContactSection: React.FC = () => {
                     <textarea
                       rows={4}
                       required
-                      placeholder="Share your thoughts on AirFlow, Latent Space, Nabla Shield, ideas, or feedback..."
+                      placeholder="Share your thoughts on AirFlow, Latent Space, Nabla Shield, SoundBoost, ideas, or feedback..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-950 text-sm focus:outline-none focus:border-zinc-950 transition-colors placeholder:text-zinc-400 resize-none font-sans"

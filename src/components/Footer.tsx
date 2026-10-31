@@ -101,18 +101,35 @@ export const Footer: React.FC = () => {
                 </div>
               </li>
               <li>
+                <div className="flex items-center gap-2">
+                  <Link to="/apps/soundboost" className="text-zinc-600 hover:text-zinc-950 transition-colors">
+                    04 // SoundBoost (600% Tab Volume &amp; Studio EQ)
+                  </Link>
+                  <a
+                    href="https://github.com/retrroo/soundboost-by-nablai"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[10px] text-zinc-600 hover:text-zinc-950 transition-colors inline-flex items-center gap-0.5"
+                    title="Open GitHub repo"
+                  >
+                    <span>[github]</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
+                </div>
+              </li>
+              <li>
                 <Link to="/stack" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  04 // Studio Engineering Stack
+                  05 // Studio Engineering Stack
                 </Link>
               </li>
               <li>
                 <Link to="/architecture" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  05 // Systems Architecture
+                  06 // Systems Architecture
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  06 // About Onur &amp; Karim
+                  07 // About Onur &amp; Karim
                 </Link>
               </li>
               <li>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Image as ImageIcon, Download, Terminal } from 'lucide-react'
+import { ArrowUpRight, Image as ImageIcon, Download, Terminal, Volume2, ShieldCheck } from 'lucide-react'
 import { GithubIcon } from './Icons'
 
 export const AppsShowcase: React.FC = () => {
@@ -23,7 +23,7 @@ export const AppsShowcase: React.FC = () => {
           </p>
         </div>
 
-        {/* Bento Grid */}
+        {/* 2x2 Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* App 1: AirFlow (6 cols) */}
           <Link
@@ -172,127 +172,213 @@ export const AppsShowcase: React.FC = () => {
             </div>
           </div>
 
-          {/* App 3: Nabla Shield (Featured 12 cols) */}
-          <div className="lg:col-span-12 group relative rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 p-8 sm:p-10 flex flex-col justify-between transition-all duration-200 hover:bg-zinc-100/40">
+          {/* App 3: Nabla Shield (6 cols) */}
+          <div className="lg:col-span-6 group relative rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 p-8 sm:p-10 flex flex-col justify-between transition-all duration-200 hover:bg-zinc-100/40">
             <div>
               {/* Header Badges */}
-              <div className="flex flex-wrap items-center justify-between pb-6 mb-6 border-b border-zinc-200 text-xs font-mono text-zinc-500 gap-4">
+              <div className="flex items-center justify-between pb-6 mb-6 border-b border-zinc-200 text-xs font-mono text-zinc-500">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-zinc-950 border border-zinc-400" />
                   <span className="text-zinc-900 font-semibold">BROWSER EXTENSION</span>
                   <span className="text-zinc-300">|</span>
                   <span className="text-zinc-600">Onur &amp; Karim</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-full bg-zinc-200/70 border border-zinc-300 text-zinc-800 text-[11px] font-mono font-medium">
-                    Manifest V3 Compliant
+                <span className="px-2.5 py-1 rounded-full bg-zinc-200/70 border border-zinc-300 text-zinc-800 text-[11px] font-mono font-medium">
+                  Manifest V3 Compliant
+                </span>
+              </div>
+
+              {/* Title & Concept */}
+              <div className="mb-3">
+                <h3 className="text-2xl sm:text-3xl font-normal text-zinc-950 tracking-tight font-sans">
+                  Nabla Shield
+                </h3>
+              </div>
+              <p className="text-sm text-zinc-600 leading-relaxed mb-6 font-sans">
+                Deterministic Chrome ad &amp; consent shield. Features stealth YouTube video mitigation, zero-overhead Declarative Net Request filtering, automatic cookie consent evasion, and on-device heuristic scoring.
+              </p>
+
+              {/* 4-Layer Terminal Preview */}
+              <div className="relative rounded-2xl border border-zinc-800/90 bg-zinc-950 p-5 shadow-lg overflow-hidden font-mono text-xs text-zinc-300 space-y-2.5 my-6">
+                <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:12px_12px] opacity-20 pointer-events-none" />
+                <div className="relative z-10 flex items-center justify-between pb-2 border-b border-white/10 text-[11px] text-zinc-400">
+                  <span className="text-white font-medium flex items-center gap-1.5">
+                    <Terminal className="w-3.5 h-3.5 text-zinc-400" />
+                    NABLA-DEFENSE-STACK
                   </span>
-                  <span className="hidden sm:inline-flex px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono font-medium">
-                    Zero Cloud Telemetry
+                  <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    ACTIVE (0ms)
                   </span>
+                </div>
+
+                <div className="relative z-10 space-y-1.5 text-[11px]">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-semibold">L1</span>
+                    <span className="text-zinc-400">DNR Kernel Filter:</span>
+                    <span className="text-white">Zero-overhead ad block</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-semibold">L2</span>
+                    <span className="text-zinc-400">Cosmetic &amp; CMP:</span>
+                    <span className="text-white">Auto &quot;Reject All&quot; cookies</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-semibold">L3</span>
+                    <span className="text-emerald-400 font-semibold">YouTube Canary:</span>
+                    <span className="text-white">Strip playerAds &bull; 16x skip</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-semibold">L4</span>
+                    <span className="text-zinc-400">Heuristic AI:</span>
+                    <span className="text-white">On-device IAB aspect ratio</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Main Content Split (2 Columns) */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                {/* Left: Concept & Info */}
-                <div className="lg:col-span-7">
-                  <div className="mb-3">
-                    <h3 className="text-2xl sm:text-3xl font-normal text-zinc-950 tracking-tight font-sans">
-                      Nabla Shield &mdash;{' '}
-                      <span className="font-serif italic text-zinc-600 font-normal">
-                        Pure Web Ad &amp; Consent Shield
-                      </span>
-                    </h3>
-                  </div>
-                  <p className="text-sm text-zinc-600 leading-relaxed mb-6 font-sans">
-                    A high-performance, deterministic Chromium extension engineered to make browsing pure. Features stealth YouTube video ad mitigation, zero-overhead Declarative Net Request filtering, automatic cookie consent evasion (OneTrust, Cookiebot, etc.), and on-device heuristic ad classification without broken layouts or cloud API dependencies.
-                  </p>
-
-                  {/* Tech Stack Chips */}
-                  <div className="flex flex-wrap gap-1.5 pt-1 font-mono text-[11px]">
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Vanilla ES2024</span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Chromium MV3</span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">declarativeNetRequest</span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">0ms Optimistic CSS</span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Stealth YouTube Canary</span>
-                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">On-Device Heuristic AI</span>
-                  </div>
-                </div>
-
-                {/* Right: 4-Layer Diagnostic Terminal Preview */}
-                <div className="lg:col-span-5">
-                  <div className="relative rounded-2xl border border-zinc-800/90 bg-zinc-950 p-6 shadow-xl overflow-hidden font-mono text-xs text-zinc-300 space-y-3">
-                    <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:12px_12px] opacity-20 pointer-events-none" />
-                    <div className="relative z-10 flex items-center justify-between pb-2 border-b border-white/10 text-[11px] text-zinc-400">
-                      <span className="text-white font-medium flex items-center gap-1.5">
-                        <Terminal className="w-3.5 h-3.5 text-zinc-400" />
-                        NABLA-DEFENSE-STACK
-                      </span>
-                      <span className="text-emerald-400 font-semibold">[ACTIVE // 0ms]</span>
-                    </div>
-
-                    <div className="relative z-10 space-y-2 text-[11px]">
-                      <div className="flex items-start gap-2">
-                        <span className="text-emerald-400 font-semibold">L1</span>
-                        <span className="text-zinc-400">DNR Kernel Filter:</span>
-                        <span className="text-white">Zero-overhead ad block</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-emerald-400 font-semibold">L2</span>
-                        <span className="text-zinc-400">Cosmetic &amp; CMP:</span>
-                        <span className="text-white">Auto &quot;Reject All&quot; cookies</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-emerald-400 font-semibold">L3</span>
-                        <span className="text-emerald-400 font-semibold">YouTube Canary:</span>
-                        <span className="text-white">Strip playerAds &bull; 16x skip</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-emerald-400 font-semibold">L4</span>
-                        <span className="text-zinc-400">Heuristic AI:</span>
-                        <span className="text-white">On-device IAB aspect ratio</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              {/* Tech Stack Chips */}
+              <div className="flex flex-wrap gap-1.5 pt-2 font-mono text-[11px]">
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Vanilla ES2024</span>
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Chromium MV3</span>
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">declarativeNetRequest</span>
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Stealth YouTube</span>
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Zero Telemetry</span>
               </div>
             </div>
 
             {/* Bottom Actions */}
-            <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+            <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
               <Link
                 to="/apps/nabla-shield"
                 className="text-zinc-600 hover:text-zinc-950 transition-colors flex items-center gap-1.5 font-medium"
               >
-                <span>VIEW SHIELD ARCHITECTURE &amp; MANUAL</span>
+                <span>VIEW SHIELD DETAILS</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
-
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
                 <a
                   href="https://github.com/retrroo/nabla-ad-shield"
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 py-2 rounded-xl bg-white hover:bg-zinc-100 text-zinc-900 border border-zinc-200 transition-colors flex items-center gap-2 shadow-xs"
+                  className="p-2 rounded-xl bg-white hover:bg-zinc-100 text-zinc-900 border border-zinc-200 transition-colors shadow-xs"
+                  title="GitHub Repository"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
-                  <span>GitHub</span>
                 </a>
-
-                {/* Cosmic Starlight Download Button */}
                 <a
                   href="https://github.com/retrroo/nabla-ad-shield/releases/latest/download/nabla-ad-shield.zip"
                   target="_blank"
                   rel="noreferrer"
-                  className="relative overflow-hidden group px-4 py-2 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-2 shadow-xs active:scale-95"
+                  className="relative overflow-hidden group px-3.5 py-2 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-1.5 shadow-xs active:scale-95"
                 >
-                  <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:10px_10px] opacity-20 group-hover:opacity-35 transition-opacity pointer-events-none" />
-                  <span className="relative z-10 flex items-center gap-1.5">
-                    <Download className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>DOWNLOAD v1.0.0 (ZIP)</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <Download className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>ZIP</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* App 4: SoundBoost (6 cols) */}
+          <div className="lg:col-span-6 group relative rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 p-8 sm:p-10 flex flex-col justify-between transition-all duration-200 hover:bg-zinc-100/40">
+            <div>
+              {/* Header Badges */}
+              <div className="flex items-center justify-between pb-6 mb-6 border-b border-zinc-200 text-xs font-mono text-zinc-500">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-zinc-950 border border-zinc-400" />
+                  <span className="text-zinc-900 font-semibold">BROWSER EXTENSION</span>
+                  <span className="text-zinc-300">|</span>
+                  <span className="text-zinc-600">Onur &amp; Karim</span>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-zinc-200/70 border border-zinc-300 text-zinc-800 text-[11px] font-mono font-medium">
+                  Web Audio &middot; 600% Boost
+                </span>
+              </div>
+
+              {/* Title & Concept */}
+              <div className="mb-3">
+                <h3 className="text-2xl sm:text-3xl font-normal text-zinc-950 tracking-tight font-sans">
+                  SoundBoost by Nablai
+                </h3>
+              </div>
+              <p className="text-sm text-zinc-600 leading-relaxed mb-6 font-sans">
+                Next-gen Chrome tab volume booster up to 600% with studio Dynamics Compressor anti-clipping protection and a 5-band parametric EQ. Preserves 100% native HTML5 fullscreen with zero lip-sync lag.
+              </p>
+
+              {/* Audio DSP Terminal Preview */}
+              <div className="relative rounded-2xl border border-zinc-800/90 bg-zinc-950 p-5 shadow-lg overflow-hidden font-mono text-xs text-zinc-300 space-y-2.5 my-6">
+                <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:12px_12px] opacity-20 pointer-events-none" />
+                <div className="relative z-10 flex items-center justify-between pb-2 border-b border-white/10 text-[11px] text-zinc-400">
+                  <span className="text-white font-medium flex items-center gap-1.5">
+                    <Terminal className="w-3.5 h-3.5 text-zinc-400" />
+                    SOUNDBOOST-AUDIO-ENGINE
                   </span>
+                  <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                    <Volume2 className="w-3.5 h-3.5" />
+                    ACTIVE (0ms)
+                  </span>
+                </div>
+
+                <div className="relative z-10 space-y-1.5 text-[11px]">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-semibold">EQ</span>
+                    <span className="text-zinc-400">5-Band Studio EQ:</span>
+                    <span className="text-white">60Hz &bull; 250Hz &bull; 1kHz &bull; 4kHz &bull; 12kHz</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-semibold">Amp</span>
+                    <span className="text-zinc-400">Master Gain:</span>
+                    <span className="text-white">0% to 600% amplification</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-semibold">Lim</span>
+                    <span className="text-zinc-400">Dynamics Compressor:</span>
+                    <span className="text-white">-6dB threshold &bull; 8:1 ratio limiter</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 font-semibold">DOM</span>
+                    <span className="text-zinc-400">Direct Hook:</span>
+                    <span className="text-white">100% Native OS Fullscreen</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tech Stack Chips */}
+              <div className="flex flex-wrap gap-1.5 pt-2 font-mono text-[11px]">
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Vanilla ES2024</span>
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Chromium MV3</span>
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Web Audio API</span>
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Dynamics Compressor</span>
+                <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">0ms Latency</span>
+              </div>
+            </div>
+
+            {/* Bottom Actions */}
+            <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
+              <Link
+                to="/apps/soundboost"
+                className="text-zinc-600 hover:text-zinc-950 transition-colors flex items-center gap-1.5 font-medium"
+              >
+                <span>VIEW SOUNDBOOST DETAILS</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://github.com/retrroo/soundboost-by-nablai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2 rounded-xl bg-white hover:bg-zinc-100 text-zinc-900 border border-zinc-200 transition-colors shadow-xs"
+                  title="GitHub Repository"
+                >
+                  <GithubIcon className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://github.com/retrroo/soundboost-by-nablai/releases/latest/download/soundboost-by-nablai.zip"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative overflow-hidden group px-3.5 py-2 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-1.5 shadow-xs active:scale-95"
+                >
+                  <Download className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>ZIP</span>
                 </a>
               </div>
             </div>
