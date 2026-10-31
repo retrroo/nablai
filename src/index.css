@@ -3,20 +3,41 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  background-color: #030305;
 }
 
 @layer base {
   * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
   }
   body {
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #030305;
     color: #18181b;
     font-family: var(--font-sans);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* Safe Area Inset Helpers for iPhone & iPhone Duo */
+.safe-top-padding {
+  padding-top: max(1.25rem, calc(env(safe-area-inset-top, 0px) + 0.75rem));
+}
+
+.safe-bottom-padding {
+  padding-bottom: max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1rem));
+}
+
+.safe-side-padding {
+  padding-left: max(1rem, calc(env(safe-area-inset-left, 0px) + 0.75rem));
+  padding-right: max(1rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
 }
 
 /* Custom bouncy spring transition for dropdown menus */

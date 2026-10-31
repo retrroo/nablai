@@ -10,7 +10,14 @@ export const Footer: React.FC = () => {
   }
 
   return (
-    <footer className="bg-zinc-50 text-zinc-600 py-20 border-t border-zinc-200 relative">
+    <footer 
+      className="bg-zinc-50 text-zinc-600 pt-16 border-t border-zinc-200 relative"
+      style={{
+        paddingBottom: 'max(5rem, calc(env(safe-area-inset-bottom, 0px) + 3rem))',
+        paddingLeft: 'max(0px, env(safe-area-inset-left, 0px))',
+        paddingRight: 'max(0px, env(safe-area-inset-right, 0px))',
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-zinc-200">
           {/* Logo & Tagline */}

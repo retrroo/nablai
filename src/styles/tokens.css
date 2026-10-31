@@ -48,17 +48,24 @@
   --action-right: calc(28 * var(--u));
   --action-width: calc(325 * var(--u));
   --btn-width: calc(230 * var(--u));
+
+  /* Apple iOS Safe Area Insets & iPhone Duo Fold / Spanning tokens */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 }
 
 @media (max-width: 1023px) {
   :root {
-    --u: calc(100vw / 415);
+    /* Clamped scaling for both narrow phone and unfolded dual-screen iPhone Duo */
+    --u: clamp(0.85px, calc(100vw / 415), 1.25px);
     --display-serif-size: calc(79.3 * var(--u));
     --display-sans-size: calc(73.2 * var(--u));
     --body-size: calc(16 * var(--u));
     --body-leading: calc(20 * var(--u));
     --small-size: calc(16 * var(--u));
-    --page-edge: calc(20 * var(--u));
+    --page-edge: max(calc(20 * var(--u)), calc(env(safe-area-inset-left, 0px) + 12px));
     --hero-top: calc(126.7 * var(--u));
     --counter-right: calc(20 * var(--u));
     --counter-bottom: calc(24 * var(--u));
@@ -66,5 +73,18 @@
     --action-right: calc(20 * var(--u));
     --action-width: 100%;
     --btn-width: 100%;
+  }
+}
+
+/* Dual-screen & Foldable iPhone Duo media queries */
+@media (screen-spanning: single-fold-vertical) {
+  :root {
+    --fold-width: env(viewport-segment-width 0 0);
+  }
+}
+
+@media (screen-spanning: single-fold-horizontal) {
+  :root {
+    --fold-height: env(viewport-segment-height 0 0);
   }
 }

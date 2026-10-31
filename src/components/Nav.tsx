@@ -110,7 +110,10 @@ export const Nav: React.FC = () => {
       <div 
         className="w-full flex items-center justify-between mx-auto"
         style={{
-          padding: 'calc(20 * var(--u)) var(--page-edge) 0 var(--page-edge)'
+          paddingTop: 'max(calc(16 * var(--u)), calc(env(safe-area-inset-top, 0px) + 8px))',
+          paddingLeft: 'max(var(--page-edge), calc(env(safe-area-inset-left, 0px) + 16px))',
+          paddingRight: 'max(var(--page-edge), calc(env(safe-area-inset-right, 0px) + 16px))',
+          paddingBottom: 0,
         }}
       >
         {/* Left: Nablai Logo with split-A */}
@@ -324,17 +327,17 @@ export const Nav: React.FC = () => {
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button with Apple HIG 44x44pt touch target */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden flex items-center justify-center rounded-full transition-colors ${
+            className={`lg:hidden flex items-center justify-center rounded-full transition-colors min-w-[44px] min-h-[44px] active:scale-95 ${
               isHero
                 ? 'border border-white/10 text-white bg-black/60 shadow-xs'
                 : 'border border-zinc-200 text-zinc-900 bg-white/95 shadow-xs'
             }`}
             style={{
-              width: 'calc(42 * var(--u))',
-              height: 'calc(42 * var(--u))',
+              width: 'calc(44 * var(--u))',
+              height: 'calc(44 * var(--u))',
             }}
             aria-label="Toggle Menu"
           >
@@ -343,18 +346,22 @@ export const Nav: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with iPhone Duo & iOS safe area insets */}
       {mobileMenuOpen && (
         <div
-          className={`lg:hidden mx-4 mt-3 p-5 rounded-2xl shadow-xl space-y-2.5 max-h-[85vh] overflow-y-auto ${
+          className={`lg:hidden mx-4 mt-3 p-5 rounded-2xl shadow-2xl space-y-2.5 overflow-y-auto backdrop-blur-2xl border ${
             isHero
-              ? 'bg-[#08090d]/98 border border-white/10 text-white'
-              : 'bg-white border border-zinc-200 text-zinc-900'
+              ? 'bg-[#08090d]/98 border-white/10 text-white shadow-black/80'
+              : 'bg-white/98 border-zinc-200 text-zinc-900 shadow-zinc-900/10'
           }`}
+          style={{
+            maxHeight: 'calc(100dvh - 5.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px))',
+            paddingBottom: 'max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1rem))',
+          }}
         >
           {/* Mobile Products Group */}
           <div className={`space-y-1 pb-2 border-b ${isHero ? 'border-white/10' : 'border-zinc-200'}`}>
-            <div className="flex items-center justify-between px-3 py-1.5">
+            <div className="flex items-center justify-between px-3 py-1.5 min-h-[44px]">
               <Link
                 to="/products"
                 onClick={() => setMobileMenuOpen(false)}
@@ -365,7 +372,7 @@ export const Nav: React.FC = () => {
               </Link>
               <button
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                className={`p-1 ${isHero ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-zinc-900'}`}
+                className={`p-2 min-w-[44px] min-h-[44px] flex items-center justify-center ${isHero ? 'text-zinc-400 hover:text-white' : 'text-zinc-500 hover:text-zinc-900'}`}
                 aria-label="Toggle Products"
               >
                 <ChevronDown
@@ -385,13 +392,13 @@ export const Nav: React.FC = () => {
                       key={prod.title}
                       to={prod.path}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs transition-colors ${
+                      className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-xs min-h-[44px] transition-colors ${
                         isHero
                           ? 'text-zinc-300 hover:text-white hover:bg-white/5'
                           : 'text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100'
                       }`}
                     >
-                      <Icon className="w-3.5 h-3.5 text-zinc-400" />
+                      <Icon className="w-4 h-4 text-zinc-400" />
                       <span className={`font-medium ${isHero ? 'text-white' : 'text-zinc-950'}`}>{prod.title}</span>
                     </Link>
                   )
@@ -409,7 +416,7 @@ export const Nav: React.FC = () => {
                 setMobileMenuOpen(false)
                 if (link.path === '/contact') handleConnectClick(e)
               }}
-              className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+              className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-sm min-h-[44px] transition-colors ${
                 isHero
                   ? 'text-slate-300 hover:text-white hover:bg-white/5'
                   : 'text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100'
@@ -424,7 +431,7 @@ export const Nav: React.FC = () => {
               href="https://github.com/retrroo/nablai"
               target="_blank"
               rel="noreferrer"
-              className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-mono ${
+              className={`flex-1 flex items-center justify-center gap-2 py-2.5 min-h-[44px] rounded-xl text-xs font-mono ${
                 isHero
                   ? 'bg-white/5 text-slate-300'
                   : 'bg-zinc-100 text-zinc-800'
@@ -439,7 +446,7 @@ export const Nav: React.FC = () => {
                 setMobileMenuOpen(false)
                 handleConnectClick(e)
               }}
-              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl font-medium text-xs bg-zinc-900 text-white"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 min-h-[44px] rounded-xl font-medium text-xs bg-zinc-900 text-white"
             >
               <span>Connect</span>
             </Link>

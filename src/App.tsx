@@ -39,12 +39,54 @@ function ScrollManager() {
   return null
 }
 
+// Dynamically updates Apple iOS Safari theme-color and document background
+// to ensure seamless native-like status bar tinting between the dark cosmic hero and editorial light mode.
+function ThemeColorManager() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+
+    const updateTheme = () => {
+      // Dark on homepage when inside the hero canvas
+      const isHero = pathname === '/' && window.scrollY < (window.innerHeight * 0.7)
+      const targetColor = isHero ? '#030305' : '#ffffff'
+
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', targetColor)
+      }
+      document.documentElement.style.backgroundColor = targetColor
+      document.body.style.backgroundColor = targetColor
+
+      if (isHero) {
+        document.documentElement.classList.add('dark')
+        document.documentElement.classList.remove('light')
+      } else {
+        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.add('light')
+      }
+    }
+
+    updateTheme()
+    window.addEventListener('scroll', updateTheme, { passive: true })
+    window.addEventListener('resize', updateTheme, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', updateTheme)
+      window.removeEventListener('resize', updateTheme)
+    }
+  }, [pathname])
+
+  return null
+}
+
 export function App() {
   return (
     <BrowserRouter>
       <ScrollManager />
+      <ThemeColorManager />
 
-      <div className="min-h-screen bg-white text-zinc-900 flex flex-col justify-between selection:bg-zinc-900 selection:text-white">
+      <div className="min-h-screen min-h-[100dvh] flex flex-col justify-between selection:bg-zinc-900 selection:text-white">
         {/* Navigation Bar */}
         <Nav />
 

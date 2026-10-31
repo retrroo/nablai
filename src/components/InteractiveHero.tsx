@@ -112,8 +112,12 @@ export const InteractiveHero: React.FC = () => {
     return (
       <section
         ref={containerRef}
-        className="relative w-full min-h-screen overflow-hidden select-none bg-black flex flex-col justify-between px-6 pt-24 pb-8"
+        className="relative w-full min-h-[100dvh] min-h-[100svh] overflow-hidden select-none bg-[#030305] flex flex-col justify-between"
         style={{
+          paddingTop: 'max(5.5rem, calc(env(safe-area-inset-top, 0px) + 4.75rem))',
+          paddingBottom: 'max(1.75rem, calc(env(safe-area-inset-bottom, 0px) + 1.25rem))',
+          paddingLeft: 'max(1.25rem, calc(env(safe-area-inset-left, 0px) + 1rem))',
+          paddingRight: 'max(1.25rem, calc(env(safe-area-inset-right, 0px) + 1rem))',
           background:
             'radial-gradient(ellipse 140% 100% at 50% 15%, #0a0a0f 0%, #030305 60%, #000000 100%)',
           transform: 'translateZ(0)',
@@ -125,98 +129,102 @@ export const InteractiveHero: React.FC = () => {
         {/* Interactive Constellation / Neural Branch Canvas (Dots & Lines) */}
         <ConstellationCanvas className="z-0 opacity-90" />
 
-        {/* Top: Studio Tag + Big Headline */}
-        <div className="relative z-20 pt-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/10 mb-6 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-            <span className="text-xs font-mono text-zinc-300 tracking-tight">Independent AI Studio</span>
+        {/* Adaptive container for both compact phones and unfolded iPhone Duo */}
+        <div className="w-full max-w-xl mx-auto flex flex-col justify-between flex-1 relative z-20">
+          {/* Top: Studio Tag + Big Headline */}
+          <div className="pt-2 sm:pt-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] border border-white/10 mb-4 sm:mb-6 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              <span className="text-xs font-mono text-zinc-300 tracking-tight">Independent AI Studio</span>
+            </div>
+
+            <h1 className="text-white font-normal flex flex-col gap-1 tracking-tight">
+              <span
+                className="font-serif italic text-5xl sm:text-6xl text-white leading-[0.95]"
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  textShadow: '0 0 35px rgba(255,255,255,0.35), 0 4px 20px rgba(0,0,0,0.9)',
+                }}
+              >
+                Where models
+              </span>
+              <span
+                className="font-sans text-4xl sm:text-5xl text-white font-light tracking-tight leading-[0.95]"
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  textShadow: '0 0 35px rgba(255,255,255,0.35), 0 4px 20px rgba(0,0,0,0.9)',
+                }}
+              >
+                become products.
+              </span>
+            </h1>
           </div>
 
-          <h1 className="text-white font-normal flex flex-col gap-1 tracking-tight">
-            <span
-              className="font-serif italic text-5xl sm:text-6xl text-white leading-[0.95]"
-              style={{
-                fontFamily: 'var(--font-serif)',
-                textShadow: '0 0 35px rgba(255,255,255,0.35), 0 4px 20px rgba(0,0,0,0.9)',
-              }}
-            >
-              Where models
-            </span>
-            <span
-              className="font-sans text-4xl sm:text-5xl text-white font-light tracking-tight leading-[0.95]"
-              style={{
-                fontFamily: 'var(--font-sans)',
-                textShadow: '0 0 35px rgba(255,255,255,0.35), 0 4px 20px rgba(0,0,0,0.9)',
-              }}
-            >
-              become products.
-            </span>
-          </h1>
-        </div>
-
-        {/* Middle: Studio Apps Quick Cards (Monochrome High Contrast) */}
-        <div className="relative z-20 my-6 p-4 rounded-2xl bg-zinc-950/80 border border-white/10 space-y-3 backdrop-blur-md shadow-2xl">
-          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 pb-2 border-b border-white/10">
-            <span className="text-white font-medium">STUDIO BUILDS</span>
-            <span className="text-zinc-300">2026 ACTIVE</span>
+          {/* Middle: Studio Apps Quick Cards (Monochrome High Contrast) */}
+          <div className="my-4 sm:my-6 p-4 rounded-2xl bg-zinc-950/85 border border-white/10 space-y-3 backdrop-blur-md shadow-2xl">
+            <div className="flex items-center justify-between text-xs font-mono text-zinc-400 pb-2 border-b border-white/10">
+              <span className="text-white font-medium">STUDIO BUILDS</span>
+              <span className="text-zinc-300">2026 ACTIVE</span>
+            </div>
+            {/* 2 columns on compact mobile / cover screen, 4 columns on unfolded iPhone Duo / tablet */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+              <a
+                href="#apps"
+                onClick={handleScrollToApps}
+                className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] active:bg-white/[0.12] transition-colors block min-h-[44px]"
+              >
+                <span className="text-zinc-400 font-mono text-[9px] block font-medium">01 &middot; AVIATION</span>
+                <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">AirFlow</span>
+              </a>
+              <a
+                href="#apps"
+                onClick={handleScrollToApps}
+                className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] active:bg-white/[0.12] transition-colors block min-h-[44px]"
+              >
+                <span className="text-zinc-400 font-mono text-[9px] block font-medium">02 &middot; AI LAB</span>
+                <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">Latent Space</span>
+              </a>
+              <a
+                href="#apps"
+                onClick={handleScrollToApps}
+                className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] active:bg-white/[0.12] transition-colors block min-h-[44px]"
+              >
+                <span className="text-zinc-400 font-mono text-[9px] block font-medium">03 &middot; SHIELD</span>
+                <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">Nabla Shield</span>
+              </a>
+              <a
+                href="#apps"
+                onClick={handleScrollToApps}
+                className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] active:bg-white/[0.12] transition-colors block min-h-[44px]"
+              >
+                <span className="text-zinc-400 font-mono text-[9px] block font-medium">04 &middot; AUDIO</span>
+                <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">SoundBoost</span>
+              </a>
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <a
-              href="#apps"
-              onClick={handleScrollToApps}
-              className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
-            >
-              <span className="text-zinc-400 font-mono text-[9px] block font-medium">01 &middot; AVIATION</span>
-              <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">AirFlow</span>
-            </a>
-            <a
-              href="#apps"
-              onClick={handleScrollToApps}
-              className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
-            >
-              <span className="text-zinc-400 font-mono text-[9px] block font-medium">02 &middot; AI LAB</span>
-              <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">Latent Space</span>
-            </a>
-            <a
-              href="#apps"
-              onClick={handleScrollToApps}
-              className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
-            >
-              <span className="text-zinc-400 font-mono text-[9px] block font-medium">03 &middot; SHIELD</span>
-              <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">Nabla Shield</span>
-            </a>
-            <a
-              href="#apps"
-              onClick={handleScrollToApps}
-              className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
-            >
-              <span className="text-zinc-400 font-mono text-[9px] block font-medium">04 &middot; AUDIO</span>
-              <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">SoundBoost</span>
-            </a>
-          </div>
-        </div>
 
-        {/* Bottom: CTA & Scroll Indicator */}
-        <div className="relative z-20 space-y-5">
-          <a
-            href="#apps"
-            onClick={handleScrollToApps}
-            className="w-full py-3.5 px-6 rounded-full font-medium text-sm text-zinc-950 bg-white hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 text-center cursor-pointer"
-          >
-            <Sparkles className="w-4 h-4 text-zinc-900" />
-            <span>Explore Our Apps</span>
-          </a>
+          {/* Bottom: CTA & Scroll Indicator */}
+          <div className="space-y-4 sm:space-y-5">
+            <a
+              href="#apps"
+              onClick={handleScrollToApps}
+              className="w-full min-h-[48px] py-3.5 px-6 rounded-full font-medium text-sm text-zinc-950 bg-white hover:bg-zinc-100 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg text-center cursor-pointer"
+            >
+              <Sparkles className="w-4 h-4 text-zinc-900" />
+              <span>Explore Our Apps</span>
+            </a>
 
-          {/* Bottom Bar indicator (Left only) */}
-          <div 
-            onClick={handleScrollToApps}
-            className="flex items-center text-xs text-zinc-400 font-mono pt-2 border-t border-white/10 cursor-pointer group"
-          >
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
-                <ArrowDown className="w-3 h-3 stroke-[2.5]" />
+            {/* Bottom Bar indicator */}
+            <div 
+              onClick={handleScrollToApps}
+              className="flex items-center text-xs text-zinc-400 font-mono pt-2 border-t border-white/10 cursor-pointer group min-h-[36px]"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
+                  <ArrowDown className="w-3 h-3 stroke-[2.5]" />
+                </div>
+                <span className="text-[11px] text-zinc-300 group-hover:text-white transition-colors">Scroll for portfolio</span>
               </div>
-              <span className="text-[11px] text-zinc-300 group-hover:text-white transition-colors">Scroll for portfolio</span>
             </div>
           </div>
         </div>
@@ -231,8 +239,12 @@ export const InteractiveHero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100svh] overflow-hidden select-none bg-black"
+      className="relative w-full h-[100svh] min-h-[100dvh] overflow-hidden select-none bg-black"
       style={{
+        paddingTop: 'env(safe-area-inset-top, 0px)',
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+        paddingLeft: 'env(safe-area-inset-left, 0px)',
+        paddingRight: 'env(safe-area-inset-right, 0px)',
         background:
           'radial-gradient(ellipse 120% 100% at 50% 25%, #08080c 0%, #030304 55%, #000000 100%)',
       }}
