@@ -28,13 +28,13 @@ export const Nav: React.FC = () => {
   const isHero = location.pathname === '/' && !isScrolled
 
   const navLinks = [
-    { label: 'AirFlow', path: '/apps/airflow', badge: 'Aviation' },
-    { label: 'Latent Space', path: '/apps/latent-space', badge: 'AI Lab' },
-    { label: 'Nabla Shield', path: '/apps/nabla-shield', badge: 'MV3' },
-    { label: 'SoundBoost', path: '/apps/soundboost', badge: 'Audio' },
+    { label: 'AirFlow', path: '/apps/airflow' },
+    { label: 'Latent Space', path: '/apps/latent-space' },
+    { label: 'Nabla Shield', path: '/apps/nabla-shield' },
+    { label: 'SoundBoost', path: '/apps/soundboost' },
     { label: 'Our Stack', path: '/stack' },
     { label: 'Architecture', path: '/architecture' },
-    { label: 'About Us', path: '/about', badge: 'Onur & Karim' },
+    { label: 'About Us', path: '/about' },
     { label: 'Connect', path: '/contact' },
   ]
 
@@ -75,8 +75,8 @@ export const Nav: React.FC = () => {
           }`}
           style={{
             height: 'calc(48 * var(--u))',
-            padding: '0 calc(15 * var(--u))',
-            gap: 'calc(13 * var(--u))',
+            padding: '0 calc(24 * var(--u))',
+            gap: 'calc(20 * var(--u))',
           }}
         >
           {navLinks.map((link) => {
@@ -87,24 +87,13 @@ export const Nav: React.FC = () => {
                 key={link.label}
                 to={link.path}
                 onClick={link.path === '/contact' ? handleConnectClick : undefined}
-                className={`relative flex items-center gap-1.5 text-xs font-medium transition-colors duration-150 tracking-tight ${
+                className={`relative text-xs font-medium transition-colors duration-150 tracking-tight py-1 ${
                   isHero
                     ? active ? 'text-white' : 'text-slate-400 hover:text-white'
                     : active ? 'text-zinc-950 font-semibold' : 'text-zinc-600 hover:text-zinc-900'
                 }`}
               >
                 <span>{link.label}</span>
-                {link.badge && (
-                  <span
-                    className={`text-[9px] font-mono px-1.5 py-0.5 rounded leading-none ${
-                      isHero
-                        ? 'bg-white/[0.08] text-zinc-300 border border-white/[0.08]'
-                        : 'bg-zinc-100 text-zinc-700 border border-zinc-200'
-                    }`}
-                  >
-                    {link.badge}
-                  </span>
-                )}
                 {active && (
                   <span
                     className={`absolute -bottom-1 left-0 right-0 h-[1.5px] rounded-full ${
@@ -198,17 +187,6 @@ export const Nav: React.FC = () => {
               }`}
             >
               <span>{link.label}</span>
-              {link.badge && (
-                <span
-                  className={`text-[10px] font-mono px-2 py-0.5 rounded ${
-                    isHero
-                      ? 'bg-white/10 text-zinc-300 border border-white/10'
-                      : 'bg-zinc-100 text-zinc-700 border border-zinc-200'
-                  }`}
-                >
-                  {link.badge}
-                </span>
-              )}
             </Link>
           ))}
           <div className={`pt-3 border-t flex gap-2 ${isHero ? 'border-white/10' : 'border-zinc-200'}`}>
@@ -241,4 +219,5 @@ export const Nav: React.FC = () => {
     </header>
   )
 }
+
 export default Nav
