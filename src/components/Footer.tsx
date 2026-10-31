@@ -84,18 +84,35 @@ export const Footer: React.FC = () => {
                 </div>
               </li>
               <li>
+                <div className="flex items-center gap-2">
+                  <Link to="/apps/nabla-shield" className="text-zinc-600 hover:text-zinc-950 transition-colors">
+                    03 // Nabla Shield (Pure Web &amp; Ad Shield)
+                  </Link>
+                  <a
+                    href="https://github.com/retrroo/nabla-ad-shield"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[10px] text-zinc-600 hover:text-zinc-950 transition-colors inline-flex items-center gap-0.5"
+                    title="Open GitHub repo"
+                  >
+                    <span>[github]</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
+                </div>
+              </li>
+              <li>
                 <Link to="/stack" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  03 // Studio Engineering Stack
+                  04 // Studio Engineering Stack
                 </Link>
               </li>
               <li>
                 <Link to="/architecture" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  04 // Systems Architecture
+                  05 // Systems Architecture
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  05 // About Onur &amp; Karim
+                  06 // About Onur &amp; Karim
                 </Link>
               </li>
               <li>

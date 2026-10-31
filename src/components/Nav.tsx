@@ -30,6 +30,7 @@ export const Nav: React.FC = () => {
   const navLinks = [
     { label: 'AirFlow', path: '/apps/airflow', badge: 'Aviation' },
     { label: 'Latent Space', path: '/apps/latent-space', badge: 'AI Lab' },
+    { label: 'Nabla Shield', path: '/apps/nabla-shield', badge: 'MV3' },
     { label: 'Our Stack', path: '/stack' },
     { label: 'Architecture', path: '/architecture' },
     { label: 'About Us', path: '/about', badge: 'Onur & Karim' },
@@ -73,8 +74,8 @@ export const Nav: React.FC = () => {
           }`}
           style={{
             height: 'calc(48 * var(--u))',
-            padding: '0 calc(24 * var(--u))',
-            gap: 'calc(22 * var(--u))',
+            padding: '0 calc(18 * var(--u))',
+            gap: 'calc(16 * var(--u))',
           }}
         >
           {navLinks.map((link) => {

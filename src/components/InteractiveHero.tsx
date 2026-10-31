@@ -152,20 +152,27 @@ export const InteractiveHero: React.FC = () => {
             <span className="text-white font-medium">STUDIO BUILDS</span>
             <span className="text-zinc-300">2026 ACTIVE</span>
           </div>
-          <div className="grid grid-cols-2 gap-2.5 text-xs">
+          <div className="grid grid-cols-3 gap-2 text-xs">
             <a
               href="#apps"
-              className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
+              className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
             >
-              <span className="text-zinc-400 font-mono text-[10px] block font-medium">01 &middot; AVIATION</span>
-              <span className="text-white font-medium text-sm mt-0.5 block">AirFlow</span>
+              <span className="text-zinc-400 font-mono text-[9px] block font-medium">01 &middot; AVIATION</span>
+              <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">AirFlow</span>
             </a>
             <a
               href="#apps"
-              className="p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
+              className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
             >
-              <span className="text-zinc-400 font-mono text-[10px] block font-medium">02 &middot; AI LAB</span>
-              <span className="text-white font-medium text-sm mt-0.5 block">Latent Space</span>
+              <span className="text-zinc-400 font-mono text-[9px] block font-medium">02 &middot; AI LAB</span>
+              <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">Latent Space</span>
+            </a>
+            <a
+              href="#apps"
+              className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors block"
+            >
+              <span className="text-zinc-400 font-mono text-[9px] block font-medium">03 &middot; SHIELD</span>
+              <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">Nabla Shield</span>
             </a>
           </div>
         </div>
