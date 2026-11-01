@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
@@ -40,30 +40,39 @@ function ScrollManager() {
 }
 
 // Dynamically updates Apple iOS Safari theme-color and document background
-// to ensure seamless native-like status bar tinting between the dark cosmic hero and editorial light mode.
+// to ensure seamless native-like status bar and bottom toolbar tinting.
 function ThemeColorManager() {
   const { pathname } = useLocation()
+  const [isHero, setIsHero] = useState(() => {
+    if (typeof window === 'undefined') return true
+    return pathname === '/' && window.scrollY < (window.innerHeight * 0.7)
+  })
 
   useEffect(() => {
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+    const metaThemeColors = document.querySelectorAll('meta[name="theme-color"]')
 
     const updateTheme = () => {
       // Dark on homepage when inside the hero canvas
-      const isHero = pathname === '/' && window.scrollY < (window.innerHeight * 0.7)
-      const targetColor = isHero ? '#030305' : '#ffffff'
+      const heroActive = pathname === '/' && window.scrollY < (window.innerHeight * 0.7)
+      setIsHero(heroActive)
+      const targetColor = heroActive ? '#030305' : '#ffffff'
 
-      if (metaThemeColor) {
-        metaThemeColor.setAttribute('content', targetColor)
-      }
+      metaThemeColors.forEach((meta) => {
+        meta.setAttribute('content', targetColor)
+      })
       document.documentElement.style.backgroundColor = targetColor
       document.body.style.backgroundColor = targetColor
 
-      if (isHero) {
+      if (heroActive) {
         document.documentElement.classList.add('dark')
         document.documentElement.classList.remove('light')
+        document.documentElement.style.colorScheme = 'dark'
+        document.body.style.colorScheme = 'dark'
       } else {
         document.documentElement.classList.remove('dark')
         document.documentElement.classList.add('light')
+        document.documentElement.style.colorScheme = 'light'
+        document.body.style.colorScheme = 'light'
       }
     }
 
@@ -77,7 +86,14 @@ function ThemeColorManager() {
     }
   }, [pathname])
 
-  return null
+  return (
+    <div
+      id="ios-safari-bottom-anchor"
+      className="fixed bottom-0 left-0 right-0 h-[3px] pointer-events-none z-[49] transition-colors duration-200"
+      style={{ backgroundColor: isHero ? '#030305' : '#ffffff' }}
+      aria-hidden="true"
+    />
+  )
 }
 
 export function App() {

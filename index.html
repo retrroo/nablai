@@ -1,11 +1,14 @@
 <!doctype html>
-<html lang="en" class="dark" style="background-color: #030305;">
+<html lang="en" class="dark" style="background-color: #030305; color-scheme: dark;">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark light" />
     
     <!-- iOS Status Bar & Safari Theme Color (Eliminates white top/bottom bars on iPhone & iPhone Duo) -->
+    <meta name="theme-color" content="#030305" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#030305" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#030305" id="theme-color-meta" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -20,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-[#030305] text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white" style="background-color: #030305;">
+  <body class="bg-[#030305] text-zinc-900 antialiased selection:bg-zinc-900 selection:text-white" style="background-color: #030305; color-scheme: dark;">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
