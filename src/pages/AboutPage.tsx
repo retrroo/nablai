@@ -7,22 +7,22 @@ export const AboutPage: React.FC = () => {
   const founders = [
     {
       name: 'Onur',
-      role: 'Co-Founder & Systems Architect',
-      focus: 'Aviation Telemetry, GPU Canvas Graphics & Distributed Queues',
-      bio: 'Co-architect of our software suite (AirFlow, Latent Space, Nabla Shield, SoundBoost & Nabla Squeezer). Specializes in React Native Skia 60fps GPU mapping, zero-IO time-window polling state machines, and Node 24 distributed BullMQ backends with predictive inbound aircraft turnaround forecasting.',
+      role: 'Co-Founder · Product Ideas & App Design',
+      focus: 'Product Conceptualization, UI/UX Systems & Application Architecture',
+      bio: 'Leads product ideas, visual design systems, and application architecture across the Nablai suite. Specializes in translating complex agentic systems and AI workflows into intuitive, high-craft interfaces and practical desktop, mobile, and web apps.',
       linkedin: 'https://www.linkedin.com/in/onurryilmaz/',
       github: 'https://github.com/retrroo',
-      stack: ['Expo SDK 52', 'React Native Skia', 'Node.js 24', 'BullMQ & Redis', 'Chromium MV3', 'TypeScript'],
+      stack: ['Product Ideation', 'App Design', 'UI/UX Systems', 'Agent Orchestration', 'Design Systems', 'Interface Architecture'],
       initial: 'O',
     },
     {
       name: 'Karim',
-      role: 'Co-Founder & Machine Learning Engineer',
-      focus: 'Hexagonal Architecture, Structured LLM Synthesis & Domain Systems',
-      bio: 'Co-architect of our software suite (AirFlow, Latent Space, Nabla Shield, SoundBoost & Nabla Squeezer). Specializes in Domain-Driven Design (DDD), Ports & Adapters architectures in Next.js 16, native Rust/Tauri accelerators, and multimodal LLM synthesis pipelines using Gemini 1.5 Flash structured JSON schemas and heuristic NLP classifiers.',
+      role: 'Co-Founder · Model Orchestration & Backend Systems',
+      focus: 'Model Orchestration, Predictive ML & Backend Architecture',
+      bio: 'Directs model orchestration, backend systems, and predictive machine learning. Built the custom XGBoost turnaround delay forecasting models powering AirFlow, structured LLM synthesis pipelines for Latent Space, and resilient local agent execution engines.',
       linkedin: 'https://www.linkedin.com/in/karim-said-5691a231a/',
       github: 'https://github.com/karimsaid123',
-      stack: ['Rust & Tauri v2', 'Next.js 16', 'React 19', 'Hexagonal DDD', 'Gemini 1.5 Flash', 'TypeScript'],
+      stack: ['Model Orchestration', 'XGBoost & Predictive ML', 'Backend Architecture', 'Agent Workflows', 'Domain Systems', 'Structured LLMs'],
       initial: 'K',
     },
   ]
@@ -45,11 +45,11 @@ export const AboutPage: React.FC = () => {
             FOUNDERS DOSSIER &middot; ONUR &amp; KARIM
           </span>
           <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-            Where models become products &mdash; <br className="hidden sm:inline" />
+            Where models become products <br className="hidden sm:inline" />
             <span className="font-serif italic font-normal text-zinc-600">through autonomous engineering.</span>
           </h1>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed font-sans">
-            We are <strong className="text-zinc-950 font-medium">Onur</strong> and <strong className="text-zinc-950 font-medium">Karim</strong>. We founded Nablai as an independent software studio. We do not build client websites or run an agency &mdash; we design, build, test, and release our own applications together as a team, exploring the frontier where modern engineering meets practical utility. Every application in our studio is built collaboratively by us.
+            We are <strong className="text-zinc-950 font-medium">Onur</strong> and <strong className="text-zinc-950 font-medium">Karim</strong>. We founded Nablai as an independent software studio. We are AI architects, app designers, and agent orchestrators. We do not build client websites or run an agency. We design, build, test, and release our own applications together as a team, turning raw models and agent workflows into practical everyday products. Every build in our studio is designed and coded collaboratively by us.
           </p>
         </div>
 

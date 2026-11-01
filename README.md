@@ -1,4 +1,4 @@
-# Nablai &mdash; Autonomous AI Applications & Custom Intelligent Solutions
+# Nablai // Autonomous AI Applications & Custom Intelligent Solutions
 
 > **Nabla ($\nabla$) Gradient Mathematics &times; Frontier Artificial Intelligence**
 

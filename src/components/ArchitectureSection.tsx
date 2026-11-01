@@ -24,7 +24,7 @@ export const ArchitectureSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              04 &mdash; Systems Architecture
+              04 // Systems Architecture
             </span>
             <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-zinc-950 font-sans">
               Production Code Patterns <br className="hidden sm:inline" />

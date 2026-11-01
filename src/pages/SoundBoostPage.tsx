@@ -25,7 +25,7 @@ export const SoundBoostPage: React.FC = () => {
     { label: 'Capture Architecture', value: 'Direct DOM Hook (createMediaElementSource, world: "MAIN")' },
     { label: 'Audio Latency', value: '0ms Real-Time Routing (Eliminates 150-300ms WebRTC buffer delay)' },
     { label: 'Fullscreen Protocol', value: '100% Native OS HTML5 requestFullscreen() with GPU acceleration' },
-    { label: 'Telemetry & Privacy', value: '100% Local Execution &mdash; Zero cloud calls, Zero trackers' },
+    { label: 'Telemetry & Privacy', value: '100% Local Execution. Zero cloud calls, Zero trackers' },
   ]
 
   const architecturePillars = [
@@ -144,14 +144,14 @@ export const SoundBoostPage: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-12 border-b border-zinc-200">
           <div className="max-w-3xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              LIVE APPLICATION // 04 &mdash; BROWSER EXTENSION
+              LIVE APPLICATION // 04 · BROWSER EXTENSION
             </span>
             <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-              SoundBoost &mdash; <br className="hidden sm:inline" />
+              SoundBoost <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-zinc-600">600% volume boost &amp; 5-band studio EQ.</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">
-              The next-generation Chrome tab volume booster engineered by Onur &amp; Karim. Boost tab volume up to 600% with studio dynamics compression, 5-band parametric equalization, and zero audio clipping &mdash; all without breaking native HTML5 fullscreen or introducing lip-sync lag.
+              The next-generation Chrome tab volume booster engineered by Onur &amp; Karim. Boost tab volume up to 600% with studio dynamics compression, 5-band parametric equalization, and zero audio clipping, all without breaking native HTML5 fullscreen or introducing lip-sync lag.
             </p>
           </div>
 

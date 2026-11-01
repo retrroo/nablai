@@ -70,10 +70,10 @@ export const AirFlowPage: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-12 border-b border-zinc-200">
           <div className="max-w-3xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              LIVE APPLICATION // 01 &mdash; AVIATION
+              LIVE APPLICATION // 01 · AVIATION
             </span>
             <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-              AirFlow &mdash; <br className="hidden sm:inline" />
+              AirFlow <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-zinc-600">personal mobile flight companion.</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">

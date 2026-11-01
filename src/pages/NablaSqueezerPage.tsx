@@ -28,7 +28,7 @@ export const NablaSqueezerPage: React.FC = () => {
     { label: 'Global Shortcuts', value: 'tauri-plugin-global-shortcut (⌘⌥C & ⌘⇧H hotkey listeners)' },
     { label: 'Clipboard Pipeline', value: 'tauri-plugin-clipboard-manager (direct OS pasteboard hook)' },
     { label: 'Desktop Notifications', value: 'tauri-plugin-notification (Native macOS notification banners)' },
-    { label: 'Telemetry & Privacy', value: '100% Local execution &mdash; Zero cloud calls, Zero network tracking' },
+    { label: 'Telemetry & Privacy', value: '100% Local execution. Zero cloud calls, Zero network tracking' },
   ]
 
   const architecturePillars = [
@@ -45,7 +45,7 @@ export const NablaSqueezerPage: React.FC = () => {
       title: 'Global Hotkey Pipeline (⌘⌥C / ⌘⇧C)',
       subtitle: 'System-wide instant clipboard squeeze',
       description:
-        'Hit the global shortcut from any app &mdash; VS Code, Cursor, Chrome, or Terminal. Nabla Squeezer reads the clipboard, strips fluff and deadweight in under 2ms, replaces the pasteboard, and triggers an OS notification showing saved tokens.',
+        'Hit the global shortcut from any app (VS Code, Cursor, Chrome, or Terminal). Nabla Squeezer reads the clipboard, strips fluff and deadweight in under 2ms, replaces the pasteboard, and triggers an OS notification showing saved tokens.',
       icon: Zap,
     },
     {
@@ -100,16 +100,16 @@ Exclude conversational filler, pleasantries, and historical iteration steps.`
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-12 border-b border-zinc-200">
           <div className="max-w-3xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              LIVE APPLICATION // 05 &mdash; MACOS MENU BAR APP
+              LIVE APPLICATION // 05 · MACOS MENU BAR APP
             </span>
             <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-              Nabla Squeezer &mdash; <br className="hidden sm:inline" />
+              Nabla Squeezer <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-zinc-600">
                 compress tokens, bypass rate limits.
               </span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">
-              An ultra-lightweight macOS menu bar utility engineered by Onur &amp; Karim for heavy users of Claude Desktop, ChatGPT, Cursor, and web LLMs. Squeezes clipboard fluff, code comments, and bloated logs with 1 global hotkey &mdash; 100% offline in native Rust.
+              An ultra-lightweight macOS menu bar utility engineered by Onur &amp; Karim for heavy users of Claude Desktop, ChatGPT, Cursor, and web LLMs. Squeezes clipboard fluff, code comments, and bloated logs with 1 global hotkey, 100% offline in native Rust.
             </p>
           </div>
 

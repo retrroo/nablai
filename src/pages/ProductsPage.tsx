@@ -27,13 +27,13 @@ export const ProductsPage: React.FC = () => {
               01 // STUDIO BUILDS &middot; 2026 ACTIVE
             </span>
             <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-              Our Products &mdash; <br className="hidden sm:inline" />
+              Our Products <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-zinc-600">
                 engineered for utility &amp; precision.
               </span>
             </h1>
             <p className="mt-4 text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">
-              We design, build, and deploy complete applications for our own daily workflows &mdash; spanning GPU-accelerated aviation tracking, LLM synthesis pipelines, macOS menu bar token optimization, and zero-overhead browser privacy and DSP audio extensions.
+              We design, build, and deploy complete applications for our own daily workflows: spanning GPU-accelerated aviation tracking, LLM synthesis pipelines, macOS menu bar token optimization, and zero-overhead browser privacy and DSP audio extensions.
             </p>
           </div>
 

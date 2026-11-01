@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-4">
             <NablaiLogo size="md" mode="light" />
             <p className="text-xs sm:text-sm text-zinc-600 max-w-sm leading-relaxed mt-2 font-sans">
-              Nablai (Nabla + Ai) is an independent AI application studio and engineering lab founded by Onur &amp; Karim. We build, test, and ship our own intelligent software &mdash; uniting vector calculus with practical utility.
+              Nablai (Nabla + Ai) is an independent AI application studio and engineering lab founded by Onur &amp; Karim. We build, test, and ship our own intelligent software, uniting vector calculus with practical utility.
             </p>
             <div className="flex items-center gap-2 pt-2">
               <a

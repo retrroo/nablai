@@ -56,14 +56,14 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-8">
             <div>
               <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-                06 &mdash; Connect &amp; Collaborate
+                06 // Connect &amp; Collaborate
               </span>
               <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-zinc-950 font-sans">
                 Get in touch with <br className="hidden sm:inline" />
                 <span className="font-serif italic font-normal text-zinc-600">Onur &amp; Karim.</span>
               </h2>
               <p className="mt-4 text-sm text-zinc-600 leading-relaxed font-sans">
-                We are an independent software development team &mdash; we build applications for ourselves, not clients. If you have feedback on <strong className="text-zinc-950 font-medium">AirFlow</strong>, <strong className="text-zinc-950 font-medium">Latent Space</strong>, <strong className="text-zinc-950 font-medium">Nabla Shield</strong>, or <strong className="text-zinc-950 font-medium">SoundBoost</strong>, want early access to our upcoming builds, or want to exchange ideas, drop us a line through the form.
+                We are an independent software development team. We build applications for ourselves, not clients. If you have feedback on <strong className="text-zinc-950 font-medium">AirFlow</strong>, <strong className="text-zinc-950 font-medium">Latent Space</strong>, <strong className="text-zinc-950 font-medium">Nabla Shield</strong>, <strong className="text-zinc-950 font-medium">SoundBoost</strong>, or <strong className="text-zinc-950 font-medium">Nabla Squeezer</strong>, want early access to our upcoming builds, or want to exchange ideas, drop us a line through the form.
               </p>
             </div>
 

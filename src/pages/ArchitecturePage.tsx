@@ -34,10 +34,10 @@ export const ArchitecturePage: React.FC = () => {
         {/* Hero Header with Editorial Typography */}
         <div className="max-w-3xl mb-16 pb-12 border-b border-zinc-200">
           <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-            04 &mdash; SYSTEMS ARCHITECTURE
+            04 // SYSTEMS ARCHITECTURE
           </span>
           <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-            Production Code Patterns &mdash; <br className="hidden sm:inline" />
+            Production Code Patterns <br className="hidden sm:inline" />
             <span className="font-serif italic font-normal text-zinc-600">from our live studio repositories.</span>
           </h1>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed font-sans">

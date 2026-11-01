@@ -29,10 +29,10 @@ const CORE_SYSTEMS = [
   {
     num: '04',
     icon: Eye,
-    title: 'Predictive Inbound Aircraft Telemetry',
+    title: 'XGBoost Delay Prediction & Turnaround Telemetry',
     description:
-      'Calculates ground turnaround margins (60m widebody, 25m regional) by tracking the aircraft’s live previous leg in real time. Predicts gate delays before airlines broadcast them.',
-    tags: ['Tail-Number Tracking', 'Turnaround Heuristics', 'AirLabs & OpenSky', 'ADS-B Ingestion'],
+      'Custom XGBoost turnaround delay classification model paired with live ADS-B tail number trajectory ingestion. Calculates ground turnaround margins to predict gate delays hours before airlines broadcast them.',
+    tags: ['XGBoost Model', 'Tail-Number Tracking', 'Delay Prediction', 'ADS-B Ingestion'],
   },
   {
     num: '05',
@@ -60,10 +60,10 @@ export const CapabilitiesSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              03 &mdash; Studio Engineering Stack
+              03 // Studio Engineering Stack
             </span>
             <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-zinc-950 font-sans">
-              How We Build Our Apps &mdash; <br className="hidden sm:inline" />
+              How We Build Our Apps <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-zinc-600">our real codebase stack.</span>
             </h2>
           </div>

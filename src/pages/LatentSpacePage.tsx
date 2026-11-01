@@ -70,10 +70,10 @@ export const LatentSpacePage: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-12 border-b border-zinc-200">
           <div className="max-w-3xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              LIVE APPLICATION // 02 &mdash; AI PLATFORM
+              LIVE APPLICATION // 02 · AI PLATFORM
             </span>
             <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-              Latent Space &mdash; <br className="hidden sm:inline" />
+              Latent Space <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-zinc-600">hexagonal news &amp; AI synthesis engine.</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">

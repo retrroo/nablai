@@ -6,7 +6,7 @@ const BUILD_CYCLE = [
     phase: 'UTILITY FIRST',
     title: 'Solving Our Own Problems',
     description:
-      'We identify real friction in our daily workflows &mdash; like airlines hiding inbound delay reasons until the last minute, or sifting through hundreds of low-signal AI press releases.',
+      'We identify real friction in our daily workflows: airlines hiding inbound delay reasons until the last minute, or sifting through hundreds of low-signal AI press releases.',
   },
   {
     step: '02',
@@ -20,7 +20,7 @@ const BUILD_CYCLE = [
     phase: 'DOGFOODING',
     title: 'Daily Personal Use',
     description:
-      'We test our builds immediately in real conditions &mdash; scanning actual boarding passes at airport gates or running automated Gemini summaries over daily technical publications.',
+      'We test our builds immediately in real conditions: scanning actual boarding passes at airport gates or running automated Gemini summaries over daily technical publications.',
   },
   {
     step: '04',
@@ -39,7 +39,7 @@ export const ProcessSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              05 &mdash; How We Work
+              05 // How We Work
             </span>
             <h2 className="text-3xl sm:text-5xl font-normal tracking-tight text-zinc-950 font-sans">
               From Personal Need <br className="hidden sm:inline" />

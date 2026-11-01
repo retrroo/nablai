@@ -82,15 +82,16 @@ export const StackPage: React.FC = () => {
     },
     {
       category: 'PREDICTIVE TELEMETRY',
-      title: 'Inbound Aircraft Turnaround Engine',
+      title: 'XGBoost Turnaround Delay Engine',
       repo: 'retrroo/flight-app',
       repoUrl: 'https://github.com/retrroo/flight-app',
       description:
-        'Tracks the aircraft tail number (reg_number / hex) on its previous leg. Calculates minimum turnaround ground times to alert travelers of impending delays hours before airlines announce them.',
+        'A predictive ML turnaround delay model built with XGBoost combined with live ADS-B tail number telemetry. Evaluates aircraft ground turnaround times to alert travelers of impending delays hours before airlines announce them.',
       highlights: [
+        'Custom XGBoost delay classifier trained on historic turnaround turn times',
         'Aircraft-specific minimum ground buffers: 60m widebody, 25m regional, 35m standard',
         'ADS-B trajectory ingestion combined with scheduled departure timestamps',
-        'Instant push alerts triggered when turnaround buffer becomes negative',
+        'Instant push alerts triggered when predicted turnaround buffer becomes negative',
         'Supabase Row Level Security (RLS) guaranteeing private user flight records',
       ],
       icon: Radio,
@@ -112,10 +113,10 @@ export const StackPage: React.FC = () => {
         {/* Hero Header with Editorial Typography */}
         <div className="max-w-3xl mb-16 pb-12 border-b border-zinc-200">
           <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-            03 &mdash; STUDIO STACK &amp; INFRASTRUCTURE
+            03 // STUDIO STACK &amp; INFRASTRUCTURE
           </span>
           <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
-            How We Build Our Products &mdash; <br className="hidden sm:inline" />
+            How We Build Our Products <br className="hidden sm:inline" />
             <span className="font-serif italic font-normal text-zinc-600">our real engineering stack.</span>
           </h1>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed font-sans">
