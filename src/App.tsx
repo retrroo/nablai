@@ -86,7 +86,7 @@ export function App() {
       <ScrollManager />
       <ThemeColorManager />
 
-      <div className="min-h-screen min-h-[100dvh] flex flex-col justify-between selection:bg-zinc-900 selection:text-white">
+      <div className="min-h-screen min-h-[100lvh] flex flex-col justify-between selection:bg-zinc-900 selection:text-white bg-[#030305]">
         {/* Navigation Bar */}
         <Nav />
 

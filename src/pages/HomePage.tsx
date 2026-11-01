@@ -9,7 +9,7 @@ import { ContactSection } from '../components/ContactSection'
 
 export const HomePage: React.FC = () => {
   return (
-    <div>
+    <div className="bg-[#030305]">
       {/* 1. Full-Screen Interactive Hero Canvas (Space + Driftwood Log) */}
       <InteractiveHero />
 

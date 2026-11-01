@@ -112,12 +112,13 @@ export const InteractiveHero: React.FC = () => {
     return (
       <section
         ref={containerRef}
-        className="relative w-full min-h-[100dvh] min-h-[100svh] overflow-hidden select-none bg-[#030305] flex flex-col justify-between"
+        className="relative w-full min-h-screen min-h-[100lvh] overflow-hidden select-none bg-[#030305] flex flex-col justify-between"
         style={{
           paddingTop: 'max(5.5rem, calc(env(safe-area-inset-top, 0px) + 4.75rem))',
-          paddingBottom: 'max(1.75rem, calc(env(safe-area-inset-bottom, 0px) + 1.25rem))',
+          paddingBottom: 'max(6.5rem, calc(env(safe-area-inset-bottom, 0px) + 5.5rem))',
           paddingLeft: 'max(1.25rem, calc(env(safe-area-inset-left, 0px) + 1rem))',
           paddingRight: 'max(1.25rem, calc(env(safe-area-inset-right, 0px) + 1rem))',
+          backgroundColor: '#030305',
           background:
             'radial-gradient(ellipse 140% 100% at 50% 15%, #0a0a0f 0%, #030305 60%, #000000 100%)',
           transform: 'translateZ(0)',
@@ -239,7 +240,7 @@ export const InteractiveHero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100svh] min-h-[100dvh] overflow-hidden select-none bg-black"
+      className="relative w-full h-[100lvh] min-h-screen overflow-hidden select-none bg-[#030305]"
       style={{
         paddingTop: 'env(safe-area-inset-top, 0px)',
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
