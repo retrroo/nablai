@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
@@ -43,10 +43,6 @@ function ScrollManager() {
 // to ensure seamless native-like status bar and bottom toolbar tinting.
 function ThemeColorManager() {
   const { pathname } = useLocation()
-  const [isHero, setIsHero] = useState(() => {
-    if (typeof window === 'undefined') return true
-    return pathname === '/' && window.scrollY < (window.innerHeight * 0.7)
-  })
 
   useEffect(() => {
     const metaThemeColors = document.querySelectorAll('meta[name="theme-color"]')
@@ -54,7 +50,6 @@ function ThemeColorManager() {
     const updateTheme = () => {
       // Dark on homepage when inside the hero canvas
       const heroActive = pathname === '/' && window.scrollY < (window.innerHeight * 0.7)
-      setIsHero(heroActive)
       const targetColor = heroActive ? '#030305' : '#ffffff'
 
       metaThemeColors.forEach((meta) => {
@@ -86,14 +81,7 @@ function ThemeColorManager() {
     }
   }, [pathname])
 
-  return (
-    <div
-      id="ios-safari-bottom-anchor"
-      className="fixed bottom-0 left-0 right-0 h-[3px] pointer-events-none z-[49] transition-colors duration-200"
-      style={{ backgroundColor: isHero ? '#030305' : '#ffffff' }}
-      aria-hidden="true"
-    />
-  )
+  return null
 }
 
 export function App() {

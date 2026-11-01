@@ -219,7 +219,7 @@ export const InteractiveHero: React.FC = () => {
             {/* Bottom Bar indicator */}
             <div 
               onClick={handleScrollToApps}
-              className="flex items-center text-xs text-zinc-400 font-mono pt-2 border-t border-white/10 cursor-pointer group min-h-[36px]"
+              className="flex items-center text-xs text-zinc-400 font-mono pt-1 cursor-pointer group min-h-[36px]"
             >
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
