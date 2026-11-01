@@ -112,14 +112,15 @@ export const InteractiveHero: React.FC = () => {
     return (
       <section
         ref={containerRef}
-        className="relative w-full min-h-screen min-h-[100lvh] overflow-hidden select-none bg-[#030305] flex flex-col justify-between"
+        className="relative w-full overflow-hidden select-none bg-[#030305] flex flex-col justify-between"
         style={{
+          minHeight: 'calc(100svh + 140px)',
           paddingTop: 'max(5.5rem, calc(env(safe-area-inset-top, 0px) + 4.75rem))',
-          paddingBottom: 'max(6.5rem, calc(env(safe-area-inset-bottom, 0px) + 5.5rem))',
+          paddingBottom: 'max(7rem, calc(env(safe-area-inset-bottom, 0px) + 6rem))',
           paddingLeft: 'max(1.25rem, calc(env(safe-area-inset-left, 0px) + 1rem))',
           paddingRight: 'max(1.25rem, calc(env(safe-area-inset-right, 0px) + 1rem))',
           backgroundColor: '#030305',
-          background:
+          backgroundImage:
             'radial-gradient(ellipse 140% 100% at 50% 15%, #0a0a0f 0%, #030305 60%, #000000 100%)',
           transform: 'translateZ(0)',
         }}
@@ -246,7 +247,8 @@ export const InteractiveHero: React.FC = () => {
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         paddingLeft: 'env(safe-area-inset-left, 0px)',
         paddingRight: 'env(safe-area-inset-right, 0px)',
-        background:
+        backgroundColor: '#030305',
+        backgroundImage:
           'radial-gradient(ellipse 120% 100% at 50% 25%, #08080c 0%, #030304 55%, #000000 100%)',
       }}
     >
