@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Image as ImageIcon, Download, Terminal, Volume2, ShieldCheck } from 'lucide-react'
+import { ArrowUpRight, Image as ImageIcon, Download, Terminal, Volume2, ShieldCheck, Zap } from 'lucide-react'
 import { GithubIcon } from './Icons'
 
 export const AppsShowcase: React.FC = () => {
@@ -380,6 +380,154 @@ export const AppsShowcase: React.FC = () => {
                   <Download className="w-3.5 h-3.5 text-emerald-400" />
                   <span>ZIP</span>
                 </a>
+              </div>
+            </div>
+          </div>
+
+          {/* App 5: Nabla Squeezer (12 cols Flagship Spotlight) */}
+          <div className="lg:col-span-12 group relative rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 p-8 sm:p-12 transition-all duration-200 hover:bg-zinc-100/40">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Left Column: Info, Badges, Tech Stack */}
+              <div className="lg:col-span-6 flex flex-col justify-between h-full">
+                <div>
+                  {/* Header Badges */}
+                  <div className="flex items-center justify-between pb-6 mb-6 border-b border-zinc-200 text-xs font-mono text-zinc-500">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-zinc-950 border border-zinc-400" />
+                      <span className="text-zinc-900 font-semibold">MACOS NATIVE APP</span>
+                      <span className="text-zinc-300">|</span>
+                      <span className="text-zinc-600">Onur &amp; Karim</span>
+                    </div>
+                    <span className="px-2.5 py-1 rounded-full bg-zinc-200/70 border border-zinc-300 text-zinc-800 text-[11px] font-mono font-medium">
+                      Tauri v2 &middot; Rust Core
+                    </span>
+                  </div>
+
+                  {/* Title & Concept */}
+                  <div className="mb-3">
+                    <h3 className="text-2xl sm:text-4xl font-normal text-zinc-950 tracking-tight font-sans">
+                      Nabla Squeezer
+                    </h3>
+                  </div>
+                  <p className="text-sm sm:text-base text-zinc-600 leading-relaxed mb-6 font-sans">
+                    100% local macOS menu bar token &amp; rate-limit optimizer for Claude, ChatGPT &amp; Cursor. Squeezes clipboard fluff, code comments, and repetitive logs with global hotkey <kbd className="font-mono text-xs px-1.5 py-0.5 rounded bg-zinc-200/80 text-zinc-900 border border-zinc-300 font-semibold">⌘⌥C</kbd> in under 1 millisecond.
+                  </p>
+
+                  {/* Tech Stack Chips */}
+                  <div className="flex flex-wrap gap-1.5 pt-2 font-mono text-[11px]">
+                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Tauri v2</span>
+                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Rust 2021</span>
+                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">tiktoken-rs (cl100k_base)</span>
+                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Global Hotkeys (⌘⌥C / ⌘⇧H)</span>
+                    <span className="px-2.5 py-1 rounded-md bg-white border border-zinc-200 text-zinc-700">Zero Telemetry</span>
+                  </div>
+                </div>
+
+                {/* Bottom Actions */}
+                <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
+                  <Link
+                    to="/apps/nabla-squeezer"
+                    className="text-zinc-600 hover:text-zinc-950 transition-colors flex items-center gap-1.5 font-medium"
+                  >
+                    <span>VIEW SQUEEZER DETAILS &amp; ARCHITECTURE</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="https://github.com/karimsaid123/nabla-squeezer"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-2.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-900 border border-zinc-200 transition-colors shadow-xs"
+                      title="GitHub Repository"
+                    >
+                      <GithubIcon className="w-3.5 h-3.5" />
+                    </a>
+                    <a
+                      href="https://github.com/karimsaid123/nabla-squeezer"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="relative overflow-hidden group px-4 py-2.5 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-1.5 shadow-xs active:scale-95"
+                    >
+                      <span>GET APP</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Menu Bar Popover Visual Preview */}
+              <div className="lg:col-span-6">
+                <div className="relative rounded-2xl border border-zinc-800/90 bg-zinc-950 p-6 shadow-xl overflow-hidden text-zinc-200">
+                  <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:12px_12px] opacity-20 pointer-events-none" />
+                  <div className="relative z-10 space-y-4">
+                    {/* Popover Top Bar */}
+                    <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono">
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-white tracking-widest">&nabla; N A B L A</span>
+                        <span className="px-1.5 py-0.5 rounded text-[10px] bg-white/5 border border-white/10 text-zinc-400">
+                          SQUEEZER
+                        </span>
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[10px] text-emerald-400 font-semibold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        SAFE
+                      </span>
+                    </div>
+
+                    {/* Squeeze Button Mockup */}
+                    <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-between text-xs font-medium text-white">
+                      <span className="flex items-center gap-2">
+                        <Zap className="w-3.5 h-3.5 text-amber-400" />
+                        <span>Squeeze Clipboard Now</span>
+                      </span>
+                      <kbd className="text-[10px] font-mono bg-white/10 px-2 py-0.5 rounded text-zinc-300">
+                        ⌘⌥C
+                      </kbd>
+                    </div>
+
+                    {/* Token Counters */}
+                    <div className="grid grid-cols-2 gap-3 text-xs">
+                      <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span className="text-[10px] font-mono text-zinc-400 uppercase block">CURRENT TOKENS</span>
+                        <span className="text-xl font-bold text-white font-mono mt-0.5 block">75</span>
+                        <span className="text-[10px] font-mono text-emerald-400 mt-0.5 flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                          Safe Limit
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span className="text-[10px] font-mono text-zinc-400 uppercase block">TOTAL SAVED</span>
+                        <span className="text-xl font-bold text-white font-mono mt-0.5 block">94</span>
+                        <span className="text-[10px] font-mono text-zinc-400 mt-0.5 block">Lifetime Tokens</span>
+                      </div>
+                    </div>
+
+                    {/* Features list */}
+                    <div className="grid grid-cols-2 gap-2 text-[11px] font-sans text-zinc-300 pt-1">
+                      <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span>Clean Prompts &amp; Prose</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span>Strip Code Comments</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span>Minify JSON &amp; Logs</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span>Clean Whitespace</span>
+                      </div>
+                    </div>
+
+                    {/* Footer note */}
+                    <div className="pt-2 border-t border-white/10 text-center text-[10px] font-mono text-zinc-400">
+                      Pure Local Processing &bull; 100% Free &bull; Zero Telemetry
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -8,6 +8,7 @@ import { AirFlowPage } from './pages/AirFlowPage'
 import { LatentSpacePage } from './pages/LatentSpacePage'
 import { NablaShieldPage } from './pages/NablaShieldPage'
 import { SoundBoostPage } from './pages/SoundBoostPage'
+import { NablaSqueezerPage } from './pages/NablaSqueezerPage'
 import { AboutPage } from './pages/AboutPage'
 import { StackPage } from './pages/StackPage'
 import { ArchitecturePage } from './pages/ArchitecturePage'
@@ -103,6 +104,8 @@ export function App() {
             <Route path="/apps/latent-space" element={<LatentSpacePage />} />
             <Route path="/apps/nabla-shield" element={<NablaShieldPage />} />
             <Route path="/apps/soundboost" element={<SoundBoostPage />} />
+            <Route path="/apps/nabla-squeezer" element={<NablaSqueezerPage />} />
+            <Route path="/apps/squeezer" element={<NablaSqueezerPage />} />
             <Route path="/stack" element={<StackPage />} />
             <Route path="/architecture" element={<ArchitecturePage />} />
             <Route path="/about" element={<AboutPage />} />

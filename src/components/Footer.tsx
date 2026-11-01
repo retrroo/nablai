@@ -125,23 +125,40 @@ export const Footer: React.FC = () => {
                 </div>
               </li>
               <li>
+                <div className="flex items-center gap-2">
+                  <Link to="/apps/nabla-squeezer" className="text-zinc-600 hover:text-zinc-950 transition-colors">
+                    05 // Nabla Squeezer (Token &amp; Context Optimizer)
+                  </Link>
+                  <a
+                    href="https://github.com/karimsaid123/nabla-squeezer"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[10px] text-zinc-600 hover:text-zinc-950 transition-colors inline-flex items-center gap-0.5"
+                    title="Open GitHub repo"
+                  >
+                    <span>[github]</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
+                </div>
+              </li>
+              <li>
                 <Link to="/stack" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  05 // Studio Engineering Stack
+                  06 // Studio Engineering Stack
                 </Link>
               </li>
               <li>
                 <Link to="/architecture" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  06 // Systems Architecture
+                  07 // Systems Architecture
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  07 // About Onur &amp; Karim
+                  08 // About Onur &amp; Karim
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                  06 // Connect &amp; Collaborate
+                  09 // Connect &amp; Collaborate
                 </Link>
               </li>
             </ul>

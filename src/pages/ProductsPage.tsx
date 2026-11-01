@@ -33,7 +33,7 @@ export const ProductsPage: React.FC = () => {
               </span>
             </h1>
             <p className="mt-4 text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">
-              We design, build, and deploy complete applications for our own daily workflows &mdash; spanning GPU-accelerated aviation tracking, LLM synthesis pipelines, and zero-overhead browser privacy and DSP audio extensions.
+              We design, build, and deploy complete applications for our own daily workflows &mdash; spanning GPU-accelerated aviation tracking, LLM synthesis pipelines, macOS menu bar token optimization, and zero-overhead browser privacy and DSP audio extensions.
             </p>
           </div>
 
@@ -41,11 +41,11 @@ export const ProductsPage: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-zinc-100">
             <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
               <span className="text-[10px] font-mono text-zinc-500 uppercase block">Total Applications</span>
-              <span className="text-2xl font-normal text-zinc-950 font-mono mt-1 block">04</span>
+              <span className="text-2xl font-normal text-zinc-950 font-mono mt-1 block">05</span>
             </div>
             <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
               <span className="text-[10px] font-mono text-zinc-500 uppercase block">Platforms</span>
-              <span className="text-2xl font-normal text-zinc-950 font-mono mt-1 block">iOS &bull; Web &bull; MV3</span>
+              <span className="text-2xl font-normal text-zinc-950 font-mono mt-1 block">macOS &bull; iOS &bull; Web &bull; MV3</span>
             </div>
             <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
               <span className="text-[10px] font-mono text-zinc-500 uppercase block">Telemetry</span>

@@ -11,6 +11,7 @@ import {
   Sparkles,
   ShieldCheck,
   Volume2,
+  Zap,
   Grid,
 } from 'lucide-react'
 
@@ -71,6 +72,12 @@ export const Nav: React.FC = () => {
       subtitle: '600% Tab Volume Booster & 5-Band Studio EQ',
       path: '/apps/soundboost',
       icon: Volume2,
+    },
+    {
+      title: 'Nabla Squeezer',
+      subtitle: 'macOS Menu Bar AI Token & Context Optimizer',
+      path: '/apps/nabla-squeezer',
+      icon: Zap,
     },
   ]
 
