@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-4">
             <NablaiLogo size="md" mode="light" />
             <p className="text-xs sm:text-sm text-zinc-600 max-w-sm leading-relaxed mt-2 font-sans">
-              Nablai (Nabla + Ai) is an independent AI application studio and engineering lab founded by Onur &amp; Karim. We build, test, and ship our own intelligent software, uniting vector calculus with practical utility.
+              Nablai (Nabla + Ai) is an independent AI application studio founded by Onur &amp; Karim. We build with an accelerationist mindset: autonomous agent orchestration, open GitHub codebases, and radical transparency across our entire software stack.
             </p>
             <div className="flex items-center gap-2 pt-2">
               <a
@@ -179,7 +179,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-zinc-500">
           <div>
-            &copy; {new Date().getFullYear()} Nablai Studio &middot; Founded by Onur &amp; Karim.
+            &copy; {new Date().getFullYear()} Nablai Studio &middot; Founded by Onur &amp; Karim &middot; 100% Transparent AI Acceleration.
           </div>
           <div className="flex items-center gap-6">
             <a

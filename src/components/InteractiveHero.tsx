@@ -168,8 +168,8 @@ export const InteractiveHero: React.FC = () => {
               <span className="text-white font-medium">STUDIO BUILDS</span>
               <span className="text-zinc-300">2026 ACTIVE</span>
             </div>
-            {/* 2 columns on compact mobile / cover screen, 4 columns on unfolded iPhone Duo / tablet */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+            {/* 2 columns on compact mobile / cover screen, 5 columns on tablet */}
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs">
               <a
                 href="#apps"
                 onClick={handleScrollToApps}
@@ -201,6 +201,14 @@ export const InteractiveHero: React.FC = () => {
               >
                 <span className="text-zinc-400 font-mono text-[9px] block font-medium">04 &middot; AUDIO</span>
                 <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">SoundBoost</span>
+              </a>
+              <a
+                href="#apps"
+                onClick={handleScrollToApps}
+                className="col-span-2 sm:col-span-1 p-3 rounded-xl bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] active:bg-white/[0.12] transition-colors block min-h-[44px]"
+              >
+                <span className="text-zinc-400 font-mono text-[9px] block font-medium">05 &middot; SQUEEZER</span>
+                <span className="text-white font-medium text-xs sm:text-sm mt-0.5 block truncate">Nabla Squeezer</span>
               </a>
             </div>
           </div>

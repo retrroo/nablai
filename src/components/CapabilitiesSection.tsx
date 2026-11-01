@@ -68,7 +68,7 @@ export const CapabilitiesSection: React.FC = () => {
             </h2>
           </div>
           <p className="text-sm text-zinc-600 max-w-sm leading-relaxed">
-            Derived directly from our live repositories (<strong className="text-zinc-950 font-medium">flight-app</strong> &amp; <strong className="text-zinc-950 font-medium">latentspace</strong>). Clean hexagonal boundaries, GPU canvas graphics, and deterministic state machines.
+            Derived directly from our live public repositories (<strong className="text-zinc-950 font-medium">flight-app</strong>, <strong className="text-zinc-950 font-medium">latentspace</strong> &amp; <strong className="text-zinc-950 font-medium">nabla-squeezer</strong>). 100% transparent architecture, autonomous AI orchestration, and deterministic state machines.
           </p>
         </div>
 

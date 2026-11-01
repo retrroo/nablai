@@ -4,30 +4,30 @@ const BUILD_CYCLE = [
   {
     step: '01',
     phase: 'UTILITY FIRST',
-    title: 'Solving Our Own Problems',
+    title: 'Solving Real Friction',
     description:
-      'We identify real friction in our daily workflows: airlines hiding inbound delay reasons until the last minute, or sifting through hundreds of low-signal AI press releases.',
+      'We identify concrete problems in our daily workflows: airlines concealing delay root-causes, bloated context windows in LLMs, or low-signal AI hype. If we do not use it ourselves, we do not build it.',
   },
   {
     step: '02',
-    phase: 'CLEAN ARCHITECTURE',
-    title: 'Picking The Right Stack',
+    phase: 'AI ACCELERATION',
+    title: 'Agentic Orchestration',
     description:
-      'We choose tools based on performance and longevity: strict TypeScript, React Native Skia for 60fps GPU mobile rendering, and Hexagonal DDD architecture in Next.js to isolate domain rules.',
+      'We reject development purism and harness AI to the fullest. We orchestrate frontier reasoning models and autonomous agent swarms to design domain models, generate schemas, and draft core logic at 10x velocity.',
   },
   {
     step: '03',
-    phase: 'DOGFOODING',
-    title: 'Daily Personal Use',
+    phase: 'ASSERTION GATES',
+    title: 'Deterministic Rigor',
     description:
-      'We test our builds immediately in real conditions: scanning actual boarding passes at airport gates or running automated Gemini summaries over daily technical publications.',
+      'AI drives our build speed, while deterministic compilers, strict TypeScript, pure finite state machines, and local unit test assertions guarantee 100% runtime safety and zero halluncinations.',
   },
   {
     step: '04',
-    phase: 'ITERATION',
-    title: 'Refining & Shipping',
+    phase: 'OPEN STUDIOS',
+    title: 'Radical Transparency',
     description:
-      'We profile real-world latency, eliminate redundant API calls via BullMQ and Redis single-flight locks, and maintain our codebases cleanly on GitHub.',
+      'We dogfood immediately in real conditions and deploy straight to Cloudflare edge nodes. We maintain open GitHub repositories and transparently disclose every tool, model, and system in our stack.',
   },
 ]
 
@@ -47,7 +47,7 @@ export const ProcessSection: React.FC = () => {
             </h2>
           </div>
           <p className="text-sm text-zinc-600 max-w-sm leading-relaxed font-sans">
-            As independent software builders, our cycle is simple, disciplined, and code-first. We turn our own ideas into live software without fluff.
+            As AI architects and accelerationist builders, our cycle is transparent, disciplined, and code-first. We turn our own ideas into live software with zero shame about our AI tooling.
           </p>
         </div>
 

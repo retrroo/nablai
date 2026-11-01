@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ArrowUpRight, Cpu, Layers, Layout, Activity, Shield, Radio, Check, Globe } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Cpu, Layers, Layout, Activity, Shield, Radio, Check, Globe, Zap, Terminal, Sparkles } from 'lucide-react'
 import { GithubIcon } from '../components/Icons'
 
 export const StackPage: React.FC = () => {
@@ -120,7 +120,7 @@ export const StackPage: React.FC = () => {
             <span className="font-serif italic font-normal text-zinc-600">our real engineering stack.</span>
           </h1>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed font-sans">
-            We don’t build on fragile abstractions or superficial API wrappers. Every system in the Nablai studio is architected on clean hexagonal boundaries, deterministic state machines, and GPU-accelerated canvas graphics.
+            Radical transparency is our core foundation. We have zero shame about using autonomous AI agents to architect, write, and deploy software. We are accelerationists who reject development purism: we believe AI represents the next epoch of IT and computation. As modern IT professionals, we harness frontier models to build production systems with clean hexagonal boundaries, pure state machines, and GPU acceleration.
           </p>
         </div>
 
@@ -194,6 +194,96 @@ export const StackPage: React.FC = () => {
               </div>
             )
           })}
+        </div>
+
+        {/* Radical Transparency & AI Acceleration Suite */}
+        <div className="rounded-2xl bg-zinc-950 text-white p-8 sm:p-12 mb-20 shadow-xl border border-zinc-800">
+          <div className="max-w-3xl mb-10">
+            <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-white" />
+              <span>RADICAL TRANSPARENCY // THE AI ACCELERATION SUITE</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-normal font-sans text-white tracking-tight">
+              Every Tool, Model &amp; Runtime Behind Nablai
+            </h2>
+            <p className="mt-3 text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
+              We do not hide behind vague corporate buzzwords. As accelerationist builders, we believe IT professionals must fully embrace AI rather than cling to outmoded development purism. Below is the exact software harness and stack we orchestrate daily:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 border-t border-zinc-800">
+            {/* 1. Autonomous Agent Swarms */}
+            <div className="p-5 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+              <div className="flex items-center gap-2 text-white font-mono text-xs font-semibold">
+                <Terminal className="w-4 h-4 text-white" />
+                <span>AI Agent Swarms</span>
+              </div>
+              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
+                Autonomous multi-agent loops accelerating ideation, refactoring, and test writing.
+              </p>
+              <div className="flex flex-wrap gap-1.5 pt-2">
+                {['Google Antigravity', 'Claude 3.7 Sonnet', 'Cursor Agent', 'OpenAI o-series'].map((tag) => (
+                  <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-zinc-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* 2. Systems & Frontends */}
+            <div className="p-5 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+              <div className="flex items-center gap-2 text-white font-mono text-xs font-semibold">
+                <Layout className="w-4 h-4 text-white" />
+                <span>Runtimes &amp; Graphics</span>
+              </div>
+              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
+                Rock-solid native and web runtimes with high-framerate GPU canvas pipelines.
+              </p>
+              <div className="flex flex-wrap gap-1.5 pt-2">
+                {['Rust 2021 (Tauri v2)', 'React 19 & Next 16', 'React Native Skia', 'TypeScript Strict'].map((tag) => (
+                  <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-zinc-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* 3. Predictive ML & Synthesis */}
+            <div className="p-5 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+              <div className="flex items-center gap-2 text-white font-mono text-xs font-semibold">
+                <Cpu className="w-4 h-4 text-white" />
+                <span>Predictive ML &amp; DSP</span>
+              </div>
+              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
+                Custom trained ML algorithms, structured JSON schemas, and on-device tokenizers.
+              </p>
+              <div className="flex flex-wrap gap-1.5 pt-2">
+                {['XGBoost Delay Model', 'Gemini 1.5 Flash', 'tiktoken-rs BPE', 'Web Audio DSP'].map((tag) => (
+                  <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-zinc-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* 4. Distributed & Edge */}
+            <div className="p-5 rounded-xl bg-white/[0.03] border border-white/10 space-y-3">
+              <div className="flex items-center gap-2 text-white font-mono text-xs font-semibold">
+                <Zap className="w-4 h-4 text-white" />
+                <span>Edge &amp; Queues</span>
+              </div>
+              <p className="text-xs text-zinc-400 font-sans leading-relaxed">
+                Single-flight Redis mutex locks, distributed queue workers, and edge delivery.
+              </p>
+              <div className="flex flex-wrap gap-1.5 pt-2">
+                {['Cloudflare Edge', 'Node 24 & BullMQ', 'Redis Mutex', 'Supabase Realtime'].map((tag) => (
+                  <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-zinc-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Global Multi-Language System Banner */}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { LinkedinIcon, GithubIcon } from '../components/Icons'
-import { ArrowLeft, ArrowUpRight, Code2, Compass, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Code2, Compass, ShieldCheck, Zap, Cpu, Terminal } from 'lucide-react'
 
 export const AboutPage: React.FC = () => {
   const founders = [
@@ -49,7 +49,7 @@ export const AboutPage: React.FC = () => {
             <span className="font-serif italic font-normal text-zinc-600">through autonomous engineering.</span>
           </h1>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed font-sans">
-            We are <strong className="text-zinc-950 font-medium">Onur</strong> and <strong className="text-zinc-950 font-medium">Karim</strong>. We founded Nablai as an independent software studio. We are AI architects, app designers, and agent orchestrators. We do not build client websites or run an agency. We design, build, test, and release our own applications together as a team, turning raw models and agent workflows into practical everyday products. Every build in our studio is designed and coded collaboratively by us.
+            We are <strong className="text-zinc-950 font-medium">Onur</strong> and <strong className="text-zinc-950 font-medium">Karim</strong>. We founded Nablai as an independent software studio. We are AI architects, app designers, and agent orchestrators. We do not build client websites or run an agency. We design, build, test, and release our own applications together as a team. We are unapologetically AI-native builders: we believe AI represents the next generation of IT and computation. As modern IT professionals, we reject development purism and embrace an accelerationist mindset that leverages autonomous agent swarms, frontier models, and rapid execution to turn ideas into living software with radical transparency.
           </p>
         </div>
 
@@ -134,49 +134,107 @@ export const AboutPage: React.FC = () => {
           ))}
         </div>
 
-        {/* Engineering Credo / Manifesto */}
-        <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-8 sm:p-12 shadow-xs">
-          <div className="max-w-2xl mb-8">
+        {/* Radical Transparency & The Accelerationist Manifesto */}
+        <div className="rounded-2xl bg-zinc-50 border border-zinc-200 p-8 sm:p-12 shadow-xs mb-16">
+          <div className="max-w-3xl mb-10">
             <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase block mb-2 font-medium">
-              BUILDER CREDO
+              STUDIO PHILOSOPHY // MANIFESTO
             </span>
-            <h3 className="text-2xl font-normal text-zinc-950 font-sans">
-              Why We Build For Ourselves
+            <h3 className="text-2xl sm:text-3xl font-normal text-zinc-950 font-sans tracking-tight">
+              Radical Transparency &amp; The Accelerationist Mindset
             </h3>
-            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mt-2 font-sans">
-              The modern AI landscape is flooded with superficial wrappers and sales promises. We prefer to spend our hours deep in code: writing deterministic state graphs, tuning quantized weights, and shipping fast tools that we use ourselves every single day.
+            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mt-3 font-sans">
+              We have zero shame about using AI to architect, code, test, and deploy software. We are 100% transparent about the software we use, our autonomous agent harnesses, and our public codebases. We believe humanity is experiencing the next fundamental epoch of IT and computation:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-zinc-200 text-xs">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-zinc-950 font-medium">
-                <Code2 className="w-4 h-4 text-zinc-800" />
-                <span>Deterministic Systems</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-zinc-200 text-xs">
+            <div className="space-y-2.5">
+              <div className="flex items-center gap-2 text-zinc-950 font-medium text-sm font-sans">
+                <Zap className="w-4 h-4 text-zinc-900" />
+                <span>The Next Generation of IT &amp; Computation</span>
               </div>
               <p className="text-zinc-600 leading-relaxed font-sans">
-                We design state graphs with explicit assertion gates, validation loops, and fallback pathways.
+                Just as compilers replaced manual punch cards and high-level languages replaced raw assembly, AI-native agentic orchestration is the new substrate of computer science. As modern IT professionals, staying static or fearing the shift is stagnation. We move with the times, lean into generative synthesis, and push computational speed to the limit.
               </p>
             </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-zinc-950 font-medium">
-                <ShieldCheck className="w-4 h-4 text-zinc-800" />
-                <span>Model Sovereignty</span>
+            <div className="space-y-2.5">
+              <div className="flex items-center gap-2 text-zinc-950 font-medium text-sm font-sans">
+                <ShieldCheck className="w-4 h-4 text-zinc-900" />
+                <span>Zero Faith in Development Purism</span>
               </div>
               <p className="text-zinc-600 leading-relaxed font-sans">
-                We prefer open-weights and self-hosted inference clusters over closed-source third-party dependencies.
+                We actively reject traditional development purism that romanticizes typing boilerplate syntax by hand and gatekeeps software development. Code is not a museum relic; it is an instrument of utility. What matters is solving real human problems, architectural resilience, and the sheer velocity of value delivered to users.
               </p>
             </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-zinc-950 font-medium">
-                <Compass className="w-4 h-4 text-zinc-800" />
-                <span>&nabla; Mathematical Rigor</span>
+            <div className="space-y-2.5">
+              <div className="flex items-center gap-2 text-zinc-950 font-medium text-sm font-sans">
+                <Compass className="w-4 h-4 text-zinc-900" />
+                <span>Accelerationism (e/acc) in Daily Practice</span>
               </div>
               <p className="text-zinc-600 leading-relaxed font-sans">
-                From loss gradient calculus to contrastive vector projections, every layer has an empirical purpose.
+                We embrace accelerationism wholeheartedly. By orchestrating frontier reasoning models, autonomous agentic loops, and automated verification suites, a focused two-person studio can architect, prototype, and ship complex production software that previously required entire engineering departments.
               </p>
+            </div>
+
+            <div className="space-y-2.5">
+              <div className="flex items-center gap-2 text-zinc-950 font-medium text-sm font-sans">
+                <Code2 className="w-4 h-4 text-zinc-900" />
+                <span>100% Transparent Codebases &amp; Stack</span>
+              </div>
+              <p className="text-zinc-600 leading-relaxed font-sans">
+                Every line of code, every framework, and every agent harness we deploy is fully disclosed. We share our codebases on GitHub, document our exact architecture patterns, and show exactly how our models, background workers, and edge deployments run.
+              </p>
+            </div>
+          </div>
+
+          {/* Transparent Software & Systems Ledger */}
+          <div className="mt-10 pt-8 border-t border-zinc-200">
+            <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-4 font-medium">
+              FULL SOFTWARE &amp; AI DISCLOSURE // WHAT WE ACTUALLY USE
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+              <div className="p-4 rounded-xl bg-white border border-zinc-200">
+                <div className="flex items-center gap-2 text-zinc-900 font-semibold mb-1">
+                  <Terminal className="w-3.5 h-3.5" />
+                  <span>AI Agent Swarms</span>
+                </div>
+                <p className="text-[11px] text-zinc-500 font-sans leading-snug">
+                  Google Antigravity, Cursor AI, Claude 3.7 Sonnet, OpenAI o-series reasoning models.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-zinc-200">
+                <div className="flex items-center gap-2 text-zinc-900 font-semibold mb-1">
+                  <Cpu className="w-3.5 h-3.5" />
+                  <span>Core Runtimes</span>
+                </div>
+                <p className="text-[11px] text-zinc-500 font-sans leading-snug">
+                  Rust 2021 (Tauri v2), React 19, Next.js 16, React Native Skia, Node.js 24 LTS.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-zinc-200">
+                <div className="flex items-center gap-2 text-zinc-900 font-semibold mb-1">
+                  <Code2 className="w-3.5 h-3.5" />
+                  <span>Predictive ML</span>
+                </div>
+                <p className="text-[11px] text-zinc-500 font-sans leading-snug">
+                  XGBoost delay classifiers, Gemini 1.5 Flash structured schemas, tiktoken-rs BPE.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-zinc-200">
+                <div className="flex items-center gap-2 text-zinc-900 font-semibold mb-1">
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>Cloud &amp; Edge</span>
+                </div>
+                <p className="text-[11px] text-zinc-500 font-sans leading-snug">
+                  Cloudflare Pages Edge, Supabase Realtime &amp; Postgres RLS, BullMQ + Redis.
+                </p>
+              </div>
             </div>
           </div>
         </div>
