@@ -113,10 +113,20 @@ export const Footer: React.FC = () => {
                     04 // SoundBoost (600% Tab Volume &amp; Studio EQ)
                   </Link>
                   <a
+                    href="https://chromewebstore.google.com/detail/soundboost-by-nablai/emaelncbflkcicnceecglgbfpjcikjfj"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[10px] text-emerald-600 hover:text-emerald-700 font-medium transition-colors inline-flex items-center gap-0.5"
+                    title="Install from Chrome Web Store"
+                  >
+                    <span>[chrome web store]</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
+                  <a
                     href="https://github.com/retrroo/soundboost-by-nablai"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[10px] text-zinc-600 hover:text-zinc-950 transition-colors inline-flex items-center gap-0.5"
+                    className="text-[10px] text-zinc-400 hover:text-zinc-600 transition-colors inline-flex items-center gap-0.5"
                     title="Open GitHub repo"
                   >
                     <span>[github]</span>

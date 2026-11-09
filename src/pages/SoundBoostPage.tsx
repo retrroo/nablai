@@ -14,7 +14,7 @@ import {
   Lock,
   Sparkles,
 } from 'lucide-react'
-import { GithubIcon } from '../components/Icons'
+import { GithubIcon, ChromeIcon } from '../components/Icons'
 
 export const SoundBoostPage: React.FC = () => {
   const techStack = [
@@ -143,9 +143,18 @@ export const SoundBoostPage: React.FC = () => {
         {/* Hero Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-12 border-b border-zinc-200">
           <div className="max-w-3xl">
-            <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              LIVE APPLICATION // 04 · BROWSER EXTENSION
-            </span>
+<div className="flex flex-wrap items-center gap-2 mb-3">
+              <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
+                LIVE APPLICATION // 04 &mdash; BROWSER EXTENSION
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[10px] font-mono text-emerald-700 font-semibold">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                </span>
+                LIVE ON CHROME WEB STORE
+              </span>
+            </div>
             <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
               SoundBoost <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-zinc-600">600% volume boost &amp; 5-band studio EQ.</span>
@@ -156,9 +165,9 @@ export const SoundBoostPage: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            {/* Download Button (Cosmic Starlight Theme) */}
+            {/* Chrome Web Store Primary Button (Cosmic Starlight Theme) */}
             <a
-              href="https://github.com/retrroo/soundboost-by-nablai/releases/latest/download/soundboost-by-nablai.zip"
+              href="https://chromewebstore.google.com/detail/soundboost-by-nablai/emaelncbflkcicnceecglgbfpjcikjfj"
               target="_blank"
               rel="noreferrer"
               className="relative overflow-hidden group px-6 py-3.5 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-2.5 shadow-lg active:scale-95"
@@ -166,8 +175,8 @@ export const SoundBoostPage: React.FC = () => {
               <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:12px_12px] opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.04] to-transparent pointer-events-none" />
               <span className="relative z-10 flex items-center gap-2">
-                <Download className="w-4 h-4 text-emerald-400 group-hover:translate-y-0.5 transition-transform" />
-                <span>DOWNLOAD EXTENSION (v1.0.0 ZIP)</span>
+                <ChromeIcon className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+                <span>ADD TO CHROME &mdash; FREE</span>
                 <ArrowUpRight className="w-4 h-4 text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </span>
             </a>
@@ -180,12 +189,12 @@ export const SoundBoostPage: React.FC = () => {
               className="relative overflow-hidden group px-5 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono transition-colors flex items-center gap-2 border border-zinc-800 shadow-xs"
             >
               <GithubIcon className="w-4 h-4 text-zinc-300" />
-              <span>retrroo/soundboost-by-nablai</span>
+              <span>SOURCE (GITHUB)</span>
             </a>
           </div>
         </div>
 
-        {/* 15-Second Quick Install Guide Card */}
+        {/* Chrome Web Store Live & Direct Install Card */}
         <div className="mb-20">
           <div className="relative rounded-2xl border border-zinc-800/80 bg-zinc-950 p-8 sm:p-12 overflow-hidden shadow-xl">
             {/* Cosmic starlight texture */}
@@ -198,70 +207,75 @@ export const SoundBoostPage: React.FC = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
                 </span>
-                <span>CHROMIUM MANIFEST V3 &middot; 15-SECOND INSTALLATION</span>
+                <span>OFFICIAL GOOGLE CHROME EXTENSION &middot; 1-CLICK INSTALL</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-normal text-white font-sans tracking-tight mb-4">
-                Direct Setup in Chrome, Brave, Edge &amp; Opera
+                Available Now on the Chrome Web Store
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed font-sans mb-8 max-w-2xl">
-                Ready to use instantly. Download the pre-packaged ZIP and load directly through your browser&apos;s Extensions manager without terminal compilation:
+                Officially reviewed and verified by Google. Install with one click directly into Chrome, Brave, Microsoft Edge, Opera, or any Chromium browser:
               </p>
 
-              {/* 4 Steps Bento */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
+              {/* 3 Steps Bento */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
                   <div>
                     <span className="text-[10px] font-mono text-emerald-400 font-semibold block mb-1">STEP 01</span>
-                    <h3 className="text-sm font-medium text-white mb-1.5">Download &amp; Unzip</h3>
+                    <h3 className="text-sm font-medium text-white mb-1.5">Open Web Store</h3>
                     <p className="text-xs text-zinc-400 leading-relaxed">
-                      Download <code className="text-zinc-200">soundboost-by-nablai.zip</code> and extract to a local folder.
+                      Visit the official SoundBoost extension page on the Chrome Web Store.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
+                <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
                   <div>
                     <span className="text-[10px] font-mono text-emerald-400 font-semibold block mb-1">STEP 02</span>
-                    <h3 className="text-sm font-medium text-white mb-1.5">Open Extensions</h3>
+                    <h3 className="text-sm font-medium text-white mb-1.5">Click &ldquo;Add to Chrome&rdquo;</h3>
                     <p className="text-xs text-zinc-400 leading-relaxed">
-                      Type <code className="text-zinc-200">chrome://extensions</code> into your browser URL bar.
+                      Confirm the browser prompt to install SoundBoost in seconds.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
+                <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
                   <div>
                     <span className="text-[10px] font-mono text-emerald-400 font-semibold block mb-1">STEP 03</span>
-                    <h3 className="text-sm font-medium text-white mb-1.5">Enable Developer Mode</h3>
+                    <h3 className="text-sm font-medium text-white mb-1.5">Pin &amp; Boost</h3>
                     <p className="text-xs text-zinc-400 leading-relaxed">
-                      Toggle the <strong>Developer mode</strong> switch in the top-right corner to <strong className="text-white">ON</strong>.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 flex flex-col justify-between">
-                  <div>
-                    <span className="text-[10px] font-mono text-emerald-400 font-semibold block mb-1">STEP 04</span>
-                    <h3 className="text-sm font-medium text-white mb-1.5">Load Unpacked</h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
-                      Click <strong>Load unpacked</strong> and select the unzipped directory. Pin and boost!
+                      Pin the SoundBoost icon to your toolbar and boost any quiet tab up to 600%.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span className="text-xs font-mono text-zinc-400">
-                  Zero ads &bull; Zero analytics &bull; 100% Free &amp; Open Source
-                </span>
-                <a
-                  href="https://github.com/retrroo/soundboost-by-nablai/releases/latest/download/soundboost-by-nablai.zip"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-zinc-950 font-mono text-xs font-medium hover:bg-zinc-200 transition-colors"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>Download soundboost-by-nablai.zip</span>
-                </a>
+                <div className="flex items-center gap-3 text-xs font-mono text-zinc-400">
+                  <span className="text-emerald-400 font-medium">&bull; Verified MV3 Extension</span>
+                  <span>&bull; Zero ads &bull; Zero trackers &bull; 100% Free</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://chromewebstore.google.com/detail/soundboost-by-nablai/emaelncbflkcicnceecglgbfpjcikjfj"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-zinc-950 font-mono text-xs font-semibold transition-all shadow-md active:scale-95"
+                  >
+                    <ChromeIcon className="w-3.5 h-3.5" />
+                    <span>Get on Chrome Web Store &rarr;</span>
+                  </a>
+                  <a
+                    href="https://github.com/retrroo/soundboost-by-nablai/releases/latest/download/soundboost-by-nablai.zip"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-300 font-mono text-xs border border-white/10 transition-colors"
+                    title="Manual ZIP for offline developer install"
+                  >
+                    <Download className="w-3 h-3 text-zinc-400" />
+                    <span>Download ZIP (v1.0.0)</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

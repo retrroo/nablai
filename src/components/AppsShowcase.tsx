@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight, Image as ImageIcon, Download, Terminal, Volume2, ShieldCheck, Zap } from 'lucide-react'
-import { GithubIcon } from './Icons'
+import { GithubIcon, ChromeIcon } from './Icons'
 
 export const AppsShowcase: React.FC = () => {
   return (
@@ -284,12 +284,12 @@ export const AppsShowcase: React.FC = () => {
               {/* Header Badges */}
               <div className="flex items-center justify-between pb-6 mb-6 border-b border-zinc-200 text-xs font-mono text-zinc-500">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-zinc-950 border border-zinc-400" />
-                  <span className="text-zinc-900 font-semibold">BROWSER EXTENSION</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="text-zinc-900 font-semibold">CHROME EXTENSION</span>
                   <span className="text-zinc-300">|</span>
-                  <span className="text-zinc-600">Onur &amp; Karim</span>
+                  <span className="text-emerald-700 font-medium">Live on Store</span>
                 </div>
-                <span className="px-2.5 py-1 rounded-full bg-zinc-200/70 border border-zinc-300 text-zinc-800 text-[11px] font-mono font-medium">
+                <span className="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono font-medium">
                   Web Audio &middot; 600% Boost
                 </span>
               </div>
@@ -372,13 +372,13 @@ export const AppsShowcase: React.FC = () => {
                   <GithubIcon className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="https://github.com/retrroo/soundboost-by-nablai/releases/latest/download/soundboost-by-nablai.zip"
+                  href="https://chromewebstore.google.com/detail/soundboost-by-nablai/emaelncbflkcicnceecglgbfpjcikjfj"
                   target="_blank"
                   rel="noreferrer"
                   className="relative overflow-hidden group px-3.5 py-2 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-1.5 shadow-xs active:scale-95"
                 >
-                  <Download className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>ZIP</span>
+                  <ChromeIcon className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>ADD TO CHROME</span>
                 </a>
               </div>
             </div>

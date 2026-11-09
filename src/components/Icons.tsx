@@ -36,3 +36,16 @@ export const TwitterXIcon: React.FC<{ className?: string }> = ({ className = 'w-
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 )
+
+export const ChromeIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.78 0 3.39.67 4.63 1.76l-3.3 5.72A4.47 4.47 0 0 0 12 12c-.59 0-1.14.12-1.66.33L7.04 6.6A8.93 8.93 0 0 1 12 5zm-7 7c0-1.63.44-3.15 1.22-4.47l3.3 5.72c0 .02-.02.04-.02.06a4.49 4.49 0 0 0 4.19 4.47L10.39 21A8.99 8.99 0 0 1 5 12zm7 7c-.52 0-1.02-.06-1.5-.18l3.3-5.72c.4.24.87.4 1.39.4 1.48 0 2.74-.83 3.41-2.05L21.08 13A8.97 8.97 0 0 1 12 19z" />
+    <circle cx="12" cy="12" r="3" fill="currentColor" />
+  </svg>
+)
+
