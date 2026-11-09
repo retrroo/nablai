@@ -377,7 +377,7 @@ export const AppsShowcase: React.FC = () => {
                   rel="noreferrer"
                   className="relative overflow-hidden group px-3.5 py-2 rounded-xl bg-zinc-950 hover:bg-black text-white text-xs font-mono font-medium border border-zinc-800 hover:border-zinc-500 transition-all flex items-center gap-1.5 shadow-xs active:scale-95"
                 >
-                  <ChromeIcon className="w-3.5 h-3.5 text-emerald-400" />
+                  <ChromeIcon className="w-3.5 h-3.5 flex-shrink-0" />
                   <span>ADD TO CHROME</span>
                 </a>
               </div>

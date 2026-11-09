@@ -175,7 +175,7 @@ export const SoundBoostPage: React.FC = () => {
               <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:12px_12px] opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.04] to-transparent pointer-events-none" />
               <span className="relative z-10 flex items-center gap-2">
-                <ChromeIcon className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+                <ChromeIcon className="w-4 h-4 group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span>ADD TO CHROME &mdash; FREE</span>
                 <ArrowUpRight className="w-4 h-4 text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </span>

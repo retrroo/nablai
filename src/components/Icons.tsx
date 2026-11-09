@@ -40,12 +40,29 @@ export const TwitterXIcon: React.FC<{ className?: string }> = ({ className = 'w-
 export const ChromeIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <svg
     className={className}
-    viewBox="0 0 24 24"
-    fill="currentColor"
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
   >
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.78 0 3.39.67 4.63 1.76l-3.3 5.72A4.47 4.47 0 0 0 12 12c-.59 0-1.14.12-1.66.33L7.04 6.6A8.93 8.93 0 0 1 12 5zm-7 7c0-1.63.44-3.15 1.22-4.47l3.3 5.72c0 .02-.02.04-.02.06a4.49 4.49 0 0 0 4.19 4.47L10.39 21A8.99 8.99 0 0 1 5 12zm7 7c-.52 0-1.02-.06-1.5-.18l3.3-5.72c.4.24.87.4 1.39.4 1.48 0 2.74-.83 3.41-2.05L21.08 13A8.97 8.97 0 0 1 12 19z" />
-    <circle cx="12" cy="12" r="3" fill="currentColor" />
+    {/* Top Red blade */}
+    <path
+      d="M24 12H44.78A23.994 23.994 0 0 0 3.217 12.003L13.608 30A11.985 11.985 0 0 1 24 12Z"
+      fill="#EA4335"
+    />
+    {/* Bottom Right Yellow blade */}
+    <path
+      d="M34.391 30.003 24.001 48A23.994 23.994 0 0 0 44.78 12.003H24a11.985 11.985 0 0 1 10.391 18Z"
+      fill="#FBBC04"
+    />
+    {/* Bottom Left Green blade */}
+    <path
+      d="m13.609 30.003-10.39-18A23.994 23.994 0 0 0 24.002 48l10.391-18a11.985 11.985 0 0 1-20.784.003Z"
+      fill="#34A853"
+    />
+    {/* White separator ring around center */}
+    <circle cx="24" cy="24" r="12" fill="#FFFFFF" />
+    {/* Center Blue circle */}
+    <circle cx="24" cy="24" r="9.5" fill="#1A73E8" />
   </svg>
 )
-
