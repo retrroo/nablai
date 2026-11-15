@@ -344,7 +344,7 @@ export const AirFlowPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => openLightboxById(primaryScreen.id)}
-                  className="group relative w-[248px] sm:w-[276px] aspect-[1179/2776] shrink-0 text-left cursor-pointer focus:outline-none"
+                  className="group relative w-[280px] sm:w-[324px] aspect-[476/1000] shrink-0 text-left cursor-pointer focus:outline-none"
                   aria-label={`Zoom ${primaryScreen.title}`}
                 >
                   <AirFlowPhoneFrame
@@ -474,7 +474,7 @@ export const AirFlowPage: React.FC = () => {
                   </div>
 
                   {/* Centered Phone Frame */}
-                  <div className="relative z-10 w-[224px] max-w-full mx-auto my-2">
+                  <div className="relative z-10 w-[258px] max-w-full mx-auto my-2">
                     <AirFlowPhoneFrame
                       screen={screen}
                       size="standard"
@@ -651,7 +651,7 @@ export const AirFlowPage: React.FC = () => {
 
           {/* Center Display + Prev/Next (phone size & coordinates strictly locked across slides) */}
           <div
-            className="max-w-5xl w-full mx-auto flex-1 flex items-center justify-center gap-3 sm:gap-10 py-2 min-h-0"
+            className="max-w-5xl w-full mx-auto flex-1 flex items-center justify-center gap-2 sm:gap-10 py-1 min-h-0"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -664,8 +664,8 @@ export const AirFlowPage: React.FC = () => {
             </button>
 
             <div
-              className="shrink-0 aspect-[1179/2776]"
-              style={{ width: 'min(70vw, calc(58dvh * 0.4247), 278px)' }}
+              className="shrink-0 aspect-[476/1000]"
+              style={{ width: 'min(calc(100vw - 136px), calc(71dvh * 0.476), 344px)' }}
             >
               <AirFlowPhoneFrame
                 screen={activeLightboxScreen}
@@ -687,7 +687,7 @@ export const AirFlowPage: React.FC = () => {
 
           {/* Fixed-height Caption Row outside centering container */}
           <div
-            className="hidden sm:flex shrink-0 items-center justify-center h-[44px] max-w-2xl w-full mx-auto px-4"
+            className="hidden sm:flex shrink-0 items-center justify-center h-[38px] max-w-2xl w-full mx-auto px-4"
             onClick={(e) => e.stopPropagation()}
           >
             <p className="text-center text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed line-clamp-2">
@@ -697,7 +697,7 @@ export const AirFlowPage: React.FC = () => {
 
           {/* Bottom Strip: Single non-wrapping Switcher across all 9 Screens */}
           <div
-            className="max-w-6xl w-full mx-auto shrink-0 pt-3 border-t border-white/10"
+            className="max-w-6xl w-full mx-auto shrink-0 pt-2.5 border-t border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center lg:justify-center flex-nowrap gap-1.5 sm:gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

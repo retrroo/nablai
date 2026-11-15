@@ -11,35 +11,35 @@ interface AirFlowPhoneFrameProps {
 
 const CHASSIS_TOKENS = {
   compact: {
-    shell: 'p-[3px] rounded-[1.25rem] sm:rounded-[1.45rem]',
-    innerLip: 'p-[1.5px] rounded-[1.05rem] sm:rounded-[1.22rem]',
-    oled: 'rounded-[0.95rem] sm:rounded-[1.12rem]',
-    statusTime: 'text-[5.5px] sm:text-[6.5px]',
-    island: 'w-[28%] h-[6px] sm:h-[7px]',
-    signalW: 8,
-    batteryW: 11,
+    shell: 'p-[3px] rounded-[1.28rem] sm:rounded-[1.5rem]',
+    innerLip: 'p-[1.5px] rounded-[1.08rem] sm:rounded-[1.26rem]',
+    oled: 'rounded-[0.98rem] sm:rounded-[1.16rem]',
+    statusTime: 'text-[6px] sm:text-[7px]',
+    island: 'w-[27%] h-[6px] sm:h-[7.5px]',
+    signalW: 8.5,
+    batteryW: 12,
     homeBar: 'w-[34%] h-[2px]',
     opticDot: 'hidden',
   },
   standard: {
-    shell: 'p-[5px] rounded-[2.65rem]',
-    innerLip: 'p-[1.5px] rounded-[2.32rem]',
-    oled: 'rounded-[2.2rem]',
-    statusTime: 'text-[9.5px]',
-    island: 'w-[27%] h-[12px]',
-    signalW: 11,
-    batteryW: 16,
+    shell: 'p-[5px] rounded-[2.7rem]',
+    innerLip: 'p-[1.5px] rounded-[2.36rem]',
+    oled: 'rounded-[2.24rem]',
+    statusTime: 'text-[10px]',
+    island: 'w-[26.5%] h-[12.5px]',
+    signalW: 12,
+    batteryW: 17,
     homeBar: 'w-[34%] h-[3px]',
     opticDot: 'block w-[4px] h-[4px]',
   },
   large: {
-    shell: 'p-[6px] rounded-[3.05rem]',
-    innerLip: 'p-[2px] rounded-[2.68rem]',
-    oled: 'rounded-[2.52rem]',
-    statusTime: 'text-[11px]',
-    island: 'w-[27%] h-[15px]',
-    signalW: 13,
-    batteryW: 19,
+    shell: 'p-[6px] rounded-[3.1rem]',
+    innerLip: 'p-[2px] rounded-[2.72rem]',
+    oled: 'rounded-[2.56rem]',
+    statusTime: 'text-[11.5px]',
+    island: 'w-[26.5%] h-[15px]',
+    signalW: 13.5,
+    batteryW: 20,
     homeBar: 'w-[35%] h-[3.5px]',
     opticDot: 'block w-[5px] h-[5px]',
   },
@@ -47,7 +47,7 @@ const CHASSIS_TOKENS = {
 
 /**
  * Transparent Crystal-Titanium iPhone 18 Pro Max mockup shell with Dynamic Island,
- * status bar safe area, and Home Indicator matching exact 1179x2556 display proportions.
+ * status bar safe area, and Home Indicator scaled to real physical Pro Max body ratio (476:1000).
  */
 export const AirFlowPhoneFrame: React.FC<AirFlowPhoneFrameProps> = ({
   screen,
@@ -61,7 +61,7 @@ export const AirFlowPhoneFrame: React.FC<AirFlowPhoneFrameProps> = ({
   const homeBarBg = screen.homeInk === 'dark' ? 'bg-zinc-950/75' : 'bg-white/80'
 
   return (
-    <div className={`relative w-full aspect-[1179/2776] select-none ${className}`}>
+    <div className={`relative w-full aspect-[476/1000] select-none ${className}`}>
       {/* Subtle Machined Titanium Side Hardware Buttons */}
       {showButtons && (
         <>
@@ -105,7 +105,7 @@ export const AirFlowPhoneFrame: React.FC<AirFlowPhoneFrameProps> = ({
             <div
               className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-[8%] pointer-events-none"
               style={{
-                height: '4.9%',
+                height: '4.1%',
                 color: inkColor,
               }}
             >
@@ -170,13 +170,13 @@ export const AirFlowPhoneFrame: React.FC<AirFlowPhoneFrameProps> = ({
             <div
               className="w-full shrink-0"
               style={{
-                height: screen.isSheetModal ? '2.1%' : '4.9%',
+                height: screen.isSheetModal ? '0.4%' : '2.7%',
                 backgroundColor: screen.topBg,
               }}
             />
 
-            {/* Uncropped App Screenshot (Exact 1179:2556 = 92.95% of height) */}
-            <div className="relative w-full shrink-0" style={{ height: '92.95%' }}>
+            {/* Uncropped App Screenshot within true Pro Max OLED proportions */}
+            <div className="relative w-full flex-1 min-h-0">
               <img
                 src={screen.src}
                 alt={screen.alt}
@@ -184,7 +184,7 @@ export const AirFlowPhoneFrame: React.FC<AirFlowPhoneFrameProps> = ({
                 decoding="async"
                 className="w-full h-full object-fill block"
               />
-              {/* Seamless 3px gradient feather at top seam */}
+              {/* Seamless feather at top seam */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute top-0 inset-x-0 h-[4px]"
@@ -196,8 +196,11 @@ export const AirFlowPhoneFrame: React.FC<AirFlowPhoneFrameProps> = ({
 
             {/* Bottom Home Indicator Safe Area (Prevents bottom corner clipping) */}
             <div
-              className="w-full flex-1 flex items-center justify-center"
-              style={{ backgroundColor: screen.bottomBg }}
+              className="w-full shrink-0 flex items-center justify-center"
+              style={{
+                height: '1.8%',
+                backgroundColor: screen.bottomBg,
+              }}
             >
               <span className={`rounded-full ${t.homeBar} ${homeBarBg}`} />
             </div>

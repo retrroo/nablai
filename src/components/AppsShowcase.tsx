@@ -76,13 +76,13 @@ export const AppsShowcase: React.FC = () => {
                 </div>
 
                 {/* 3 Complete Uncropped iPhone 18 Pro Max Screens */}
-                <div className="relative z-10 grid grid-cols-3 gap-2.5 sm:gap-4 items-center">
+                <div className="relative z-10 grid grid-cols-3 gap-2 sm:gap-3.5 items-center">
                   {airFlowPreviewScreens.map((screen) => (
                     <div
                       key={screen.id}
                       className="flex flex-col items-center transition-transform duration-300 ease-out group-hover:-translate-y-0.5"
                     >
-                      <div className="w-full max-w-[122px] mx-auto">
+                      <div className="w-full max-w-[140px] mx-auto">
                         <AirFlowPhoneFrame screen={screen} size="compact" />
                       </div>
                       <span className="mt-2 font-mono text-[9px] sm:text-[10px] text-zinc-400 truncate max-w-full">
