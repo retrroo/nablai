@@ -1,9 +1,112 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Smartphone, Compass, Radio, Shield, Cpu, Globe, Image as ImageIcon } from 'lucide-react'
+import {
+  ArrowLeft,
+  ArrowDown,
+  Smartphone,
+  Compass,
+  Radio,
+  Shield,
+  Cpu,
+  Globe,
+  Sun,
+  Moon,
+  Maximize2,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
 import { GithubIcon } from '../components/Icons'
+import { AirFlowPhoneFrame } from '../components/AirFlowPhoneFrame'
+import {
+  AIRFLOW_SCREENSHOTS,
+  AIRFLOW_THEME_PAIRS,
+  type AirFlowPairKey,
+  type AirFlowThemeMode,
+} from '../lib/airflowScreenshots'
+
+type GalleryFilter = 'all' | 'light' | 'dark'
 
 export const AirFlowPage: React.FC = () => {
+  const [spotlightPair, setSpotlightPair] = useState<AirFlowPairKey>('map')
+  const [spotlightTheme, setSpotlightTheme] = useState<AirFlowThemeMode>('light')
+  const [galleryFilter, setGalleryFilter] = useState<GalleryFilter>('all')
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+
+  const currentPairOption =
+    AIRFLOW_THEME_PAIRS.find((p) => p.pairId === spotlightPair) ?? AIRFLOW_THEME_PAIRS[0]
+
+  const primaryScreenId =
+    spotlightTheme === 'light' ? currentPairOption.lightId : currentPairOption.darkId
+  const twinScreenId =
+    spotlightTheme === 'light' ? currentPairOption.darkId : currentPairOption.lightId
+
+  const primaryScreen =
+    AIRFLOW_SCREENSHOTS.find((s) => s.id === primaryScreenId) ?? AIRFLOW_SCREENSHOTS[0]
+  const twinScreen =
+    AIRFLOW_SCREENSHOTS.find((s) => s.id === twinScreenId) ?? AIRFLOW_SCREENSHOTS[6]
+
+  const filteredScreenshots =
+    galleryFilter === 'all'
+      ? AIRFLOW_SCREENSHOTS
+      : AIRFLOW_SCREENSHOTS.filter((screen) => screen.theme === galleryFilter)
+
+  const openLightboxById = (id: string) => {
+    const idx = AIRFLOW_SCREENSHOTS.findIndex((s) => s.id === id)
+    if (idx !== -1) {
+      setLightboxIndex(idx)
+    }
+  }
+
+  const handlePrevLightbox = () => {
+    setLightboxIndex((prev) =>
+      prev === null ? null : (prev - 1 + AIRFLOW_SCREENSHOTS.length) % AIRFLOW_SCREENSHOTS.length
+    )
+  }
+
+  const handleNextLightbox = () => {
+    setLightboxIndex((prev) => (prev === null ? null : (prev + 1) % AIRFLOW_SCREENSHOTS.length))
+  }
+
+  useEffect(() => {
+    if (lightboxIndex === null) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightboxIndex(null)
+      } else if (e.key === 'ArrowLeft') {
+        setLightboxIndex((prev) =>
+          prev === null
+            ? null
+            : (prev - 1 + AIRFLOW_SCREENSHOTS.length) % AIRFLOW_SCREENSHOTS.length
+        )
+      } else if (e.key === 'ArrowRight') {
+        setLightboxIndex((prev) =>
+          prev === null ? null : (prev + 1) % AIRFLOW_SCREENSHOTS.length
+        )
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [lightboxIndex])
+
+  const scrollToGallery = () => {
+    const el = document.getElementById('airflow-gallery')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const activeLightboxScreen =
+    lightboxIndex !== null ? AIRFLOW_SCREENSHOTS[lightboxIndex] : null
+
   const techStack = [
     { label: 'Language', value: 'TypeScript (Strict mode)' },
     { label: 'Mobile Framework', value: 'React Native & Expo SDK 52 (Expo Router)' },
@@ -70,23 +173,33 @@ export const AirFlowPage: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-12 border-b border-zinc-200">
           <div className="max-w-3xl">
             <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-3">
-              LIVE APPLICATION // 01 · AVIATION
+              LIVE APPLICATION // 01 &middot; AVIATION
             </span>
             <h1 className="text-4xl sm:text-6xl font-normal text-zinc-950 tracking-tight font-sans">
               AirFlow <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-zinc-600">personal mobile flight companion.</span>
+              <span className="font-serif italic font-normal text-zinc-600">
+                personal mobile flight companion.
+              </span>
             </h1>
             <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl font-sans">
               A high-precision mobile flight tracking app engineered by Onur &amp; Karim. Built with Expo SDK 52, React Native Skia, a Node 24 + BullMQ backend, and predictive inbound turnaround analytics.
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={scrollToGallery}
+              className="px-4 py-3 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-900 text-xs font-mono transition-colors flex items-center gap-2 cursor-pointer border border-zinc-200"
+            >
+              <span>All 9 Screenshots</span>
+              <ArrowDown className="w-3.5 h-3.5" />
+            </button>
             <a
               href="https://github.com/retrroo/flight-app"
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono transition-colors flex items-center gap-2"
+              className="px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-mono transition-colors flex items-center gap-2 shadow-xs"
             >
               <GithubIcon className="w-4 h-4" />
               <span>retrroo/flight-app</span>
@@ -94,23 +207,347 @@ export const AirFlowPage: React.FC = () => {
           </div>
         </div>
 
-        {/* App Screenshot Placeholder Box */}
+        {/* Interactive Dual-Theme Spotlight Showcase */}
         <div className="mb-20">
-          <div className="relative rounded-2xl border-2 border-dashed border-zinc-300 bg-zinc-50/70 p-12 sm:p-20 text-center flex flex-col items-center justify-center overflow-hidden transition-colors hover:border-zinc-400">
-            <div className="w-16 h-16 rounded-2xl bg-zinc-200/80 flex items-center justify-center text-zinc-700 mb-5 shadow-xs">
-              <ImageIcon className="w-8 h-8 stroke-[1.5]" />
+          <div className="relative rounded-3xl border border-zinc-800/90 bg-zinc-950 p-5 sm:p-10 lg:p-12 overflow-hidden shadow-2xl text-white">
+            {/* Subtle starlight texture */}
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:14px_14px] opacity-20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/[0.04] via-transparent to-black/40 pointer-events-none" />
+
+            {/* Top Control Bar */}
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.07] border border-white/15 text-xs font-mono text-zinc-200 w-fit">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                </span>
+                <span>UI Showcase &middot; Light &amp; Dark</span>
+              </div>
+
+              {/* Adaptive Light / Dark Mode Switcher */}
+              <div
+                className="inline-flex items-center p-1 rounded-xl bg-white/[0.06] border border-white/10 w-fit"
+                role="group"
+                aria-label="Preview appearance mode"
+              >
+                <button
+                  type="button"
+                  onClick={() => setSpotlightTheme('light')}
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-mono transition-all cursor-pointer min-h-[38px] ${
+                    spotlightTheme === 'light'
+                      ? 'bg-white text-zinc-950 font-semibold shadow-sm'
+                      : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  <Sun className="w-3.5 h-3.5" />
+                  <span>Light Mode</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSpotlightTheme('dark')}
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-mono transition-all cursor-pointer min-h-[38px] ${
+                    spotlightTheme === 'dark'
+                      ? 'bg-zinc-800 text-white font-semibold border border-white/15 shadow-sm'
+                      : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  <Moon className="w-3.5 h-3.5" />
+                  <span>Dark Mode</span>
+                </button>
+              </div>
             </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-200/60 text-zinc-800 text-xs font-mono font-medium mb-3">
-              <span>App Screenshot</span>
-              <span className="text-zinc-400">&middot;</span>
-              <span className="text-zinc-600">Soon to be added</span>
+
+            {/* Split Content */}
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              {/* Left: Narrative + Screen Selector */}
+              <div className="lg:col-span-5 min-w-0 space-y-6">
+                <div>
+                  <span className="text-[11px] font-mono tracking-widest text-zinc-400 uppercase block mb-2">
+                    DUAL-THEME ARCHITECTURE
+                  </span>
+                  <h2 className="text-2xl sm:text-4xl font-normal text-white tracking-tight font-sans leading-tight">
+                    Adaptive telemetry <br className="hidden sm:inline" />
+                    <span className="font-serif italic text-zinc-400">daylight to night cabin.</span>
+                  </h2>
+                </div>
+
+                {/* Screen Selector Pills */}
+                <div className="space-y-2.5">
+                  {AIRFLOW_THEME_PAIRS.map((pair) => {
+                    const active = spotlightPair === pair.pairId
+                    return (
+                      <button
+                        key={pair.pairId}
+                        type="button"
+                        onClick={() => setSpotlightPair(pair.pairId)}
+                        className={`w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                          active
+                            ? 'bg-white/[0.1] border-white/30 text-white shadow-sm'
+                            : 'bg-white/[0.03] border-white/10 text-zinc-400 hover:bg-white/[0.06] hover:text-zinc-200'
+                        }`}
+                      >
+                        <div className="min-w-0">
+                          <div className="text-sm font-medium tracking-tight truncate">
+                            {pair.label}
+                          </div>
+                          <div className="text-[11px] font-mono text-zinc-400 truncate mt-0.5">
+                            {pair.sublabel}
+                          </div>
+                        </div>
+                        <span
+                          className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                            active ? 'bg-emerald-400' : 'bg-zinc-700'
+                          }`}
+                        />
+                      </button>
+                    )
+                  })}
+                </div>
+
+                {/* Selected Screen Highlights */}
+                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2.5">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                    <span>{primaryScreen.caption}</span>
+                    <span className="uppercase text-emerald-400 font-semibold">
+                      {spotlightTheme} active
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+                    {primaryScreen.description}
+                  </p>
+                  <ul className="space-y-1.5 pt-1">
+                    {primaryScreen.highlights.map((bullet) => (
+                      <li
+                        key={bullet}
+                        className="flex items-start gap-2 text-[11px] font-mono text-zinc-300"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => openLightboxById(primaryScreen.id)}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-zinc-100 text-zinc-950 text-xs font-mono font-semibold transition-all cursor-pointer active:scale-95"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                    <span>Inspect Full Resolution</span>
+                  </button>
+                  <span className="text-[11px] font-mono text-zinc-500">
+                    Click either phone preview
+                  </span>
+                </div>
+              </div>
+
+              {/* Right: Featured Phone + Opposite Theme Twin */}
+              <div className="lg:col-span-7 min-w-0 flex items-center justify-center gap-5 sm:gap-8 py-2">
+                {/* Primary Active Phone */}
+                <div className="flex flex-col items-center">
+                  <button
+                    type="button"
+                    onClick={() => openLightboxById(primaryScreen.id)}
+                    className="group relative w-[210px] sm:w-[250px] lg:w-[260px] text-left cursor-pointer focus:outline-none"
+                    aria-label={`Zoom ${primaryScreen.title}`}
+                  >
+                    <AirFlowPhoneFrame
+                      src={primaryScreen.src}
+                      alt={primaryScreen.alt}
+                      theme={primaryScreen.theme}
+                      size="large"
+                      eager
+                      className="transition-transform duration-300 group-hover:-translate-y-1.5"
+                    />
+                    <span className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-zinc-950/90 border border-white/20 text-[10px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 whitespace-nowrap shadow-lg">
+                      <Maximize2 className="w-3 h-3" />
+                      <span>Click to zoom</span>
+                    </span>
+                  </button>
+                  <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-zinc-300">
+                    {spotlightTheme === 'light' ? (
+                      <Sun className="w-3.5 h-3.5 text-amber-300" />
+                    ) : (
+                      <Moon className="w-3.5 h-3.5 text-zinc-300" />
+                    )}
+                    <span>{primaryScreen.shortLabel}</span>
+                  </div>
+                </div>
+
+                {/* Secondary Opposite-Theme Sibling (Visible on sm+ / unfolded Duo / Desktop) */}
+                <div className="hidden sm:flex flex-col items-center">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setSpotlightTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+                    }
+                    className="group relative w-[165px] lg:w-[190px] opacity-80 hover:opacity-100 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer focus:outline-none"
+                    aria-label={`Switch preview to ${twinScreen.theme} mode`}
+                  >
+                    <AirFlowPhoneFrame
+                      src={twinScreen.src}
+                      alt={twinScreen.alt}
+                      theme={twinScreen.theme}
+                      size="standard"
+                    />
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-mono text-zinc-400 group-hover:text-white transition-colors">
+                      {twinScreen.theme === 'dark' ? (
+                        <Moon className="w-3 h-3" />
+                      ) : (
+                        <Sun className="w-3 h-3" />
+                      )}
+                      <span>Flip to {twinScreen.theme === 'dark' ? 'Dark' : 'Light'} Mode</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
-            <h3 className="text-xl sm:text-2xl font-normal text-zinc-950 tracking-tight font-sans max-w-md">
-              Mobile Interface &amp; Live Route View
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-500 max-w-lg mt-2 leading-relaxed font-sans">
-              Screenshots showing the Skia 60fps route map, boarding pass scanner, and inbound turnaround tracking will be placed here.
-            </p>
+          </div>
+        </div>
+
+        {/* Complete 9-Screen Interactive Interface Gallery */}
+        <div id="airflow-gallery" className="scroll-mt-28 mb-20 pb-16 border-b border-zinc-200">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-zinc-200">
+            <div>
+              <span className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase block mb-2">
+                01 // COMPLETE MOBILE INTERFACE ({AIRFLOW_SCREENSHOTS.length} SCREENS)
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-normal text-zinc-950 tracking-tight font-sans">
+                Every Screen in AirFlow <br className="hidden sm:inline" />
+                <span className="font-serif italic font-normal text-zinc-600">
+                  crafted for calm airport &amp; in-flight clarity.
+                </span>
+              </h2>
+            </div>
+
+            {/* Filter Pills */}
+            <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
+              {(
+                [
+                  { key: 'all', label: `All Screens (${AIRFLOW_SCREENSHOTS.length})` },
+                  {
+                    key: 'light',
+                    label: `Light Mode (${AIRFLOW_SCREENSHOTS.filter((s) => s.theme === 'light').length})`,
+                  },
+                  {
+                    key: 'dark',
+                    label: `Dark Mode (${AIRFLOW_SCREENSHOTS.filter((s) => s.theme === 'dark').length})`,
+                  },
+                ] as const
+              ).map((tab) => {
+                const isActive = galleryFilter === tab.key
+                return (
+                  <button
+                    key={tab.key}
+                    type="button"
+                    onClick={() => setGalleryFilter(tab.key)}
+                    className={`px-3.5 py-2 rounded-xl border transition-all cursor-pointer min-h-[40px] ${
+                      isActive
+                        ? 'bg-zinc-950 text-white border-zinc-950 font-medium shadow-xs'
+                        : 'bg-zinc-50 text-zinc-600 border-zinc-200 hover:bg-zinc-100 hover:text-zinc-950'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* 3-Column Gallery Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredScreenshots.map((screen) => {
+              const isDark = screen.theme === 'dark'
+              return (
+                <button
+                  key={screen.id}
+                  type="button"
+                  onClick={() => openLightboxById(screen.id)}
+                  className={`group text-left rounded-2xl border p-6 flex flex-col justify-between transition-all duration-200 cursor-pointer relative overflow-hidden ${
+                    isDark
+                      ? 'bg-zinc-950 border-zinc-800 hover:border-zinc-500 text-white shadow-lg'
+                      : 'bg-zinc-50 border-zinc-200 hover:border-zinc-400 hover:bg-zinc-100/50 text-zinc-950'
+                  }`}
+                >
+                  {isDark && (
+                    <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:14px_14px] opacity-15 pointer-events-none" />
+                  )}
+
+                  {/* Top Metadata Bar */}
+                  <div
+                    className={`relative z-10 w-full flex items-center justify-between pb-4 mb-5 border-b text-[11px] font-mono ${
+                      isDark ? 'border-white/10 text-zinc-400' : 'border-zinc-200 text-zinc-500'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className={isDark ? 'text-white font-semibold' : 'text-zinc-900 font-semibold'}>
+                        {screen.indexLabel}
+                      </span>
+                      <span className={isDark ? 'text-zinc-600' : 'text-zinc-300'}>/</span>
+                      <span>{screen.category}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] border ${
+                          isDark
+                            ? 'bg-white/10 border-white/15 text-zinc-200'
+                            : 'bg-white border-zinc-200 text-zinc-700'
+                        }`}
+                      >
+                        {isDark ? <Moon className="w-2.5 h-2.5" /> : <Sun className="w-2.5 h-2.5" />}
+                        <span>{isDark ? 'DARK' : 'LIGHT'}</span>
+                      </span>
+                      <Maximize2
+                        className={`w-3.5 h-3.5 transition-transform group-hover:scale-110 ${
+                          isDark ? 'text-zinc-400 group-hover:text-white' : 'text-zinc-400 group-hover:text-zinc-900'
+                        }`}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Centered Phone Frame */}
+                  <div className="relative z-10 w-full max-w-[220px] mx-auto my-2">
+                    <AirFlowPhoneFrame
+                      src={screen.src}
+                      alt={screen.alt}
+                      theme={screen.theme}
+                      size="standard"
+                      className="transition-transform duration-300 ease-out group-hover:-translate-y-1.5"
+                    />
+                  </div>
+
+                  {/* Screen Caption & Description */}
+                  <div className="relative z-10 mt-6 pt-4 border-t border-dashed border-current/15 w-full">
+                    <div className="flex items-baseline justify-between gap-2 mb-1.5">
+                      <h3
+                        className={`text-base font-medium tracking-tight font-sans ${
+                          isDark ? 'text-white' : 'text-zinc-950'
+                        }`}
+                      >
+                        {screen.title}
+                      </h3>
+                    </div>
+                    <span
+                      className={`inline-block text-[11px] font-mono mb-2 ${
+                        isDark ? 'text-emerald-400' : 'text-zinc-600'
+                      }`}
+                    >
+                      {screen.caption}
+                    </span>
+                    <p
+                      className={`text-xs leading-relaxed font-sans ${
+                        isDark ? 'text-zinc-400' : 'text-zinc-600'
+                      }`}
+                    >
+                      {screen.description}
+                    </p>
+                  </div>
+                </button>
+              )
+            })}
           </div>
         </div>
 
@@ -203,6 +640,118 @@ export const AirFlowPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Full-Resolution Interactive Lightbox Modal */}
+      {activeLightboxScreen && lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/92 backdrop-blur-xl flex flex-col justify-between text-white"
+          style={{
+            paddingTop: 'max(1rem, env(safe-area-inset-top, 0px))',
+            paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
+            paddingLeft: 'max(1rem, env(safe-area-inset-left, 0px))',
+            paddingRight: 'max(1rem, env(safe-area-inset-right, 0px))',
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeLightboxScreen.title}
+          onClick={() => setLightboxIndex(null)}
+        >
+          {/* Top Bar */}
+          <div
+            className="max-w-5xl w-full mx-auto flex items-center justify-between gap-4 pb-3 border-b border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/15 font-mono text-xs text-zinc-200 shrink-0">
+                {activeLightboxScreen.indexLabel} / 0{AIRFLOW_SCREENSHOTS.length}
+              </span>
+              <div className="min-w-0">
+                <h3 className="text-sm sm:text-base font-medium text-white truncate">
+                  {activeLightboxScreen.title}
+                </h3>
+                <p className="text-[11px] font-mono text-zinc-400 truncate">
+                  {activeLightboxScreen.caption} &middot;{' '}
+                  {activeLightboxScreen.theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setLightboxIndex(null)}
+              className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors cursor-pointer shrink-0"
+              aria-label="Close screenshot viewer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Center Display + Prev/Next */}
+          <div
+            className="max-w-5xl w-full mx-auto flex-1 flex items-center justify-center gap-3 sm:gap-8 py-4 min-h-0"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={handlePrevLightbox}
+              className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors cursor-pointer shrink-0"
+              aria-label="Previous screenshot"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <div className="flex flex-col items-center justify-center max-w-full">
+              <div style={{ width: 'min(64vw, calc(60dvh * 0.46127), 310px)' }}>
+                <AirFlowPhoneFrame
+                  src={activeLightboxScreen.src}
+                  alt={activeLightboxScreen.alt}
+                  theme={activeLightboxScreen.theme}
+                  size="large"
+                  eager
+                />
+              </div>
+              <p className="mt-3 text-center text-xs sm:text-sm text-zinc-300 max-w-lg font-sans leading-relaxed hidden sm:block">
+                {activeLightboxScreen.description}
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleNextLightbox}
+              className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors cursor-pointer shrink-0"
+              aria-label="Next screenshot"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Bottom Strip: Quick Switcher across all 9 Screens */}
+          <div
+            className="max-w-6xl w-full mx-auto pt-3 border-t border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center lg:justify-center lg:flex-wrap gap-1.5 sm:gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {AIRFLOW_SCREENSHOTS.map((screen, idx) => {
+                const isSelected = idx === lightboxIndex
+                return (
+                  <button
+                    key={screen.id}
+                    type="button"
+                    onClick={() => setLightboxIndex(idx)}
+                    className={`px-2.5 py-1.5 rounded-lg text-[11px] font-mono whitespace-nowrap transition-all cursor-pointer border shrink-0 ${
+                      isSelected
+                        ? 'bg-white text-zinc-950 border-white font-semibold'
+                        : 'bg-white/[0.06] text-zinc-300 border-white/10 hover:bg-white/15'
+                    }`}
+                  >
+                    {screen.indexLabel} &middot; {screen.shortLabel}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
