@@ -38,13 +38,9 @@ export const AirFlowPage: React.FC = () => {
 
   const primaryScreenId =
     spotlightTheme === 'light' ? currentPairOption.lightId : currentPairOption.darkId
-  const twinScreenId =
-    spotlightTheme === 'light' ? currentPairOption.darkId : currentPairOption.lightId
 
   const primaryScreen =
     AIRFLOW_SCREENSHOTS.find((s) => s.id === primaryScreenId) ?? AIRFLOW_SCREENSHOTS[0]
-  const twinScreen =
-    AIRFLOW_SCREENSHOTS.find((s) => s.id === twinScreenId) ?? AIRFLOW_SCREENSHOTS[6]
 
   const filteredScreenshots =
     galleryFilter === 'all'
@@ -224,41 +220,41 @@ export const AirFlowPage: React.FC = () => {
                 <span>UI Showcase &middot; Light &amp; Dark</span>
               </div>
 
-              {/* Adaptive Light / Dark Mode Switcher */}
+              {/* Adaptive Light / Dark Mode Switcher (fixed button widths prevent layout shift) */}
               <div
-                className="inline-flex items-center p-1 rounded-xl bg-white/[0.06] border border-white/10 w-fit"
+                className="inline-flex items-center gap-1 p-1 rounded-xl bg-white/[0.06] border border-white/10 w-fit shrink-0"
                 role="group"
                 aria-label="Preview appearance mode"
               >
                 <button
                   type="button"
                   onClick={() => setSpotlightTheme('light')}
-                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-mono transition-all cursor-pointer min-h-[38px] ${
+                  className={`inline-flex items-center justify-center gap-1.5 w-[118px] h-[38px] rounded-lg border text-xs font-mono font-medium transition-colors cursor-pointer ${
                     spotlightTheme === 'light'
-                      ? 'bg-white text-zinc-950 font-semibold shadow-sm'
-                      : 'text-zinc-400 hover:text-white'
+                      ? 'bg-white text-zinc-950 border-white shadow-sm'
+                      : 'border-transparent text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <Sun className="w-3.5 h-3.5" />
+                  <Sun className="w-3.5 h-3.5 shrink-0" />
                   <span>Light Mode</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setSpotlightTheme('dark')}
-                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-mono transition-all cursor-pointer min-h-[38px] ${
+                  className={`inline-flex items-center justify-center gap-1.5 w-[118px] h-[38px] rounded-lg border text-xs font-mono font-medium transition-colors cursor-pointer ${
                     spotlightTheme === 'dark'
-                      ? 'bg-zinc-800 text-white font-semibold border border-white/15 shadow-sm'
-                      : 'text-zinc-400 hover:text-white'
+                      ? 'bg-zinc-800 text-white border-white/20 shadow-sm'
+                      : 'border-transparent text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <Moon className="w-3.5 h-3.5" />
+                  <Moon className="w-3.5 h-3.5 shrink-0" />
                   <span>Dark Mode</span>
                 </button>
               </div>
             </div>
 
             {/* Split Content */}
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
               {/* Left: Narrative + Screen Selector */}
               <div className="lg:col-span-5 min-w-0 space-y-6">
                 <div>
@@ -280,7 +276,7 @@ export const AirFlowPage: React.FC = () => {
                         key={pair.pairId}
                         type="button"
                         onClick={() => setSpotlightPair(pair.pairId)}
-                        className={`w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                        className={`w-full text-left p-3.5 rounded-xl border transition-colors cursor-pointer flex items-center justify-between gap-3 ${
                           active
                             ? 'bg-white/[0.1] border-white/30 text-white shadow-sm'
                             : 'bg-white/[0.03] border-white/10 text-zinc-400 hover:bg-white/[0.06] hover:text-zinc-200'
@@ -304,15 +300,15 @@ export const AirFlowPage: React.FC = () => {
                   })}
                 </div>
 
-                {/* Selected Screen Highlights */}
-                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2.5">
-                  <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
-                    <span>{primaryScreen.caption}</span>
-                    <span className="uppercase text-emerald-400 font-semibold">
+                {/* Selected Screen Highlights (min-h locks vertical height across switches) */}
+                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2.5 lg:min-h-[224px]">
+                  <div className="flex items-center justify-between gap-2 text-[11px] font-mono text-zinc-400">
+                    <span className="truncate">{primaryScreen.caption}</span>
+                    <span className="uppercase text-emerald-400 font-semibold shrink-0 tabular-nums">
                       {spotlightTheme} active
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans lg:min-h-[66px]">
                     {primaryScreen.description}
                   </p>
                   <ul className="space-y-1.5 pt-1">
@@ -338,69 +334,38 @@ export const AirFlowPage: React.FC = () => {
                     <span>Inspect Full Resolution</span>
                   </button>
                   <span className="text-[11px] font-mono text-zinc-500">
-                    Click either phone preview
+                    Click device preview to zoom
                   </span>
                 </div>
               </div>
 
-              {/* Right: Featured Phone + Opposite Theme Twin */}
-              <div className="lg:col-span-7 min-w-0 flex items-center justify-center gap-5 sm:gap-8 py-2">
-                {/* Primary Active Phone */}
-                <div className="flex flex-col items-center">
-                  <button
-                    type="button"
-                    onClick={() => openLightboxById(primaryScreen.id)}
-                    className="group relative w-[210px] sm:w-[250px] lg:w-[260px] text-left cursor-pointer focus:outline-none"
-                    aria-label={`Zoom ${primaryScreen.title}`}
-                  >
-                    <AirFlowPhoneFrame
-                      src={primaryScreen.src}
-                      alt={primaryScreen.alt}
-                      theme={primaryScreen.theme}
-                      size="large"
-                      eager
-                      className="transition-transform duration-300 group-hover:-translate-y-1.5"
-                    />
-                    <span className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-zinc-950/90 border border-white/20 text-[10px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 whitespace-nowrap shadow-lg">
-                      <Maximize2 className="w-3 h-3" />
-                      <span>Click to zoom</span>
-                    </span>
-                  </button>
-                  <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-zinc-300">
-                    {spotlightTheme === 'light' ? (
-                      <Sun className="w-3.5 h-3.5 text-amber-300" />
-                    ) : (
-                      <Moon className="w-3.5 h-3.5 text-zinc-300" />
-                    )}
-                    <span>{primaryScreen.shortLabel}</span>
-                  </div>
-                </div>
+              {/* Right: Locked-Position & Locked-Size Single iPhone 18 Pro Max */}
+              <div className="lg:col-span-7 min-w-0 flex flex-col items-center justify-start pt-1 lg:pt-2">
+                <button
+                  type="button"
+                  onClick={() => openLightboxById(primaryScreen.id)}
+                  className="group relative w-[248px] sm:w-[276px] aspect-[1179/2776] shrink-0 text-left cursor-pointer focus:outline-none"
+                  aria-label={`Zoom ${primaryScreen.title}`}
+                >
+                  <AirFlowPhoneFrame
+                    screen={primaryScreen}
+                    size="large"
+                    eager
+                    className="w-full"
+                  />
+                  <span className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-zinc-950/90 border border-white/20 text-[10px] font-mono text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 whitespace-nowrap shadow-lg">
+                    <Maximize2 className="w-3 h-3" />
+                    <span>Click to zoom</span>
+                  </span>
+                </button>
 
-                {/* Secondary Opposite-Theme Sibling (Visible on sm+ / unfolded Duo / Desktop) */}
-                <div className="hidden sm:flex flex-col items-center">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setSpotlightTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
-                    }
-                    className="group relative w-[165px] lg:w-[190px] opacity-80 hover:opacity-100 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer focus:outline-none"
-                    aria-label={`Switch preview to ${twinScreen.theme} mode`}
-                  >
-                    <AirFlowPhoneFrame
-                      src={twinScreen.src}
-                      alt={twinScreen.alt}
-                      theme={twinScreen.theme}
-                      size="standard"
-                    />
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-mono text-zinc-400 group-hover:text-white transition-colors">
-                      {twinScreen.theme === 'dark' ? (
-                        <Moon className="w-3 h-3" />
-                      ) : (
-                        <Sun className="w-3 h-3" />
-                      )}
-                      <span>Flip to {twinScreen.theme === 'dark' ? 'Dark' : 'Light'} Mode</span>
-                    </span>
-                  </button>
+                <div className="mt-4 h-6 flex items-center justify-center gap-2 text-[11px] font-mono text-zinc-300 whitespace-nowrap">
+                  {spotlightTheme === 'light' ? (
+                    <Sun className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                  ) : (
+                    <Moon className="w-3.5 h-3.5 text-zinc-300 shrink-0" />
+                  )}
+                  <span>iPhone 18 Pro Max &middot; {primaryScreen.shortLabel}</span>
                 </div>
               </div>
             </div>
@@ -443,9 +408,9 @@ export const AirFlowPage: React.FC = () => {
                     key={tab.key}
                     type="button"
                     onClick={() => setGalleryFilter(tab.key)}
-                    className={`px-3.5 py-2 rounded-xl border transition-all cursor-pointer min-h-[40px] ${
+                    className={`px-3.5 py-2 rounded-xl border font-medium transition-colors cursor-pointer min-h-[40px] ${
                       isActive
-                        ? 'bg-zinc-950 text-white border-zinc-950 font-medium shadow-xs'
+                        ? 'bg-zinc-950 text-white border-zinc-950 shadow-xs'
                         : 'bg-zinc-50 text-zinc-600 border-zinc-200 hover:bg-zinc-100 hover:text-zinc-950'
                     }`}
                   >
@@ -509,11 +474,9 @@ export const AirFlowPage: React.FC = () => {
                   </div>
 
                   {/* Centered Phone Frame */}
-                  <div className="relative z-10 w-full max-w-[220px] mx-auto my-2">
+                  <div className="relative z-10 w-[224px] max-w-full mx-auto my-2">
                     <AirFlowPhoneFrame
-                      src={screen.src}
-                      alt={screen.alt}
-                      theme={screen.theme}
+                      screen={screen}
                       size="standard"
                       className="transition-transform duration-300 ease-out group-hover:-translate-y-1.5"
                     />
@@ -658,11 +621,11 @@ export const AirFlowPage: React.FC = () => {
         >
           {/* Top Bar */}
           <div
-            className="max-w-5xl w-full mx-auto flex items-center justify-between gap-4 pb-3 border-b border-white/10"
+            className="max-w-5xl w-full mx-auto shrink-0 flex items-center justify-between gap-4 pb-3 border-b border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 min-w-0">
-              <span className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/15 font-mono text-xs text-zinc-200 shrink-0">
+              <span className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/15 font-mono text-xs text-zinc-200 shrink-0 tabular-nums">
                 {activeLightboxScreen.indexLabel} / 0{AIRFLOW_SCREENSHOTS.length}
               </span>
               <div className="min-w-0">
@@ -686,9 +649,9 @@ export const AirFlowPage: React.FC = () => {
             </button>
           </div>
 
-          {/* Center Display + Prev/Next */}
+          {/* Center Display + Prev/Next (phone size & coordinates strictly locked across slides) */}
           <div
-            className="max-w-5xl w-full mx-auto flex-1 flex items-center justify-center gap-3 sm:gap-8 py-4 min-h-0"
+            className="max-w-5xl w-full mx-auto flex-1 flex items-center justify-center gap-3 sm:gap-10 py-2 min-h-0"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -700,19 +663,16 @@ export const AirFlowPage: React.FC = () => {
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <div className="flex flex-col items-center justify-center max-w-full">
-              <div style={{ width: 'min(64vw, calc(60dvh * 0.46127), 310px)' }}>
-                <AirFlowPhoneFrame
-                  src={activeLightboxScreen.src}
-                  alt={activeLightboxScreen.alt}
-                  theme={activeLightboxScreen.theme}
-                  size="large"
-                  eager
-                />
-              </div>
-              <p className="mt-3 text-center text-xs sm:text-sm text-zinc-300 max-w-lg font-sans leading-relaxed hidden sm:block">
-                {activeLightboxScreen.description}
-              </p>
+            <div
+              className="shrink-0 aspect-[1179/2776]"
+              style={{ width: 'min(70vw, calc(58dvh * 0.4247), 278px)' }}
+            >
+              <AirFlowPhoneFrame
+                screen={activeLightboxScreen}
+                size="large"
+                eager
+                className="w-full"
+              />
             </div>
 
             <button
@@ -725,12 +685,22 @@ export const AirFlowPage: React.FC = () => {
             </button>
           </div>
 
-          {/* Bottom Strip: Quick Switcher across all 9 Screens */}
+          {/* Fixed-height Caption Row outside centering container */}
           <div
-            className="max-w-6xl w-full mx-auto pt-3 border-t border-white/10"
+            className="hidden sm:flex shrink-0 items-center justify-center h-[44px] max-w-2xl w-full mx-auto px-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center lg:justify-center lg:flex-wrap gap-1.5 sm:gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <p className="text-center text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed line-clamp-2">
+              {activeLightboxScreen.description}
+            </p>
+          </div>
+
+          {/* Bottom Strip: Single non-wrapping Switcher across all 9 Screens */}
+          <div
+            className="max-w-6xl w-full mx-auto shrink-0 pt-3 border-t border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center lg:justify-center flex-nowrap gap-1.5 sm:gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {AIRFLOW_SCREENSHOTS.map((screen, idx) => {
                 const isSelected = idx === lightboxIndex
                 return (
@@ -738,13 +708,13 @@ export const AirFlowPage: React.FC = () => {
                     key={screen.id}
                     type="button"
                     onClick={() => setLightboxIndex(idx)}
-                    className={`px-2.5 py-1.5 rounded-lg text-[11px] font-mono whitespace-nowrap transition-all cursor-pointer border shrink-0 ${
+                    className={`px-2.5 py-1.5 rounded-lg text-[11px] font-mono font-medium whitespace-nowrap transition-colors cursor-pointer border shrink-0 tabular-nums ${
                       isSelected
-                        ? 'bg-white text-zinc-950 border-white font-semibold'
+                        ? 'bg-white text-zinc-950 border-white shadow-xs'
                         : 'bg-white/[0.06] text-zinc-300 border-white/10 hover:bg-white/15'
                     }`}
                   >
-                    {screen.indexLabel} &middot; {screen.shortLabel}
+                    {screen.indexLabel} &middot; {screen.lightboxLabel}
                   </button>
                 )
               })}

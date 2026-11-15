@@ -58,53 +58,38 @@ export const AppsShowcase: React.FC = () => {
                 Personal flight tracking companion. Features 60fps GPU route maps via React Native Skia, direct IATA BCBP boarding pass barcode decoding, and predictive turnaround alerts tracking the incoming aircraft&apos;s prior leg.
               </p>
 
-              {/* Live 3-Screen Mobile UI Preview Stage */}
-              <div className="relative rounded-2xl border border-zinc-800/90 bg-zinc-950 px-3.5 sm:px-5 pt-3.5 sm:pt-4 pb-0 shadow-lg overflow-hidden my-6 group-hover:border-zinc-700 transition-colors">
+              {/* Live 3-Screen iPhone 18 Pro Max Preview Stage */}
+              <div className="relative rounded-2xl border border-zinc-800/90 bg-zinc-950 p-3.5 sm:p-5 shadow-lg overflow-hidden my-6 group-hover:border-zinc-700 transition-colors">
                 <div className="absolute inset-0 bg-[radial-gradient(#ffffff_0.75px,transparent_0.75px)] [background-size:12px_12px] opacity-20 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-b from-white/[0.04] via-transparent to-black/60 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/[0.04] via-transparent to-black/30 pointer-events-none" />
 
                 {/* Micro-Bar */}
-                <div className="relative z-10 flex items-center justify-between pb-2.5 border-b border-white/10 font-mono text-[10px] sm:text-[11px] text-zinc-400">
+                <div className="relative z-10 flex items-center justify-between pb-3 mb-4 border-b border-white/10 font-mono text-[10px] sm:text-[11px] text-zinc-400">
                   <span className="text-white font-medium flex items-center gap-1.5">
                     <Smartphone className="w-3.5 h-3.5 text-zinc-400" />
                     AIRFLOW-IOS-UI
                   </span>
                   <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    LIGHT &amp; DARK &middot; 9 SCREENS
+                    {AIRFLOW_SCREENSHOTS.length} SCREENS
                   </span>
                 </div>
 
-                {/* 3 Staggered iPhone Screens Rising From Bottom Edge */}
-                <div className="relative z-10 h-[175px] sm:h-[215px] pt-3.5 px-0.5 sm:px-2 grid grid-cols-3 gap-2.5 sm:gap-4 items-start overflow-hidden">
-                  {airFlowPreviewScreens.map((screen, idx) => {
-                    const isCenter = idx === 1
-                    return (
-                      <div
-                        key={screen.id}
-                        className={`transition-transform duration-300 ease-out ${
-                          isCenter
-                            ? 'translate-y-0 z-10 scale-[1.03] group-hover:-translate-y-1.5 group-hover:scale-[1.05]'
-                            : 'translate-y-3 sm:translate-y-4 opacity-95 group-hover:translate-y-2 group-hover:opacity-100'
-                        }`}
-                      >
-                        <AirFlowPhoneFrame
-                          src={screen.src}
-                          alt={screen.alt}
-                          theme={screen.theme}
-                          size="compact"
-                        />
+                {/* 3 Complete Uncropped iPhone 18 Pro Max Screens */}
+                <div className="relative z-10 grid grid-cols-3 gap-2.5 sm:gap-4 items-center">
+                  {airFlowPreviewScreens.map((screen) => (
+                    <div
+                      key={screen.id}
+                      className="flex flex-col items-center transition-transform duration-300 ease-out group-hover:-translate-y-0.5"
+                    >
+                      <div className="w-full max-w-[122px] mx-auto">
+                        <AirFlowPhoneFrame screen={screen} size="compact" />
                       </div>
-                    )
-                  })}
-
-                  {/* Soft Vignette Blend into Bottom Rim */}
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-zinc-950 via-zinc-950/65 to-transparent z-20 flex items-end justify-center pb-2.5">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zinc-900/90 border border-white/15 text-[10px] font-mono text-zinc-200 shadow-md group-hover:border-white/30 group-hover:text-white transition-colors">
-                      <span>Inspect all {AIRFLOW_SCREENSHOTS.length} app screens</span>
-                      <ArrowUpRight className="w-3 h-3" />
-                    </span>
-                  </div>
+                      <span className="mt-2 font-mono text-[9px] sm:text-[10px] text-zinc-400 truncate max-w-full">
+                        {screen.shortLabel}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
 

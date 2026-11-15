@@ -11,10 +11,16 @@ export interface AirFlowScreenshot {
   pairId?: AirFlowPairKey
   category: string
   shortLabel: string
+  lightboxLabel: string
   title: string
   caption: string
   description: string
   highlights: string[]
+  topBg: string
+  bottomBg: string
+  statusInk: 'dark' | 'light'
+  homeInk: 'dark' | 'light'
+  isSheetModal?: boolean
 }
 
 export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
@@ -27,6 +33,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     pairId: 'map',
     category: 'GPU ROUTE MAP',
     shortLabel: 'Live Map',
+    lightboxLabel: 'Map',
     title: 'Live Skia Route Map',
     caption: 'AMS -> LHR · BA431',
     description:
@@ -36,6 +43,10 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       'Floating BA431 boarding status & countdown card',
       'Airport search bar with AI insights trigger',
     ],
+    topBg: '#c8d3de',
+    bottomBg: '#efeff2',
+    statusInk: 'dark',
+    homeInk: 'dark',
   },
   {
     id: 'my-flights',
@@ -45,6 +56,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     theme: 'light',
     category: 'FLIGHT TRACKER',
     shortLabel: 'My Flights',
+    lightboxLabel: 'Flights',
     title: 'Upcoming & Past Itineraries',
     caption: 'Boarding, Delayed & On Time',
     description:
@@ -54,6 +66,10 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       'Upcoming & Past itinerary segmented switcher',
       'Direct email & calendar flight import drawer',
     ],
+    topBg: '#f2f2f4',
+    bottomBg: '#ffffff',
+    statusInk: 'dark',
+    homeInk: 'dark',
   },
   {
     id: 'airport-departures',
@@ -64,6 +80,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     pairId: 'airport',
     category: 'AIRPORT HUB',
     shortLabel: 'Airport Hub',
+    lightboxLabel: 'Airport',
     title: 'Live Airport Hub & Departures',
     caption: 'AMS · EHAM Schiphol',
     description:
@@ -73,6 +90,11 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       '100% / Delayed / Cancelled daily distribution bar',
       'Carrier-badged Departures & Arrivals live schedule',
     ],
+    topBg: '#000000',
+    bottomBg: '#ffffff',
+    statusInk: 'light',
+    homeInk: 'dark',
+    isSheetModal: true,
   },
   {
     id: 'punctuality-week',
@@ -83,6 +105,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     pairId: 'punctuality',
     category: 'PUNCTUALITY AI',
     shortLabel: 'Week History',
+    lightboxLabel: 'Week',
     title: 'Weekly Punctuality & AI Insight',
     caption: '31 min avg · 74% on time',
     description:
@@ -92,6 +115,10 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       'Color-coded daily severity matrix (M through S)',
       'AI insight card recommending best travel day (87% on time)',
     ],
+    topBg: '#f2f2f4',
+    bottomBg: '#f2f2f4',
+    statusInk: 'dark',
+    homeInk: 'dark',
   },
   {
     id: 'punctuality-month',
@@ -101,6 +128,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     theme: 'light',
     category: 'MONTHLY HEATMAP',
     shortLabel: 'Month Calendar',
+    lightboxLabel: 'Month',
     title: 'Monthly Delay Calendar',
     caption: 'Nov 2026 · 72% on time',
     description:
@@ -110,6 +138,10 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       'Low / Moderate / High threshold severity dots',
       'Rolling monthly reliability telemetry (72% on time)',
     ],
+    topBg: '#f2f2f4',
+    bottomBg: '#f2f2f4',
+    statusInk: 'dark',
+    homeInk: 'dark',
   },
   {
     id: 'profile-analytics',
@@ -119,6 +151,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     theme: 'light',
     category: 'FLIGHT LOGBOOK',
     shortLabel: 'Analytics',
+    lightboxLabel: 'Stats',
     title: 'Flight Profile & Lifetime Stats',
     caption: '2,668 km · 4h 32m airborne',
     description:
@@ -128,6 +161,10 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       'This year vs All time telemetry toggle',
       'Automatic top airlines & distance leaderboard',
     ],
+    topBg: '#f2f2f4',
+    bottomBg: '#f2f2f4',
+    statusInk: 'dark',
+    homeInk: 'dark',
   },
   {
     id: 'map-dark',
@@ -138,6 +175,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     pairId: 'map',
     category: 'DARK COCKPIT',
     shortLabel: 'Map (Dark)',
+    lightboxLabel: 'Dark Map',
     title: 'Live Route Map (Dark Mode)',
     caption: 'Night Vector Map · AMS -> LHR',
     description:
@@ -147,6 +185,10 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       'Anti-glare dark floating card for BA431 telemetry',
       'Adaptive translucent iOS bottom navigation pill',
     ],
+    topBg: '#111316',
+    bottomBg: '#202328',
+    statusInk: 'light',
+    homeInk: 'light',
   },
   {
     id: 'airport-dark',
@@ -157,6 +199,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     pairId: 'airport',
     category: 'DARK TERMINAL',
     shortLabel: 'Airport (Dark)',
+    lightboxLabel: 'Dark Hub',
     title: 'Airport Departures Board (Dark)',
     caption: 'Night Terminal · EHAM',
     description:
@@ -166,6 +209,11 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       'Clear emerald status indicators without neon bleed',
       'Full carrier icon clarity against dark surfaces',
     ],
+    topBg: '#000000',
+    bottomBg: '#1e1f22',
+    statusInk: 'light',
+    homeInk: 'light',
+    isSheetModal: true,
   },
   {
     id: 'punctuality-dark',
@@ -176,6 +224,7 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
     pairId: 'punctuality',
     category: 'DARK ANALYTICS',
     shortLabel: 'Insights (Dark)',
+    lightboxLabel: 'Dark AI',
     title: 'Punctuality & AI Insights (Dark)',
     caption: 'Dark Mode · Delay Trend',
     description:
@@ -185,6 +234,10 @@ export const AIRFLOW_SCREENSHOTS: AirFlowScreenshot[] = [
       'Instant Week / Month view switching',
       'High-contrast Wednesday AI travel insight badge',
     ],
+    topBg: '#18191c',
+    bottomBg: '#18191c',
+    statusInk: 'light',
+    homeInk: 'light',
   },
 ]
 
