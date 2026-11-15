@@ -93,13 +93,23 @@ export const Footer: React.FC = () => {
               <li>
                 <div className="flex items-center gap-2">
                   <Link to="/apps/nabla-shield" className="text-zinc-600 hover:text-zinc-950 transition-colors">
-                    03 // Nabla Shield (Pure Web &amp; Ad Shield)
+                    03 // Shield by Nablai (Pure Web &amp; Ad Shield)
                   </Link>
+                  <a
+                    href="https://chromewebstore.google.com/detail/shield-by-nablai/nehfmclmoagiibkajabkojlpjllccofh"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[10px] text-emerald-600 hover:text-emerald-700 font-medium transition-colors inline-flex items-center gap-0.5"
+                    title="Install from Chrome Web Store"
+                  >
+                    <span>[chrome web store]</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
                   <a
                     href="https://github.com/retrroo/nabla-ad-shield"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[10px] text-zinc-600 hover:text-zinc-950 transition-colors inline-flex items-center gap-0.5"
+                    className="text-[10px] text-zinc-400 hover:text-zinc-600 transition-colors inline-flex items-center gap-0.5"
                     title="Open GitHub repo"
                   >
                     <span>[github]</span>
